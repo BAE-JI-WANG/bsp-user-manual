@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BESPIN USER GUIDE</title> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="assets/styles/bsp_its_guide.css">
+	<script src="assets/scripts/libs/jquery-2.2.3.min.js"></script>
+	<!--[if lt IE 9]>
+		<script src="/assets/scripts/libs/html5shiv.min.js"></script>
+	<![endif]-->
+	<script>
+		$.fn.extend({
+			toggleAttr: function(attr, value) {
+				return this.each(function () {
+					if( !$(this).is("[" + attr + "]") ) {
+						$(this).attr(attr, value);
+					} else {
+						$(this).removeAttr(attr);
+					}
+				});
+			}
+		});
+
+		/* Golbal Menu - BSPSelectBox */
+		function BSPSelectBox($container) {
+			this.$container = $container;
+			this.$btnSelect;
+			this.$listContainer;
+			this.$listItems;
+
+			this.init();
+		}
+
+		BSPSelectBox.prototype.init = function() {
+			var _ = this;
+
+			_.$btnSelect = _.$container.find('.btn-custom-select');
+			_.$listContainer = _.$container.find('.list-container');
+			_.$listItems = _.$listContainer.find('button');
+
+			_.initEvent();
+		}
+
+		BSPSelectBox.prototype.initEvent = function() {
+			var _ = this;
+
+			_.$btnSelect.off('click').on('click', function(e) {
+				$(this).toggleClass("is-selected");
+			});
+
+			_.$listItems.off('click').on('click', function(e) {
+				_.select($(this));
+			});
+		}
+
+		BSPSelectBox.prototype.hide = function() {
+			var _ = this;
+
+			_.$btnSelect.removeClass("is-selected")
+		}
+
+		BSPSelectBox.prototype.select = function($item) {
+			var _ = this;
+
+			_.$listItems.closest('li').removeClass('is-selected');
+			$item.closest('li').addClass('is-selected');
+
+			_.$btnSelect.html($item.html());
+			_.hide();
+		}
+
+		$(window.document).ready(function(e) {
+			var $toggleTriggers = $('[data-trigger=toggle]');
+			$toggleTriggers.each(function(e) {
+				var state = $(this).attr('data-state');
+				var target = $(this).val();
+
+				if( state == "shut" ) {
+					$(target).slideUp(0);
+
+					// 근처에 common-tab 존재(asset usage/performance, metering cost-optimization)
+					var $tab = $(this).closest('.service-asset .page-section, .page-cost-optimization .page-section').find('.common-tabs').attr('data-state', 'shut');
+				} else {
+					$(target).slideDown(0);
+				}
+			});
+
+			$toggleTriggers.on('click', function(e) {
+				var state = $(this).attr('data-state');
+				var target = $(this).val();
+				if( state == "shut" ) {
+					$(this).attr('data-state', '');
+
+					// 근처에 common-tab 존재(asset)
+					var $tab = $(this).closest('.service-asset .page-section, .page-cost-optimization .page-section').find('.common-tabs').attr('data-state', '');
+				} else {
+					$(this).attr('data-state', 'shut');
+
+					// 근처에 common-tab 존재(asset)
+					var $tab = $(this).closest('.service-asset .page-section, .page-cost-optimization .page-section').find('.common-tabs').attr('data-state', 'shut');
+				}
+
+				if( $(target).length ) {
+					if( $(target).get(0).tagName == "TR" ) {
+						$(target).toggle();
+					} else {
+						$(target).slideToggle();
+					}
+				}
+			});
+		})
+	</script>
+</head>
+
+
+<body class="service-its page-user-guide-detail">
+<div class="layout-wrap">
+
+	<header class="global-menu">
+		<div class="title">
+			<a href="user_guide.html" class="btn-user-guide">USER GUIDE</a>
+		</div>
+	</header>
+
+	<!-- 본문 영역 -->
+	<main role="main">
+		<div class="layout-contents layout-fixed">
+
+			<!-- 페이지 타이틀 -->
+			<div class="layout-page-title">
+
+				<nav id="toc-menu" class="navigation-toc">
+					<span>Asset Management</span>
+					<ul class="shortcut-toc">
+						<li class="active">
+							<a href="user_guide_asset.html" class="btn-section" data-state="asset">Asset Management</a>
+							<div class="section-sub">
+								<a href="#guide-category01" class="btn-toggle">Dashboard</a>
+								<ol class="toc">
+									<li><a href="#guide-category01-chapter01">Cloud Vendor</a></li>
+									<li><a href="#guide-category01-chapter02">Total Summary</a></li>
+									<li><a href="#guide-category01-chapter03">Total Used Cloud Product</a></li>
+									<li><a href="#guide-category01-chapter04">Server</a></li>
+									<li><a href="#guide-category01-chapter05">DB & Storage</a></li>
+									<li><a href="#guide-category01-chapter06">Network</a></li>
+								</ol>
+								<a href="#guide-category02" class="btn-toggle">Service Group</a>
+								<ol class="toc">
+									<li><a href="#guide-category02-chapter01">Cloud Vendor</a></li>
+									<li><a href="#guide-category02-chapter02">Managing Service Group</a></li>
+									<li><a href="#guide-category02-chapter03">Service Group Card</a></li>
+								</ol>
+								<a href="#guide-category03" class="btn-toggle">Usage</a>
+								<ol class="toc">
+									<li><a href="#guide-category03-chapter01">Current</a></li>
+									<li><a href="#guide-category03-chapter02">History</a></li>
+								</ol>
+								<a href="#guide-category04" class="btn-toggle">Performance</a>
+								<ol class="toc">
+									<li><a href="#guide-category04-chapter01">Current</a></li>
+									<li><a href="#guide-category04-chapter02">History</a></li>
+								</ol>
+								<a href="#guide-category05" class="btn-toggle">Intelligent Search</a>
+								<a href="#guide-category06" class="btn-toggle">Report</a>
+								<ol class="toc">
+									<li><a href="#guide-category06-chapter01">Report Template</a></li>
+								</ol>
+							</div>
+
+						</li>
+
+					</ul>
+					<script>
+					var TOCMenu = (function ($) {
+						var scope,
+							$container,
+							$anchorToggle,
+							$anchor,
+							init = function() {
+								$container = $('#toc-menu');
+								$anchorToggle = $container.find('.btn-toggle');
+								$anchor = $container.find('.toc a');
+
+								initLayout();
+								initEvent();
+							};
+
+						function initLayout() {
+						}
+
+						function initEvent() {
+							$container.find('.shortcut-toc').on('mousewheel', function (e) {
+								var event = e.originalEvent,
+									d = event.wheelDelta || -event.detail;
+
+								this.scrollTop += ( d < 0 ? 1 : -1 ) * 30;
+								e.preventDefault();
+							});
+
+							$container.find('a').on('click', function(e) {
+								var $this = $(this);
+								if( !$this.hasClass("btn-section") ) { e.preventDefault(); }
+
+								var $target = $( $this.attr("href") );
+
+								if( $this.hasClass("btn-toggle") ) {
+									$('html, body').animate({
+										scrollTop: $target.offset().top - 109
+									}, 0);
+								} else {
+									$('html, body').animate({
+										scrollTop: $target.offset().top - 109
+									}, 500);
+								}
+							});
+
+							onResize();
+							onScroll();
+
+							$(document).on('scroll', function(e) {
+								onScroll();
+							});
+							$(window).on('resize', function(e) {
+								onResize();
+							});
+						}
+
+						function updatePosition() {
+							var marginLeft;
+							var left;
+							var top = $container.position().top;
+							if( $(window).width() < 1660 ) {
+								marginLeft = 0;
+								left = $('.layout-fixed > .layout-page-title').offset().left;
+								left = left - $(document).scrollLeft();
+								$container.css({
+									"marginLeft": marginLeft,
+									"top": top,
+									"left": left + "px",
+									"opacity": 1
+								});
+							} else {
+								marginLeft = -1200/2;
+								$container.css({
+									"marginLeft": marginLeft,
+									"top": top,
+									"left": "50%",
+									"opacity": 1
+								});
+							}
+						}
+
+						function onResize() {
+							updatePosition();
+						}
+
+						function onScroll(e) {
+							updatePosition(e);
+
+							var scrollPos = $(document).scrollTop() + 110;
+
+							var $lastToggleTarget = null;
+							$anchorToggle.each(function() {
+								var $this = $(this);
+								var $target = $( $this.attr("href") );
+								if( $target.offset().top <= scrollPos ) {
+									if( $lastToggleTarget != null ) {
+										$lastToggleTarget.removeClass("active");
+									}
+									$this.addClass("active");
+									$lastToggleTarget = $this;
+								} else {
+									$this.removeClass("active");
+								}
+							});
+
+							var targets = [];
+							$anchor.each(function() {
+								var $this = $(this);
+								var $target = $( $this.attr("href") );
+
+								if( $target.offset().top <= scrollPos ) {
+									targets.push($(this));
+								} else {
+									$this.parents(".toc li").removeClass("active");
+								}
+							}).promise().done(function() {
+								activate(targets);
+							});
+						}
+
+						function activate(targets) {
+							if( targets.length < 1 ) return;
+							for( var i = 0;  i < targets.length; i++ ) {
+								targets[i].parents(".toc li").removeClass("active");
+							}
+							targets[targets.length-1].parents(".toc li").addClass("active");
+						}
+
+						return {
+							init: function() {
+								init();
+							}
+						};
+					}(jQuery));
+
+
+					$(window.document).ready(function () {
+						TOCMenu.init();
+					});
+					</script>
+
+				</nav>
+
+			</div>
+
+
+			<div class="layout-contents-inner">
+
+				<!-- 서비스 시작 -->
+				<div class="layout-page-title" data-state="asset">
+					<h1>Asset Management</h1>
+					<p class="layout-page-title-description">You can check resource status and its history of operating Multi Cloud and Hybrid Infrastructure.<br>Asset Management provides you five types of service.</p>
+				</div>
+				<!--대시보드 시작-->
+				<div id="guide-category01" class="category">
+					<h2 class="category-title">Dashbaord</h2>
+					<p class="category-description">You can access summary about usage and performance of operating resources.</p>	
+					<span class="location">Asset Management > <em>Dashboard</em></span>				
+				</div>
+					<section class="chapter">
+						<figure>
+							<div class="screenshot"><img src="assets/images/guide/asset/asset_dashboard_1.png" alt="" style="width:800px;"></div>
+							<figcaption></figcaption>
+						</figure>
+						<br>
+						<h3 id="guide-category01-chapter01" class="chapter-title">1. Cloud Vendor</h3>
+						<div class="chapter-contents">
+							<p class="chapter-title-description">Shows the Cloud Vendors currently in use and Account information of each Vendor.<br>
+							If you select Cloud Vendor and Account, Dashboard shows you resource status of the selected Vendor and Account.
+							</p>							
+						</div>
+					</section>
+					<section class="chapter">
+						<h3 id="guide-category01-chapter02" class="chapter-title">2. Total Summary</h3>
+						<div class="chapter-contents">
+							<p class="chapter-title-description">Shows Server and DB quantity of the selected Vendor and Account.<br>
+							You can check the item 'On-demand' and value of Auto Scalling Instance separately. It also provides volume of each status.
+							</p>
+						</div>
+					</section>
+					<section class="chapter">
+						<h3 id="guide-category01-chapter03" class="chapter-title">3. Total Used Cloud Product</h3>
+						<div class="chapter-contents">
+							<p class="chapter-title-description">Shows the list of all products in use by the selected Cloud Vendor. You can check usage of each product.</p>
+						</div>
+					</section>
+					<section class="chapter">
+						<h3 id="guide-category01-chapter04" class="chapter-title">4. Server</h3>
+						<p class="chapter-title-description">With the trend chart, you can check usage and performance of Servers in use.</p>
+						<div class="chapter-contents">
+							<ol class="list-description">
+								<li>
+									Server/Usage - Total Instance : <br>Provides the trend chart of usage of Server for the last 7 days and last week.
+								</li>
+								<li>
+									Server/Performance - Total CPU avg. utiliz : <br>Provides the trend chart of average usage of CPU for the last 7 days and last week.
+								</li>
+								<li>
+									Server/Performance - CPU Utilization with Threshold : <br>By setting Threshold, you can check any instance whose CPU usage is above/below than the Threshold for the last 7 days and last week. 
+								</li>
+								<li>
+									Server/Performance - Memory Utilization with Threshold : <br>By setting Threshold, you can check any instance whose Memory usage is above/below than the Threshold for the last 7 days and last week.
+								</li>
+								<li>
+									Server/Performance - Disk Utilization with Threshold : <br>By setting Threshold, you can check any instance whose Disk usage is above/below than the Threshold for the last 7 days and last week.
+								</li>
+							</ol>
+
+						</div>
+					</section>
+					<section class="chapter">
+						<h3 id="guide-category01-chapter05" class="chapter-title">5. Database & Storage</h3>
+						<div class="chapter-contents">
+							<p class="chapter-title-description">With the trend chart, you can check usage and performance of Database & Storage in use. </p>
+							<ol class="list-description">
+								<li>
+									Database/Usage - Total Instance : <br>Provides trend chart of usage of DB for the last 7 days and last week.
+								</li>
+								<li>
+									Storage(S3)/Usage - Total Instance : <br>Provides trend chart of usage of S3 for the last 7 days and last week.
+								</li>
+								<li>
+									Disk/Usage - Total Instance : <br>Provides trend chart of usage of Disk for the last 7 days and last week.
+								</li>
+								<li>
+									Database/Performance - CPU Utilization with Threshold : <br>By setting Threshold, you can check any instance whose CPU usage is above/below than the Threshold for the last 7 days and last week. 
+								</li>
+								<li>
+									Database/Performance - Read iops / Write iops Average Threshold : <br>By setting Threshold, you can check any instance whose Read/Write iops is above/below than the Threshold for the last 7 days and last week.
+								</li>
+							</ol>
+
+						</div>
+					</section>
+					<section class="chapter">
+						<h3 id="guide-category01-chapter06" class="chapter-title">6. Network</h3>
+						<div class="chapter-contents">
+							<p class="chapter-title-description">With the trend chart, you can check usage of Network resources in use.</p>
+							<ol class="list-description">
+								<li>
+									Private Network/Usage : <br>Provides trend chart of usage of Private Network resources for the last 7 days and last week. The bottom of the trend chart has the list and volumes of particular resources. By selecting each resource, you can check its own trend chart.
+								</li>
+								<li>
+									Network/Usage : <br>Provides trend chart of usage of Network resources for the last 7 days and last week. The bottom of the trend chart has the list and volumes of particular resources. By selecting each resource, you can check its own trend chart.
+								</li>
+							</ol>
+						</div>
+					</section>
+				<!--대시보드 끝-->
+				<!--서비스 그룹 시작-->
+				<div id="guide-category02" class="category">
+					<h2 class="category-title">Service Group</h2>
+					<p class="category-description">Provides the 'Service Group' feature which you can group all resources of Multi Cloud and Hybrid environment with operating service standard. <br>
+					By re-grouping resources with the Service Group feature, you can check resource usage, cost and status of operating services.</p>
+					<span class="location">Asset Management > <em>Service Group</em></span>		
+				</div>
+					<section class="chapter">
+						<figure>
+							<div class="screenshot"><img src="assets/images/guide/asset/asset_service_group_1.png" alt="" style="width:800px;"></div>
+							<figcaption></figcaption>
+						</figure>
+						<br>
+						<h3 id="guide-category02-chapter01" class="chapter-title">1. Cloud Vendor</h3>
+						<div class="chapter-contents">
+							<p class="chapter-title-description">Shows the Cloud Vendors currently in use and Account information of each Vendor.<br>
+								If you select Cloud Vendor and Account, Dashboard shows you resource status of the selected Vendor and Account.</p>
+						</div>
+					</section>
+					<section class="chapter">
+						<h3 id="guide-category02-chapter02" class="chapter-title">2. Managing Service Group</h3>
+						<div class="chapter-contents">
+							<p class="chapter-title-description">You can go to the Service Group Management pane on which you can create and edit Service Group.<br>
+							For more information, please refer to the 'Managing Service Group' documentation.</p>
+						</div>
+					</section>
+					<section class="chapter">
+						<h3 id="guide-category02-chapter03" class="chapter-title">3. Service Group Card</h3>
+						<div class="chapter-contents">
+							<p class="chapter-title-description">You can check volumes, types and costs of resources being used by Service Group.</p>
+							<ol class="list-description">
+								<li>
+									Service Group Name : <br>The name of Service Group is shown.
+								</li>
+								<li>
+									Product : <br>Total amount of Products in Service Group and the amount per Vendor are shown.
+								</li>
+								<li>
+									Monthly Aggregate : <br>Total cost of resource usage in Service Group is shown.
+								</li>
+								<li>
+									Product Card : <br>The name of resource included in Service Group and cost incurred by using the resource are shown.
+								</li>
+							</ol>
+						</div>
+					</section>
+				<!--서비스 그룹 끝-->
+				<!--Usage 시작-->
+				<div id="guide-category03" class="category">
+					<h2 class="category-title">Usage</h2>
+					<p class="category-description">You can check the current status and history of resource usage per Vendor.</p>
+					<span class="location">Asset Management > <em>Usage</em></span>		
+				</div>
+					<section class="chapter">
+						<h3 id="guide-category03-chapter01" class="chapter-title">1. Current</h3>
+						<span class="location">Asset Management > Usage > <em>Current</em></span>
+						<div class="chapter-contents">
+						<p class="chapter-title-description">You can check resource usage status per Vendor.</p>
+							<figure>
+								<div class="screenshot"><img src="assets/images/guide/asset/asset_usage_current.png" alt="" style="width:800px;"></div>
+								<figcaption></figcaption>
+							</figure>
+							<br>
+							<p class="chapter-title-description">Provides the pie chart of Status, Region and Type respectively for the resources listed below.<br>
+							In addition, you can check the list of resources in use and also details about each resource on the list.</p>
+							<br>
+							<!--Usage Current AWS 시작-->
+							<h4>Amazon Web Service</h4>
+							<p class="chapter-title-description">You can check usage status of AWS resources listed below.</p>
+							<span class="location">AMIs</span>
+							<span class="location">Auto Scailing Groups</span>
+							<span class="location">Auto Scailing Instances</span>
+							<span class="location">EBS</span>
+							<span class="location">EC2</span>
+							<span class="location">EIP</span>
+							<span class="location">Internet Gateways</span>
+							<span class="location">Lamda</span>
+							<span class="location">Launch Configurations</span>
+							<span class="location">Load Balancer</span>
+							<span class="location">Network ACLs</span>
+							<span class="location">Network Interface</span>
+							<span class="location">RDS</span>
+							<span class="location">Route Tables</span>
+							<span class="location">S3</span>
+							<span class="location">Security Groups</span>
+							<span class="location">Snapshot</span>
+							<span class="location">Subnets</span>
+							<span class="location">VPC</span>
+							<!--Usage Current AWS 끝-->
+							<br>
+							<br>
+							<!--Usage Current Azure 시작-->
+							<h4>Microsoft Azure</h4>
+							<p class="chapter-title-description">You can check usage status of Azure resources listed below.</p>
+							<span class="location">CDN</span>
+							<span class="location">Cloud Service</span>
+							<span class="location">Database</span>
+							<span class="location">Virtual Network Gateway</span>
+							<span class="location">Network Security Group</span>
+							<span class="location">Storage</span>
+							<span class="location">Virtual Network Subnet</span>
+							<span class="location">Traffic Manager</span>
+							<span class="location">Virtual Network</span>
+							<span class="location">Virtual Machine</span>
+							<!--Usage Current Azure 끝-->
+						</div>
+					</section>
+					<section class="chapter">
+						<h3 id="guide-category03-chapter02" class="chapter-title">2. History</h3>
+						<span class="location">Asset Management > Usage > <em>History</em></span>
+						<div class="chapter-contents">
+							<p class="chapter-title-description">You can check history of resource usage per Vendor. </p>
+														<figure>
+								<div class="screenshot"><img src="assets/images/guide/asset/asset_usage_history.png" alt="" style="width:800px;"></div>
+								<figcaption></figcaption>
+							</figure>
+							<br>
+							<p class="chapter-title-description">Provides trend chart of usage history of the resources listed below on an hourly/daily/monthly basis. Also provides details about each resource on the list.</p>
+							<br>
+							<!--Usage History AWS 시작-->
+							<h4>Amazon Web Service</h4>
+							<p class="chapter-title-description">You can check usage history of AWS resources listed below.</p>
+							<span class="location">EC2</span>
+							<span class="location">EBS</span>
+							<span class="location">RDS</span>
+							<!--Usage History AWS 끝-->
+							<br>
+							<br>
+							<!--Usage History Azure 시작-->
+							<h4>Microsoft Azure</h4>
+							<p class="chapter-title-description">You can check usage history of Azure resources listed below.</p>
+							<span class="location">Database</span>
+							<span class="location">Storage</span>
+							<span class="location">Virtual Machine</span>
+							<!--Usage History Azure 끝-->
+						</div>
+					</section>
+				<!--Usage 끝-->
+				<!--Performance 시작-->
+				<div id="guide-category04" class="category">
+					<h2 class="category-title">Performance</h2>
+					<p class="category-description">You can check current status and history for Performance of resources in use.</p>
+					<span class="location">Asset Management > <em>Performance</em></span>		
+				</div>
+					<section class="chapter">
+						<h3 id="guide-category04-chapter01" class="chapter-title">1. Current</h3>
+						<span class="location">Asset Management > Performance > <em>Current</em></span>
+						<div class="chapter-contents">
+							<p class="chapter-title-description">You can check Performance status of resources in use.</p>
+							<figure>
+								<div class="screenshot"><img src="assets/images/guide/asset/asset_performance_current.png" alt="" style="width:800px;"></div>
+								<figcaption></figcaption>
+							</figure>
+							<br>
+							<!--AWS Performance Current 시작-->
+							<h4>Amazon Web Service</h4>
+							<p class="chapter-title-description">You can check Performance status of AWS resources listed below.</p>
+								<table style="margin-top:20px; width:800px;">
+									<tbody>
+										<tr style="border-bottom: 1px solid #ddd; background-color: #000; color:white;">
+											<th style="padding: 15px;">Resources</th>
+											<th style="padding: 15px;">Items</th>
+											<th style="padding: 15px;">Remarks</th>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;" rowspan="4">EC2</td>
+											<td style="padding: 15px;">Resource Info</td>
+											<td style="padding: 15px;"></td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">CPU Utilization (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Memory Utilization (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Disk Space Utilization (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;" rowspan="5">EBS</td>
+											<td style="padding: 15px;">Resource Info</td>
+											<td style="padding: 15px;"></td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">VolumeQueue Length (EA)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">VolumeRead IOPS (EA)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">VolumeWrite Bytes (MB)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">VolumeWrite IOPS (EA)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;" rowspan="6">RDS</td>
+											<td style="padding: 15px;">Resource Info</td>
+											<td style="padding: 15px;"></td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">CPU Utilization (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Freeable Memory (MB)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Free Storage Space (MB)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Read IOPS (EA)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Write IOPS (EA)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;" rowspan="3">S3</td>
+											<td style="padding: 15px;">Resource Info</td>
+											<td style="padding: 15px;"></td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">BucketSizeBytes</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">NumberOfObjects</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+									</tbody>
+								</table>
+							<!--AWS Performance Current 끝-->
+							<br>
+							<br>
+							<!--Azure Performance Current 시작-->
+							<h4>Microsoft Azure</h4>
+							<p class="chapter-title-description">You can check Performance status of Azure resources listed below.</p>
+								<table style="margin-top:20px; width:800px;">
+									<tbody>
+										<tr style="border-bottom: 1px solid #ddd; background-color: #000; color:white;">
+											<th style="padding: 15px;">Resources</th>
+											<th style="padding: 15px;">Items</th>
+											<th style="padding: 15px;">Remarks</th>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;" rowspan="4">Virtual Machine</td>
+											<td style="padding: 15px;">Resource Info</td>
+											<td style="padding: 15px;"></td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">CPU Utilization (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Memory Utilization (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Disk Space Utilization (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;" rowspan="7">SQL Database</td>
+											<td style="padding: 15px;">Resource Info</td>
+											<td style="padding: 15px;"></td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">CPU Utilization (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Physical Data Read Percent (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Connection Success (EA)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Connection Fail (EA)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">DTU Consumption (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">DeadLock (EA)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+									</tbody>
+								</table>
+							<!--Azure Performance Current 끝-->
+						</div>
+					</section>
+					<section class="chapter">
+						<h3 id="guide-category04-chapter02" class="chapter-title">2. History</h3>
+						<span class="location">Asset Management > Performance > <em>History</em></span>
+						<div class="chapter-contents">
+							<p class="chapter-title-description">You can check Performance history of resource for a certain period of time you set.</p>
+														<figure>
+								<div class="screenshot"><img src="assets/images/guide/asset/asset_performance_history.png" alt="" style="width:800px;"></div>
+								<figcaption></figcaption>
+							</figure>
+							<br>
+							<!--AWS Performance History 시작-->
+							<h4>Amazon Web Service</h4>
+							<p class="chapter-title-description">You can check Performance history of AWS resources listed below.</p>
+								<table style="margin-top:20px; width:800px;">
+									<tbody>
+										<tr style="border-bottom: 1px solid #ddd; background-color: #000; color:white;">
+											<th style="padding: 15px;">Resources</th>
+											<th style="padding: 15px;">Items</th>
+											<th style="padding: 15px;">Remarks</th>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;" rowspan="4">EC2</td>
+											<td style="padding: 15px;">Resource Info</td>
+											<td style="padding: 15px;"></td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">CPU Utilization (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Memory Utilization (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Disk Space Utilization (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;" rowspan="5">EBS</td>
+											<td style="padding: 15px;">Resource Info</td>
+											<td style="padding: 15px;"></td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">VolumeQueue Length (EA)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">VolumeRead IOPS (EA)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">VolumeWrite Bytes (MB)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">VolumeWrite IOPS (EA)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;" rowspan="6">RDS</td>
+											<td style="padding: 15px;">Resource Info</td>
+											<td style="padding: 15px;"></td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">CPU Utilization (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Freeable Memory (MB)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Free Storage Space (MB)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Read IOPS (EA)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Write IOPS (EA)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;" rowspan="3">S3</td>
+											<td style="padding: 15px;">Resource Info</td>
+											<td style="padding: 15px;"></td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">BucketSizeBytes</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">NumberOfObjects</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+									</tbody>
+								</table>
+							<!--AWS Performance History 끝-->
+							<br>
+							<br>
+							<!--Azure Performance History 시작-->
+							<h4>Microsoft Azure</h4>
+							<p class="chapter-title-description">You can check Performance history of Azure resources listed below.</p>
+								<table style="margin-top:20px; width:800px;">
+									<tbody>
+										<tr style="border-bottom: 1px solid #ddd; background-color: #000; color:white;">
+											<th style="padding: 15px;">Resources</th>
+											<th style="padding: 15px;">Items</th>
+											<th style="padding: 15px;">Remarks</th>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;" rowspan="4">Virtual Machine</td>
+											<td style="padding: 15px;">Resource Info</td>
+											<td style="padding: 15px;"></td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">CPU Utilization (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Memory Utilization (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Disk Space Utilization (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;" rowspan="7">SQL Database</td>
+											<td style="padding: 15px;">Resource Info</td>
+											<td style="padding: 15px;"></td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">CPU Utilization (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Physical Data Read Percent (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Connection Success (EA)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">Connection Fail (EA)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">DTU Consumption (%)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;">DeadLock (EA)</td>
+											<td style="padding: 15px;">Min, Max, Avg</td>
+										</tr>
+									</tbody>
+								</table>
+							<!--Azure Performance History 끝-->
+						</div>
+					</section>
+				<!--Performance 끝-->
+				<!--Intelligent Search 시작-->
+				<div id="guide-category05" class="category">
+					<h2 class="category-title">Intelligent Search</h2>
+					<p class="category-description">Provides 'Intelligent Search' feature based on interrelation between resources in use.<br>
+					Shows a list of all resources used for a certain period of time you set. You can use them as search conditions.<br>
+					 You can use Intelligent Search feature in Usage menu and Performance menu.</p>
+					<span class="location">Asset Management > Usage > <em>Intelligent Search</em></span>	
+					<span class="location">Asset Management > Performance > <em>Intelligent Search</em></span>	
+				</div>
+					<section class="chapter">	
+						<div class="chapter-contents">
+							<figure>
+								<div class="screenshot"><img src="assets/images/guide/asset/asset_intelligent_1.png" alt="" style="width:800px;"></div>
+								<figcaption></figcaption>
+							</figure>
+								<ol class="list-description">
+									<li>
+										Duration : <br>You can set a period of time you want to check history for.<br>In accordance with a period you set, available search conditions may change.<br>Resources used for a period you set will be automatically included in search conditions.
+									</li>
+									<li>
+										Search Conditions : <br>Vendor, Account, Product, Service Group and Tag will be shown as search conditions.<br>According to a period you set, available search conditions may change considerably.<br>If you select search conditions, search conditions related to the selected condition only become available to be selected.
+									</li>
+								</ol>
+							<p class="chapter-title-description">After selecting the duration and search conditions, click [Apply] button and search results of the duration and conditions you selected will be shown.</p>
+						</div>
+					</section>
+
+				<!--Intelligent Search 끝-->
+				<!--Report 시작-->
+				<div id="guide-category06" class="category">
+					<h2 class="category-title">Report</h2>
+					<p class="category-description">Provides Report Templates. You can also download Reports which have made.</p>	
+					<span class="location">Asset Management > <em>Report</em></span>				
+				</div>
+					<section class="chapter">
+						<figure>
+							<div class="screenshot"><img src="assets/images/guide/asset/asset_report.png" alt="" style="width:800px;"></div>
+							<figcaption></figcaption>
+						</figure>
+						<br>
+						<h3 id="guide-category06-chapter01" class="chapter-title">1. Report Template</h3>
+						<div class="chapter-contents">
+							<p class="chapter-title-description">Provides three types of Report Templates listed below.</p>
+							<span class="location">Summary</span>
+							<span class="location">Usage</span>
+							<span class="location">Performance</span>
+							<p class="chapter-title-description">If you click each Report Template, the menu listed below appears on the right side.</p>
+								<ol class="list-description">
+									<li>
+										Report Info : <br>As you set a period and select file format of a Report, you can download a Report accordingly.<br>.xls and .pdf formats are available for download.
+									</li>
+									<li>
+										Log : <br>Shows download history of Reports created with the selected Report Template.<br>You can download created Reports again.
+									</li>
+								</ol>
+						</div>
+					</section>
+			<!--Report 끝-->
+			</div>	
+		</div>
+	</main>
+
+	<!-- 하단 영역 -->
+	<footer class="layout-footer">
+		<div class="contents-inner">
+
+			<div class="service">
+				<h2 class="title">SERVICE PLATFORM</h2>
+
+				<ul class="list-shortcut">
+					<li><a href="#">ASSET MANAGEMENT</a></li>
+					<li><a href="#">METERING</a></li>
+					<li><a href="#">MONITORING DASHBOARD</a></li>
+					<li><a href="#">PROJECT + SERVICE REQUEST</a></li>
+					<li><a href="#">APPROVAL</a></li>
+					<li><a href="#">DevOps</a></li>
+				</ul>
+
+				<div id="language" class="custom-select-container">
+					<button type="button" class="btn-custom-select">한국어</button>
+					<div class="list-container">
+						<ul class="list-custom-select">
+							<li><button type="button">ENGLISH</button></li>
+							<li class="is-selected"><button type="button">한국어</button></li>
+							<li><button type="button">简体中文</button></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+	/* Footer */
+	var Footer = (function ($) {
+		var scope,
+			$container,
+			$popupSupport,
+			selectLanguage,
+			$user,
+			init = function() {
+				$container = $('.layout-footer');
+
+				$popupSupport = $container.find('[data-trigger=popup-support]');
+				selectLanguage = new BSPSelectBox($('#language'));
+
+				initLayout();
+				initEvent();
+			};
+
+		function initLayout() {
+
+		}
+
+		function initEvent() {
+			$popupSupport.magnificPopup();
+
+			$(document).click(function (e) {
+				if( !$(event.target).closest("#language").length ) {
+					selectLanguage.hide();
+				}
+			});
+		}
+
+		return {
+			init: function() {
+				init();
+			}
+		};
+	}(jQuery));
+
+	$(document).ready(function(e) {
+		Footer.init();
+	});
+	</script>
+
+
+	<!-- 팝업 모음 -->
+
+
+</div>	<!-- class="layout-wrap" -->
+</body>
+</html>

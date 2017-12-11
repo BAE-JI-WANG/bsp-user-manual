@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>USER GUIDE</title> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="assets/styles/bsp_its_guide.css">
+	<script src="assets/scripts/libs/jquery-2.2.3.min.js"></script>
+	<!--[if lt IE 9]>
+		<script src="/assets/scripts/libs/html5shiv.min.js"></script>
+	<![endif]-->
+	<script>
+		$.fn.extend({
+			toggleAttr: function(attr, value) {
+				return this.each(function () {
+					if( !$(this).is("[" + attr + "]") ) {
+						$(this).attr(attr, value);
+					} else {
+						$(this).removeAttr(attr);
+					}
+				});
+			}
+		});
+
+		/* Golbal Menu - BSPSelectBox */
+		function BSPSelectBox($container) {
+			this.$container = $container;
+			this.$btnSelect;
+			this.$listContainer;
+			this.$listItems;
+
+			this.init();
+		}
+
+		BSPSelectBox.prototype.init = function() {
+			var _ = this;
+
+			_.$btnSelect = _.$container.find('.btn-custom-select');
+			_.$listContainer = _.$container.find('.list-container');
+			_.$listItems = _.$listContainer.find('button');
+
+			_.initEvent();
+		}
+
+		BSPSelectBox.prototype.initEvent = function() {
+			var _ = this;
+
+			_.$btnSelect.off('click').on('click', function(e) {
+				$(this).toggleClass("is-selected");
+			});
+
+			_.$listItems.off('click').on('click', function(e) {
+				_.select($(this));
+			});
+		}
+
+		BSPSelectBox.prototype.hide = function() {
+			var _ = this;
+
+			_.$btnSelect.removeClass("is-selected")
+		}
+
+		BSPSelectBox.prototype.select = function($item) {
+			var _ = this;
+
+			_.$listItems.closest('li').removeClass('is-selected');
+			$item.closest('li').addClass('is-selected');
+
+			_.$btnSelect.html($item.html());
+			_.hide();
+		}
+
+		$(window.document).ready(function(e) {
+			var $toggleTriggers = $('[data-trigger=toggle]');
+			$toggleTriggers.each(function(e) {
+				var state = $(this).attr('data-state');
+				var target = $(this).val();
+
+				if( state == "shut" ) {
+					$(target).slideUp(0);
+
+					// 근처에 common-tab 존재(asset usage/performance, metering cost-optimization)
+					var $tab = $(this).closest('.service-asset .page-section, .page-cost-optimization .page-section').find('.common-tabs').attr('data-state', 'shut');
+				} else {
+					$(target).slideDown(0);
+				}
+			});
+
+			$toggleTriggers.on('click', function(e) {
+				var state = $(this).attr('data-state');
+				var target = $(this).val();
+				if( state == "shut" ) {
+					$(this).attr('data-state', '');
+
+					// 근처에 common-tab 존재(asset)
+					var $tab = $(this).closest('.service-asset .page-section, .page-cost-optimization .page-section').find('.common-tabs').attr('data-state', '');
+				} else {
+					$(this).attr('data-state', 'shut');
+
+					// 근처에 common-tab 존재(asset)
+					var $tab = $(this).closest('.service-asset .page-section, .page-cost-optimization .page-section').find('.common-tabs').attr('data-state', 'shut');
+				}
+
+				if( $(target).length ) {
+					if( $(target).get(0).tagName == "TR" ) {
+						$(target).toggle();
+					} else {
+						$(target).slideToggle();
+					}
+				}
+			});
+		})
+	</script>
+</head>
+
+
+<body class="service-its page-user-guide-detail">
+<div class="layout-wrap">
+
+	<header class="global-menu">
+		<div class="title">
+			<a href="user_guide.html" class="btn-user-guide">USER GUIDE</a>
+		</div>
+	</header>
+
+	<!-- 본문 영역 -->
+	<main role="main">
+		<div class="layout-contents layout-fixed">
+
+			<!-- 페이지 타이틀 -->
+			<div class="layout-page-title">
+
+				<nav id="toc-menu" class="navigation-toc">
+					<span>Service Portal</span>
+
+					<ul class="shortcut-toc">
+						<li>
+							<a href="user_guide_portal_dashboadrd.html" class="btn-section" data-state="portal">Dashboard</a>
+						</li>
+						<li>
+							<a href="user_guide_portal_usergroup.html" class="btn-section" data-state="portal">User Group</a>
+						</li>
+						<li class="active">
+							<a href="user_guide_portal_permission.html" class="btn-section" data-state="portal">Permission</a>
+							<div class="section-sub">
+							<a href="#guide-category03" class="btn-toggle">Overview</a>
+								<ol class="toc">
+									<li><a href="#guide-category03-chapter01">Company Group</a>
+										<ol class="toc">
+											<li><a href="#guide-category03-chapter01-sub01">View Information</a></li>
+											<li><a href="#guide-category03-chapter01-sub02">Creating</a></li>
+											<li><a href="#guide-category03-chapter01-sub03">Editing</a></li>
+											<li><a href="#guide-category03-chapter01-sub04">Deleting</a></li>
+										</ol>
+									</li>
+									<li><a href="#guide-category03-chapter02">Service Permission Group</a>
+										<ol class="toc">
+											<li><a href="#guide-category03-chapter02-sub01">View Information</a></li>
+											<li><a href="#guide-category03-chapter02-sub02">Creating</a></li>
+											<li><a href="#guide-category03-chapter02-sub03">Editing</a></li>
+											<li><a href="#guide-category03-chapter02-sub04">Deleting</a></li>
+										</ol>
+									</li>
+									<li><a href="#guide-category03-chapter03">Cloud Group</a>
+										<ol class="toc">
+											<li><a href="#guide-category03-chapter03-sub01">View Information</a></li>
+											<li><a href="#guide-category03-chapter03-sub02">Creating</a></li>
+											<li><a href="#guide-category03-chapter03-sub03">Editing</a></li>
+											<li><a href="#guide-category03-chapter03-sub04">Deleting</a></li>
+										</ol>
+									</li>
+								</ol>
+							</div>
+						</li>
+						<li>
+							<a href="user_guide_portal_cloud.html" class="btn-section" data-state="portal">Cloud Account</a>
+						</li>
+						<li>
+							<a href="user_guide_portal_service_group.html" class="btn-section" data-state="portal">Service Group</a>
+						</li>
+					</ul>
+					<script>
+					var TOCMenu = (function ($) {
+						var scope,
+							$container,
+							$anchorToggle,
+							$anchor,
+							init = function() {
+								$container = $('#toc-menu');
+								$anchorToggle = $container.find('.btn-toggle');
+								$anchor = $container.find('.toc a');
+
+								initLayout();
+								initEvent();
+							};
+
+						function initLayout() {
+						}
+
+						function initEvent() {
+							$container.find('.shortcut-toc').on('mousewheel', function (e) {
+								var event = e.originalEvent,
+									d = event.wheelDelta || -event.detail;
+
+								this.scrollTop += ( d < 0 ? 1 : -1 ) * 30;
+								e.preventDefault();
+							});
+
+							$container.find('a').on('click', function(e) {
+								var $this = $(this);
+								if( !$this.hasClass("btn-section") ) { e.preventDefault(); }
+
+								var $target = $( $this.attr("href") );
+
+								if( $this.hasClass("btn-toggle") ) {
+									$('html, body').animate({
+										scrollTop: $target.offset().top - 109
+									}, 0);
+								} else {
+									$('html, body').animate({
+										scrollTop: $target.offset().top - 109
+									}, 500);
+								}
+							});
+
+							onResize();
+							onScroll();
+
+							$(document).on('scroll', function(e) {
+								onScroll();
+							});
+							$(window).on('resize', function(e) {
+								onResize();
+							});
+						}
+
+						function updatePosition() {
+							var marginLeft;
+							var left;
+							var top = $container.position().top;
+							if( $(window).width() < 1660 ) {
+								marginLeft = 0;
+								left = $('.layout-fixed > .layout-page-title').offset().left;
+								left = left - $(document).scrollLeft();
+								$container.css({
+									"marginLeft": marginLeft,
+									"top": top,
+									"left": left + "px",
+									"opacity": 1
+								});
+							} else {
+								marginLeft = -1200/2;
+								$container.css({
+									"marginLeft": marginLeft,
+									"top": top,
+									"left": "50%",
+									"opacity": 1
+								});
+							}
+						}
+
+						function onResize() {
+							updatePosition();
+						}
+
+						function onScroll(e) {
+							updatePosition(e);
+
+							var scrollPos = $(document).scrollTop() + 110;
+
+							var $lastToggleTarget = null;
+							$anchorToggle.each(function() {
+								var $this = $(this);
+								var $target = $( $this.attr("href") );
+								if( $target.offset().top <= scrollPos ) {
+									if( $lastToggleTarget != null ) {
+										$lastToggleTarget.removeClass("active");
+									}
+									$this.addClass("active");
+									$lastToggleTarget = $this;
+								} else {
+									$this.removeClass("active");
+								}
+							});
+
+							var targets = [];
+							$anchor.each(function() {
+								var $this = $(this);
+								var $target = $( $this.attr("href") );
+
+								if( $target.offset().top <= scrollPos ) {
+									targets.push($(this));
+								} else {
+									$this.parents(".toc li").removeClass("active");
+								}
+							}).promise().done(function() {
+								activate(targets);
+							});
+						}
+
+						function activate(targets) {
+							if( targets.length < 1 ) return;
+							for( var i = 0;  i < targets.length; i++ ) {
+								targets[i].parents(".toc li").removeClass("active");
+							}
+							targets[targets.length-1].parents(".toc li").addClass("active");
+						}
+
+						return {
+							init: function() {
+								init();
+							}
+						};
+					}(jQuery));
+
+
+					$(window.document).ready(function () {
+						TOCMenu.init();
+					});
+					</script>
+
+				</nav>
+
+			</div>
+
+
+			<div class="layout-contents-inner">
+
+				<!-- 서비스 시작 -->
+				<div class="layout-page-title" data-state="portal">
+					<h1>Service Portal</h1>
+					<p class="layout-page-title-description">You can manage the summary of services in use; permission of members; Cloud Account; and Service Permission Group.</p>
+				</div>
+
+				<!--권한 관리 시작-->
+				<div id="guide-category03" class="category">
+					<h2 class="category-title">Permission</h2>
+					<span class="location">Service Portal - <em>Permission</em></span>
+					<p class="category-description">You can make a group for each: accounts of companies, services and Cloud services you access. <br>
+					You can control permission of users in User Group by linking it with Account groups of created companies, services and Clouds. <br>
+					On the Permission menu, you can create groups for Accounts of companies, services and Clouds. Also, you can edit or delete such groups. </p>
+					<p><span class="location"><em>Company Group</em> : You can manage multiple companies by binding them as a group.</span></p>
+					<p><span class="location"><em>Service Permission Group</em> : You can manage service and each menu as well as permission of menus by binding them as a group.</span></p>
+					<p><span class="location"><em>Cloud Group</em> : You can manage Cloud Vendors and Accounts (Subscriptions) of each Vendor by binding them as a group.</span></p>
+					<br>
+					<p class="category-description">Such groups are interlinked in the structure as below. </p>
+					<figure>
+						<div class="screenshot"><img src="assets/images/guide/service_portal/permission_structure.png" alt="" style="width:600px;"></div>
+						<figcaption></figcaption>
+					</figure>
+				</div>
+				<section class="chapter">
+					<h3 id="guide-category03-chapter01" class="chapter-title">1. Company Group</h3>
+					<span class="location">Service Portal - Permission - <em>Company Group</em></span>
+					<p class="category-description">Individual companies may be bound in a Company Group. <br>
+					You can manage companies who have joined as departments respectively, by binding them as a Company Group regarded as one company. Otherwise, companies may join as affiliates respectively and you can bind them as a group and manage them as a Group Company. </p>
+					<div class="chapter-contents">
+						<section class="chapter">
+							<h4 id="guide-category03-chapter01-sub01" class="chapter-title">1.1 View Company Group Information</h4>
+							<p class="category-description">You can check information about a Company Group already added.</p>
+							<div class="chapter-contents">
+								<ol class="list-description">
+									<li>
+										On the Company Group list, click a Company Group you want to check information for.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/company_group_1_1.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										On the Company Group Details pane, a list of companies included in the selected Company Group is shown.
+									</li>
+									<li>
+										On the Company list, click [+] button to check service information in use by the selected company.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/company_group_1_2.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+								</ol>
+							</div>
+						</section>
+						<section class="chapter">
+							<h4 id="guide-category03-chapter01-sub02" class="chapter-title">1.2 Creating a Company Group</h4>
+							<p class="category-description">You can create a new Company Group and add a company to the Company Group.</p>
+							<div class="chapter-contents">
+								<ol class="list-description">
+									<li>
+										Click the [Add Company Group] button.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/company_group_2_1.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										The “Create a New Company Group” pop-up appears.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/company_group_2_2.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										In the “Create a New Company Group” pop-up, enter the name of a new Company Group and click the [OK] button.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/company_group_2_3.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										The Company Group lists shows that a new Company Group has been added.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/company_group_2_4.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										On the Company Group Details pane, a list of companies available for a Company Group is shown.<br>
+										Select a company you want to add by selecting its checkbox.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/company_group_2_5.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										Click the [Save Changes] button.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/company_group_2_6.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										Creating a new Company Group is completed.
+									</li>
+								</ol>
+							</div>
+						</section>
+						<section class="chapter">
+							<h4 id="guide-category03-chapter01-sub03" class="chapter-title">1.3 Editing a Company Group</h4>
+							<p class="category-description">You can change the name of a Company Group already added. Also, you can add a new company or remove an added company.</p>
+							<div class="chapter-contents">
+								<section class="chapter">
+									<h4 id="guide-category03-chapter01-sub03-sub01" class="chapter-title">1.3.1 Renaming a Company Group</h4>
+									<div class="chapter-contents">
+										<ol class="list-description">
+											<li>
+												On the Company Group list, select a Company Group you want to change the name of.
+											</li>
+											<li>
+												On the Company Group Details pane, information about the selected Company Group is shown.
+											</li>
+											<li>
+												Click the [Edit] button next to the name of a Company Group.
+
+												<figure>
+													<div class="screenshot"><img src="assets/images/guide/service_portal/company_group_3_1_1.png" alt="" style="width:800px;"></div>
+													<figcaption></figcaption>
+												</figure>
+											</li>
+											<li>
+												The name of a Company Group becomes editable. <br>
+												Change the name of a Company Group.
+
+												<figure>
+													<div class="screenshot"><img src="assets/images/guide/service_portal/company_group_3_1_2.png" alt="" style="width:800px;"></div>
+													<figcaption></figcaption>
+												</figure>
+											</li>
+											<li>
+												After changing the name, click the [{Check}] button.
+
+												<figure>
+													<div class="screenshot"><img src="assets/images/guide/service_portal/company_group_3_1_3.png" alt="" style="width:800px;"></div>
+													<figcaption></figcaption>
+												</figure>
+											</li>
+											<li>
+												Changing the name of a Company Group is completed.
+											</li>
+										</ol>
+									</div>
+								</section>
+								<section class="chapter">
+									<h4 id="guide-category03-chapter01-sub03-sub02" class="chapter-title">1.3.2 Adding / Removing a Company in Company Group</h4>
+									<div class="chapter-contents">
+										<ol class="list-description">
+											<li>
+												On the Company Group list, select a Company Group you want to add / remove.
+											</li>
+											<li>
+												On the Company Group Details pane, a list of companies which are either already added or available to be added is shown.
+											</li>
+											<li>
+												Deselect a checkbox of already added company (Remove) or select a checkbox of a company you want to add (Add).
+
+												<figure>
+													<div class="screenshot"><img src="assets/images/guide/service_portal/company_group_3_2_1.png" alt="" style="width:800px;"></div>
+													<figcaption></figcaption>
+												</figure>
+											</li>
+											<li>
+												Click the [Save Changes] button.
+
+												<figure>
+													<div class="screenshot"><img src="assets/images/guide/service_portal/company_group_3_2_2.png" alt="" style="width:800px;"></div>
+													<figcaption></figcaption>
+												</figure>
+											</li>
+											<li>
+												Adding / Removing a company in Company Group is completed.
+											</li>
+										</ol>
+									</div>
+								</section>
+							</div>
+						</section>
+						<section class="chapter">
+							<h4 id="guide-category03-chapter01-sub04" class="chapter-title">1.4 Deleting a Company Group</h4>
+							<p class="category-description">You can delete added Company Group.</p>
+							<div class="chapter-contents">
+								<ol class="list-description">
+									<li>
+										On the Company Group list, click a Company Group you want to delete.
+									</li>
+									<li>
+										Click the [X] button.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/company_group_4_1.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										A pop-up to confirm deletion of the group appears.<br>
+										Click the [OK] button of the pop-up.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/company_group_4_2.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										Deleting a Company Group is completed. 
+									</li>
+								</ol>
+							</div>
+						</section>
+					</div>
+				</section>
+				<section class="chapter">
+					<h3 id="guide-category03-chapter02" class="chapter-title">2. Service Permission Group</h3>
+					<span class="location">Service Portal - Permission - <em>Service</em></span>
+					<p class="category-description">You can group services and permission of editing menus in services.<br>
+					You can link a Service Permission Group to a User Group so that you can easily set menus which users in User Group can see, and permission of editing each menu. </p>
+					<div class="chapter-contents">
+						<section class="chapter">
+							<h4 id="guide-category03-chapter02-sub01" class="chapter-title">2.1 View Service Permission Group Information</h4>
+							<p class="category-description">You can check information about Service Permission Group already added.</p>
+							<div class="chapter-contents">
+								<ol class="list-description">
+									<li>
+										On the Service Permission Group list, click a Company Group you want to check information for.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_1_1.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										On the Service Permission Group Details pane, services included in the selected Service Permission Group is shown.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_1_2.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										Click the [+] button of each service to check available menus and permission of each menu.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_1_3.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+								</ol>
+							</div>
+						</section>
+						<section class="chapter">
+							<h4 id="guide-category03-chapter02-sub02" class="chapter-title">2.2 Creating a Service Permission Group</h4>
+							<p class="category-description">You can create a new Service Permission Group and set permission of each service / menu.</p>
+							<div class="chapter-contents">
+								<ol class="list-description">
+									<li>
+										Click the [Add New Service Permission Group] button.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_2_1.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										The “Create a New Service Permission Group” pop-up appears.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_2_2.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										On the “Create a New Service Permission Group” pop-up, enter the name of new Service Permission Group and click the [OK] button.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_2_3.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										The Service Permission Group list shows that a new Service Permission Group has been added.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_2_4.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										On the Service Permission Group Details pane, a list of available services is shown. <br>
+										The list shows services you have subscribed to. <br>
+										By clicking the [+] button next to the service name, you can set detailed permission of each menu in the service. <br>
+										Select a checkbox to set permission of each menu.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_2_5.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										Click the [Save Changes] button
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_2_6.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										Adding a new Service Permission Group is completed.
+									</li>
+								</ol>
+							</div>
+						</section>
+						<section class="chapter">
+							<h4 id="guide-category03-chapter02-sub03" class="chapter-title">2.3 Editing a Service Permission Group</h4>
+							<p class="category-description">You can change the name of a Service Permission Group already added and modify permission of each service.</p>
+							<div class="chapter-contents">
+								<section class="chapter">
+									<h4 id="guide-category03-chapter02-sub03-sub01" class="chapter-title">2.3.1 Renaming a Service Permission Group</h4>
+									<div class="chapter-contents">
+										<ol class="list-description">
+											<li>
+												On the Service Permission Group list, select a Service Permission Group you want to change the name of.
+											</li>
+											<li>
+												On the Service Permission Group Details pane, information about the selected Service Permission Group is shown.
+											</li>
+											<li>
+												Click the [{Pencil}] button next to the name of a Service Permission Group.
+
+												<figure>
+													<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_3_1_1.png" alt="" style="width:800px;"></div>
+													<figcaption></figcaption>
+												</figure>
+											</li>
+											<li>
+												The name of a Service Permission Group becomes editable. <br>
+												Change the name of a Service Permission Group.
+
+												<figure>
+													<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_3_1_2.png" alt="" style="width:800px;"></div>
+													<figcaption></figcaption>
+												</figure>
+											</li>
+											<li>
+												After changing the name, click the [OK] button.
+
+												<figure>
+													<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_3_1_3.png" alt="" style="width:800px;"></div>
+													<figcaption></figcaption>
+												</figure>
+											</li>
+											<li>
+												Changing the name of a Service Permission Group is completed.
+											</li>
+										</ol>
+									</div>
+								</section>
+								<section class="chapter">
+									<h4 id="guide-category03-chapter02-sub03-sub02" class="chapter-title">2.3.2 Modifying Permission of a Service Permission Group</h4>
+									<div class="chapter-contents">
+										<ol class="list-description">
+											<li>
+												On the Service Permission Group list, select a Service Permission Group you want to modify permission.
+											</li>
+											<li>
+												On the Service Permission Group Details pane, you can see a list of available services and permission of menus in the service. 
+											</li>
+											<li>
+												You can deselect a checkbox of the menu in service (Remove Permission) or modify the permission of each menu (Modify Permission).
+
+												<figure>
+													<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_3_2_1.png" alt="" style="width:800px;"></div>
+													<figcaption></figcaption>
+												</figure>
+											</li>
+											<li>
+												Click the [Save Changes] button.
+
+												<figure>
+													<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_3_2_2.png" alt="" style="width:800px;"></div>
+													<figcaption></figcaption>
+												</figure>
+											</li>
+											<li>
+												Modifying permission of a Service Permission Group is completed. 
+											</li>
+										</ol>
+									</div>
+								</section>
+							</div>
+						</section>
+						<section class="chapter">
+							<h4 id="guide-category03-chapter02-sub04" class="chapter-title">2.4 Deleting a Service Group</h4>
+							<p class="category-description">You can delete added Service Permission Group.</p>
+							<div class="chapter-contents">
+								<ol class="list-description">
+									<li>
+										On the Service Permission Group list, select a Service Permission Group you want to delete.
+									</li>
+									<li>
+										Click the [X] button.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_4_1.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										A pop-up to confirm deletion of the group appears.<br>
+										Click the [OK] button of the pop-up.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_4_2.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										Deleting a Service Permission Group is completed.
+									</li>
+								</ol>
+							</div>
+						</section>
+					</div>
+				</section>
+				<section class="chapter">
+					<h3 id="guide-category03-chapter03" class="chapter-title">3. Cloud Group</h3>
+					<span class="location">Service Portal - Permission - <em>Cloud</em></span>
+					<p class="category-description">You can make a group for permission to edit Accounts (Subscriptions) of Public Cloud Service and Cloud Services in use. <br>
+					You can link a Cloud Group to a User Group so that you can set Public Cloud Service which users in User Group can see, and access permission of Accounts (Subscriptions). </p>
+					<div class="chapter-contents">
+						<section class="chapter">
+							<h4 id="guide-category03-chapter03-sub01" class="chapter-title">3.1 View Cloud Group Information</h4>
+							<p class="category-description">　You can check information about Cloud Group already added.</p>
+							<div class="chapter-contents">
+								<ol class="list-description">
+									<li>
+										On the Cloud Group list, click a Cloud Group you want to check information for.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_group_1_1.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										On the Cloud Group Details pane, Public Cloud Services which belong to the selected Cloud Group is shown. 
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_group_1_2.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										Click the [+] button of each Public Cloud Service, and Accounts (Subscriptions) which can be checked in a Cloud Group is shown. 
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_group_1_3.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+								</ol>
+							</div>
+						</section>
+						<section class="chapter">
+							<h4 id="guide-category03-chapter03-sub02" class="chapter-title">3.2 Creating a Cloud Group</h4>
+							<p class="category-description">You can create a Cloud Group and set available Public Cloud Service and Account (Subscription) which is usable in a Cloud Group.</p>
+							<div class="chapter-contents">
+								<ol class="list-description">
+									<li>
+										Click the [Add Cloud Group] button.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_group_2_1.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										The “Create a New Cloud Group” pop-up appears.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_group_2_2.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										On the “Create a New Cloud Group” pop-up, enter the name of a new Cloud Group and click the [OK] button.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_group_2_3.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										The Cloud Group list shows that a new Cloud Group has been added.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_group_2_4.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										On the Cloud Group Details pane, a list of available Public Cloud Services and Accounts (Subscriptions) is shown. <br>
+										Account information registered on the Service Portal > Cloud Account menu is shown. <br>
+										By selecting a checkbox of Public Cloud Service, you can select which service is available to be used and which is not. <br>
+										Also by selecting a checkbox of Account (Subscription) in the service, you can select which account is available and which is not.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_group_2_5.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										Click the [Save Changes] button.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_group_2_6.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										Adding a new Cloud Group is completed.
+									</li>
+								</ol>
+							</div>
+						</section>
+						<section class="chapter">
+							<h4 id="guide-category03-chapter03-sub03" class="chapter-title">3.3 Editing a Cloud Group</h4>
+							<div class="chapter-contents">
+								<section class="chapter">
+									<h4 id="guide-category03-chapter03-sub03-sub01" class="chapter-title">3.3.1 Renaming a Cloud Group</h4>
+									<div class="chapter-contents">
+										<ol class="list-description">
+											<li>
+												On the Cloud Group list, select a Cloud Group you want to change the name of.
+											</li>
+											<li>
+												On the Cloud Group Details pane, information about the selected Cloud Group is shown.
+											</li>
+											<li>
+												Click the [Edit] button next to the name of a Cloud Group.
+
+												<figure>
+													<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_group_3_1_1.png" alt="" style="width:800px;"></div>
+													<figcaption></figcaption>
+												</figure>
+											</li>
+											<li>
+												The name of a Cloud Group becomes editable. <br>
+												Change the name of a Cloud Group.
+
+												<figure>
+													<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_group_3_1_2.png" alt="" style="width:800px;"></div>
+													<figcaption></figcaption>
+												</figure>
+											</li>
+											<li>
+												After changing the name, click the [OK] button.
+
+												<figure>
+													<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_group_3_1_3.png" alt="" style="width:800px;"></div>
+													<figcaption></figcaption>
+												</figure>
+											</li>
+											<li>
+												Changing the name of a Cloud Group is completed.
+											</li>
+										</ol>
+									</div>
+								</section>
+								<section class="chapter">
+									<h4 id="guide-category03-chapter03-sub03-sub02" class="chapter-title">3.3.2 Modifying Permission of a Cloud Group</h4>
+									<div class="chapter-contents">
+										<ol class="list-description">
+											<li>
+												On the Cloud Group list, select a Cloud Group you want to modify permission.
+											</li>
+											<li>
+												On the Cloud Group Details pane, a list of Public Cloud Services available for the selected Cloud Group and Account (Subscription) information which can be checked are shown.
+											</li>
+											<li>
+												You can deselect Public Cloud Service and Account (Subscription) checkbox (Remove Permission) or select Public Cloud Service and Account (Subscription) checkbox (Modify Permission).
+
+												<figure>
+													<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_3_2_1.png" alt="" style="width:800px;"></div>
+													<figcaption></figcaption>
+												</figure>
+											</li>
+											<li>
+												Click the [Save Changes] button.
+
+												<figure>
+													<div class="screenshot"><img src="assets/images/guide/service_portal/bsp_group_3_2_2.png" alt="" style="width:800px;"></div>
+													<figcaption></figcaption>
+												</figure>
+											</li>
+											<li>
+												Modifying permission of a Service Permission Group is completed.
+											</li>
+										</ol>
+									</div>
+								</section>
+							</div>
+						</section>
+						<section class="chapter">
+							<h4 id="guide-category03-chapter03-sub04" class="chapter-title">3.4 Deleting a Cloud Group</h4>
+							<p class="category-description">You can delete added Cloud Group.</p>
+							<div class="chapter-contents">
+								<ol class="list-description">
+									<li>
+										On the Cloud Group list, select a Cloud Group you want to delete.
+									</li>
+									<li>
+										Click the [X] button.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_group_4_1.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										A pop-up to confirm deletion of the group appears.<br>
+										Click the [OK] button of the pop-up.
+
+										<figure>
+											<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_group_4_2.png" alt="" style="width:800px;"></div>
+											<figcaption></figcaption>
+										</figure>
+									</li>
+									<li>
+										Deleting a Cloud Group is completed.
+									</li>
+								</ol>
+							</div>
+						</section>
+					</div>
+				</section>
+				<!--권한 관리 끝-->
+			</div>
+
+	
+		</div>
+	</main>
+
+	<!-- 하단 영역 -->
+	<footer class="layout-footer">
+		<div class="contents-inner">
+
+			<div class="service">
+				<h2 class="title">SERVICE PLATFORM</h2>
+
+				<ul class="list-shortcut">
+					<li><a href="#">ASSET MANAGEMENT</a></li>
+					<li><a href="#">METERING</a></li>
+					<li><a href="#">MONITORING DASHBOARD</a></li>
+					<li><a href="#">PROJECT + SERVICE REQUEST</a></li>
+					<li><a href="#">APPROVAL</a></li>
+					<li><a href="#">DevOps</a></li>
+				</ul>
+
+				<div id="language" class="custom-select-container">
+					<button type="button" class="btn-custom-select">한국어</button>
+					<div class="list-container">
+						<ul class="list-custom-select">
+							<li><button type="button">ENGLISH</button></li>
+							<li class="is-selected"><button type="button">한국어</button></li>
+							<li><button type="button">简体中文</button></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+	/* Footer */
+	var Footer = (function ($) {
+		var scope,
+			$container,
+			$popupSupport,
+			selectLanguage,
+			$user,
+			init = function() {
+				$container = $('.layout-footer');
+
+				$popupSupport = $container.find('[data-trigger=popup-support]');
+				selectLanguage = new BSPSelectBox($('#language'));
+
+				initLayout();
+				initEvent();
+			};
+
+		function initLayout() {
+
+		}
+
+		function initEvent() {
+			$popupSupport.magnificPopup();
+
+			$(document).click(function (e) {
+				if( !$(event.target).closest("#language").length ) {
+					selectLanguage.hide();
+				}
+			});
+		}
+
+		return {
+			init: function() {
+				init();
+			}
+		};
+	}(jQuery));
+
+	$(document).ready(function(e) {
+		Footer.init();
+	});
+	</script>
+
+
+	<!-- 팝업 모음 -->
+
+
+</div>	<!-- class="layout-wrap" -->
+</body>
+</html>

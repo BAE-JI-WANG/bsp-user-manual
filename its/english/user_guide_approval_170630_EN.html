@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>USER GUIDE</title> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="assets/styles/bsp_its_guide.css">
+	<script src="assets/scripts/libs/jquery-2.2.3.min.js"></script>
+	<!--[if lt IE 9]>
+		<script src="/assets/scripts/libs/html5shiv.min.js"></script>
+	<![endif]-->
+	<script>
+		$.fn.extend({
+			toggleAttr: function(attr, value) {
+				return this.each(function () {
+					if( !$(this).is("[" + attr + "]") ) {
+						$(this).attr(attr, value);
+					} else {
+						$(this).removeAttr(attr);
+					}
+				});
+			}
+		});
+
+		/* Golbal Menu - BSPSelectBox */
+		function BSPSelectBox($container) {
+			this.$container = $container;
+			this.$btnSelect;
+			this.$listContainer;
+			this.$listItems;
+
+			this.init();
+		}
+
+		BSPSelectBox.prototype.init = function() {
+			var _ = this;
+
+			_.$btnSelect = _.$container.find('.btn-custom-select');
+			_.$listContainer = _.$container.find('.list-container');
+			_.$listItems = _.$listContainer.find('button');
+
+			_.initEvent();
+		}
+
+		BSPSelectBox.prototype.initEvent = function() {
+			var _ = this;
+
+			_.$btnSelect.off('click').on('click', function(e) {
+				$(this).toggleClass("is-selected");
+			});
+
+			_.$listItems.off('click').on('click', function(e) {
+				_.select($(this));
+			});
+		}
+
+		BSPSelectBox.prototype.hide = function() {
+			var _ = this;
+
+			_.$btnSelect.removeClass("is-selected")
+		}
+
+		BSPSelectBox.prototype.select = function($item) {
+			var _ = this;
+
+			_.$listItems.closest('li').removeClass('is-selected');
+			$item.closest('li').addClass('is-selected');
+
+			_.$btnSelect.html($item.html());
+			_.hide();
+		}
+
+		$(window.document).ready(function(e) {
+			var $toggleTriggers = $('[data-trigger=toggle]');
+			$toggleTriggers.each(function(e) {
+				var state = $(this).attr('data-state');
+				var target = $(this).val();
+
+				if( state == "shut" ) {
+					$(target).slideUp(0);
+
+					// 근처에 common-tab 존재(asset usage/performance, metering cost-optimization)
+					var $tab = $(this).closest('.service-asset .page-section, .page-cost-optimization .page-section').find('.common-tabs').attr('data-state', 'shut');
+				} else {
+					$(target).slideDown(0);
+				}
+			});
+
+			$toggleTriggers.on('click', function(e) {
+				var state = $(this).attr('data-state');
+				var target = $(this).val();
+				if( state == "shut" ) {
+					$(this).attr('data-state', '');
+
+					// 근처에 common-tab 존재(asset)
+					var $tab = $(this).closest('.service-asset .page-section, .page-cost-optimization .page-section').find('.common-tabs').attr('data-state', '');
+				} else {
+					$(this).attr('data-state', 'shut');
+
+					// 근처에 common-tab 존재(asset)
+					var $tab = $(this).closest('.service-asset .page-section, .page-cost-optimization .page-section').find('.common-tabs').attr('data-state', 'shut');
+				}
+
+				if( $(target).length ) {
+					if( $(target).get(0).tagName == "TR" ) {
+						$(target).toggle();
+					} else {
+						$(target).slideToggle();
+					}
+				}
+			});
+		})
+	</script>
+</head>
+
+
+<body class="service-its page-user-guide-detail" data-state="none">
+<div class="layout-wrap">
+
+	<header class="global-menu">
+		<div class="title">
+			<a href="user_guide.html" class="btn-user-guide">USER GUIDE</a>
+		</div>
+	</header>
+
+	<!-- 본문 영역 -->
+	<main role="main">
+		<div class="layout-contents layout-fixed">
+
+			<!-- 페이지 타이틀 -->
+			<div class="layout-page-title">
+
+				<nav id="toc-menu" class="navigation-toc">
+					<span>Approval</span>
+					<ul class="shortcut-toc">
+						<li class="active">
+							<a href="user_guide_approval.html" class="btn-section" data-state="approval">Approval</a>
+							<div class="section-sub">
+								<a href="#guide-category01" class="btn-toggle">Overview</a>
+								<ol class="toc">
+									<li><a href="#guide-category01-chapter01">Writing General Document</a>
+										<ol class="toc">
+											<li><a href="#guide-category01-chapter01-01">Setting Approver Group</a></li>
+										</ol>
+									</li>
+									<li><a href="#guide-category01-chapter02">Approval Process</a>
+										<ol class="toc">
+											<li><a href="#guide-category01-chapter02-01">My Document</a></li>
+											<li><a href="#guide-category01-chapter02-02">Document whose Approver or Consenter Is You</a></li>
+											<li><a href="#guide-category01-chapter02-03">Document for which You Are to Be Notified</a></li>
+										</ol>
+									</li>
+									<li><a href="#guide-category01-chapter03">Searching Approval History</a>
+									</li>
+								</ol>
+							</div>
+
+						</li>
+					</ul>
+					<script>
+					var TOCMenu = (function ($) {
+						var scope,
+							$container,
+							$anchorToggle,
+							$anchor,
+							init = function() {
+								$container = $('#toc-menu');
+								$anchorToggle = $container.find('.btn-toggle');
+								$anchor = $container.find('.toc a');
+
+								initLayout();
+								initEvent();
+							};
+
+						function initLayout() {
+						}
+
+						function initEvent() {
+							$container.find('.shortcut-toc').on('mousewheel', function (e) {
+								var event = e.originalEvent,
+									d = event.wheelDelta || -event.detail;
+
+								this.scrollTop += ( d < 0 ? 1 : -1 ) * 30;
+								e.preventDefault();
+							});
+
+							$container.find('a').on('click', function(e) {
+								var $this = $(this);
+								if( !$this.hasClass("btn-section") ) { e.preventDefault(); }
+
+								var $target = $( $this.attr("href") );
+
+								if( $this.hasClass("btn-toggle") ) {
+									$('html, body').animate({
+										scrollTop: $target.offset().top - 109
+									}, 0);
+								} else {
+									$('html, body').animate({
+										scrollTop: $target.offset().top - 109
+									}, 500);
+								}
+							});
+
+							onResize();
+							onScroll();
+
+							$(document).on('scroll', function(e) {
+								onScroll();
+							});
+							$(window).on('resize', function(e) {
+								onResize();
+							});
+						}
+
+						function updatePosition() {
+							var marginLeft;
+							var left;
+							var top = $container.position().top;
+							if( $(window).width() < 1660 ) {
+								marginLeft = 0;
+								left = $('.layout-fixed > .layout-page-title').offset().left;
+								left = left - $(document).scrollLeft();
+								$container.css({
+									"marginLeft": marginLeft,
+									"top": top,
+									"left": left + "px",
+									"opacity": 1
+								});
+							} else {
+								marginLeft = -1200/2;
+								$container.css({
+									"marginLeft": marginLeft,
+									"top": top,
+									"left": "50%",
+									"opacity": 1
+								});
+							}
+						}
+
+						function onResize() {
+							updatePosition();
+						}
+
+						function onScroll(e) {
+							updatePosition(e);
+
+							var scrollPos = $(document).scrollTop() + 110;
+
+							var $lastToggleTarget = null;
+							$anchorToggle.each(function() {
+								var $this = $(this);
+								var $target = $( $this.attr("href") );
+								if( $target.offset().top <= scrollPos ) {
+									if( $lastToggleTarget != null ) {
+										$lastToggleTarget.removeClass("active");
+									}
+									$this.addClass("active");
+									$lastToggleTarget = $this;
+								} else {
+									$this.removeClass("active");
+								}
+							});
+
+							var targets = [];
+							$anchor.each(function() {
+								var $this = $(this);
+								var $target = $( $this.attr("href") );
+
+								if( $target.offset().top <= scrollPos ) {
+									targets.push($(this));
+								} else {
+									$this.parents(".toc li").removeClass("active");
+								}
+							}).promise().done(function() {
+								activate(targets);
+							});
+						}
+
+						function activate(targets) {
+							if( targets.length < 1 ) return;
+							for( var i = 0;  i < targets.length; i++ ) {
+								targets[i].parents(".toc li").removeClass("active");
+							}
+							targets[targets.length-1].parents(".toc li").addClass("active");
+						}
+
+						return {
+							init: function() {
+								init();
+							}
+						};
+					}(jQuery));
+
+
+					$(window.document).ready(function () {
+						TOCMenu.init();
+					});
+					</script>
+
+				</nav>
+
+			</div>
+
+
+			<div class="layout-contents-inner">
+
+				<!-- 서비스 시작 -->
+				<div class="layout-page-title" data-state="approval">
+					<h1>Approval</h1>
+					<p class="layout-page-title-description">각Provides features to deal with approvals required in various issues.<br>You can not only make a draft of a document but also make report to and conduct approval process. Also, you can check approval history and make an announcement related to an approval in the past.</p>
+				</div>
+
+				
+				<div id="guide-category01" class="category">
+					<h2 class="category-title">Managing Approval and Approval History</h2>
+					<p class="category-description">Following is how to manage approval and approval history with Approval Service.</p>
+				</div>
+					<section class="chapter">
+						<h2 id="guide-category01-chapter01" class="chapter-title">1. Writing General Document</h2>
+						<div class="chapter-contents">
+							<span class="location">Approval - <em>Report List</em></span>
+							<p class="category-description">Following is how to write a new document, such as memorandum for expense account or request for day-off, on any issue which requires an approval.</p>
+							<ol class="list-description">
+								<li>
+									 Click the [Create Approval] button to write a new document for an approval.
+									<figure>
+										<div class="screenshot"><img src="assets/images/guide/approval/approval_1_1.png" alt="" style="width:800px;"></div>
+										<figcaption></figcaption>
+									</figure>
+								</li>
+								<li>
+									 On the drop-down menu for 'Type', select ‘General’. (General is the default value).
+									<figure>
+										<div class="screenshot"><img src="assets/images/guide/approval/approval_1_2.png" alt="" style="width:800px;"></div>
+										<figcaption>
+											<table style="margin-top:20px; width:800px;">
+												<tbody>
+													<tr style="border-bottom: 1px solid #ddd; background-color: #000; color:white;">
+														<th style="padding: 15px;">Type</th>
+														<th style="padding: 15px;">Description</th>
+													</tr>
+													<tr style="border-bottom: 1px solid #ddd;">
+														<td style="padding: 15px;">General</td>
+														<td style="padding: 15px;">Means an approval document for a general issue.</td>
+													</tr>
+													<tr style="border-bottom: 1px solid #ddd;">
+														<td style="padding: 15px;">Work</td>
+														<td style="padding: 15px;">Means an acknowledgement for Release plan.</td>
+													</tr>
+												</tbody>
+											</table>
+										</figcaption>
+									</figure>
+								</li>
+								<li>
+									 Enter the details required for an approval.
+									<figure>
+										<div class="screenshot"><img src="assets/images/guide/approval/approval_1_3.png" alt="" style="width:800px;"></div>
+										<figcaption>
+											<table style="margin-top:20px; width:800px;">
+														<tbody>
+															<tr style="border-bottom: 1px solid #ddd; background-color: #000; color:white;">
+																<th style="padding: 15px;">No</th>
+																<th style="padding: 15px;">Name</th>
+																<th style="padding: 15px;">Required</th>
+																<th style="padding: 15px;">Description</th>
+															</tr>
+															<tr style="border-bottom: 1px solid #ddd;">
+																<td style="padding: 15px;">①</td>
+																<td style="padding: 15px;">	Type</td>
+																<td style="padding: 15px;">Required</td>
+																<td style="padding: 15px;">Select the type of a document.<br>You can select either General or Work.</td>
+															</tr>
+															<tr style="border-bottom: 1px solid #ddd;">
+																<td style="padding: 15px;">②</td>
+																<td style="padding: 15px;">Title</td>
+																<td style="padding: 15px;">Required</td>
+																<td style="padding: 15px;">Enter the title of a document.</td>
+															</tr>
+															<tr style="border-bottom: 1px solid #ddd;">
+																<td style="padding: 15px;">③</td>
+																<td style="padding: 15px;">Approver</td>
+																<td style="padding: 15px;">	Required	</td>
+																<td style="padding: 15px;">You can set the Approver Group. </td>
+															</tr>
+															<tr style="border-bottom: 1px solid #ddd;">
+																<td style="padding: 15px;">④</td>
+																<td style="padding: 15px;">Description</td>
+																<td style="padding: 15px;">.</td>
+																<td style="padding: 15px;">You can write the text of an document required for an approval.</td>
+															</tr>
+															<tr style="border-bottom: 1px solid #ddd;">
+																<td style="padding: 15px;">⑤</td>
+																<td style="padding: 15px;">Attaching File</td>
+																<td style="padding: 15px;">.</td>
+																<td style="padding: 15px;">You can select attachments.<br>If you click the [Attaching File] button, the file explorer is shown as the pop-up. Then you can select a file to be attached.</td>
+															</tr>
+															<tr style="border-bottom: 1px solid #ddd;">
+																<td style="padding: 15px;">⑥</td>
+																<td style="padding: 15px;">Submission Schedule</td>
+																<td style="padding: 15px;">.</td>
+																<td style="padding: 15px;">You can set a deadline of document submission.<br>Click the [Configuration] checkbox to set a deadline in year/month/day/hour/minute.</td>
+															</tr>
+														</tbody>
+													</table>
+										</figcaption>
+									</figure>
+								</li>
+								<li>
+									 Click the [Submit] button to submit a document. As the document has been submitted, members of the Approver Group are to receive a notification for a new approval document via e-mail.
+									<figure>
+										<div class="screenshot"><img src="assets/images/guide/approval/approval_1_8.png" alt="" style="width:800px;"></div>
+										<figcaption></figcaption>
+									</figure>
+								</li>
+							</ol>
+							<section class="chapter">
+								<h3 id="guide-category01-chapter01-01" class="chapter-title">1.1 Setting Approver Group</h3>
+								<div class="chapter-contents">
+									<p class="chapter-title-description">You can set the Approver Group by designating the Approver, Consenter, Post-Approver and person to be notified.</p>
+
+									<ol class="list-description">
+										<li>
+											 Click the [Search] button of ‘Approver’.
+											<figure>
+										<div class="screenshot"><img src="assets/images/guide/approval/approval_1_4.png" alt="" style="width:800px;"></div>
+												<figcaption></figcaption>
+											</figure>
+										</li>
+										<li>
+											On ‘Member’ of the “Search Approver” pop-up, select a member who is to be included in the Approver Group and click the [Selected Add] button. The ‘Selected Member List’ shows who are added to the Approver Group.
+											<figure>
+										<div class="screenshot"><img src="assets/images/guide/approval/approval_1_5.png" alt="" style="width:800px;"></div>
+												<figcaption></figcaption>
+											</figure>
+										</li>
+										<li>
+											 Click the [Save] button.
+											<figure>
+											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_6.png" alt="" style="width:800px;"></div>
+												<figcaption></figcaption>
+											</figure>
+										</li>
+										<li>
+											 Assign a role for each member added to the group. After selecting the member, select one of the following to assign a role: Approval, Consent, Post-Approval or Notification.
+											<figure>
+											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_7.png" alt="" style="width:800px;"></div>
+												<figcaption>
+													<table style="margin-top:20px; width:800px;">
+														<tbody>
+															<tr style="border-bottom: 1px solid #ddd; background-color: #000; color:white;">
+																<th style="padding: 15px;">Role</th>
+																<th style="padding: 15px;">Description</th>
+															</tr>
+															<tr style="border-bottom: 1px solid #ddd;">
+																<td style="padding: 15px;">Approval</td>
+																<td style="padding: 15px;">Means the Approver of an approval document.<br>The next approval may not proceed without an approval of the Approver.</td>
+															</tr>
+															<tr style="border-bottom: 1px solid #ddd;">
+																<td style="padding: 15px;">Consent</td>
+																<td style="padding: 15px;">Means the Consenter of an approval document.<br>The next approval may not proceed without an approval of the Consenter.</td>
+															</tr>
+															<tr style="border-bottom: 1px solid #ddd;">
+																<td style="padding: 15px;">Post-Approval</td>
+																<td style="padding: 15px;">Means the Post-Approver of an approval document.<br>The next approval may proceed without an approval of the Post-Approver.<br>The Post-Approver can approve the document, but cannot reject it.</td>
+															</tr>
+															<tr style="border-bottom: 1px solid #ddd;">
+																<td style="padding: 15px;">Notification</td>
+																<td style="padding: 15px;">Means the person to be notified of an approval document.<br>The person has no right to approve or reject a document, but just may refer to it.</td>
+															</tr>
+														</tbody>
+													</table>
+												</figcaption>
+											</figure>
+										</li>
+										<li>
+											 Among members added to the list, set an order in which approvals are to be made. Click the [Up] and [Down] button to change the order.
+											<figure>
+											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_9.png" alt="" style="width:800px;"></div>
+												<figcaption></figcaption>
+											</figure>
+										</li>
+									</ol>
+								</div>
+							</section>
+						</div>
+					</section>
+
+					<section class="chapter">
+						<h2 id="guide-category01-chapter02" class="chapter-title">2. Approval Process</h2>
+						<p class="chapter-title-description">Following is how to check the submitted approval documents and how to approve/reject them.</p>
+						<div class="chapter-contents">
+							<section class="chapter">
+								<h3 id="guide-category01-chapter02-01" class="chapter-title">2.1 My Document</h3>
+								<div class="chapter-contents">
+									<span class="location">Approval - <em>Report List</em></span>
+									<ol class="list-description">
+										<li>
+											Click the “Report List” menu to check the submitted documents. The Report List menu shows documents which you have written and whose approval process is in progress..
+											<figure>
+											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_15.png" alt="" style="width:800px;"></div>
+												<figcaption></figcaption>
+											</figure>
+										</li>
+										<li>
+											 Click the document on the Report List menu to check its details. Also, you can check its approval status.
+											<figure>
+											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_14_170522.png" alt="" style="width:800px;"></div>
+												<figcaption></figcaption>
+											</figure>
+										</li>
+									</ol>
+								</div>
+							</section>
+							<section class="chapter">
+								<h3 id="guide-category01-chapter02-02" class="chapter-title">2.2 Document whose Approver or Consenter Is You</h3>
+								<div class="chapter-contents">
+									<span class="location">Approval - <em>Pending List</em></span>
+
+									<ol class="list-description">
+										<li>
+											Click the “Pending List” menu to check the submitted documents. The Pending List menu shows documents you are bound to approve or reject.
+											<figure>
+											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_10.png" alt="" style="width:800px;"></div>
+												<figcaption></figcaption>
+											</figure>
+										</li>
+										<li>
+											Click the document to check its details.
+
+											<figure>
+											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_11_170522.png" alt="" style="width:800px;"></div>
+												<figcaption></figcaption>
+											</figure>
+										</li>
+										<li>
+											Click the [Reject] or [Approval] button to reject or approve the document.
+
+											<figure>
+											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_12_170522.png" alt="" style="width:800px;"></div>
+												<figcaption></figcaption>
+											</figure>
+										</li>
+										<li>
+											 As you click the [Reject] or [Approval] button, the “Approval” or “Reject” pop-up appears respectively. You can write the reason for your approval/rejection. After writing the reason, click the [OK] button to complete it.
+
+											<figure>
+											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_13.png" alt="" style="width:800px;"></div>
+												<figcaption></figcaption>
+											</figure>
+										</li>
+										<li>
+											A document whose Approver Group has finished the process for either approval or rejection is shown on the “Approved List’. Click a document on the Approved List to check its approval history.
+
+											<figure>
+											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_14_170522.png" alt="" style="width:800px;"></div>
+												<figcaption></figcaption>
+											</figure>
+										</li>
+									</ol>
+								</div>
+							</section>
+
+							<section class="chapter">
+								<h3 id="guide-category01-chapter02-03" class="chapter-title">2.3 Document for which You Are to Be Notified</h3>
+								<div class="chapter-contents">
+									<span class="location">Approval - <em>Notified List</em></span>
+									<p class="chapter-title-description">If you are the person to be notified of a document, the document is to be indicated on the “Notified List” as it is fully approved.<br>Click the “Notified List” to check the approved document for which you are one of persons to be notified.</p>
+								</div>
+							</section>
+						</div>
+					</section>
+
+					<section class="chapter">
+						<h3 id="guide-category01-chapter03" class="chapter-title">3. Searching Approval History</h3>
+						<div class="chapter-contents">
+							<span class="location"><em>Approval</em></span>
+							<p class="chapter-title-description">You can search documents on each menu in accordance with their approval status.</p>
+							<ul>
+								<li>- Report List: These are documents you have written.</li>
+								<li>- Postponed List: These are documents you are currently writing.</li>
+								<li>- Pending List: These are documents for which you are the Approver or Consenter. Their approval process is in progress.</li>
+								<li>- Notified List: These are documents for which you are the person to be notified. Their approval process is completed.</li>
+								<li>- Approved List: These are documents you have approved or consented to.</li>
+							</ul>
+							<p class="chapter-title-description">How to search documents is identical on all menus.</p>
+									<ol class="list-description">
+										<li>
+											Select “Type” of the document you want to search for.
+											<figure>
+											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_17.png" alt="" style="width:800px;"></div>
+												<figcaption></figcaption>
+											</figure>
+										</li>
+										<li>
+											Enter a keyword for search.
+
+											<figure>
+											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_18.png" alt="" style="width:800px;"></div>
+												<figcaption></figcaption>
+											</figure>
+										</li>
+										<li>
+											Documents which are identical to the selected Type and keyword will be shown on the list. Texts identical to the keyword will be highlighted.
+
+											<figure>
+											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_18.png" alt="" style="width:800px;"></div>
+												<figcaption></figcaption>
+											</figure>
+										</li>
+									</ol>
+						</div>
+					</section>
+
+				
+
+			</div>
+
+	
+		</div>
+	</main>
+
+	<!-- 하단 영역 -->
+	<footer class="layout-footer">
+		<div class="contents-inner">
+
+			<div class="service">
+				<h2 class="title">SERVICE PLATFORM</h2>
+
+				<ul class="list-shortcut">
+					<li><a href="#">ASSET MANAGEMENT</a></li>
+					<li><a href="#">METERING</a></li>
+					<li><a href="#">MONITORING DASHBOARD</a></li>
+					<li><a href="#">PROJECT + SERVICE REQUEST</a></li>
+					<li><a href="#">APPROVAL</a></li>
+					<li><a href="#">DevOps</a></li>
+				</ul>
+
+				<div id="language" class="custom-select-container">
+					<button type="button" class="btn-custom-select">한국어</button>
+					<div class="list-container">
+						<ul class="list-custom-select">
+							<li><button type="button">ENGLISH</button></li>
+							<li class="is-selected"><button type="button">한국어</button></li>
+							<li><button type="button">简体中文</button></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+	/* Footer */
+	var Footer = (function ($) {
+		var scope,
+			$container,
+			$popupSupport,
+			selectLanguage,
+			$user,
+			init = function() {
+				$container = $('.layout-footer');
+
+				$popupSupport = $container.find('[data-trigger=popup-support]');
+				selectLanguage = new BSPSelectBox($('#language'));
+
+				initLayout();
+				initEvent();
+			};
+
+		function initLayout() {
+
+		}
+
+		function initEvent() {
+			$popupSupport.magnificPopup();
+
+			$(document).click(function (e) {
+				if( !$(event.target).closest("#language").length ) {
+					selectLanguage.hide();
+				}
+			});
+		}
+
+		return {
+			init: function() {
+				init();
+			}
+		};
+	}(jQuery));
+
+	$(document).ready(function(e) {
+		Footer.init();
+	});
+	</script>
+
+
+	<!-- 팝업 모음 -->
+
+
+</div>	<!-- class="layout-wrap" -->
+</body>
+</html>

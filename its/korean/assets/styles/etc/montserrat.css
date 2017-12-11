@@ -1,0 +1,29 @@
+/* 
+ * Montserrat
+ */
+ 
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'),
+  url(/assets/fonts/eot/montserrat-regular-webfont.eot),
+  url(/assets/fonts/eot/montserrat-regular-webfont.eot?#iefix) format('embedded-opentype'),
+  url(/assets/fonts/woff/montserrat-regular-webfont.woff2) format('woff2'),
+  url(/assets/fonts/woff/montserrat-regular-webfont.woff) format('woff'),
+  url(/assets/fonts/otf/montserrat-regular-webfont.otf) format('opentype'),
+  url(/assets/fonts/ttf/montserrat-regular-webfont.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'),
+  url(/assets/fonts/eot/montserrat-bold-webfont.eot),
+  url(/assets/fonts/eot/montserrat-bold-webfont.eot?#iefix) format('embedded-opentype'),
+  url(/assets/fonts/woff/montserrat-bold-webfont.woff2) format('woff2'),
+  url(/assets/fonts/woff/montserrat-bold-webfont.woff) format('woff'),
+  url(/assets/fonts/otf/montserrat-bold-webfont.otf) format('opentype'),
+  url(/assets/fonts/ttf/montserrat-bold-webfont.ttf) format('truetype');
+}

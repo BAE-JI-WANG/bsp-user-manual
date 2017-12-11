@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>USER GUIDE</title> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="assets/styles/bsp_its_guide.css">
+	<script src="assets/scripts/libs/jquery-2.2.3.min.js"></script>
+	<!--[if lt IE 9]>
+		<script src="/assets/scripts/libs/html5shiv.min.js"></script>
+	<![endif]-->
+	<script>
+		$.fn.extend({
+			toggleAttr: function(attr, value) {
+				return this.each(function () {
+					if( !$(this).is("[" + attr + "]") ) {
+						$(this).attr(attr, value);
+					} else {
+						$(this).removeAttr(attr);
+					}
+				});
+			}
+		});
+
+		/* Golbal Menu - BSPSelectBox */
+		function BSPSelectBox($container) {
+			this.$container = $container;
+			this.$btnSelect;
+			this.$listContainer;
+			this.$listItems;
+
+			this.init();
+		}
+
+		BSPSelectBox.prototype.init = function() {
+			var _ = this;
+
+			_.$btnSelect = _.$container.find('.btn-custom-select');
+			_.$listContainer = _.$container.find('.list-container');
+			_.$listItems = _.$listContainer.find('button');
+
+			_.initEvent();
+		}
+
+		BSPSelectBox.prototype.initEvent = function() {
+			var _ = this;
+
+			_.$btnSelect.off('click').on('click', function(e) {
+				$(this).toggleClass("is-selected");
+			});
+
+			_.$listItems.off('click').on('click', function(e) {
+				_.select($(this));
+			});
+		}
+
+		BSPSelectBox.prototype.hide = function() {
+			var _ = this;
+
+			_.$btnSelect.removeClass("is-selected")
+		}
+
+		BSPSelectBox.prototype.select = function($item) {
+			var _ = this;
+
+			_.$listItems.closest('li').removeClass('is-selected');
+			$item.closest('li').addClass('is-selected');
+
+			_.$btnSelect.html($item.html());
+			_.hide();
+		}
+
+		$(window.document).ready(function(e) {
+			var $toggleTriggers = $('[data-trigger=toggle]');
+			$toggleTriggers.each(function(e) {
+				var state = $(this).attr('data-state');
+				var target = $(this).val();
+
+				if( state == "shut" ) {
+					$(target).slideUp(0);
+
+					// 근처에 common-tab 존재(asset usage/performance, metering cost-optimization)
+					var $tab = $(this).closest('.service-asset .page-section, .page-cost-optimization .page-section').find('.common-tabs').attr('data-state', 'shut');
+				} else {
+					$(target).slideDown(0);
+				}
+			});
+
+			$toggleTriggers.on('click', function(e) {
+				var state = $(this).attr('data-state');
+				var target = $(this).val();
+				if( state == "shut" ) {
+					$(this).attr('data-state', '');
+
+					// 근처에 common-tab 존재(asset)
+					var $tab = $(this).closest('.service-asset .page-section, .page-cost-optimization .page-section').find('.common-tabs').attr('data-state', '');
+				} else {
+					$(this).attr('data-state', 'shut');
+
+					// 근처에 common-tab 존재(asset)
+					var $tab = $(this).closest('.service-asset .page-section, .page-cost-optimization .page-section').find('.common-tabs').attr('data-state', 'shut');
+				}
+
+				if( $(target).length ) {
+					if( $(target).get(0).tagName == "TR" ) {
+						$(target).toggle();
+					} else {
+						$(target).slideToggle();
+					}
+				}
+			});
+		})
+	</script>
+</head>
+
+
+<body class="service-its page-user-guide-detail">
+<div class="layout-wrap">
+
+	<header class="global-menu">
+		<div class="title">
+			<a href="user_guide.html" class="btn-user-guide">USER GUIDE</a>
+		</div>
+	</header>
+
+	<!-- 본문 영역 -->
+	<main role="main">
+		<div class="layout-contents layout-fixed">
+
+			<!-- 페이지 타이틀 -->
+			<div class="layout-page-title">
+
+				<nav id="toc-menu" class="navigation-toc">
+					<span>Service Portal</span>
+					<ul class="shortcut-toc">
+						<li>
+							<a href="user_guide_portal_dashboadrd.html" class="btn-section" data-state="portal">Dashboard</a>
+						</li>
+						<li>
+							<a href="user_guide_portal_usergroup.html" class="btn-section" data-state="portal">User Group</a>
+						</li>
+						<li>
+							<a href="user_guide_portal_permission.html" class="btn-section" data-state="portal">Permission</a>
+						</li>
+						<li class="active">
+							<a href="user_guide_portal_cloud.html" class="btn-section" data-state="portal">Cloud Account</a>
+							<div class="section-sub">
+								<a href="#guide-category04" class="btn-toggle">Overview</a>
+								<ol class="toc">
+									<li><a href="#guide-category04-chapter01">Required Input Items for Service of the Respective Vendor</a>
+										<ol class="toc">
+											<li><a href="#guide-category04-chapter01-sub01">AWS</a></li>
+											<li><a href="#guide-category04-chapter01-sub02">Azure</a></li>
+										</ol>
+									</li>
+									<li>
+										<a href="#guide-category04-chapter02">AWS Account Registration</a>
+									</li>
+								</ol>
+							</div>
+						</li>
+						<li>
+							<a href="user_guide_portal_service_group.html" class="btn-section" data-state="portal">Service Group</a>
+						</li>
+					</ul>
+					<script>
+					var TOCMenu = (function ($) {
+						var scope,
+							$container,
+							$anchorToggle,
+							$anchor,
+							init = function() {
+								$container = $('#toc-menu');
+								$anchorToggle = $container.find('.btn-toggle');
+								$anchor = $container.find('.toc a');
+
+								initLayout();
+								initEvent();
+							};
+
+						function initLayout() {
+						}
+
+						function initEvent() {
+							$container.find('.shortcut-toc').on('mousewheel', function (e) {
+								var event = e.originalEvent,
+									d = event.wheelDelta || -event.detail;
+
+								this.scrollTop += ( d < 0 ? 1 : -1 ) * 30;
+								e.preventDefault();
+							});
+
+							$container.find('a').on('click', function(e) {
+								var $this = $(this);
+								if( !$this.hasClass("btn-section") ) { e.preventDefault(); }
+
+								var $target = $( $this.attr("href") );
+
+								if( $this.hasClass("btn-toggle") ) {
+									$('html, body').animate({
+										scrollTop: $target.offset().top - 109
+									}, 0);
+								} else {
+									$('html, body').animate({
+										scrollTop: $target.offset().top - 109
+									}, 500);
+								}
+							});
+
+							onResize();
+							onScroll();
+
+							$(document).on('scroll', function(e) {
+								onScroll();
+							});
+							$(window).on('resize', function(e) {
+								onResize();
+							});
+						}
+
+						function updatePosition() {
+							var marginLeft;
+							var left;
+							var top = $container.position().top;
+							if( $(window).width() < 1660 ) {
+								marginLeft = 0;
+								left = $('.layout-fixed > .layout-page-title').offset().left;
+								left = left - $(document).scrollLeft();
+								$container.css({
+									"marginLeft": marginLeft,
+									"top": top,
+									"left": left + "px",
+									"opacity": 1
+								});
+							} else {
+								marginLeft = -1200/2;
+								$container.css({
+									"marginLeft": marginLeft,
+									"top": top,
+									"left": "50%",
+									"opacity": 1
+								});
+							}
+						}
+
+						function onResize() {
+							updatePosition();
+						}
+
+						function onScroll(e) {
+							updatePosition(e);
+
+							var scrollPos = $(document).scrollTop() + 110;
+
+							var $lastToggleTarget = null;
+							$anchorToggle.each(function() {
+								var $this = $(this);
+								var $target = $( $this.attr("href") );
+								if( $target.offset().top <= scrollPos ) {
+									if( $lastToggleTarget != null ) {
+										$lastToggleTarget.removeClass("active");
+									}
+									$this.addClass("active");
+									$lastToggleTarget = $this;
+								} else {
+									$this.removeClass("active");
+								}
+							});
+
+							var targets = [];
+							$anchor.each(function() {
+								var $this = $(this);
+								var $target = $( $this.attr("href") );
+
+								if( $target.offset().top <= scrollPos ) {
+									targets.push($(this));
+								} else {
+									$this.parents(".toc li").removeClass("active");
+								}
+							}).promise().done(function() {
+								activate(targets);
+							});
+						}
+
+						function activate(targets) {
+							if( targets.length < 1 ) return;
+							for( var i = 0;  i < targets.length; i++ ) {
+								targets[i].parents(".toc li").removeClass("active");
+							}
+							targets[targets.length-1].parents(".toc li").addClass("active");
+						}
+
+						return {
+							init: function() {
+								init();
+							}
+						};
+					}(jQuery));
+
+
+					$(window.document).ready(function () {
+						TOCMenu.init();
+					});
+					</script>
+
+				</nav>
+
+			</div>
+
+
+			<div class="layout-contents-inner">
+
+				<!-- 서비스 시작 -->
+				<div class="layout-page-title" data-state="portal">
+					<h1>Service Portal</h1>
+					<p class="layout-page-title-description">You can manage the summary of services in use; permission of members; Cloud Account; and Service Group.</p>
+				</div>
+
+				<!--Cloud Account 관리 시작-->
+				<div id="guide-category04" class="category">
+					<h2 class="category-title">Cloud Account</h2>
+					<span class="location">Service Portal - <em>Cloud Account</em></span>
+					<p class="category-description">With account sync of Cloud Service, you can check status and cost of resource being used in Cloud service. <br>
+					On the “Cloud Account Management” menu, you can register account of Cloud service in use.  <br>
+					To use Asset Management and Metering service, registration of Cloud Account is required.  <br>
+					Regarding required input items for each service, please refer to ‘Input Items per Vendor’.<br></p>
+					<p class="category-description"><b>After adding a new account, it could take some time to load data. Meanwhile, data might not be loaded from Asset Management / Metering.</b></p>
+				</div>
+				<section class="chapter">
+					<h3 id="guide-category04-chapter01" class="chapter-title">1. Required Input Items per Vendor for Service Usage</h3>
+					<div class="chapter-contents">
+						<section class="chapter">
+							<h4 id="guide-category04-chapter01-sub01" class="chapter-title">1.1 Amazon Web Service</h4>
+							<div class="chapter-contents">
+								<table style="margin-top:20px; text-align:center;">
+									<tbody>
+									<tr style="border-bottom: 1px solid #ddd; background-color: #000; color:white;">
+										<th style="padding: 15px;"></th>
+										<th style="padding: 15px; width:300px;">Asset Management</th>
+										<th style="padding: 15px; width:300px;">Metering</th>
+									</tr>
+									<tr style="border-bottom: 1px solid #ddd;">
+										<td style="width:170px; padding: 15px;"><b>Account Name</b></td>
+										<td style="padding: 15px;">Required</td>
+										<td style="padding: 15px;">Required</td>
+									</tr>
+									<tr style="border-bottom: 1px solid #ddd;">
+										<td style="width:170px; padding: 15px;"><b>Access Key</b></td>
+										<td style="padding: 15px;">Required</td>
+										<td style="padding: 15px;">-</td>
+									</tr>
+									<tr style="border-bottom: 1px solid #ddd;">
+										<td style="width:170px; padding: 15px;"><b>Secret Key</b></td>
+										<td style="padding: 15px;">Required</td>
+										<td style="padding: 15px;">-</td>
+									</tr>
+									<tr style="border-bottom: 1px solid #ddd;">
+										<td style="width:170px; padding:15px;"><b>Linked Account or Non-linked Account</b></td>
+										<td colspan="2" style="padding: 15px;">Required; select either Linked Account or Non-linked Account </td>
+									</tr>
+									<tr style="border-bottom: 1px solid #ddd;">
+										<td style="width:170px; padding: 15px;"><b>S3 Bucket Name</b></td>
+										<td colspan="2" style="padding: 15px;">Required for Non-linked Account </td>
+									</tr>
+								</tbody>
+								</table>
+							</div>
+						</section>
+						<section class="chapter">
+							<h4 id="guide-category04-chapter01-sub02" class="chapter-title">1.2 Microsoft Azure</h4>
+							<div class="chapter-contents">
+								<table  style="margin-top:20px; text-align:center;">
+									<tbody>
+										<tr style="border-bottom: 1px solid #ddd; background-color: #000; color:white;">
+											<th colspan="2" style="padding: 15px;"></th>
+											<th style="padding: 15px; width:300px;">Asset Management</th>
+											<th style="padding: 15px; width:300px;">Metering</th>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td colspan="2"  style="padding: 15px;"><b>Account Name</b></td>
+											<td style="padding: 15px;">Required</td>
+											<td style="padding: 15px;">Required</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td colspan="2"  style="padding: 15px;"><b>ID</b></td>
+											<td style="padding: 15px;">Required</td>
+											<td style="padding: 15px;">Required</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td colspan="2"  style="padding: 15px;"><b>Password</b></td>
+											<td style="padding: 15px;">Required</td>
+											<td style="padding: 15px;">Required</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td colspan="2"  style="padding: 15px;"><b>EA Account Linkage</b></td>
+											<td style="padding: 15px;">Required</td>
+											<td style="padding: 15px;">Required</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td rowspan="5"  style="padding: 15px; border-right:solid 1px #ddd;"><b>Subscription</b></td>
+											<td style="padding: 15px; width:150px;"><b>Subscription ID</b></td>
+											<td colspan="2"  style="padding: 15px;">Select Subscription </td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;"><b>State</b></td>
+											<td colspan="2"  style="padding: 15px;">-</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;"><b>Name</b></td>
+											<td style="padding: 15px;">Required</td>
+											<td style="padding: 15px;">Required</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;"><b>Offer ID</b></td>
+											<td style="padding: 15px;">Required</td>
+											<td style="padding: 15px;">Required</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td style="padding: 15px;"><b>Billing day</b></td>
+											<td style="padding: 15px;">Required</td>
+											<td style="padding: 15px;">Required</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td colspan="2" style="padding: 15px;"><b>Enrollment</b></td>
+											<td colspan="2" style="padding: 15px;">Required for EA Account only</td>
+										</tr>
+										<tr style="border-bottom: 1px solid #ddd;">
+											<td colspan="2" style="padding: 15px;"><b>Token</b></td>
+											<td colspan="2" style="padding: 15px;">Required for EA Account only</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</section>
+					</div>
+				</section>
+				<section class="chapter">
+					<h3 id="guide-category04-chapter02" class="chapter-title">2. AWS Account Registration</h3>
+					<span class="location">Service Portal - Cloud Account - <em>AWS</em></span>
+					<p class="category-description">AIn order to check status and cost of resource being used in Amazon Web Service, register an AWS account. </p>
+					<div class="chapter-contents">
+						<ol class="list-description">
+							<li>
+								Select AWS from the Vendor list on the left. <br>
+								The list shows registered AWS accounts.
+
+								<figure>
+									<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_account_aws_1_1.png" alt="" style="width:800px;"></div>
+									<figcaption></figcaption>
+								</figure>
+							</li>
+							<li>
+								Click the [Add Account] button.
+
+								<figure>
+									<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_account_aws_1_2.png" alt="" style="width:800px;"></div>
+									<figcaption></figcaption>
+								</figure>
+							</li>
+							<li>
+								A new line appears for an account which is subject to be added.<br>
+								Enter information of an account to be added in the line.
+
+								<figure>
+									<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_account_aws_1_3.png" alt="" style="width:800px;"></div>
+									<figcaption></figcaption>
+								</figure>
+							</li>
+							<li>
+								Click the [OK] button to save entries. 
+
+								<figure>
+									<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_account_aws_1_4.png" alt="" style="width:800px;"></div>
+									<figcaption></figcaption>
+								</figure>
+							</li>
+							<li>
+								You can check that a new account has been added in the Account list.
+
+								<figure>
+									<div class="screenshot"><img src="assets/images/guide/service_portal/cloud_account_aws_1_5.png" alt="" style="width:800px;"></div>
+									<figcaption></figcaption>
+								</figure>
+							</li>
+						</ol>
+					</div>
+				</section>
+				<!--Cloud Account 끝-->
+			</div>
+
+	
+		</div>
+	</main>
+
+	<!-- 하단 영역 -->
+	<footer class="layout-footer">
+		<div class="contents-inner">
+
+			<div class="service">
+				<h2 class="title">SERVICE PLATFORM</h2>
+
+				<ul class="list-shortcut">
+					<li><a href="#">ASSET MANAGEMENT</a></li>
+					<li><a href="#">METERING</a></li>
+					<li><a href="#">MONITORING DASHBOARD</a></li>
+					<li><a href="#">PROJECT + SERVICE REQUEST</a></li>
+					<li><a href="#">APPROVAL</a></li>
+					<li><a href="#">DevOps</a></li>
+				</ul>
+
+				<div id="language" class="custom-select-container">
+					<button type="button" class="btn-custom-select">한국어</button>
+					<div class="list-container">
+						<ul class="list-custom-select">
+							<li><button type="button">ENGLISH</button></li>
+							<li class="is-selected"><button type="button">한국어</button></li>
+							<li><button type="button">简体中文</button></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+	/* Footer */
+	var Footer = (function ($) {
+		var scope,
+			$container,
+			$popupSupport,
+			selectLanguage,
+			$user,
+			init = function() {
+				$container = $('.layout-footer');
+
+				$popupSupport = $container.find('[data-trigger=popup-support]');
+				selectLanguage = new BSPSelectBox($('#language'));
+
+				initLayout();
+				initEvent();
+			};
+
+		function initLayout() {
+
+		}
+
+		function initEvent() {
+			$popupSupport.magnificPopup();
+
+			$(document).click(function (e) {
+				if( !$(event.target).closest("#language").length ) {
+					selectLanguage.hide();
+				}
+			});
+		}
+
+		return {
+			init: function() {
+				init();
+			}
+		};
+	}(jQuery));
+
+	$(document).ready(function(e) {
+		Footer.init();
+	});
+	</script>
+
+
+	<!-- 팝업 모음 -->
+
+
+</div>	<!-- class="layout-wrap" -->
+</body>
+</html>
