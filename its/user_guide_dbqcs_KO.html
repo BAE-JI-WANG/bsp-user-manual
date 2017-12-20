@@ -38,35 +38,22 @@
 			<div class="layout-page-title">
 
 				<nav id="toc-menu" class="navigation-toc">
-					<span>Alarm</span>
+					<span>DBQCS</span>
 					<ul class="shortcut-toc">
 						<li class="active">
-							<a href="./user_guide_alarm.html" class="btn-section" data-state="alarm">Alarm</a>
+							<a href="./user_guide_alarm.html" class="btn-section" data-state="dbqcs">DBQCS</a>
 							<div class="section-sub">
 								<a href="#guide-category01" class="btn-toggle">Overview</a>
 								<ol class="toc">
-									<li><a href="#guide-category01-chapter01">서비스 별 담당자 지정</a></li>
-									<li><a href="#guide-category01-chapter02">장애 내용 확인</a></li>
-									<li><a href="#guide-category01-chapter03">장애 처리</a>
-										<ol class="toc">
-											<li><a href="#guide-category01-chapter03-01">장애 처리 담당자 설정</a></li>
-											<li><a href="#guide-category01-chapter03-02">장애 등급 상승</a></li>
-											<li><a href="#guide-category01-chapter03-03">장애 처리 완료</a></li>
-										</ol>
-									</li>
-									<li><a href="#guide-category01-chapter04">이력 및 연관 업무 관리</a>
-										<ol class="toc">
-											<li><a href="#guide-category01-chapter04-01">알람 처리 이력 보기</a></li>
-											<li><a href="#guide-category01-chapter04-02">연관 업무 등록</a></li>
-										</ol>
-									</li>
-									<li><a href="#guide-category01-chapter05">알람 이력 검색</a>
-										<ol class="toc">
-											<li><a href="#guide-category01-chapter05-01">서비스 그룹 별 알람 이력</a></li>
-											<li><a href="#guide-category01-chapter05-02">조건을 설정해 검색</a></li>
-											<li><a href="#guide-category01-chapter05-03">키워드를 입력해 검색</a></li>
-										</ol>
-									</li>
+									<li><a href="#guide-dbqcs-metadata">메타데이터 관리</a>
+                                        <ol class="toc">
+                                            <li><a href="#guide-dbqcs-metadata-dictionary">Dictionary</a></li>
+                                            <li><a href="#guide-dbqcs-metadata-request-for-metadata">Request for Metadata</a></li>
+                                            <li><a href="#guide-dbqcs-metadata-db-guideline">DB Guideline</a></li>
+                                        </ol>
+                                    </li>
+									<li><a href="#guide-dbqcs-request-list">Request List</a>
+                                    </li>
 								</ol>
 							</div>
 
@@ -217,443 +204,119 @@
 			</div>
 
 
-			<div class="layout-contents-inner">
+            <div class="layout-contents-inner">
 
-				<!-- 서비스 시작 -->
-				<div class="layout-page-title" data-state="alarm">
-					<h1>DBQCS</h1>
-					<p class="layout-page-title-description">DBQCS 서비스를 통해 DB의 메타 표준 및 품질과 성능을 향상 시키기 위한 관리 방법을 설명합</p>
-				</div>
+                <!-- 서비스 시작 -->
+                <div class="layout-page-title" data-state="dbqcs">
+                    <h1>DBQCS</h1>
+                    <p class="layout-page-title-description">Database 설계 및 모델링 시, 사용할 메타데이터 관리 및 품질 관리 업무를 진행할 수 있습니다.</p>
+                </div>
 
-				
-				<div id="guide-category01" class="category">
-					<h2 class="category-title">DB 품질 보증 업무 관리</h2>
-					<p class="category-description">DBQCS 서비스를 통해 DB의 메타 표준 및 품질과 성능을 향상 시키기 위한 관리 방법을 설명합니다. </p>
-				</div>
+                <div id="guide-category01" class="category">
+                    <h2 class="category-title">DB 품질 보증 업무 관리</h2>
+                    <p class="category-description">DBQCS 서비스를 통해 DB의 메타 표준 및 품질과 성능을 향상 시키기 위한 관리 방법을 설명합니다. </p>
+                </div>
 
-					<section class="chapter">
-						<h3 id="guide-category01-chapter01" class="chapter-title">1. 메타데이터 관리</h3>
+                <section class="chapter">
+                    <h3 id="guide-category01-chapter01" class="chapter-title">1. 메타데이터 관리</h3>
 
-						<div class="chapter-contents">
+                    <div class="chapter-contents">
 
-							<ol class="list-description">
-								<li>
-									1.1. Dictionary
+                        <h4 class="chapter-sub-title">1.1. Dictionary</h4>
+                        <ol class="list-description">
+                            <li>표준 용어, 표준 단어, 표준 도메인, 금칙어, 주제어 등을 관리합니다. </li>
+                            <li>Create New 버튼의 Metadata의 변경 관련 요청을 작성할 수 있습니다.</li>
+                            <li>표준 용어는 표준 단어와 표준 도메인으로만 구성할 수 있습니다. 
+                                <figure>
+                                    <div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_3.png" alt="" style="width:800px;"></div>
+                                    <figcaption>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li>표준 단어는 도메인을 제외하고 사용할 수 있습니다.
+                                <figure>
+                                    <div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_3.png" alt="" style="width:800px;"></div>
+                                    <figcaption>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li>표준도메인은 Database Type 별로 Data Type을 설정할 수 있습니다. 
+                                <figure>
+                                    <div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_3.png" alt="" style="width:800px;"></div>
+                                    <figcaption>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li>표준 단어로 대체 가능한 단어는 금지어로 설정할 수 있습니다. 
+                                <figure>
+                                    <div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_3.png" alt="" style="width:800px;"></div>
+                                    <figcaption>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li>Database에서 사용할 주제 영역을 구성할 수 있습니다. 
+                                <figure>
+                                    <div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_3.png" alt="" style="width:800px;"></div>
+                                    <figcaption>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ol>
+                    </div>
 
-                                    <ol>
-                                        <li>i. 표준 용어, 표준 단어, 표준 도메인, 금ए어, 주제어 등을 관리합니다. </li>
-                                        <li>ii. Create New 버튼으Ի Metadata의 변경 관련 요청을 작성할 수 있습니다.</li>
-                                        <li>iii. 표준 용어는 표준 단어와 표준 도메인으Ի만 구성할 수 있습니다. </li>
-                                    </ol>
-                                </li>
-								<li>
-									왼쪽 목록에 전체 사용자가, 오른쪽 목록에 현재 서비스 그룹의 알람을 받을 사용자가 표시됩니다.<br>
-									해당 서비스 그룹의 알람을 받을 사용자를 왼쪽 목록에서 선택해 오른쪽 목록에 추가합니다.
-					
-									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_3.png" alt="" style="width:800px;"></div>
-										<figcaption>
-										</figcaption>
-									</figure>
-								</li>
-								<li>
-									오른쪽 목록에 추가한 사용자의 권한을 설정합니다.
-					
-									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_4.png" alt="" style="width:800px;"></div>
-										<figcaption>
-											<p>
-												두가지 권한 중 사용자에게 하나의 권한만을 부여할 수 있습니다. 이 권한은 서비스 그룹 별로 다르게 지정할 수 있습니다.<br>
-												- Receiver: 알람의 발생, 변경에 따른 공지를 이메일로 수신만 할 수 있습니다.<br>
-												- Assignee: 알람의 발생, 변경에 따른 공지를 이메일로 수신할 수 있고 알람으로 받은 장애의 처리 상태를 기록할 수 있습니다.<br>
-											</p>
-										</figcaption>
-									</figure>
-								</li>
-								<li>
-									[OK] 버튼을 클릭해 변경 내용을 저장합니다. 서비스 그룹 별 사용자 목록에서 알람을 받을 사용자가 추가되었는지 확인합니다.
-					
-									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_5.png" alt="" style="width:800px;"></div>
-										<figcaption>
-											<p>
-												선택한 서비스 그룹의 Receiver와 Assignee 설정이 완료되었습니다.<br>
-												다른 서비스 그룹에 대해서도 동일한 과정을 통해 Receiver와 Assignee를 지정할 수 있습니다.<br>
-											</p>	
-										</figcaption>
-									</figure>
-								</li>
-							</ol>
-						</div>
-					</section>
+                    <h4 class="chapter-sub-title">1.2 Request for Metadata</h4>
+                    <div class="chapter-contents">
 
+                        <ol class="list-description">
+                            <li>Dictionary로 관리되는 메타데이터의 추가/수정/삭제 요청을 할 수 있습니다.
+                                <figure>
+                                    <div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_3.png" alt="" style="width:800px;"></div>
+                                    <figcaption>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ol>
+                    </div>
 
-					<section class="chapter">
-						<h3 id="guide-category01-chapter02" class="chapter-title">2. 알람 내용 확인</h3>
+                    <h4 class="chapter-sub-title">1.3. DB Guideline</h4>
+                    <div class="chapter-contents">
+                        <ol class="list-description">
+                            <li>조직 내에서 사용하는 표준 정책 및 설계 가이드라인 등의 매뉴얼을 관리합니다.</li>
+                        </ol>
+                    </div>
+                </section>
+                <section class="chapter">
+                    <h3 class="chapter-title">2. Request List</h3>
+                    <div class="chapter-contents">
+                        <h4 class="chapter-sub-title">2.1 DB 성능 및 품질 향상을 위한 요청 및 검수 업무를 관리할 수 있습니다.</h4>
+                        <figure>
+                            <div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_4.png" alt="" style="width:800px;"></div>
+                            <figcaption>
+                                <p>
+                                </p>
+                            </figcaption>
+                        </figure>
 
-						<div class="chapter-contents">
-							<p class="chapter-title-description">알람을 받은 Receiver, Assignee가 발생한 알람의 상세 내용을 확인합니다.</p>
-							<span class="location"><em>Alarm</em></span>
-							<ol class="list-description">
-								<li>
-									알람 목록에서 내용을 확인할 알람을 클릭합니다.
+                        <h4 class="chapter-sub-title">2.2 Create New 버튼으로 Request를 작성할 수 있습니다. </h4>
+                        <figure>
+                            <div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_4.png" alt="" style="width:800px;"></div>
+                            <figcaption>
+                                <p>
+                                </p>
+                            </figcaption>
+                        </figure>
 
-									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_5.png" alt="" style="width:800px;"></div>
-										<figcaption>알람 목록에서는 발생한 알람의 요약 정보를 확인할 수 있습니다.</figcaption>
-									</figure>
-								</li>
-								<li>
-									알람의 상세 내역을 확인합니다.
-					
-									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_6.png" alt="" style="width:800px;"></div>
-										<figcaption><p>① 알람 상세: 발생한 알람의 상세 정보를 확인할 수 있습니다.<br>
-										② 연관 업무: 발생한 이슈와 연관된 업무 정보를 표시합니다. <br>
-										③ 코멘트: 알람에 대한 코멘트를 남길 수 있으며, 다른 사용자들이 남긴 코멘트를 확인할 수 있습니다.<br>
-										④ 알람 히스토리: 발생한 알람에 대한 이력을 표시합니다.</p></figcaption>
-									</figure>
-								</li>
-								<li>
-									[Show Chart] 버튼을 클릭해 알람 발생 당시의 Metric 정보를 확인할 수 있습니다.
-					
-									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_7.png" alt="" style="width:800px;"></div>
-										<figcaption>
-										</figcaption>
-									</figure>
-								</li>
-								<li>
-									알람 발생 당시의 Metric 정보가 새 창으로 표시됩니다.
-					
-									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_5.png" alt="" style="width:800px;"></div>
-										<figcaption>
-										</figcaption>
-									</figure>
-								</li>
-							</ol>
-
-						</div>
-					</section>
-
-
-					<section class="chapter">
-						<h3 id="guide-category01-chapter03" class="chapter-title">3. 알람 처리</h3>
-
-						<div class="chapter-contents">
-							<span class="location"><em>Alarm</em></span>
-							<p class="chapter-title-description">알람 내용을 확인한 Assignee가 알람 처리를 시작할 때, 이 알람이 현재 처리 중임을 표시하고 처리하고 있는 Assignee를 표시합니다.</p>
-
-							<section class="chapter">
-								<h3 id="guide-category01-chapter03-01" class="chapter-title">3.1 조건을 설정해 검색</h3>
-
-								<div class="chapter-contents">
-									<ol class="list-description">
-										<li>
-											검색할 조건을 선택합니다. [Status] 버튼을 클릭하면 드롭다운 메뉴로 선택 가능한 조건이 표시됩니다.
-
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_9.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											 [Action] 버튼을 클릭해 표시되는 드롭다운 목록에서 [Start] 버튼을 클릭합니다.
-
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_10.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											 [Action] 버튼을 클릭해 표시되는 드롭다운 목록에서 [Start] 버튼을 클릭합니다.
-
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_11.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											 알람의 'Status'가 'In-progress'로 변경되고 'Assignee'에 처리 담당자의 '이름'이 표시됩니다.
-
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_12.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											 알람를 해결하기 위한 작업을 수행합니다. 이 알람를 해결하기 위한 업무는 Project App에 등록합니다. 알람 해결과 관련된 업무의 등록은 아래 4. 알람 이력 및 연관 업무 관리 내용을 참고해 주세요.
-										</li>
-									</ol>
-
-								</div>
-							</section>
-
-							<section class="chapter">
-								<h3 id="guide-category01-chapter03-02" class="chapter-title">3.2 알람 등급 변경</h3>
-
-								<div class="chapter-contents">
-									<span class="location"><em>Alarm</em></span>
-									<p class="chapter-title-description">발견된 알람가 심각한 경우, 알람로 인해 발생한 알람의 등급을 승격시킵니다. 반대로 발생한 알람의 등급을 낮출 수 있습니다.</p>
-
-									<ol class="list-description">
-										<li>
-											알람 목록에서 내용을 확인할 알람을 클릭해 알람의 상세 내역 화면으로 이동합니다.
-
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_9.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											'Level'을 변경하고 변경 사유를 'Description'에 입력합니다. 입력 후 [Escalation] 버튼을 클릭합니다.
-
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_13.png" alt="" style="width:800px;"></div>
-												<figcaption><p>기존 'Level' 이 'Minor' 인 경우, [Escalation] 버튼 클릭 시 자동으로 'Major'로 변경됩니다.</p></figcaption>
-											</figure>
-										</li>
-									</ol>
-
-								</div>
-							</section>
-
-							<section class="chapter">
-								<h3 id="guide-category01-chapter03-03" class="chapter-title">3.3 알람 처리 완료</h3>
-
-								<div class="chapter-contents">
-									<span class="location"><em>Alarm</em></span>
-									<p class="chapter-title-description">발생한 알람에 대한 처리 완료 후, 해당 알람로 인해 발생한 알람의 해결되었음을 표시합니다.</p>
-
-									<ol class="list-description">
-										<li>
-											알람 내역에서 [Action] 버튼을 클릭해 표시되는 드롭다운 목록에서 [Close] 버튼을 클릭합니다.
-
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_14.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											"Close" 팝업이 표시됩니다. 작업 완료에 따른 코멘트를 입력하고 [OK] 버튼을 클릭합니다.
-
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_15.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											알람의 'status'가 'Closed'로 표시되고 'End Time'이 표시됩니다. 그리고 'Solution' 항목에 처리 완료 시 입력한 코멘트와 완료 시각이 표시됩니다.
-
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_16.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											알람 목록에서 해당 알람의 처리가 완료되었음을 확인할 수 있습니다.
-
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_17.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-									</ol>
-
-								</div>
-							</section>
-						</div>
-					</section>
-
-					<section class="chapter">
-						<h3 id="guide-category01-chapter04" class="chapter-title">4. 알람 처리 이력 및 연관 업무 관리</h3>
-
-						<div class="chapter-contents">
-							<p class="chapter-title-description">알람로 인해 발생한 알람의 시작부터 종료까지의 처리 과정을 확인하고, 이 과정에서 발생한 연관 업무들을 등록할 수 있습니다.</p>
-							<section class="chapter">
-								<h3 id="guide-category01-chapter04-01" class="chapter-title">4.1 알람 처리 이력 보기</h3>
-
-								<div class="chapter-contents">
-									<span class="location"><em>Alarm</em></span>
-
-									<ol class="list-description">
-										<li>
-											알람 내역 화면에서 가장 아래의 "Active History" 영역으로 이동합니다.
-
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_18.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											 "Active History" 영역에는 알람의 처리 시작, 코멘트 작성, 내용 수정, 처리 종료까지의 모든 과정의 기록이 시간순으로 표시됩니다. 기본적으로 가장 최신의 이력이 상위에 표시됩니다.
-
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_19.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											테이블 헤더를 클릭해 정렬 조건을 변경할 수 있습니다.
-
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_20.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-									</ol>
-								</div>
-							</section>
-							<section class="chapter">
-								<h3 id="guide-category01-chapter04-02" class="chapter-title">4.2 연관 업무 등록</h3>
-
-								<div class="chapter-contents">
-									<span class="location"><em>Alarm</em></span>
-									<p class="chapter-title-description">알람 해결을 위한 업무를 Project App에 등록하고, 이를 알람 내역에 연결할 수 있습니다.<br>
-									이를 통해 이 알람를 해결하기 위해 어떤 작업이 진행되고 있는지, 반대로 이 업무가 어떤 알람를 해결하기 위함인지를 빠르게 확인할 수 있습니다.</p>
-									<ol class="list-description">
-										<li>
-											알람 내역 화면에서 [Modify] 버튼을 클릭합니다.
-
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_21.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											 "Modify Alarm" 화면에서 'Relates by issue' 항목의 [Add] 버튼을 클릭합니다.
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_22.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											"Search for Issues" 팝업이 표시됩니다. 이 팝업에는 Project App에 등록된 업무들의 목록이 표시됩니다. 연결한 업무를 프로젝트, 상태, 제목으로 검색할 수 있습니다. 업무 목록에서 연결할 업무를 선택하고 [OK] 버튼을 클릭합니다.
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_23.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-									</ol>
-								</div>
-							</section>
-						</div>
-					</section>
-					<section class="chapter">
-						<h3 id="guide-category01-chapter05" class="chapter-title">5. 알람 이력 검색</h3>
-
-						<div class="chapter-contents">
-							<p class="chapter-title-description">조건을 설정하고 키워드를 입력해 찾고자 하는 알람 이력을 검색하고, 그 내용을 확인할 수 있습니다.</p>
-							<section class="chapter">
-								<h3 id="guide-category01-chapter05-01" class="chapter-title">5.1 서비스 그룹 별 알람 이력 보기</h3>
-
-								<div class="chapter-contents">
-									<span class="location"><em>Alarm</em></span>
-
-									<ol class="list-description">
-										<li>
-											알람를 확인할 서비스 그룹을 클릭합니다.
-
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_24.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											 선택한 서비스 그룹에서 발생한 알람 이력이 알람 목록에 표시됩니다.
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_25.png" alt="" style="width:800px;"></div>
-												<figcaption><p>서비스 그룹 목록에서 현재 알람가 발생한 서비스 그룹을 확인할 수 있습니다. <br>
-													알람이 발생한 서비스 그룹은 서비스 그룹 이름 옆에 현재 발생한 알람의 수가 표시됩니다.</p></figcaption>
-											</figure>
-										</li>
-									</ol>
-								</div>
-							</section>
-							<section class="chapter">
-								<h3 id="guide-category01-chapter05-02" class="chapter-title">5.2 조건을 설정해 검색</h3>
-
-								<div class="chapter-contents">
-									<span class="location"><em>Alarm</em></span>
-									<ol class="list-description">
-										<li>
-											검색할 조건을 선택합니다. [level], [Category], [Status] 버튼을 클릭하면 드롭다운 메뉴로 선택 가능한 조건이 표시됩니다.
-											<ul>
-												<li>
-													<br>
-													'Level' 조건 선택
-													<figure>
-														<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_26.png" alt="" style="width:800px;"></div>
-														<figcaption></figcaption>
-													</figure>
-												</li>
-												<li>
-													<br>
-													'Category' 조건 선택
-													<figure>
-														<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_27.png" alt="" style="width:800px;"></div>
-														<figcaption></figcaption>
-													</figure>
-												</li>
-												<li>
-													<br>
-													'Status' 조건 선택
-													<figure>
-														<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_28.png" alt="" style="width:800px;"></div>
-														<figcaption></figcaption>
-													</figure>
-												</li>
-											</ul>
-										</li>
-										<li>
-											 드롭다운 메뉴의 [OK] 버튼을 클릭합니다.
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_29.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											선택한 조건의 검색 결과를 알람 목록에서 확인할 수 있습니다.
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_30.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-									</ol>
-								</div>
-							</section>
-							<section class="chapter">
-								<h3 id="guide-category01-chapter05-03" class="chapter-title">5.3 키워드를 입력해 검색</h3>
-
-								<div class="chapter-contents">
-									<span class="location"><em>Alarm</em></span>
-									<ol class="list-description">
-										<li>
-											검색창에 검색할 키워드를 입력 후, [Enter]키 혹은 [검색]  버튼을 클릭합니다.
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_31.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											  목록에 입력한 키워드와 일치하는 제목을 가진 결과가 표시됩니다. 입력한 키워드와 일치하는 텍스트가 하이라이팅되어 표시됩니다.
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_32.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-									</ol>
-								</div>
-							</section>
-						</div>
-					</section>
-
-				
-
-			</div>
-
-	
+                        <h4 class="chapter-sub-title">2.3 모든 요청 목록 / 내가 요청한 목록 / 내게 할당된 요청 목록 / 참조자로 추가된 요청 목록을 의도에 따라 조회할 수 있습니다.</h4>
+                        <figure>
+                            <div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_4.png" alt="" style="width:800px;"></div>
+                            <figcaption>
+                                <p>
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </section>
+            </div>
 		</div>
 	</main>
 
