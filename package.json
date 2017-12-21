@@ -12,5 +12,9 @@
   },
   "author": "jinhun.shin",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-mem": "^0.1.1",
+    "gulp-restart": "^0.1.1"
+  }
 }

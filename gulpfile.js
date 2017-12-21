@@ -1,22 +1,57 @@
+/************************************
+ *
+ *  
+ *  처음 왔으면 readme.md좀 읽어보세요. 아직 없지만.. 
+ *  스캐폴딩 구조를 써야된다.
+ *
+ *
+ */
 var	gulp = require('gulp'),
-    livereload = require('gulp-livereload'),
     watch = require('gulp-watch'),
-	connect = require('gulp-connect');
+    spawn = require('child_process').spawn;
 
-gulp.task('server', function () {
-	connect.server({
-		root: './',
-		port: 3050,
-		livereload: true
-	});
+
+var browserSync = require('browser-sync').create();     // 브라우저 동기화...
+
+// 인메모리 스토리지
+var GulpMem = require('gulp-mem');      // 인메모리 스토리지 
+var gulpMem = new GulpMem();            // 인메모리 스토리지 생성
+gulpMem.enableLog = true;               // 콘솔에 로그를 남겨준다.
+
+gulpMem.serveBasePath = './build'       // gulp의 inmenory storage
+
+
+gulp.task('dev:local',function () {
+    gulp.src(['./its/**/*'])
+    // ...
+    // Write to memory:
+    .pipe(gulpMem.dest('./build'))
+
+    // Start your dev server using the middleware:
+    browserSync.init({
+        server: {
+            baseDir : './build',
+            directory : true
+        },
+        middleware: gulpMem.middleware
+    })
 });
 
-gulp.task('watch', function () {
-	livereload.listen();
-	gulp.watch(['./its/*.html','style/**','images/**']).on('change', livereload.changed);
+//gulpfile 수정시 Task restart
+gulp.task('gulp-reload', function() {
+  spawn('gulp', ['watch'], {stdio: 'inherit'});
+  process.exit();
 });
 
-gulp.task('default', ['watch','server']);
+gulp.task('watch', function() {
+    gulp.watch(['./its/**/*']).on('change', browserSync.reload);
+    
+    // gulpfile 수정시 task restart
+	// gulp.watch('./gulpfile.js',['gulp-reload']);
+});
+
+gulp.task('default', ['dev:local','watch']);   // 개발 기본
+
 
 
 
@@ -25,7 +60,7 @@ gulp.task('default', ['watch','server']);
 
 
 //var	gulp = require('gulp');     //gulp 기초 불러오기
-//	// extender = require('gulp-html-extend'),
+// extender = require('gulp-html-extend'),
 //	// fs = require('fs'),
 //	// replace = require('gulp-replace'),
 //	// stripComment = require('gulp-strip-comments');
@@ -38,33 +73,13 @@ gulp.task('default', ['watch','server']);
 //// 어디에 뭐가 들어있는지는 알아야지.
 //var	sourcemaps = require('gulp-sourcemaps');
 
-//// 인메모리 스토리지
-//var GulpMem = require('gulp-mem');      // 인메모리 스토리지 
-//var gulpMem = new GulpMem();            // 인메모리 스토리지 생성
-//gulpMem.enableLog = true;               // 콘솔에 로그를 남겨준다.
-//gulpMem.serveBasePath = './'
 
-//var browserSync = require('browser-sync').create();
 
 //// 이미지 최적화
 //var imagemin = require('gulp-imagemin');
 
 
 
-//gulp.task('dev:local',function () {
-//    gulp.src('./**/*')
-//    // ...
-//    // Write to memory:
-//    .pipe(gulpMem.dest('./build'))
-
-//    // Start your dev server using the middleware:
-//    browserSync.init({
-//        server: './',
-//        middleware: gulpMem.middleware,
-//        directory : true
-//    })
-
-//});
 
 //gulp.task('watch', function () {
 //	gulp.watch(['./its/*.html']).on('change', browserSync.changed);
