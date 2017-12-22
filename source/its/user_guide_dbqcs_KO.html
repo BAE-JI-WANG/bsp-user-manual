@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>USER GUIDE</title> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="./resource/bsp_manual.css">
+	<script src="./resource/jquery-2.2.3.min.js"></script>
+</head>
+
+
+<body class="service-its page-user-guide-detail" data-state="none">
+<div class="layout-wrap">
+
+	<header class="global-menu">
+		<div class="title">
+			<a href="#" onclick="return false;" class="btn-user-guide">USER GUIDE</a>
+		</div>
+        <div class="utils">  
+            <fieldset class="select-language">
+                <legend>언어 설정</legend>
+
+                <input type="radio" id="language01" name="language" value="en">
+                <label id="label_en" name="language_label" for="language01" style="display: block;" 
+                    onclick="location.href = '/' + location.pathname.split('/')[1].replace('KO','EN');">English</label>
+
+                <input type="radio" id="language02" name="language" value="ko" checked>
+                <label id="label_ko" name="language_label" for="language02" style="display: block;">한국어</label>
+
+            </fieldset>
+        </div>
+	</header>
+
+	<!-- 본문 영역 -->
+	<main role="main">
+		<div class="layout-contents layout-fixed">
+
+			<!-- 페이지 타이틀 -->
+			<div class="layout-page-title">
+
+				<nav id="toc-menu" class="navigation-toc">
+					<span>DBQCS</span>
+					<ul class="shortcut-toc">
+						<li class="active">
+							<a href="./user_guide_alarm.html" class="btn-section" data-state="dbqcs">DBQCS</a>
+							<div class="section-sub">
+								<a href="#guide-category01" class="btn-toggle">메타데이터 관리</a>
+								<ol class="toc">
+                                    <li><a href="#guide-dbqcs-metadata-dictionary">Dictionary</a></li>
+                                    <li><a href="#guide-dbqcs-metadata-request-for-metadata">Request for Metadata</a></li>
+                                    <li><a href="#guide-dbqcs-metadata-db-guideline">DB Guideline</a></li>
+								</ol>
+							</div>
+							<div class="section-sub">
+								<a href="#" class="btn-toggle">Request List</a>
+							</div>
+						</li>
+					</ul>
+					<script>
+					var TOCMenu = (function ($) {
+						var scope,
+							$container,
+							$anchorToggle,
+							$anchor,
+							init = function() {
+								$container = $('#toc-menu');
+								$anchorToggle = $container.find('.btn-toggle');
+								$anchor = $container.find('.toc a');
+
+								initLayout();
+								initEvent();
+							};
+
+						function initLayout() {
+						}
+
+						function initEvent() {
+							$container.find('.shortcut-toc').on('mousewheel', function (e) {
+								var event = e.originalEvent,
+									d = event.wheelDelta || -event.detail;
+
+								this.scrollTop += ( d < 0 ? 1 : -1 ) * 30;
+								e.preventDefault();
+							});
+
+							$container.find('a').on('click', function(e) {
+								var $this = $(this);
+								if( !$this.hasClass("btn-section") ) { e.preventDefault(); }
+
+								var $target = $( $this.attr("href") );
+
+								if( $this.hasClass("btn-toggle") ) {
+									$('html, body').animate({
+										scrollTop: $target.offset().top - 109
+									}, 0);
+								} else {
+									$('html, body').animate({
+										scrollTop: $target.offset().top - 109
+									}, 500);
+								}
+							});
+
+							onResize();
+							onScroll();
+
+							$(document).on('scroll', function(e) {
+								onScroll();
+							});
+							$(window).on('resize', function(e) {
+								onResize();
+							});
+						}
+
+						function updatePosition() {
+							var marginLeft;
+							var left;
+							var top = $container.position().top;
+							if( $(window).width() < 1660 ) {
+								marginLeft = 0;
+								left = $('.layout-fixed > .layout-page-title').offset().left;
+								left = left - $(document).scrollLeft();
+								$container.css({
+									"marginLeft": marginLeft,
+									"top": top,
+									"left": left + "px",
+									"opacity": 1
+								});
+							} else {
+								marginLeft = -1200/2;
+								$container.css({
+									"marginLeft": marginLeft,
+									"top": top,
+									"left": "50%",
+									"opacity": 1
+								});
+							}
+						}
+
+						function onResize() {
+							updatePosition();
+						}
+
+						function onScroll(e) {
+							updatePosition(e);
+
+							var scrollPos = $(document).scrollTop() + 110;
+
+							var $lastToggleTarget = null;
+							$anchorToggle.each(function() {
+								var $this = $(this);
+								var $target = $( $this.attr("href") );
+								if( $target.offset().top <= scrollPos ) {
+									if( $lastToggleTarget != null ) {
+										$lastToggleTarget.removeClass("active");
+									}
+									$this.addClass("active");
+									$lastToggleTarget = $this;
+								} else {
+									$this.removeClass("active");
+								}
+							});
+
+							var targets = [];
+							$anchor.each(function() {
+								var $this = $(this);
+								var $target = $( $this.attr("href") );
+
+								if( $target.offset().top <= scrollPos ) {
+									targets.push($(this));
+								} else {
+									$this.parents(".toc li").removeClass("active");
+								}
+							}).promise().done(function() {
+								activate(targets);
+							});
+						}
+
+						function activate(targets) {
+							if( targets.length < 1 ) return;
+							for( var i = 0;  i < targets.length; i++ ) {
+								targets[i].parents(".toc li").removeClass("active");
+							}
+							targets[targets.length-1].parents(".toc li").addClass("active");
+						}
+
+						return {
+							init: function() {
+								init();
+							}
+						};
+					}(jQuery));
+
+
+					$(window.document).ready(function () {
+						TOCMenu.init();
+					});
+					</script>
+
+				</nav>
+
+			</div>
+
+
+            <div class="layout-contents-inner">
+
+                <!-- 서비스 시작 -->
+                <div class="layout-page-title" data-state="dbqcs">
+                    <h1>DBQCS</h1>
+                    <p class="layout-page-title-description">Database 설계 및 모델링 시, 사용할 메타데이터 관리 및 품질 관리 업무를 진행할 수 있습니다.</p>
+                </div>
+
+                <div id="guide-category01" class="category">
+                    <h2 class="category-title">DB 품질 보증 업무 관리</h2>
+                    <p class="category-description">DBQCS 서비스를 통해 DB의 메타 표준 및 품질과 성능을 향상 시키기 위한 관리 방법을 설명합니다. </p>
+                </div>
+
+                <section class="chapter">
+                    <h3 id="guide-category01-chapter01" class="chapter-title">1. 메타데이터 관리</h3>
+
+                    <div class="chapter-contents">
+
+                        <h4 class="chapter-sub-title">1.1. Dictionary</h4>
+                        <p class="chapter-title-description">
+                            표준 용어, 표준 단어, 표준 도메인, 금칙어, 주제어 등을 관리합니다. <br />
+                            Create New 버튼의 Metadata의 변경 관련 요청을 작성할 수 있습니다.
+                        </p>
+                        <figure>
+                            <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_1_1_3.png" alt="" style="width:800px;"></div>
+                            <figcaption>표준 용어는 표준 단어와 표준 도메인으로만 구성할 수 있습니다.</figcaption>
+                            
+                            <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_1_1_4.png" alt="" style="width:800px;"></div>
+                            <figcaption>Meta Data를 엑셀파일로 Export 할 수 있습니다.</figcaption>
+                            
+                            <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_1_1_5.png" alt="" style="width:800px;"></div>
+                            <figcaption>표준 단어는 도메인을 제외하고 사용할 수 있습니다.<figcaption>
+
+                            <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_1_1_6.png" alt="" style="width:800px;"></div>
+                            <figcaption>표준도메인은 Database Type 별로 Data Type을 설정할 수 있습니다.</figcaption>
+
+                            <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_1_1_7.png" alt="" style="width:800px;"></div>
+                            <figcaption>표준 단어로 대체 가능한 단어는 금칙어로 설정할 수 있습니다.</figcaption>
+
+                            <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_1_1_8.png" alt="" style="width:800px;"></div>
+                            <figcaption>Database에서 사용할 주제 영역을 구성할 수 있습니다.</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="chapter-contents">
+                        <h4 class="chapter-sub-title">1.2 Request for Metadata</h4>
+                        <figure>
+                            <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_2_1.png" alt="" style="width:800px;"></div>
+                            <figcaption>Dictionary로 관리되는 메타데이터의 추가/수정/삭제 요청을 할 수 있습니다.</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="chapter-contents">
+                        <h4 class="chapter-sub-title">1.3. DB Guideline</h4>
+                        <p class="chapter-title-description">조직 내에서 사용하는 표준 정책 및 설계 가이드라인 등의 매뉴얼을 관리합니다.</p>
+                        <figure>
+                            <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_2_2_A.png" alt="" style="width:800px;"></div>
+                            <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_2_2_B.png" alt="" style="width:800px;"></div>
+                        </figure>
+                    </div>
+                    
+                </section>
+
+                <section class="chapter">
+                    <h3 class="chapter-title">2. Request List</h3>
+                    <div class="chapter-contents">
+                        <h4 class="chapter-sub-title"></h4>
+                        <figure>
+                            <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_3_2_A.png" alt="" style="width:800px;"></div>
+                            <figcaption>DB 성능 및 품질 향상을 위한 요청 및 검수 업무를 관리할 수 있습니다.</figcaption>
+
+                            <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_3_2_B.png" alt="" style="width:800px;"></div>
+                            <figcaption>Create New 버튼으로 Request를 작성할 수 있습니다. </figcaption>
+
+                            <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_3_2_C.png" alt="" style="width:800px;"></div>
+                            <figcaption>모든 요청 목록 / 내가 요청한 목록 / 내게 할당된 요청 목록 / 참조자로 추가된 요청 목록을 의도에 따라 조회할 수 있습니다.</figcaption>
+                        </figure>
+                    </div>
+                </section>
+            </div>
+		</div>
+	</main>
+
+	<!-- 하단 영역 -->
+	<footer class="layout-footer">
+        <div class="contents-inner">
+            <div class="service">
+                <h2 class="title">USER GUIDE</h2>
+            </div>
+        </div>
+	</footer> 
+
+</div>	<!-- class="layout-wrap" -->
+</body>
+</html>
+
