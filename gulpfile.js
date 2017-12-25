@@ -145,6 +145,7 @@ gulp.task('dev:its:image', function () {
 
 // ITS 빌드 :: 이미지 파일은 압축해서 넘김 
 gulp.task('build:its:image', function () {
+    console.log('image 압축 과정이 시간이 좀 걸립니다. 1~2분 정도 시간이 소요되니까 잠시 기다려 주세요.');
     var its_path = './source/its/'
 
     gulp.src(its_path + '**/*') 
@@ -206,7 +207,7 @@ gulp.task('default', function(done) {
             gulp.start('dev:run:its');  //   ITS 개발모드 시작
         } else if (answers.select === 'its' && answers.devOrBuild === 'build') {
             // 있던거 지워야지
-            gulp.src(path.its, {read:false}).pipe(clean());
+            gulp.src(path.devServer, {read:false}).pipe(clean());
             console.log('build를 시작합니다.')
             gulp.start('build:run:its')
         } else {

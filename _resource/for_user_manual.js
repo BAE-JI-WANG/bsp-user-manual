@@ -141,34 +141,22 @@ $(window.document).ready(function () {
 
     window.addEventListener('load',function () {
         var languageSet = document.querySelector('fieldset.select-language');
-        console.log(languageSet);
-
+        
         // !!!! 현재 있는것만 체크한것으로.. 나중에 중국어가 추가되면 fallback을 처리해야된다.
-
         var ko = languageSet.querySelector('input[value=ko]'),
             en = languageSet.querySelector('input[value=en]');
-        console.log(en.checked);
-
-        var url = (function (path) {
-            var result;
-            result = path.split('/')[path.split('/').length-1];
-            return result;
-        })(location.pathname);
-
 
         if (!en.checked) {
             en.addEventListener('click',function (_event) {
-                console.log('clicked');
                 _event.preventDefault;
-                location.pathname = url.replace('KO','EN');
+                location.pathname = location.pathname.replace('KO','EN');
             });
         }
 
         if (!ko.checked) {
             ko.addEventListener('click',function (_event) {
-                console.log('clicked');
                 _event.preventDefault;
-                location.pathname = url.replace('EN','KO');
+                location.pathname = location.pathname.replace('EN','KO');
             });
         }
     });
