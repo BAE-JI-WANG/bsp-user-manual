@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>USER GUIDE</title> 
+	<title>BESPIN USER GUIDE</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" href="./assets/styles/bsp_its_guide.css">
-	<script src="./assets/scripts/libs/jquery-2.2.3.min.js"></script>
+	<link rel="stylesheet" href="./resource/bsp_manual.css">
+	<script src="./resource/jquery-2.2.3.min.js"></script>
 </head>
 
 <body class="service-its page-user-guide-detail" data-state="none">
@@ -23,7 +23,7 @@
                 <label id="label_en" name="language_label" for="language01" style="display: block;">English</label>
 
                 <input type="radio" id="language02" name="language" value="ko">
-                <label id="label_ko" name="language_label" for="language02" style="display: block;" onclick="location.href='./user_guide_request_KO.html';">한국어</label>
+                <label id="label_ko" name="language_label" for="language02" style="display: block;">한국어</label>
 
             </fieldset>
         </div>
@@ -67,155 +67,13 @@
 
 						</li>
 					</ul>
-					<script>
-					var TOCMenu = (function ($) {
-						var scope,
-							$container,
-							$anchorToggle,
-							$anchor,
-							init = function() {
-								$container = $('#toc-menu');
-								$anchorToggle = $container.find('.btn-toggle');
-								$anchor = $container.find('.toc a');
-
-								initLayout();
-								initEvent();
-							};
-
-						function initLayout() {
-						}
-
-						function initEvent() {
-							$container.find('.shortcut-toc').on('mousewheel', function (e) {
-								var event = e.originalEvent,
-									d = event.wheelDelta || -event.detail;
-
-								this.scrollTop += ( d < 0 ? 1 : -1 ) * 30;
-								e.preventDefault();
-							});
-
-							$container.find('a').on('click', function(e) {
-								var $this = $(this);
-								if( !$this.hasClass("btn-section") ) { e.preventDefault(); }
-
-								var $target = $( $this.attr("href") );
-
-								if( $this.hasClass("btn-toggle") ) {
-									$('html, body').animate({
-										scrollTop: $target.offset().top - 109
-									}, 0);
-								} else {
-									$('html, body').animate({
-										scrollTop: $target.offset().top - 109
-									}, 500);
-								}
-							});
-
-							onResize();
-							onScroll();
-
-							$(document).on('scroll', function(e) {
-								onScroll();
-							});
-							$(window).on('resize', function(e) {
-								onResize();
-							});
-						}
-
-						function updatePosition() {
-							var marginLeft;
-							var left;
-							var top = $container.position().top;
-							if( $(window).width() < 1660 ) {
-								marginLeft = 0;
-								left = $('.layout-fixed > .layout-page-title').offset().left;
-								left = left - $(document).scrollLeft();
-								$container.css({
-									"marginLeft": marginLeft,
-									"top": top,
-									"left": left + "px",
-									"opacity": 1
-								});
-							} else {
-								marginLeft = -1200/2;
-								$container.css({
-									"marginLeft": marginLeft,
-									"top": top,
-									"left": "50%",
-									"opacity": 1
-								});
-							}
-						}
-
-						function onResize() {
-							updatePosition();
-						}
-
-						function onScroll(e) {
-							updatePosition(e);
-
-							var scrollPos = $(document).scrollTop() + 110;
-
-							var $lastToggleTarget = null;
-							$anchorToggle.each(function() {
-								var $this = $(this);
-								var $target = $( $this.attr("href") );
-								if( $target.offset().top <= scrollPos ) {
-									if( $lastToggleTarget != null ) {
-										$lastToggleTarget.removeClass("active");
-									}
-									$this.addClass("active");
-									$lastToggleTarget = $this;
-								} else {
-									$this.removeClass("active");
-								}
-							});
-
-							var targets = [];
-							$anchor.each(function() {
-								var $this = $(this);
-								var $target = $( $this.attr("href") );
-
-								if( $target.offset().top <= scrollPos ) {
-									targets.push($(this));
-								} else {
-									$this.parents(".toc li").removeClass("active");
-								}
-							}).promise().done(function() {
-								activate(targets);
-							});
-						}
-
-						function activate(targets) {
-							if( targets.length < 1 ) return;
-							for( var i = 0;  i < targets.length; i++ ) {
-								targets[i].parents(".toc li").removeClass("active");
-							}
-							targets[targets.length-1].parents(".toc li").addClass("active");
-						}
-
-						return {
-							init: function() {
-								init();
-							}
-						};
-					}(jQuery));
-
-
-					$(window.document).ready(function () {
-						TOCMenu.init();
-					});
-					</script>
-
 				</nav>
-
 			</div>
-
 
             <div class="layout-contents-inner">
 
                 <!-- 서비스 시작 -->
-                <div class="layout-page-title" data-state="alarm">
+                <div class="layout-page-title" data-state="request">
                     <h1>Service Request</h1>
                     <p class="layout-page-title-description">You can quickly respond to any service request in accordance with relevant procedure after it is recorded.</p>
                 </div>
@@ -227,7 +85,7 @@
                 </div>
 
                 <section class="chapter">
-                    <h2 id="guide-category01-chapter01" class="chapter-title">1. Managing Service Requests</h2>
+                    <h3 id="guide-category01-chapter01" class="chapter-title">1. Managing Service Requests</h3>
                     <div class="chapter-contents">
                         <span class="location">Service Request - Configuration - <em>Request Type</em></span>
                         <p class="category-description">You can in advance designate the Assignee and write description of an issue which may be requested.</p>
@@ -235,14 +93,14 @@
                             <li>
                                 Click the [Create Type] button. Or, click the [Modify Type] button to edit pre-existed service requests.
                                 <figure>
-                                    <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_1.png" alt="" style="width:800px;"></div>
+                                    <div class="screenshot"><img src="./image/bnr_guide_service_request_1_1.png" alt="" style="width:800px;"></div>
                                     <figcaption></figcaption>
                                 </figure>
                             </li>
                             <li>
                                 On the “Create Request Type” pane, enter the information about a service request you want to newly add to.
                                 <figure>
-                                    <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_2.png" alt="" style="width:800px;"></div>
+                                    <div class="screenshot"><img src="./image/bnr_guide_service_request_1_2.png" alt="" style="width:800px;"></div>
                                     <figcaption>
                                         <table style="margin-top:20px;">
                                             <tbody>
@@ -278,7 +136,7 @@
                             <li>
                                 Click the [Submit] button to save entries. Then the Request Type list shows that a new service request has been added.
                                 <figure>
-                                    <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_3.png" alt="" style="width:800px;"></div>
+                                    <div class="screenshot"><img src="./image/bnr_guide_service_request_1_3.png" alt="" style="width:800px;"></div>
                                     <figcaption></figcaption>
                                 </figure>
                             </li>
@@ -296,14 +154,14 @@
                             <li>
                                 On the “All Request” pane, click the [Create New] button.
                                 <figure>
-                                    <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_4.png" alt="" style="width:800px;"></div>
+                                    <div class="screenshot"><img src="./image/bnr_guide_service_request_1_4.png" alt="" style="width:800px;"></div>
                                     <figcaption></figcaption>
                                 </figure>
                             </li>
                             <li>
                                 On the “New Service Request” pane, enter details of a service which is to be requested.
                                 <figure>
-                                    <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_5.png" alt="" style="width:800px;"></div>
+                                    <div class="screenshot"><img src="./image/bnr_guide_service_request_1_5.png" alt="" style="width:800px;"></div>
                                     <figcaption>
                                         <table style="margin-top:20px;">
                                             <tbody>
@@ -357,7 +215,7 @@
                             <li>
                                 Click the [Submit] button to submit the service request. On the “My Requests” pane, you can see the list of services you have requested. Also, the Assignee of a new service request will receive a notification for the submission via e-mail.
                                 <figure>
-                                    <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_6.png" alt="" style="width:800px;"></div>
+                                    <div class="screenshot"><img src="./image/bnr_guide_service_request_1_6.png" alt="" style="width:800px;"></div>
                                     <figcaption></figcaption>
                                 </figure>
                             </li>
@@ -367,7 +225,7 @@
 
 
                 <section class="chapter">
-                    <h2 id="guide-category01-chapter03" class="chapter-title">3. Service Requests to Me</h2>
+                    <h3 id="guide-category01-chapter03" class="chapter-title">3. Service Requests to Me</h3>
                     <div class="chapter-contents">
                         <section class="chapter">
                             <h3 id="guide-category01-chapter03-01" class="chapter-title">3.1 Service Request Assigned to You</h3>
@@ -379,14 +237,14 @@
                                     <li>
                                         On the “Assign to Me” pane, check the list of service requests which have been submitted to you. You can click a requested service to check its details.
                                         <figure>
-                                            <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_7.png" alt="" style="width:800px;"></div>
+                                            <div class="screenshot"><img src="./image/bnr_guide_service_request_1_7.png" alt="" style="width:800px;"></div>
                                             <figcaption></figcaption>
                                         </figure>
                                     </li>
                                     <li>
                                         Check details of a requested service and process the service request.
                                         <figure>
-                                            <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_8.png" alt="" style="width:800px;"></div>
+                                            <div class="screenshot"><img src="./image/bnr_guide_service_request_1_8.png" alt="" style="width:800px;"></div>
                                             <figcaption></figcaption>
                                         </figure>
                                     </li>
@@ -403,7 +261,7 @@
                                     <li>
                                         On the “Watching Only” pane, you can check a service request for which you are designated as a Watcher. Click it to check its details.
                                         <figure>
-                                            <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_13.png" alt="" style="width:800px;"></div>
+                                            <div class="screenshot"><img src="./image/bnr_guide_service_request_1_13.png" alt="" style="width:800px;"></div>
                                             <figcaption></figcaption>
                                         </figure>
                                     </li>
@@ -411,7 +269,7 @@
                                         You can check details of a service request for which you are designated as a Watcher.
 
                                         <figure>
-                                            <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_14.png" alt="" style="width:800px;"></div>
+                                            <div class="screenshot"><img src="./image/bnr_guide_service_request_1_14.png" alt="" style="width:800px;"></div>
                                             <figcaption></figcaption>
                                         </figure>
                                     </li>
@@ -428,7 +286,7 @@
                                     <li>
                                         Click the [Action] button to change process status of a requested service.
                                         <figure>
-                                            <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_9.png" alt="" style="width:800px;"></div>
+                                            <div class="screenshot"><img src="./image/bnr_guide_service_request_1_9.png" alt="" style="width:800px;"></div>
                                             <figcaption>
                                                 <table style="margin-top:20px; width:800px;">
                                                     <tbody>
@@ -462,7 +320,7 @@
                                         On the “Status” item, you can check that status of the service has been changed.
 
                                         <figure>
-                                            <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_10.png" alt="" style="width:800px;"></div>
+                                            <div class="screenshot"><img src="./image/bnr_guide_service_request_1_10.png" alt="" style="width:800px;"></div>
                                             <figcaption></figcaption>
                                         </figure>
                                     </li>
@@ -478,7 +336,7 @@
                                     <li>
                                         Click the [Copy to Issue] button.
                                         <figure>
-                                            <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_11.png" alt="" style="width:800px;"></div>
+                                            <div class="screenshot"><img src="./image/bnr_guide_service_request_1_11.png" alt="" style="width:800px;"></div>
                                             <figcaption>
                                             </figcaption>
                                         </figure>
@@ -487,7 +345,7 @@
                                         Content of a requested service is copied to the “Create Issue” pane of Project Service. When you register this issue, you can select the project/team on which this issue is to be registered.
 
                                         <figure>
-                                            <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_12.png" alt="" style="width:800px;"></div>
+                                            <div class="screenshot"><img src="./image/bnr_guide_service_request_1_12.png" alt="" style="width:800px;"></div>
                                             <figcaption></figcaption>
                                         </figure>
                                     </li>
@@ -515,7 +373,7 @@
                                                 <br>
                                                 Select 'Status' 
                                                 <figure>
-                                                    <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_15.png" alt="" style="width:800px;"></div>
+                                                    <div class="screenshot"><img src="./image/bnr_guide_service_request_1_15.png" alt="" style="width:800px;"></div>
                                                     <figcaption></figcaption>
                                                 </figure>
                                             </li>
@@ -524,14 +382,14 @@
                                     <li>
                                         Click the [OK] button of the drop-down menu.
                                         <figure>
-                                            <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_16.png" alt="" style="width:800px;"></div>
+                                            <div class="screenshot"><img src="./image/bnr_guide_service_request_1_16.png" alt="" style="width:800px;"></div>
                                             <figcaption></figcaption>
                                         </figure>
                                     </li>
                                     <li>
                                         You can check the search result with the selected condition on the Service Request list.
                                         <figure>
-                                            <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_17.png" alt="" style="width:800px;"></div>
+                                            <div class="screenshot"><img src="./image/bnr_guide_service_request_1_17.png" alt="" style="width:800px;"></div>
                                             <figcaption></figcaption>
                                         </figure>
                                     </li>
@@ -547,14 +405,14 @@
                                     <li>
                                         Enter a keyword you want to search on the search box and click [Search] button or press [Enter].
                                         <figure>
-                                            <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_18.png" alt="" style="width:800px;"></div>
+                                            <div class="screenshot"><img src="./image/bnr_guide_service_request_1_18.png" alt="" style="width:800px;"></div>
                                             <figcaption></figcaption>
                                         </figure>
                                     </li>
                                     <li>
                                         The results which title is identical to the keyword will be shown on the list. Texts identical to the keyword will be highlighted.
                                         <figure>
-                                            <div class="screenshot"><img src="assets/images/guide/service_request/service_request_1_19.png" alt="" style="width:800px;"></div>
+                                            <div class="screenshot"><img src="./image/bnr_guide_service_request_1_19.png" alt="" style="width:800px;"></div>
                                             <figcaption></figcaption>
                                         </figure>
                                     </li>
@@ -576,5 +434,6 @@
 		</div>
 	</footer>
 </div>	<!-- class="layout-wrap" -->
+<script src="./resource/for_user_manual.js"></script>
 </body>
 </html>

@@ -17,11 +17,13 @@
     "child_process": "^1.0.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean": "^0.3.2",
     "gulp-imagemin": "^4.0.0",
     "gulp-mem": "^0.1.1",
     "gulp-notify": "^3.0.0",
     "gulp-restart": "^0.1.1",
     "gulp-sass": "^3.1.0",
+    "gulp-strip-comments": "^2.5.1",
     "gulp-watch": "^4.3.11",
     "inquirer": "^4.0.1"
   }

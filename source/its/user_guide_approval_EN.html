@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>USER GUIDE</title> 
+	<title>BESPIN USER GUIDE</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" href="./assets/styles/bsp_its_guide.css">
-	<script src="./assets/scripts/libs/jquery-2.2.3.min.js"></script>
+	<link rel="stylesheet" href="./resource/bsp_manual.css">
+	<script src="./resource/jquery-2.2.3.min.js"></script>
 </head>
-
 
 
 <body class="service-its page-user-guide-detail" data-state="none">
@@ -25,7 +24,7 @@
                 <label id="label_en" name="language_label" for="language01" style="display: block;">English</label>
 
                 <input type="radio" id="language02" name="language" value="ko">
-                <label id="label_ko" name="language_label" for="language02" style="display: block;" onclick="location.href='./user_guide_approval_KO.html';">한국어</label>
+                <label id="label_ko" name="language_label" for="language02" style="display: block;">한국어</label>
 
             </fieldset>
         </div>
@@ -65,150 +64,8 @@
 
 						</li>
 					</ul>
-					<script>
-					var TOCMenu = (function ($) {
-						var scope,
-							$container,
-							$anchorToggle,
-							$anchor,
-							init = function() {
-								$container = $('#toc-menu');
-								$anchorToggle = $container.find('.btn-toggle');
-								$anchor = $container.find('.toc a');
-
-								initLayout();
-								initEvent();
-							};
-
-						function initLayout() {
-						}
-
-						function initEvent() {
-							$container.find('.shortcut-toc').on('mousewheel', function (e) {
-								var event = e.originalEvent,
-									d = event.wheelDelta || -event.detail;
-
-								this.scrollTop += ( d < 0 ? 1 : -1 ) * 30;
-								e.preventDefault();
-							});
-
-							$container.find('a').on('click', function(e) {
-								var $this = $(this);
-								if( !$this.hasClass("btn-section") ) { e.preventDefault(); }
-
-								var $target = $( $this.attr("href") );
-
-								if( $this.hasClass("btn-toggle") ) {
-									$('html, body').animate({
-										scrollTop: $target.offset().top - 109
-									}, 0);
-								} else {
-									$('html, body').animate({
-										scrollTop: $target.offset().top - 109
-									}, 500);
-								}
-							});
-
-							onResize();
-							onScroll();
-
-							$(document).on('scroll', function(e) {
-								onScroll();
-							});
-							$(window).on('resize', function(e) {
-								onResize();
-							});
-						}
-
-						function updatePosition() {
-							var marginLeft;
-							var left;
-							var top = $container.position().top;
-							if( $(window).width() < 1660 ) {
-								marginLeft = 0;
-								left = $('.layout-fixed > .layout-page-title').offset().left;
-								left = left - $(document).scrollLeft();
-								$container.css({
-									"marginLeft": marginLeft,
-									"top": top,
-									"left": left + "px",
-									"opacity": 1
-								});
-							} else {
-								marginLeft = -1200/2;
-								$container.css({
-									"marginLeft": marginLeft,
-									"top": top,
-									"left": "50%",
-									"opacity": 1
-								});
-							}
-						}
-
-						function onResize() {
-							updatePosition();
-						}
-
-						function onScroll(e) {
-							updatePosition(e);
-
-							var scrollPos = $(document).scrollTop() + 110;
-
-							var $lastToggleTarget = null;
-							$anchorToggle.each(function() {
-								var $this = $(this);
-								var $target = $( $this.attr("href") );
-								if( $target.offset().top <= scrollPos ) {
-									if( $lastToggleTarget != null ) {
-										$lastToggleTarget.removeClass("active");
-									}
-									$this.addClass("active");
-									$lastToggleTarget = $this;
-								} else {
-									$this.removeClass("active");
-								}
-							});
-
-							var targets = [];
-							$anchor.each(function() {
-								var $this = $(this);
-								var $target = $( $this.attr("href") );
-
-								if( $target.offset().top <= scrollPos ) {
-									targets.push($(this));
-								} else {
-									$this.parents(".toc li").removeClass("active");
-								}
-							}).promise().done(function() {
-								activate(targets);
-							});
-						}
-
-						function activate(targets) {
-							if( targets.length < 1 ) return;
-							for( var i = 0;  i < targets.length; i++ ) {
-								targets[i].parents(".toc li").removeClass("active");
-							}
-							targets[targets.length-1].parents(".toc li").addClass("active");
-						}
-
-						return {
-							init: function() {
-								init();
-							}
-						};
-					}(jQuery));
-
-
-					$(window.document).ready(function () {
-						TOCMenu.init();
-					});
-					</script>
-
-				</nav>
-
-			</div>
-
+				</nav> 
+			</div> 
 
 			<div class="layout-contents-inner">
 
@@ -232,14 +89,14 @@
 								<li>
 									 Click the [Create Approval] button to write a new document for an approval.
 									<figure>
-										<div class="screenshot"><img src="assets/images/guide/approval/approval_1_1.png" alt="" style="width:800px;"></div>
+										<div class="screenshot"><img src="./image/bnr_guide_approval_1_1.png" alt="" style="width:800px;"></div>
 										<figcaption></figcaption>
 									</figure>
 								</li>
 								<li>
 									 On the drop-down menu for 'Type', select ‘General’. (General is the default value).
 									<figure>
-										<div class="screenshot"><img src="assets/images/guide/approval/approval_1_2.png" alt="" style="width:800px;"></div>
+										<div class="screenshot"><img src="./image/bnr_guide_approval_1_2.png" alt="" style="width:800px;"></div>
 										<figcaption>
 											<table style="margin-top:20px; width:800px;">
 												<tbody>
@@ -263,7 +120,7 @@
 								<li>
 									 Enter the details required for an approval.
 									<figure>
-										<div class="screenshot"><img src="assets/images/guide/approval/approval_1_3.png" alt="" style="width:800px;"></div>
+										<div class="screenshot"><img src="./image/bnr_guide_approval_1_3.png" alt="" style="width:800px;"></div>
 										<figcaption>
 											<table style="margin-top:20px; width:800px;">
 														<tbody>
@@ -317,7 +174,7 @@
 								<li>
 									 Click the [Submit] button to submit a document. As the document has been submitted, members of the Approver Group are to receive a notification for a new approval document via e-mail.
 									<figure>
-										<div class="screenshot"><img src="assets/images/guide/approval/approval_1_8.png" alt="" style="width:800px;"></div>
+										<div class="screenshot"><img src="./image/bnr_guide_approval_1_8.png" alt="" style="width:800px;"></div>
 										<figcaption></figcaption>
 									</figure>
 								</li>
@@ -331,28 +188,28 @@
 										<li>
 											 Click the [Search] button of ‘Approver’.
 											<figure>
-										<div class="screenshot"><img src="assets/images/guide/approval/approval_1_4.png" alt="" style="width:800px;"></div>
+										<div class="screenshot"><img src="./image/bnr_guide_approval_1_4.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
 										<li>
 											On ‘Member’ of the “Search Approver” pop-up, select a member who is to be included in the Approver Group and click the [Selected Add] button. The ‘Selected Member List’ shows who are added to the Approver Group.
 											<figure>
-										<div class="screenshot"><img src="assets/images/guide/approval/approval_1_5.png" alt="" style="width:800px;"></div>
+										<div class="screenshot"><img src="./image/bnr_guide_approval_1_5.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
 										<li>
 											 Click the [Save] button.
 											<figure>
-											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_6.png" alt="" style="width:800px;"></div>
+											<div class="screenshot"><img src="./image/bnr_guide_approval_1_6.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
 										<li>
 											 Assign a role for each member added to the group. After selecting the member, select one of the following to assign a role: Approval, Consent, Post-Approval or Notification.
 											<figure>
-											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_7.png" alt="" style="width:800px;"></div>
+											<div class="screenshot"><img src="./image/bnr_guide_approval_1_7.png" alt="" style="width:800px;"></div>
 												<figcaption>
 													<table style="margin-top:20px; width:800px;">
 														<tbody>
@@ -384,7 +241,7 @@
 										<li>
 											 Among members added to the list, set an order in which approvals are to be made. Click the [Up] and [Down] button to change the order.
 											<figure>
-											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_9.png" alt="" style="width:800px;"></div>
+											<div class="screenshot"><img src="./image/bnr_guide_approval_1_9.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -406,14 +263,14 @@
 										<li>
 											Click the “Report List” menu to check the submitted documents. The Report List menu shows documents which you have written and whose approval process is in progress..
 											<figure>
-											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_15.png" alt="" style="width:800px;"></div>
+											<div class="screenshot"><img src="./image/bnr_guide_approval_1_15.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
 										<li>
 											 Click the document on the Report List menu to check its details. Also, you can check its approval status.
 											<figure>
-											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_14_170522.png" alt="" style="width:800px;"></div>
+											<div class="screenshot"><img src="./image/bnr_guide_approval_1_14_170522.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -429,7 +286,7 @@
 										<li>
 											Click the “Pending List” menu to check the submitted documents. The Pending List menu shows documents you are bound to approve or reject.
 											<figure>
-											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_10.png" alt="" style="width:800px;"></div>
+											<div class="screenshot"><img src="./image/bnr_guide_approval_1_10.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -437,7 +294,7 @@
 											Click the document to check its details.
 
 											<figure>
-											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_11_170522.png" alt="" style="width:800px;"></div>
+											<div class="screenshot"><img src="./image/bnr_guide_approval_1_11_170522.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -445,7 +302,7 @@
 											Click the [Reject] or [Approval] button to reject or approve the document.
 
 											<figure>
-											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_12_170522.png" alt="" style="width:800px;"></div>
+											<div class="screenshot"><img src="./image/bnr_guide_approval_1_12_170522.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -453,7 +310,7 @@
 											 As you click the [Reject] or [Approval] button, the “Approval” or “Reject” pop-up appears respectively. You can write the reason for your approval/rejection. After writing the reason, click the [OK] button to complete it.
 
 											<figure>
-											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_13.png" alt="" style="width:800px;"></div>
+											<div class="screenshot"><img src="./image/bnr_guide_approval_1_13.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -461,7 +318,7 @@
 											A document whose Approver Group has finished the process for either approval or rejection is shown on the “Approved List’. Click a document on the Approved List to check its approval history.
 
 											<figure>
-											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_14_170522.png" alt="" style="width:800px;"></div>
+											<div class="screenshot"><img src="./image/bnr_guide_approval_1_14_170522.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -496,7 +353,7 @@
 										<li>
 											Select “Type” of the document you want to search for.
 											<figure>
-											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_17.png" alt="" style="width:800px;"></div>
+											<div class="screenshot"><img src="./image/bnr_guide_approval_1_17.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -504,7 +361,7 @@
 											Enter a keyword for search.
 
 											<figure>
-											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_18.png" alt="" style="width:800px;"></div>
+											<div class="screenshot"><img src="./image/bnr_guide_approval_1_18.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -512,7 +369,7 @@
 											Documents which are identical to the selected Type and keyword will be shown on the list. Texts identical to the keyword will be highlighted.
 
 											<figure>
-											<div class="screenshot"><img src="assets/images/guide/approval/approval_1_18.png" alt="" style="width:800px;"></div>
+											<div class="screenshot"><img src="./image/bnr_guide_approval_1_18.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -538,5 +395,6 @@
         </div>
 	</footer>
 </div>	<!-- class="layout-wrap" -->
+<script src="./resource/for_user_manual.js"></script>
 </body>
 </html>

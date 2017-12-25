@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BESPIN USER GUIDE</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="./resource/bsp_manual.css">
+	<script src="./resource/jquery-2.2.3.min.js"></script>
+</head>
+
+
+<body class="service-its page-user-guide-detail" data-state="none">
+<div class="layout-wrap">
+
+	<header class="global-menu">
+		<div class="title">
+			<a href="#" onclick="return false;" class="btn-user-guide">USER GUIDE</a>
+		</div>
+        <div class="utils">  
+            <fieldset class="select-language">
+                <legend>언어 설정</legend>
+
+                <input type="radio" id="language01" name="language" value="en" checked>
+                <label id="label_en" name="language_label" for="language01" style="display: block;">English</label>
+
+                <input type="radio" id="language02" name="language" value="ko">
+                <label id="label_ko" name="language_label" for="language02" style="display: block;">한국어</label>
+            </fieldset>
+        </div>
+	</header>
+
+	<!-- 본문 영역 -->
+	<main role="main">
+		<div class="layout-contents layout-fixed">
+
+			<!-- 페이지 타이틀 -->
+			<div class="layout-page-title">
+
+				<nav id="toc-menu" class="navigation-toc">
+					<span>DevOps</span>
+					<ul class="shortcut-toc">
+						<li class="active">
+                            <a href="#guide_devops" class="btn-section" data-state="devops">devops</a>
+                            <div class="section-sub">
+                                <a href="#guide_devops_setting" class="btn-toggle">Presetting</a>
+								<ol class="toc">
+                                    <li><a href="#guide_devops_setting_01">Set the main project and person in charge for process &amp; release for the service</a></li>
+                                    <li><a href="#guide_devops_setting_02">Add Build configuration</a></li>
+                                    <li><a href="#guide_devops_setting_03"> Check the build configuration</a></li>
+								</ol>
+							</div>
+							<div class="section-sub">
+								<a href="#guide_devops_planning" class="btn-toggle">Development Planning </a>
+								<ol class="toc">
+                                    <li><a href="#guide_devops_planning_01">Go to the Dev Planning pane by clicking the “Create New” button</a></li>
+                                    <li><a href="#guide_devops_planning_02">Fill out the form for Dev Planning</a></li>
+                                    <li><a href="#guide_devops_planning_03">Link the development issues synced and managed with the project service</a></li>
+                                </ol>
+							</div>
+							<div class="section-sub">
+								<a href="#guide_devops_release_planning" class="btn-toggle">Release planning</a>
+                                <ol class="toc">
+                                    <li><a href="#guide_devops_release_planning_01">Write release planning</a></li>
+                                    <li><a href="#guide_devops_release_planning_02">Check the release list</a></li>
+                                </ol>
+							</div>
+							<div class="section-sub">
+								<a href="#guide_devops_release_flow" class="btn-toggle">Processing Release</a>
+                                <ol class="toc">
+                                    <li><a href="#guide_devops_release_flow_01">Check the details of release</a></li>
+                                    <li><a href="#guide_devops_release_flow_02">Proceed with the process for each development phase, according to the workflow preset on Configuration.</a></li>
+                                    <li><a href="#guide_devops_release_flow_03">Click “Approval” to sync with Approval service and go to Approval pane</a></li>
+                                    <li><a href="#guide_devops_release_flow_04">Once approved, the status will change to “Approved”. Click the button to go to the approval details pane</a></li>
+                                    <li><a href="#guide_devops_release_flow_05">Deploy button is activated; click it to go to deploy execution pane</a></li>
+                                </ol>
+							</div>
+							<div class="section-sub">
+								<a href="#guide_devops_build_and_deploy" class="btn-toggle">Executing Build &amp; Deploy</a>
+                                <ol class="toc">
+                                    <li><a href="#guide_devops_build_and_deploy_01">Select build configuration and Deploy Type, and proceed with deploy</a></li>
+                                    <li><a href="#guide_devops_build_and_deploy_02">You can check the build log in Execute Result</a></li>
+                                    <li><a href="#guide_devops_build_and_deploy_03">Executing Deploy</a></li>
+                                </ol>
+							</div>
+							<div class="section-sub">
+								<a href="#guide_devops_deploy_history" class="btn-toggle">Check the Deploy history</a>
+							</div>
+							<div class="section-sub">
+								<a href="#guide_devops_report" class="btn-toggle">Reporting after deploy</a>
+                                <ol class="toc">
+                                    <li><a href="#guide_devops_report_01">Writing Report</a></li>
+                                    <li><a href="#guide_devops_report_02">Closing release planning</a></li>
+                                    <li><a href="#guide_devops_report_03">Closing Dev planning</a></li>
+                                </ol>
+                                
+							</div>
+							<div class="section-sub">
+								<a href="#guide_devops_scenario" class="btn-toggle">Operation scenario of integration of other services</a>
+							</div>
+							<div class="section-sub">
+								<a href="#guide_devops_constraints" class="btn-toggle">DevOps Constraints</a>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+
+            <div class="layout-contents-inner">
+
+                <!-- 서비스 시작 -->
+                <div class="layout-page-title" data-state="devops">
+                    <h1 id="guide_devops">DevOps</h1>
+                    <p class="layout-page-title-description">You can manage development and release plan, Build &amp; Deploy configuration, and End To End process. </p>
+                </div>
+
+                <div class="category">
+                    <h2 class="category-title">Managing Development and Release Issue</h2>
+                    <p class="category-description">Following is how to manage the release process for each service with DevOps service.</p>
+                </div>
+                <section class="chapter">
+                    <h3 id="guide_devops_setting" class="chapter-title">Presetting</h3>
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_setting_01" class="chapter-sub-title">1. Set the main project and person in charge for process & release for the service.</h4>
+                        <ol class="list-description">
+                            <li>The service group registered in Portal Service will be shown.
+                                <figure>
+                                    <div class="screenshot"><img src="./image/bnr_guide_devops_001.png" alt="" style="width:800px;"></div>
+                                    <figcaption></figcaption>
+                                </figure>
+                            </li>
+                            <li>You can link the project that manages the service group and set the workflow.<br />
+                                The workflow can be composed in three steps for each development phase (development, verification, operation): Approval, Deploy, and Report.
+                                <ol>
+                                    <li>Project mapping
+                                        <ol>
+                                            <li>A.	Source Repository will be automatically created with a service group code when mapping.</li>
+                                        </ol>
+                                    </li>
+                                    <li>Workflow setting
+                                        <ol>
+                                            <li>Approval: Link Approval Service to link the approval process before deploy.</li>
+                                            <li>Deploy: Composed Build &amp; Deploy procedures can be included.</li>
+                                            <li>Report: Deploy report can be simply recorded
+                                                <figure>
+                                                    <div class="screenshot"><img src="./image/bnr_guide_devops_002.png" alt="" style="width:800px;"></div>
+                                                    <figcaption></figcaption>
+                                                </figure>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>You can set the role of DevOps as a member of the previously linked project.
+                                <ol>
+                                    <li>Role
+                                        <ol>
+                                            <li>Leader: Has all rights to Build &amp; Deploy procedures </li>
+                                            <li>B.	Member: Has limited rights in regards to configuration menu usage and deploy that requires approval.</li>
+                                        </ol>
+                                    </li>
+                                    <li>2.	Once a role is granted, the permissions to Read/Write Repository & CI services are granted to the relevant ID, and an initial password is sent via e-mail.
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_devops_003.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_setting_02"  class="chapter-sub-title">2. Add Build configuration.</h4>
+                        <p class="chapter-title-description">Add a new build configuration with “Create New".</p>
+                        <figure>
+                            <div class="screenshot"><img src="./image/bnr_guide_devops_004.png" alt="" style="width:800px;"></div>
+                            <figcaption></figcaption>
+                        </figure>
+                        <ol class="list-description">
+                            <li>Set Service name / Phase / Project name / Repository Path(SVN) / Build Command(SVN) / Script(Shell) / Target Server / etc.</li>
+                            <li>Routung Check Settings
+                                <p>In case servers are diversified and support routing, this setting secures service continuity when deploying.</p>
+                                <ol>
+                                    <li>Health Check Path
+                                        <ol>
+                                            <li>Before build and deploy, you can change the file in the server’s Health Check Path, block routing by Load Balancer, and proceed with deploy.</li>
+                                        </ol>
+                                    </li>
+                                    <li>Logic Check URL
+                                        <ol>
+                                            <li>After the deploy, you can check the server connection with the entered URL address, restore the files from Health Check Path, and normalize Routing.
+                                                <figure>
+                                                    <div class="screenshot"><img src="./image/bnr_guide_devops_005.png" alt="" style="width:800px;"></div>
+                                                    <figcaption></figcaption>
+                                                </figure>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>Search and link the target server list manually entered via SR transfer.
+                                <figure>
+                                    <div class="screenshot"><img src="./image/bnr_guide_devops_006.png" alt="" style="width:800px;"></div>
+                                    <figcaption></figcaption>
+                                </figure>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_setting_03" class="chapter-sub-title">3. Check the build configuration.</h4>
+                        <figure>
+                            <div class="screenshot"><img src="./image/bnr_guide_devops_007.png" alt="" style="width:800px;"></div>
+                            <figcaption></figcaption>
+                        </figure>
+                    </div>
+                </section>
+
+                <section class="chapter">
+                    <h3 id="guide_devops_planning" class="chapter-title">Development Planning </h3>
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_planning_01" class="chapter-sub-title">1. Go to the Dev Planning pane by clicking the “Create New” button.</h4>
+                        <figure>
+                            <div class="screenshot"><img src="./image/bnr_guide_devops_008.png" alt="" style="width:800px;"></div>
+                            <figcaption></figcaption>
+                        </figure>
+                    </div>
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_planning_02" class="chapter-sub-title">2. Fill out the form for Dev Planning.</h4>
+                        <ol class="list-description">
+                            <li>Select the target service of Dev planning.</li>
+                            <li>Enter the release Target Version.</li>
+                            <li>Enter the development period, title, description, and watcher.
+                                <figure>
+                                    <div class="screenshot"><img src="./image/bnr_guide_devops_009.png" alt="" style="width:800px;"></div>
+                                    <figcaption></figcaption>
+                                </figure>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_planning_03" class="chapter-sub-title">3. Link the development issues synced and managed with the project service.</h4>
+                        <ol class="list-description">
+                            <li>When committing to Source Repository, enter the issue key number of the project service on the first line on Commit Comment and its description after the second line. Then its content will be automatically registered as a comment to Issue, and you can trace the relevant content conversely.</li>
+                            <li>Register issues with Commit Log as issues related to Dev planning to check the changed source list on the bottom of the release planning.
+                                <figure>
+                                    <div class="screenshot"><img src="./image/bnr_guide_devops_010.png" alt="" style="width:800px;"></div>
+                                    <figcaption></figcaption>
+                                </figure>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+
+                <section class="chapter">
+                    <h3 id="guide_devops_release_planning" class="chapter-title">Release planning </h4>
+                    <p class="chapter-title-description">For established and verified development plans, you can write release planning with “Transfer to Release” button.</p>
+                    <figure>
+                        <div class="screenshot"><img src="./image/bnr_guide_devops_011.png" alt="" style="width:800px;"></div>
+                        <figcaption></figcaption>
+                    </figure>
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_release_planning_01" class="chapter-sub-title">1. Write release planning</h4>
+                        <ol class="list-description">
+                            <li>Enter the release planning title, release period, and watcher.</li>
+                            <li>ii.	For release description, please follow the job description form of the company.
+                                <figure>
+                                    <div class="screenshot"><img src="./image/bnr_guide_devops_012.png" alt="" style="width:800px;"></div>
+                                </figure>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_release_planning_02" class="chapter-sub-title">2. Check the release list.</h4>
+                        <figure>
+                            <div class="screenshot"><img src="./image/bnr_guide_devops_013.png" alt="" style="width:800px;"></div>
+                        </figure>
+                    </div>
+                </section>
+
+                <section class="chapter">
+                    <h3 id="guide_devops_release_flow" class="chapter-title">4.	Processing Release</h3>
+
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_release_flow_01" class="chapter-sub-title">1. Check the details of release.</h4>
+                        <p class="chapter-title-description">i.	Here, the list of related issues linked to Dev planning is shown. You can check the changed source list according to the commit log registered on the relevant issue.</p>
+                    </div>
+
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_release_flow_02" class="chapter-sub-title">2. Proceed with the process for each development phase, according to the workflow preset on Configuration.</h4>
+                        <figure>
+                            <div class="screenshot"><img src="./image/bnr_guide_devops_014.png" alt="" style="width:800px;"></div>
+                        </figure>
+                    </div>
+
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_release_flow_03" class="chapter-sub-title">3. Click “Approval” to sync with Approval service and go to Approval pane.</h4>
+                        <p class="chapter-title-description">Please refer to User Guide of Approval services for how to write approval.</p>
+                        <figure>
+                            <div class="screenshot"><img src="./image/bnr_guide_devops_015.png" alt="" style="width:800px;"></div>
+                        </figure>
+                    </div>
+
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_release_flow_04" class="chapter-sub-title">4. Once approved, the status will change to “Approved”. Click the button to go to the approval details pane.</h4>
+                        <figure>
+                            <div class="screenshot"><img src="./image/bnr_guide_devops_015.png" alt="" style="width:800px;"></div>
+                        </figure>
+                    </div>
+
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_release_flow_05" class="chapter-sub-title">5.	Deploy button is activated; click it to go to deploy execution pane.</h4>
+                        <figure>
+                            <div class="screenshot"><img src="./image/bnr_guide_devops_016.png" alt="" style="width:800px;"></div>
+                        </figure>
+                    </div>
+
+                </section>
+                
+                <section class="chapter">
+                    <h3 id="guide_devops_build_and_deploy" class="chapter-title">Executing Build &amp; Deploy</h3>
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_build_and_deploy_01" class="chapter-sub-title">1. Select build configuration and Deploy Type, and proceed with deploy.</h4>
+                        <p class="chapter-title-description">Click “Create New” to create Branch at Source Repository and deploy the relevant Branch.
+</p>
+                        <figure>
+                            <div class="screenshot"><img src="./image/bnr_guide_devops_017.png" alt="" style="width:800px;"></div>
+                        </figure>
+                    </div>
+
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_build_and_deploy_02" class="chapter-sub-title">2. You can check the build log in Execute Result.</h4>
+                        <figure>
+                            <div class="screenshot"><img src="./image/bnr_guide_devops_018.png" alt="" style="width:800px;"></div>
+                            <figcaption></figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_build_and_deploy_03" class="chapter-sub-title">3. Executing Deploy.</h4>
+                        <ol class="list-description">
+                            <li>Enter the service & development phase, build configuration, deploy source, sonar analysis, etc.</li>
+                            <li>You can analyze Sonarqube source with Run Sonar. Extra time to analyze and to execute may be required according to the Source amount.</li>
+                            <li>You can deploy concurrently or sequentially to the target server by setting the deploy type.
+                                <figure>
+                                    <div class="screenshot"><img src="./image/bnr_guide_devops_019.png" alt="" style="width:800px;"></div>
+                                    <figcaption></figcaption>
+                                </figure>
+                            </li>
+                        </ol>
+                    </div>
+                    
+                </section>
+
+                <section class="chapter">
+                    <h3 id="guide_devops_deploy_history" class="chapter-title">You can check the Deploy history</h3>
+                    <figure>
+                        <div class="screenshot"><img src="./image/bnr_guide_devops_021.png" alt="" style="width:800px;"></div>
+                        <figcaption></figcaption>
+                    </figure>
+                </section>
+
+
+                <section class="chapter">
+                    <h3 id="guide_devops_report" class="chapter-title">Reporting after deploy</h3>
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_report_01" class="chapter-sub-title">1. Writing Report </h4>
+                        <ol class="list-description">
+                            <li>Once the deploy is complete, click “Report” button on the Release Plan Details to record the results.</li>
+                            <li>Record the success or failure of release / Rollback / discontinue service / duration of discontinued service / verification statement/ Rollback statement/ etc.
+                                <figure>
+                                    <div class="screenshot"><img src="./image/bnr_guide_devops_022.png" alt="" style="width:800px;"></div>
+                                    <figcaption></figcaption>
+                                </figure>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_report_02" class="chapter-sub-title">2. Closing release planning</h4>
+                        <p class="chapter-title-description">Once the report is complete, complete the release by clicking “Close” button and go to Dev planning.</p>
+                        <figure>
+                            <div class="screenshot"><img src="./image/bnr_guide_devops_023.png" alt="" style="width:800px;"></div>
+                            <figcaption></figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="chapter-contents">
+                        <h4 id="guide_devops_report_03" class="chapter-sub-title">3. Closing Dev planning </h4>
+                        <ol class="list-description">
+                            <li>Check if all the related issues are reflected and handled properly, and close the Dev planning with the “Close” button in Dev planning pane.</li>
+                            <li>ii.	Closing the Dev planning will change the status of all the related issues that are linked as “Closed”.
+                                <figure>
+                                    <div class="screenshot"><img src="./image/bnr_guide_devops_024.png" alt="" style="width:800px;"></div>
+                                    <figcaption></figcaption>
+                                </figure>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+
+                <section class="chapter">
+                    <h3 id="guide_devops_scenario" class="chapter-title">Operation scenario of integration of other services </h3>
+                    <div class="chapter-contents">
+                        <p class="chapter-title-description">If you link the services below, you can work more organically and efficiently in all the procedures from request gathering, development and testing, and to service release via DevOps.</p>
+                        <ol class="list-description">
+                            <li>SR / Project: Request gathering</li>
+                            <li>Monitoring / Alarm: Monitoring of system performance</li>
+                            <li>DBQCS: Database quality management</li>
+                            <li>Approval: Approval process for each development phase</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <section class="chapter">
+                    <h3 id="guide_devops_constraints" class="chapter-title">DevOps Constraints</h3>
+                    <div class="chapter-contents">
+                        <ol class="list-description">
+                            <li>OS has been completely verified only in Ubuntu (Recommend Version 12/14)</li>
+                            <li>Only available in the service environments below 
+                                <ol>
+                                    <li>Java(Recommend Version 1.7/1.8)</li>
+                                    <li>Apache Tomcat (Recommend Version 7, 8) composition</li>
+                                    <li>SSH access account must be created to deploy in ITS </li>
+                                </ol>
+                            </li>
+                            <li>By executing deploy server initializing script, the server can be automatically composed in the following order:
+                                <ol>
+                                    <li>JDK installation : Java Application(Recommend Version 1.8)</li>
+                                    <li>SSH access account configuration </li>
+                                    <li>Apache Tomcat installation (Recommend Version 8)</li>
+                                </ol>
+                            </li>
+                            <li>Other constraints 
+                                <ol>
+                                    <li>Build Tool only supports Maven, and can be used after setting the Build Command</li>
+                                    <li>SCM only supports : SVN, GIT, Bitbucket composition (refer to the details below)
+                                        <ol>
+                                            <li>Repository establishment, role management, build, sonar analysis, and deploy can only be synced with SVN</li>
+                                            <li>When Project Mapping to a service, Repository automatically is composed with a service code (SVN Only)</li>
+                                            <li>When using GIT / Bitbucket, only the current Commit Log and Project Issue can be synced. It operates after setting DevOps API on the relevant server</li>
+                                        </ol>
+                                    </li>
+                                    <li>CI and QA constituents
+                                        <ol>
+                                            <li>CI : Jenkins</li>
+                                            <li>QA : SonarQube</li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+
+            </div>
+		</div>
+	</main>
+
+	<!-- 하단 영역 -->
+	<footer class="layout-footer">
+        <div class="contents-inner">
+            <div class="service">
+                <h2 class="title">USER GUIDE</h2>
+            </div>
+        </div>
+	</footer> 
+
+</div>	<!-- class="layout-wrap" -->
+<script src="./resource/for_user_manual.js"></script>
+</body>
+</html>
+
+
+

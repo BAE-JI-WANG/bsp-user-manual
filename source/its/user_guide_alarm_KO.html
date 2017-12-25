@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 	<meta charset="UTF-8">
-	<title>USER GUIDE</title> 
+	<title>BESPIN USER GUIDE</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" href="./assets/styles/bsp_its_guide.css">
-	<script src="./assets/scripts/libs/jquery-2.2.3.min.js"></script>
+	<link rel="stylesheet" href="./resource/bsp_manual.css">
+	<script src="./resource/jquery-2.2.3.min.js"></script>
 </head>
+
 
 
 <body class="service-its page-user-guide-detail" data-state="none">
@@ -21,12 +22,12 @@
                 <legend>언어 설정</legend>
 
                 <input type="radio" id="language01" name="language" value="en">
-                <label id="label_en" name="language_label" for="language01" style="display: block;" onclick="location.href='./user_guide_alarm_EN.html';">English</label>
+                <label id="label_en" name="language_label" for="language01" style="display: block;">English</label>
 
                 <input type="radio" id="language02" name="language" value="ko" checked>
                 <label id="label_ko" name="language_label" for="language02" style="display: block;">한국어</label>
-
             </fieldset>
+
         </div>
 	</header>
 
@@ -46,15 +47,15 @@
 								<a href="#guide-category01" class="btn-toggle">Overview</a>
 								<ol class="toc">
 									<li><a href="#guide-category01-chapter01">서비스 별 담당자 지정</a></li>
-									<li><a href="#guide-category01-chapter02">장애 내용 확인</a></li>
-									<li><a href="#guide-category01-chapter03">장애 처리</a>
+									<li><a href="#guide-category01-chapter02">알람 내용 확인</a></li>
+									<li><a href="#guide-category01-chapter03">알람 처리</a>
 										<ol class="toc">
-											<li><a href="#guide-category01-chapter03-01">장애 처리 담당자 설정</a></li>
-											<li><a href="#guide-category01-chapter03-02">장애 등급 상승</a></li>
-											<li><a href="#guide-category01-chapter03-03">장애 처리 완료</a></li>
+											<li><a href="#guide-category01-chapter03-01">조건을 설정해 검색</a></li>
+											<li><a href="#guide-category01-chapter03-02">알람 등급 변경</a></li>
+											<li><a href="#guide-category01-chapter03-03">알람 처리 완료</a></li>
 										</ol>
 									</li>
-									<li><a href="#guide-category01-chapter04">이력 및 연관 업무 관리</a>
+									<li><a href="#guide-category01-chapter04">알람 처리 이력 및 연관 업무 관리</a>
 										<ol class="toc">
 											<li><a href="#guide-category01-chapter04-01">알람 처리 이력 보기</a></li>
 											<li><a href="#guide-category01-chapter04-02">연관 업무 등록</a></li>
@@ -62,7 +63,7 @@
 									</li>
 									<li><a href="#guide-category01-chapter05">알람 이력 검색</a>
 										<ol class="toc">
-											<li><a href="#guide-category01-chapter05-01">서비스 그룹 별 알람 이력</a></li>
+											<li><a href="#guide-category01-chapter05-01">서비스 그룹 별 알람 이력 보기</a></li>
 											<li><a href="#guide-category01-chapter05-02">조건을 설정해 검색</a></li>
 											<li><a href="#guide-category01-chapter05-03">키워드를 입력해 검색</a></li>
 										</ol>
@@ -72,150 +73,8 @@
 
 						</li>
 					</ul>
-					<script>
-					var TOCMenu = (function ($) {
-						var scope,
-							$container,
-							$anchorToggle,
-							$anchor,
-							init = function() {
-								$container = $('#toc-menu');
-								$anchorToggle = $container.find('.btn-toggle');
-								$anchor = $container.find('.toc a');
-
-								initLayout();
-								initEvent();
-							};
-
-						function initLayout() {
-						}
-
-						function initEvent() {
-							$container.find('.shortcut-toc').on('mousewheel', function (e) {
-								var event = e.originalEvent,
-									d = event.wheelDelta || -event.detail;
-
-								this.scrollTop += ( d < 0 ? 1 : -1 ) * 30;
-								e.preventDefault();
-							});
-
-							$container.find('a').on('click', function(e) {
-								var $this = $(this);
-								if( !$this.hasClass("btn-section") ) { e.preventDefault(); }
-
-								var $target = $( $this.attr("href") );
-
-								if( $this.hasClass("btn-toggle") ) {
-									$('html, body').animate({
-										scrollTop: $target.offset().top - 109
-									}, 0);
-								} else {
-									$('html, body').animate({
-										scrollTop: $target.offset().top - 109
-									}, 500);
-								}
-							});
-
-							onResize();
-							onScroll();
-
-							$(document).on('scroll', function(e) {
-								onScroll();
-							});
-							$(window).on('resize', function(e) {
-								onResize();
-							});
-						}
-
-						function updatePosition() {
-							var marginLeft;
-							var left;
-							var top = $container.position().top;
-							if( $(window).width() < 1660 ) {
-								marginLeft = 0;
-								left = $('.layout-fixed > .layout-page-title').offset().left;
-								left = left - $(document).scrollLeft();
-								$container.css({
-									"marginLeft": marginLeft,
-									"top": top,
-									"left": left + "px",
-									"opacity": 1
-								});
-							} else {
-								marginLeft = -1200/2;
-								$container.css({
-									"marginLeft": marginLeft,
-									"top": top,
-									"left": "50%",
-									"opacity": 1
-								});
-							}
-						}
-
-						function onResize() {
-							updatePosition();
-						}
-
-						function onScroll(e) {
-							updatePosition(e);
-
-							var scrollPos = $(document).scrollTop() + 110;
-
-							var $lastToggleTarget = null;
-							$anchorToggle.each(function() {
-								var $this = $(this);
-								var $target = $( $this.attr("href") );
-								if( $target.offset().top <= scrollPos ) {
-									if( $lastToggleTarget != null ) {
-										$lastToggleTarget.removeClass("active");
-									}
-									$this.addClass("active");
-									$lastToggleTarget = $this;
-								} else {
-									$this.removeClass("active");
-								}
-							});
-
-							var targets = [];
-							$anchor.each(function() {
-								var $this = $(this);
-								var $target = $( $this.attr("href") );
-
-								if( $target.offset().top <= scrollPos ) {
-									targets.push($(this));
-								} else {
-									$this.parents(".toc li").removeClass("active");
-								}
-							}).promise().done(function() {
-								activate(targets);
-							});
-						}
-
-						function activate(targets) {
-							if( targets.length < 1 ) return;
-							for( var i = 0;  i < targets.length; i++ ) {
-								targets[i].parents(".toc li").removeClass("active");
-							}
-							targets[targets.length-1].parents(".toc li").addClass("active");
-						}
-
-						return {
-							init: function() {
-								init();
-							}
-						};
-					}(jQuery));
-
-
-					$(window.document).ready(function () {
-						TOCMenu.init();
-					});
-					</script>
-
 				</nav>
-
 			</div>
-
 
 			<div class="layout-contents-inner">
 
@@ -244,7 +103,7 @@
 									사용자를 관리할 서비스 그룹 선택 후, [Edit Member] 버튼을 클릭합니다.
 
 									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_1.png" alt="" style="width:800px;"></div>
+										<div class="screenshot"><img src="./image/bnr_guide_alarm_1_1.png" alt="" style="width:800px;"></div>
 										<figcaption></figcaption>
 									</figure>
 								</li>
@@ -253,7 +112,7 @@
 									해당 서비스 그룹의 알람을 받을 사용자를 왼쪽 목록에서 선택해 오른쪽 목록에 추가합니다.
 					
 									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_3.png" alt="" style="width:800px;"></div>
+										<div class="screenshot"><img src="./image/bnr_guide_alarm_1_3.png" alt="" style="width:800px;"></div>
 										<figcaption>
 										</figcaption>
 									</figure>
@@ -262,7 +121,7 @@
 									오른쪽 목록에 추가한 사용자의 권한을 설정합니다.
 					
 									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_4.png" alt="" style="width:800px;"></div>
+										<div class="screenshot"><img src="./image/bnr_guide_alarm_1_4.png" alt="" style="width:800px;"></div>
 										<figcaption>
 											<p>
 												두가지 권한 중 사용자에게 하나의 권한만을 부여할 수 있습니다. 이 권한은 서비스 그룹 별로 다르게 지정할 수 있습니다.<br>
@@ -276,7 +135,7 @@
 									[OK] 버튼을 클릭해 변경 내용을 저장합니다. 서비스 그룹 별 사용자 목록에서 알람을 받을 사용자가 추가되었는지 확인합니다.
 					
 									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_5.png" alt="" style="width:800px;"></div>
+										<div class="screenshot"><img src="./image/bnr_guide_alarm_1_5.png" alt="" style="width:800px;"></div>
 										<figcaption>
 											<p>
 												선택한 서비스 그룹의 Receiver와 Assignee 설정이 완료되었습니다.<br>
@@ -301,7 +160,7 @@
 									알람 목록에서 내용을 확인할 알람을 클릭합니다.
 
 									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_5.png" alt="" style="width:800px;"></div>
+										<div class="screenshot"><img src="./image/bnr_guide_alarm_1_5.png" alt="" style="width:800px;"></div>
 										<figcaption>알람 목록에서는 발생한 알람의 요약 정보를 확인할 수 있습니다.</figcaption>
 									</figure>
 								</li>
@@ -309,7 +168,7 @@
 									알람의 상세 내역을 확인합니다.
 					
 									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_6.png" alt="" style="width:800px;"></div>
+										<div class="screenshot"><img src="./image/bnr_guide_alarm_1_6.png" alt="" style="width:800px;"></div>
 										<figcaption><p>① 알람 상세: 발생한 알람의 상세 정보를 확인할 수 있습니다.<br>
 										② 연관 업무: 발생한 이슈와 연관된 업무 정보를 표시합니다. <br>
 										③ 코멘트: 알람에 대한 코멘트를 남길 수 있으며, 다른 사용자들이 남긴 코멘트를 확인할 수 있습니다.<br>
@@ -320,7 +179,7 @@
 									[Show Chart] 버튼을 클릭해 알람 발생 당시의 Metric 정보를 확인할 수 있습니다.
 					
 									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_7.png" alt="" style="width:800px;"></div>
+										<div class="screenshot"><img src="./image/bnr_guide_alarm_1_7.png" alt="" style="width:800px;"></div>
 										<figcaption>
 										</figcaption>
 									</figure>
@@ -329,7 +188,7 @@
 									알람 발생 당시의 Metric 정보가 새 창으로 표시됩니다.
 					
 									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_5.png" alt="" style="width:800px;"></div>
+										<div class="screenshot"><img src="./image/bnr_guide_alarm_1_5.png" alt="" style="width:800px;"></div>
 										<figcaption>
 										</figcaption>
 									</figure>
@@ -356,7 +215,7 @@
 											검색할 조건을 선택합니다. [Status] 버튼을 클릭하면 드롭다운 메뉴로 선택 가능한 조건이 표시됩니다.
 
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_9.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_9.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -364,7 +223,7 @@
 											 [Action] 버튼을 클릭해 표시되는 드롭다운 목록에서 [Start] 버튼을 클릭합니다.
 
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_10.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_10.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -372,7 +231,7 @@
 											 [Action] 버튼을 클릭해 표시되는 드롭다운 목록에서 [Start] 버튼을 클릭합니다.
 
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_11.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_11.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -380,7 +239,7 @@
 											 알람의 'Status'가 'In-progress'로 변경되고 'Assignee'에 처리 담당자의 '이름'이 표시됩니다.
 
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_12.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_12.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -404,7 +263,7 @@
 											알람 목록에서 내용을 확인할 알람을 클릭해 알람의 상세 내역 화면으로 이동합니다.
 
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_9.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_9.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -412,7 +271,7 @@
 											'Level'을 변경하고 변경 사유를 'Description'에 입력합니다. 입력 후 [Escalation] 버튼을 클릭합니다.
 
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_13.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_13.png" alt="" style="width:800px;"></div>
 												<figcaption><p>기존 'Level' 이 'Minor' 인 경우, [Escalation] 버튼 클릭 시 자동으로 'Major'로 변경됩니다.</p></figcaption>
 											</figure>
 										</li>
@@ -433,7 +292,7 @@
 											알람 내역에서 [Action] 버튼을 클릭해 표시되는 드롭다운 목록에서 [Close] 버튼을 클릭합니다.
 
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_14.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_14.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -441,7 +300,7 @@
 											"Close" 팝업이 표시됩니다. 작업 완료에 따른 코멘트를 입력하고 [OK] 버튼을 클릭합니다.
 
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_15.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_15.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -449,7 +308,7 @@
 											알람의 'status'가 'Closed'로 표시되고 'End Time'이 표시됩니다. 그리고 'Solution' 항목에 처리 완료 시 입력한 코멘트와 완료 시각이 표시됩니다.
 
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_16.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_16.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -457,7 +316,7 @@
 											알람 목록에서 해당 알람의 처리가 완료되었음을 확인할 수 있습니다.
 
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_17.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_17.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -484,7 +343,7 @@
 											알람 내역 화면에서 가장 아래의 "Active History" 영역으로 이동합니다.
 
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_18.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_18.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -492,7 +351,7 @@
 											 "Active History" 영역에는 알람의 처리 시작, 코멘트 작성, 내용 수정, 처리 종료까지의 모든 과정의 기록이 시간순으로 표시됩니다. 기본적으로 가장 최신의 이력이 상위에 표시됩니다.
 
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_19.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_19.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -500,7 +359,7 @@
 											테이블 헤더를 클릭해 정렬 조건을 변경할 수 있습니다.
 
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_20.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_20.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -519,21 +378,21 @@
 											알람 내역 화면에서 [Modify] 버튼을 클릭합니다.
 
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_21.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_21.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
 										<li>
 											 "Modify Alarm" 화면에서 'Relates by issue' 항목의 [Add] 버튼을 클릭합니다.
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_22.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_22.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
 										<li>
 											"Search for Issues" 팝업이 표시됩니다. 이 팝업에는 Project App에 등록된 업무들의 목록이 표시됩니다. 연결한 업무를 프로젝트, 상태, 제목으로 검색할 수 있습니다. 업무 목록에서 연결할 업무를 선택하고 [OK] 버튼을 클릭합니다.
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_23.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_23.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -558,14 +417,14 @@
 											알람를 확인할 서비스 그룹을 클릭합니다.
 
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_24.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_24.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
 										<li>
 											 선택한 서비스 그룹에서 발생한 알람 이력이 알람 목록에 표시됩니다.
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_25.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_25.png" alt="" style="width:800px;"></div>
 												<figcaption><p>서비스 그룹 목록에서 현재 알람가 발생한 서비스 그룹을 확인할 수 있습니다. <br>
 													알람이 발생한 서비스 그룹은 서비스 그룹 이름 옆에 현재 발생한 알람의 수가 표시됩니다.</p></figcaption>
 											</figure>
@@ -586,7 +445,7 @@
 													<br>
 													'Level' 조건 선택
 													<figure>
-														<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_26.png" alt="" style="width:800px;"></div>
+														<div class="screenshot"><img src="./image/bnr_guide_alarm_1_26.png" alt="" style="width:800px;"></div>
 														<figcaption></figcaption>
 													</figure>
 												</li>
@@ -594,7 +453,7 @@
 													<br>
 													'Category' 조건 선택
 													<figure>
-														<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_27.png" alt="" style="width:800px;"></div>
+														<div class="screenshot"><img src="./image/bnr_guide_alarm_1_27.png" alt="" style="width:800px;"></div>
 														<figcaption></figcaption>
 													</figure>
 												</li>
@@ -602,7 +461,7 @@
 													<br>
 													'Status' 조건 선택
 													<figure>
-														<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_28.png" alt="" style="width:800px;"></div>
+														<div class="screenshot"><img src="./image/bnr_guide_alarm_1_28.png" alt="" style="width:800px;"></div>
 														<figcaption></figcaption>
 													</figure>
 												</li>
@@ -611,14 +470,14 @@
 										<li>
 											 드롭다운 메뉴의 [OK] 버튼을 클릭합니다.
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_29.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_29.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
 										<li>
 											선택한 조건의 검색 결과를 알람 목록에서 확인할 수 있습니다.
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_30.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_30.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -634,14 +493,14 @@
 										<li>
 											검색창에 검색할 키워드를 입력 후, [Enter]키 혹은 [검색]  버튼을 클릭합니다.
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_31.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_31.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
 										<li>
 											  목록에 입력한 키워드와 일치하는 제목을 가진 결과가 표시됩니다. 입력한 키워드와 일치하는 텍스트가 하이라이팅되어 표시됩니다.
 											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_32.png" alt="" style="width:800px;"></div>
+												<div class="screenshot"><img src="./image/bnr_guide_alarm_1_32.png" alt="" style="width:800px;"></div>
 												<figcaption></figcaption>
 											</figure>
 										</li>
@@ -669,5 +528,6 @@
 	</footer> 
 
 </div>	<!-- class="layout-wrap" -->
+<script src="./resource/for_user_manual.js"></script>
 </body>
 </html>

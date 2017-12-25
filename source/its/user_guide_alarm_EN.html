@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>USER GUIDE</title> 
+	<title>BESPIN USER GUIDE</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" href="./assets/styles/bsp_its_guide.css">
-	<script src="./assets/scripts/libs/jquery-2.2.3.min.js"></script>
+	<link rel="stylesheet" href="./resource/bsp_manual.css">
+	<script src="./resource/jquery-2.2.3.min.js"></script>
 </head>
-
 
 <body class="service-its page-user-guide-detail" data-state="none">
 <div class="layout-wrap">
@@ -24,8 +23,7 @@
                 <label id="label_en" name="language_label" for="language01" style="display: block;">English</label>
 
                 <input type="radio" id="language02" name="language" value="ko">
-                <label id="label_ko" name="language_label" for="language02" style="display: block;" onclick="location.href='./user_guide_alarm_KO.html';">한국어</label>
-
+                <label id="label_ko" name="language_label" for="language02" style="display: block;">한국어</label>
             </fieldset>
         </div>
 	</header>
@@ -46,12 +44,12 @@
 								<a href="#guide-category01" class="btn-toggle">Overview</a>
 								<ol class="toc">
 									<li><a href="#guide-category01-chapter01">Designating the Assignee for each Service</a></li>
-									<li><a href="#guide-category01-chapter02">Checking on Details of Failure</a></li>
-									<li><a href="#guide-category01-chapter03">Processing Failure</a>
+									<li><a href="#guide-category01-chapter02">Checking on Details of an Alarm</a></li>
+									<li><a href="#guide-category01-chapter03">Processing Alarm</a>
 										<ol class="toc">
-											<li><a href="#guide-category01-chapter03-01">Designating the Assignee for Processing Failure</a></li>
-											<li><a href="#guide-category01-chapter03-02">Grading on Failures</a></li>
-											<li><a href="#guide-category01-chapter03-03">Fulfilling Failure Process</a></li>
+											<li><a href="#guide-category01-chapter03-01">Searching by Conditions</a></li>
+											<li><a href="#guide-category01-chapter03-02">Changing Level of Alarm</a></li>
+											<li><a href="#guide-category01-chapter03-03">Completing Alarm Process</a></li>
 										</ol>
 									</li>
 									<li><a href="#guide-category01-chapter04">Managing History and Related Issues</a>
@@ -72,590 +70,446 @@
 
 						</li>
 					</ul>
-					<script>
-					var TOCMenu = (function ($) {
-						var scope,
-							$container,
-							$anchorToggle,
-							$anchor,
-							init = function() {
-								$container = $('#toc-menu');
-								$anchorToggle = $container.find('.btn-toggle');
-								$anchor = $container.find('.toc a');
-
-								initLayout();
-								initEvent();
-							};
-
-						function initLayout() {
-						}
-
-						function initEvent() {
-							$container.find('.shortcut-toc').on('mousewheel', function (e) {
-								var event = e.originalEvent,
-									d = event.wheelDelta || -event.detail;
-
-								this.scrollTop += ( d < 0 ? 1 : -1 ) * 30;
-								e.preventDefault();
-							});
-
-							$container.find('a').on('click', function(e) {
-								var $this = $(this);
-								if( !$this.hasClass("btn-section") ) { e.preventDefault(); }
-
-								var $target = $( $this.attr("href") );
-
-								if( $this.hasClass("btn-toggle") ) {
-									$('html, body').animate({
-										scrollTop: $target.offset().top - 109
-									}, 0);
-								} else {
-									$('html, body').animate({
-										scrollTop: $target.offset().top - 109
-									}, 500);
-								}
-							});
-
-							onResize();
-							onScroll();
-
-							$(document).on('scroll', function(e) {
-								onScroll();
-							});
-							$(window).on('resize', function(e) {
-								onResize();
-							});
-						}
-
-						function updatePosition() {
-							var marginLeft;
-							var left;
-							var top = $container.position().top;
-							if( $(window).width() < 1660 ) {
-								marginLeft = 0;
-								left = $('.layout-fixed > .layout-page-title').offset().left;
-								left = left - $(document).scrollLeft();
-								$container.css({
-									"marginLeft": marginLeft,
-									"top": top,
-									"left": left + "px",
-									"opacity": 1
-								});
-							} else {
-								marginLeft = -1200/2;
-								$container.css({
-									"marginLeft": marginLeft,
-									"top": top,
-									"left": "50%",
-									"opacity": 1
-								});
-							}
-						}
-
-						function onResize() {
-							updatePosition();
-						}
-
-						function onScroll(e) {
-							updatePosition(e);
-
-							var scrollPos = $(document).scrollTop() + 110;
-
-							var $lastToggleTarget = null;
-							$anchorToggle.each(function() {
-								var $this = $(this);
-								var $target = $( $this.attr("href") );
-								if( $target.offset().top <= scrollPos ) {
-									if( $lastToggleTarget != null ) {
-										$lastToggleTarget.removeClass("active");
-									}
-									$this.addClass("active");
-									$lastToggleTarget = $this;
-								} else {
-									$this.removeClass("active");
-								}
-							});
-
-							var targets = [];
-							$anchor.each(function() {
-								var $this = $(this);
-								var $target = $( $this.attr("href") );
-
-								if( $target.offset().top <= scrollPos ) {
-									targets.push($(this));
-								} else {
-									$this.parents(".toc li").removeClass("active");
-								}
-							}).promise().done(function() {
-								activate(targets);
-							});
-						}
-
-						function activate(targets) {
-							if( targets.length < 1 ) return;
-							for( var i = 0;  i < targets.length; i++ ) {
-								targets[i].parents(".toc li").removeClass("active");
-							}
-							targets[targets.length-1].parents(".toc li").addClass("active");
-						}
-
-						return {
-							init: function() {
-								init();
-							}
-						};
-					}(jQuery));
-
-
-					$(window.document).ready(function () {
-						TOCMenu.init();
-					});
-					</script>
 
 				</nav>
 
 			</div>
 
 
-			<div class="layout-contents-inner">
+            <div class="layout-contents-inner">
 
-				<!-- 서비스 시작 -->
-				<div class="layout-page-title" data-state="alarm">
-					<h1>Alarm</h1>
-					<p class="layout-page-title-description">You can monitor status of each operating service, as well as manage the status quo of alarms against service failures and their history.</p>
-				</div>
-
-				
-				<div id="guide-category01" class="category">
-					<h2 class="category-title">Dealing Service Alarm</h2>
-					<p class="category-description">Following is how to deal with a failure, which occurs during service operation, through Alarm App.</p>
-				</div>
-
-					<section class="chapter">
-						<h3 id="guide-category01-chapter01" class="chapter-title">1. Designating the Assignee for each Service</h3>
-
-						<div class="chapter-contents">
-							<p class="chapter-title-description">Designate a member who receives an alarm (Receiver) when a failure occurs in a registered service group, and a person in charge (Assignee).</p>
-
-							<span class="location">Alarm - Configuration - <em>Members</em></span>
-
-							<ol class="list-description">
-								<li>
-									After selecting a service group in which a member is to be edited, click the [Edit Member] button.
-
-									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_1.png" alt="" style="width:800px;"></div>
-										<figcaption></figcaption>
-									</figure>
-								</li>
-								<li>
-									A list on the left shows all members, and that on the right shows a member who receives an alarm of the current service group.<br>
-									From the left, select a member who will receive an alarm of the applicable service group and add it to the right.
-					
-									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_3.png" alt="" style="width:800px;"></div>
-										<figcaption>
-										</figcaption>
-									</figure>
-								</li>
-								<li>
-									Set permission of the member added on the right list.
-					
-									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_4.png" alt="" style="width:800px;"></div>
-										<figcaption>
-											<p>
-												Either status only is allowed to be given to a member. Such permission may be set differently for each service group.<br>
-												- Receiver: The person may only receive a notification for occurrence or modification of an alarm via e-mail.<br>
-												- Assignee: The person may not only receive a notification for occurrence or modification of an alarm via e-mail, but also record how the failure notified by an alarm is handled.<br>
-											</p>
-										</figcaption>
-									</figure>
-								</li>
-								<li>
-									Press the [OK] button to save the changes. Check the member list for each service group to assure that a member who will receive an alarm has rightly been added.
-					
-									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_5.png" alt="" style="width:800px;"></div>
-										<figcaption>
-											<p>
-												Designating Receivers and Assignees in the selected service group is completed.<br>
-												Through the same procedure, Receivers and Assignees may be designated in other service groups.<br>
-											</p>	
-										</figcaption>
-									</figure>
-								</li>
-							</ol>
-						</div>
-					</section>
+                <!-- 서비스 시작 -->
+                <div class="layout-page-title" data-state="alarm">
+                    <h1>Alarm</h1>
+                    <p class="layout-page-title-description">You can monitor status of each operating service, as well as manage the status quo of alarms against service failures and their history.</p>
+                </div>
 
 
-					<section class="chapter">
-						<h3 id="guide-category01-chapter02" class="chapter-title">2. Checking on Details of an Alarm</h3>
+                <div id="guide-category01" class="category">
+                    <h2 class="category-title">Dealing Service Alarm</h2>
+                    <p class="category-description">Following is how to deal with a failure, which occurs during service operation, through Alarm App.</p>
+                </div>
 
-						<div class="chapter-contents">
-							<p class="chapter-title-description">The Receiver or Assignee who has received an alarm may check on its details.</p>
-							<span class="location"><em>Alarm</em></span>
-							<ol class="list-description">
-								<li>
-									From the alarm list, select an alarm whose details are subject to be checked.
+                <section class="chapter">
+                    <h3 id="guide-category01-chapter01" class="chapter-title">1. Designating the Assignee for each Service</h3>
 
-									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_5.png" alt="" style="width:800px;"></div>
-										<figcaption>On the alarm list, you can check summary about alarms which have occurred.</figcaption>
-									</figure>
-								</li>
-								<li>
-									Checks on details of an alarm.
-					
-									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_6.png" alt="" style="width:800px;"></div>
-										<figcaption><p>① Details: You can check detailed information about an alarm which has occurred.<br>
-										② Related Issue: Shows information related to the issue which has occurred. <br>
-										③ Comments: You can write a comment or check comments of other members.<br>
-										④ History: Shows history of alarms which have occurred.</p></figcaption>
-									</figure>
-								</li>
-								<li>
-									Press the [Show Chart] button to check on Metric information of the time when an alarm has occurred.
-					
-									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_7.png" alt="" style="width:800px;"></div>
-										<figcaption>
-										</figcaption>
-									</figure>
-								</li>
-								<li>
-									Metric information of the time is then indicated in a new window.
-					
-									<figure>
-										<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_5.png" alt="" style="width:800px;"></div>
-										<figcaption>
-										</figcaption>
-									</figure>
-								</li>
-							</ol>
+                    <div class="chapter-contents">
+                        <p class="chapter-title-description">Designate a member who receives an alarm (Receiver) when a failure occurs in a registered service group, and a person in charge (Assignee).</p>
 
-						</div>
-					</section>
+                        <span class="location">Alarm - Configuration - <em>Members</em></span>
+
+                        <ol class="list-description">
+                            <li>
+                                After selecting a service group in which a member is to be edited, click the [Edit Member] button.
+
+                                <figure>
+                                    <div class="screenshot"><img src="./image/bnr_guide_alarm_1_1.png" alt="" style="width:800px;"></div>
+                                    <figcaption></figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                A list on the left shows all members, and that on the right shows a member who receives an alarm of the current service group.<br>
+                                From the left, select a member who will receive an alarm of the applicable service group and add it to the right.
+
+                                <figure>
+                                    <div class="screenshot"><img src="./image/bnr_guide_alarm_1_3.png" alt="" style="width:800px;"></div>
+                                    <figcaption>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                Set permission of the member added on the right list.
+
+                                <figure>
+                                    <div class="screenshot"><img src="./image/bnr_guide_alarm_1_4.png" alt="" style="width:800px;"></div>
+                                    <figcaption>
+                                        <p>
+                                            Either status only is allowed to be given to a member. Such permission may be set differently for each service group.<br>
+                                            - Receiver: The person may only receive a notification for occurrence or modification of an alarm via e-mail.<br>
+                                            - Assignee: The person may not only receive a notification for occurrence or modification of an alarm via e-mail, but also record how the failure notified by an alarm is handled.<br>
+                                        </p>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                Press the [OK] button to save the changes. Check the member list for each service group to assure that a member who will receive an alarm has rightly been added.
+
+                                <figure>
+                                    <div class="screenshot"><img src="./image/bnr_guide_alarm_1_5.png" alt="" style="width:800px;"></div>
+                                    <figcaption>
+                                        <p>
+                                            Designating Receivers and Assignees in the selected service group is completed.<br>
+                                            Through the same procedure, Receivers and Assignees may be designated in other service groups.<br>
+                                        </p>	
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
 
 
-					<section class="chapter">
-						<h3 id="guide-category01-chapter03" class="chapter-title">3. Processing Alarm</h3>
+                <section class="chapter">
+                    <h3 id="guide-category01-chapter02" class="chapter-title">2. Checking on Details of an Alarm</h3>
 
-						<div class="chapter-contents">
-							<span class="location"><em>Alarm</em></span>
-							<p class="chapter-title-description">When the Assignee who has noticed an alarm initiates to process alarm, it marks the Assignee who is in charge and also indicates that the alarm is being processed.</p>
+                    <div class="chapter-contents">
+                        <p class="chapter-title-description">The Receiver or Assignee who has received an alarm may check on its details.</p>
+                        <span class="location"><em>Alarm</em></span>
+                        <ol class="list-description">
+                            <li>
+                                From the alarm list, select an alarm whose details are subject to be checked.
 
-							<section class="chapter">
-								<h3 id="guide-category01-chapter03-01" class="chapter-title">3.1 Searching by Conditions</h3>
+                                <figure>
+                                    <div class="screenshot"><img src="./image/bnr_guide_alarm_1_5.png" alt="" style="width:800px;"></div>
+                                    <figcaption>On the alarm list, you can check summary about alarms which have occurred.</figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                Checks on details of an alarm.
 
-								<div class="chapter-contents">
-									<ol class="list-description">
-										<li>
-											Select a condition to search. Click the [Status] button, then a drop-down menu appears to show available conditions for search.
+                                <figure>
+                                    <div class="screenshot"><img src="./image/bnr_guide_alarm_1_6.png" alt="" style="width:800px;"></div>
+                                    <figcaption><p>① Details: You can check detailed information about an alarm which has occurred.<br>
+                                            ② Related Issue: Shows information related to the issue which has occurred. <br>
+                                            ③ Comments: You can write a comment or check comments of other members.<br>
+                                            ④ History: Shows history of alarms which have occurred.</p></figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                Press the [Show Chart] button to check on Metric information of the time when an alarm has occurred.
 
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_9.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											 Click the [Action] button and a drop-down list comes out. Then, click the [Start] button from the list.
+                                <figure>
+                                    <div class="screenshot"><img src="./image/bnr_guide_alarm_1_7.png" alt="" style="width:800px;"></div>
+                                    <figcaption>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                Metric information of the time is then indicated in a new window.
 
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_10.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											 Click the [Action] button and a drop-down list comes out. Then, click the [Start] button from the list.
+                                <figure>
+                                    <div class="screenshot"><img src="./image/bnr_guide_alarm_1_5.png" alt="" style="width:800px;"></div>
+                                    <figcaption>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ol>
 
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_11.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											 ‘Status’ of the alarm will be changed to ‘In-progress’, and 'name' of the person in charge is shown at the ‘Assignee’.
+                    </div>
+                </section>
 
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_12.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											 Performs the process to resolve an alarm. Register issues required for processing alarm in Project App. Regarding how to register issues related to alarm, please refer to 4. Managing Alarm History and Related Issues below.
-										</li>
-									</ol>
 
-								</div>
-							</section>
+                <section class="chapter">
+                    <h3 id="guide-category01-chapter03" class="chapter-title">3. Processing Alarm</h3>
 
-							<section class="chapter">
-								<h3 id="guide-category01-chapter03-02" class="chapter-title">3.2 Changing Level of Alarm</h3>
+                    <div class="chapter-contents">
+                        <span class="location"><em>Alarm</em></span>
+                        <p class="chapter-title-description">When the Assignee who has noticed an alarm initiates to process alarm, it marks the Assignee who is in charge and also indicates that the alarm is being processed.</p>
 
-								<div class="chapter-contents">
-									<span class="location"><em>Alarm</em></span>
-									<p class="chapter-title-description">If situation of an alarm is severe, you can upgrade a level of alarm. On the contrary, you can downgrade the alarm.</p>
+                        <section class="chapter">
+                            <h3 id="guide-category01-chapter03-01" class="chapter-title">3.1 Searching by Conditions</h3>
 
-									<ol class="list-description">
-										<li>
-											Move to alarm details pane by clicking the alarm you want to check in the alarm list.
+                            <div class="chapter-contents">
+                                <ol class="list-description">
+                                    <li>
+                                        Select a condition to search. Click the [Status] button, then a drop-down menu appears to show available conditions for search.
 
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_9.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											Change 'Level' and write the reason for change on 'Description'. Then click the [Escalation] button.
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_9.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        Click the [Action] button and a drop-down list comes out. Then, click the [Start] button from the list.
 
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_13.png" alt="" style="width:800px;"></div>
-												<figcaption><p>If the current 'Level' is 'Minor', it will be automatically changed to 'Major' upon clicking the [Escalation] button.</p></figcaption>
-											</figure>
-										</li>
-									</ol>
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_10.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        Click the [Action] button and a drop-down list comes out. Then, click the [Start] button from the list.
 
-								</div>
-							</section>
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_11.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        ‘Status’ of the alarm will be changed to ‘In-progress’, and 'name' of the person in charge is shown at the ‘Assignee’.
 
-							<section class="chapter">
-								<h3 id="guide-category01-chapter03-03" class="chapter-title">3.3 Completing Alarm Process</h3>
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_12.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        Performs the process to resolve an alarm. Register issues required for processing alarm in Project App. Regarding how to register issues related to alarm, please refer to 4. Managing Alarm History and Related Issues below.
+                                    </li>
+                                </ol>
 
-								<div class="chapter-contents">
-									<span class="location"><em>Alarm</em></span>
-									<p class="chapter-title-description">After completing the process of occurred alarm, shows that the alarm has been resolved.</p>
+                            </div>
+                        </section>
 
-									<ol class="list-description">
-										<li>
-											On the alarm page, click the [Action] button. After a drop-down list comes out, click the [Close] button.
+                        <section class="chapter">
+                            <h3 id="guide-category01-chapter03-02" class="chapter-title">3.2 Changing Level of Alarm</h3>
 
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_14.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											The “Close” pop-up will be shown. Write a comment in accordance with the process completion and click the [OK] button.
+                            <div class="chapter-contents">
+                                <span class="location"><em>Alarm</em></span>
+                                <p class="chapter-title-description">If situation of an alarm is severe, you can upgrade a level of alarm. On the contrary, you can downgrade the alarm.</p>
 
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_15.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											‘Status' of the Alarm will be changed to ‘Closed’ and 'End Time' will be shown. Also on the 'Solution', the comments written during the process completion and the time of completion will be shown.
+                                <ol class="list-description">
+                                    <li>
+                                        Move to alarm details pane by clicking the alarm you want to check in the alarm list.
 
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_16.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											You can check that the alarm has been processed in the alarm list.
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_9.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        Change 'Level' and write the reason for change on 'Description'. Then click the [Escalation] button.
 
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_17.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-									</ol>
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_13.png" alt="" style="width:800px;"></div>
+                                            <figcaption><p>If the current 'Level' is 'Minor', it will be automatically changed to 'Major' upon clicking the [Escalation] button.</p></figcaption>
+                                        </figure>
+                                    </li>
+                                </ol>
 
-								</div>
-							</section>
-						</div>
-					</section>
+                            </div>
+                        </section>
 
-					<section class="chapter">
-						<h3 id="guide-category01-chapter04" class="chapter-title">4. Managing History of Alarm Process and Related Issues</h3>
+                        <section class="chapter">
+                            <h3 id="guide-category01-chapter03-03" class="chapter-title">3.3 Completing Alarm Process</h3>
 
-						<div class="chapter-contents">
-							<p class="chapter-title-description">You can check the entire process of an alarm, from the beginning to the end. Also, you can register the related issues which have occurred during the process.</p>
-							<section class="chapter">
-								<h3 id="guide-category01-chapter04-01" class="chapter-title">4.1 View Process History of Alarm</h3>
+                            <div class="chapter-contents">
+                                <span class="location"><em>Alarm</em></span>
+                                <p class="chapter-title-description">After completing the process of occurred alarm, shows that the alarm has been resolved.</p>
 
-								<div class="chapter-contents">
-									<span class="location"><em>Alarm</em></span>
+                                <ol class="list-description">
+                                    <li>
+                                        On the alarm page, click the [Action] button. After a drop-down list comes out, click the [Close] button.
 
-									<ol class="list-description">
-										<li>
-											On the alarm details pane, go to the “Active History” at its very bottom.
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_14.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        The “Close” pop-up will be shown. Write a comment in accordance with the process completion and click the [OK] button.
 
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_18.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											 In the “Active History”, everything recorded during the process is listed on chronological basis, including initiation of an alarm; written comments; edited details; and completion of the process. Under initial configuration, the latest history is shown at the top.
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_15.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        ‘Status' of the Alarm will be changed to ‘Closed’ and 'End Time' will be shown. Also on the 'Solution', the comments written during the process completion and the time of completion will be shown.
 
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_19.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											You can adjust Alignment of History by clicking table headers.
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_16.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        You can check that the alarm has been processed in the alarm list.
 
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_20.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-									</ol>
-								</div>
-							</section>
-							<section class="chapter">
-								<h3 id="guide-category01-chapter04-02" class="chapter-title">4.2 Registering Related Issue</h3>
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_17.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                </ol>
 
-								<div class="chapter-contents">
-									<span class="location"><em>Alarm</em></span>
-									<p class="chapter-title-description">You can register issues required to resolve alarm on Project App, and link them to alarm details.<br>
-									With this, you can immediately check what process is ongoing for alarm resolution. On the other hand, you can also check what alarm does this issue is resolving.</p>
-									<ol class="list-description">
-										<li>
-											On the alarm details pane, click the [Modify] button.
+                            </div>
+                        </section>
+                    </div>
+                </section>
 
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_21.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											 On the “Modify Alarm” pane, click the [Add] button of the ‘Relates by issue’ item.
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_22.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											A “Search for Issues” pop-up is shown. This pop-up has the list of issues registered on Project App. Linked issues may be searched with the title of project, status, or name. From the list, select a issue you want to link and then click the [OK] button.
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_23.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-									</ol>
-								</div>
-							</section>
-						</div>
-					</section>
-					<section class="chapter">
-						<h3 id="guide-category01-chapter05" class="chapter-title">5. Searching Alarm History</h3>
+                <section class="chapter">
+                    <h3 id="guide-category01-chapter04" class="chapter-title">4. Managing History of Alarm Process and Related Issues</h3>
 
-						<div class="chapter-contents">
-							<p class="chapter-title-description">You can search the History and its details you want to check by setting conditions and entering keywords.</p>
-							<section class="chapter">
-								<h3 id="guide-category01-chapter05-01" class="chapter-title">5.1 View Alarm History per Service Group</h3>
+                    <div class="chapter-contents">
+                        <p class="chapter-title-description">You can check the entire process of an alarm, from the beginning to the end. Also, you can register the related issues which have occurred during the process.</p>
+                        <section class="chapter">
+                            <h3 id="guide-category01-chapter04-01" class="chapter-title">4.1 View Process History of Alarm</h3>
 
-								<div class="chapter-contents">
-									<span class="location"><em>Alarm</em></span>
+                            <div class="chapter-contents">
+                                <span class="location"><em>Alarm</em></span>
 
-									<ol class="list-description">
-										<li>
-											Select a service group you want to check an alarm.
+                                <ol class="list-description">
+                                    <li>
+                                        On the alarm details pane, go to the “Active History” at its very bottom.
 
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_24.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											 Alarm history in the selected service group is shown on the alarm list.
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_25.png" alt="" style="width:800px;"></div>
-												<figcaption><p>You can check Service Group which alarm has currently occurred in Service Group list.<br>
-													For the Service Group which alarm has occurred, the number of occurred alarm will be shown next to the Service Group name.</p></figcaption>
-											</figure>
-										</li>
-									</ol>
-								</div>
-							</section>
-							<section class="chapter">
-								<h3 id="guide-category01-chapter05-02" class="chapter-title">5.2 Searching by Conditions</h3>
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_18.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        In the “Active History”, everything recorded during the process is listed on chronological basis, including initiation of an alarm; written comments; edited details; and completion of the process. Under initial configuration, the latest history is shown at the top.
 
-								<div class="chapter-contents">
-									<span class="location"><em>Alarm</em></span>
-									<ol class="list-description">
-										<li>
-											Select a condition you want to search. Click the [Level], [Category] or [Status] button, then a drop-down menu appears to show available conditions for search.
-											<ul>
-												<li>
-													<br>
-													Select 'Level'
-													<figure>
-														<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_26.png" alt="" style="width:800px;"></div>
-														<figcaption></figcaption>
-													</figure>
-												</li>
-												<li>
-													<br>
-													Select 'Category'
-													<figure>
-														<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_27.png" alt="" style="width:800px;"></div>
-														<figcaption></figcaption>
-													</figure>
-												</li>
-												<li>
-													<br>
-													Select 'Status'
-													<figure>
-														<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_28.png" alt="" style="width:800px;"></div>
-														<figcaption></figcaption>
-													</figure>
-												</li>
-											</ul>
-										</li>
-										<li>
-											 Click the [OK] button of the drop-down menu.
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_29.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											You can check the search result with the selected condition on the alarm list.
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_30.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-									</ol>
-								</div>
-							</section>
-							<section class="chapter">
-								<h3 id="guide-category01-chapter05-03" class="chapter-title">5.3 Searching by Keywords</h3>
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_19.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        You can adjust Alignment of History by clicking table headers.
 
-								<div class="chapter-contents">
-									<span class="location"><em>Alarm</em></span>
-									<ol class="list-description">
-										<li>
-											Enter a keyword you want to search on the search box and click [Search] button or press [Enter].
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_31.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-										<li>
-											  The results which title is identical to the keyword will be shown on the list. Texts identical to the keyword will be highlighted.
-											<figure>
-												<div class="screenshot"><img src="assets/images/guide/alarm/alarm_1_32.png" alt="" style="width:800px;"></div>
-												<figcaption></figcaption>
-											</figure>
-										</li>
-									</ol>
-								</div>
-							</section>
-						</div>
-					</section>
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_20.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                        <section class="chapter">
+                            <h3 id="guide-category01-chapter04-02" class="chapter-title">4.2 Registering Related Issue</h3>
 
-				
+                            <div class="chapter-contents">
+                                <span class="location"><em>Alarm</em></span>
+                                <p class="chapter-title-description">You can register issues required to resolve alarm on Project App, and link them to alarm details.<br>
+                                    With this, you can immediately check what process is ongoing for alarm resolution. On the other hand, you can also check what alarm does this issue is resolving.</p>
+                                <ol class="list-description">
+                                    <li>
+                                        On the alarm details pane, click the [Modify] button.
 
-			</div>
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_21.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        On the “Modify Alarm” pane, click the [Add] button of the ‘Relates by issue’ item.
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_22.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        A “Search for Issues” pop-up is shown. This pop-up has the list of issues registered on Project App. Linked issues may be searched with the title of project, status, or name. From the list, select a issue you want to link and then click the [OK] button.
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_23.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+                <section class="chapter">
+                    <h3 id="guide-category01-chapter05" class="chapter-title">5. Searching Alarm History</h3>
 
-	
+                    <div class="chapter-contents">
+                        <p class="chapter-title-description">You can search the History and its details you want to check by setting conditions and entering keywords.</p>
+                        <section class="chapter">
+                            <h3 id="guide-category01-chapter05-01" class="chapter-title">5.1 View Alarm History per Service Group</h3>
+
+                            <div class="chapter-contents">
+                                <span class="location"><em>Alarm</em></span>
+
+                                <ol class="list-description">
+                                    <li>
+                                        Select a service group you want to check an alarm.
+
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_24.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        Alarm history in the selected service group is shown on the alarm list.
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_25.png" alt="" style="width:800px;"></div>
+                                            <figcaption><p>You can check Service Group which alarm has currently occurred in Service Group list.<br>
+                                                    For the Service Group which alarm has occurred, the number of occurred alarm will be shown next to the Service Group name.</p></figcaption>
+                                        </figure>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                        <section class="chapter">
+                            <h3 id="guide-category01-chapter05-02" class="chapter-title">5.2 Searching by Conditions</h3>
+
+                            <div class="chapter-contents">
+                                <span class="location"><em>Alarm</em></span>
+                                <ol class="list-description">
+                                    <li>
+                                        Select a condition you want to search. Click the [Level], [Category] or [Status] button, then a drop-down menu appears to show available conditions for search.
+                                        <ul>
+                                            <li>
+                                                <br>
+                                                Select 'Level'
+                                                <figure>
+                                                    <div class="screenshot"><img src="./image/bnr_guide_alarm_1_26.png" alt="" style="width:800px;"></div>
+                                                    <figcaption></figcaption>
+                                                </figure>
+                                            </li>
+                                            <li>
+                                                <br>
+                                                Select 'Category'
+                                                <figure>
+                                                    <div class="screenshot"><img src="./image/bnr_guide_alarm_1_27.png" alt="" style="width:800px;"></div>
+                                                    <figcaption></figcaption>
+                                                </figure>
+                                            </li>
+                                            <li>
+                                                <br>
+                                                Select 'Status'
+                                                <figure>
+                                                    <div class="screenshot"><img src="./image/bnr_guide_alarm_1_28.png" alt="" style="width:800px;"></div>
+                                                    <figcaption></figcaption>
+                                                </figure>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Click the [OK] button of the drop-down menu.
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_29.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        You can check the search result with the selected condition on the alarm list.
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_30.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                        <section class="chapter">
+                            <h3 id="guide-category01-chapter05-03" class="chapter-title">5.3 Searching by Keywords</h3>
+
+                            <div class="chapter-contents">
+                                <span class="location"><em>Alarm</em></span>
+                                <ol class="list-description">
+                                    <li>
+                                        Enter a keyword you want to search on the search box and click [Search] button or press [Enter].
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_31.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        The results which title is identical to the keyword will be shown on the list. Texts identical to the keyword will be highlighted.
+                                        <figure>
+                                            <div class="screenshot"><img src="./image/bnr_guide_alarm_1_32.png" alt="" style="width:800px;"></div>
+                                            <figcaption></figcaption>
+                                        </figure>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
 		</div>
 	</main>
 
@@ -668,5 +522,6 @@
 		</div>
 	</footer>
 </div>	<!-- class="layout-wrap" -->
+<script src="./resource/for_user_manual.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>USER GUIDE</title> 
@@ -20,10 +20,10 @@
             <fieldset class="select-language">
                 <legend>언어 설정</legend>
 
-                <input type="radio" id="language01" name="language" value="en">
+                <input type="radio" id="language01" name="language" value="en" checked>
                 <label id="label_en" name="language_label" for="language01" style="display: block;">English</label>
 
-                <input type="radio" id="language02" name="language" value="ko" checked>
+                <input type="radio" id="language02" name="language" value="ko">
                 <label id="label_ko" name="language_label" for="language02" style="display: block;">한국어</label>
 
             </fieldset>
@@ -43,7 +43,7 @@
 						<li class="active">
                             <a href="#guide_dbqcs" class="btn-section" data-state="dbqcs">DBQCS</a>
                             <div class="section-sub">
-								<a href="#guide_dbqcs_metadata" class="btn-toggle">메타데이터 관리</a>
+								<a href="#guide_dbqcs_metadata" class="btn-toggle">Managing Metadata</a>
 								<ol class="toc">
                                     <li><a href="#guide_dbqcs_metadata_dictionary">Dictionary</a></li>
                                     <li><a href="#guide_dbqcs_metadata_request_for_metadata">Request for Metadata</a></li>
@@ -66,42 +66,42 @@
                 <!-- 서비스 시작 -->
                 <div class="layout-page-title" data-state="dbqcs">
                     <h1 id="guide_dbqcs">DBQCS</h1>
-                    <p class="layout-page-title-description">Database 설계 및 모델링 시, 사용할 메타데이터 관리 및 품질 관리 업무를 진행할 수 있습니다.</p>
+                    <p class="layout-page-title-description">You can manage metadata you want to use as well as the quality when designing and modeling a database. </p>
                 </div>
 
                 <div class="category">
-                    <h2 class="category-title">DB 품질 보증 업무 관리</h2>
-                    <p class="category-description">DBQCS 서비스를 통해 DB의 메타 표준 및 품질과 성능을 향상 시키기 위한 관리 방법을 설명합니다. </p>
+                    <h2 class="category-title">Managing DB Quality Assurance</h2>
+                    <p class="category-description">Following is how to manage the DB metadata standard and how to improve quality and function with DBQCS Services.</p>
                 </div>
 
                 <section class="chapter">
-                    <h3 id="guide_dbqcs_metadata" class="chapter-title">메타데이터 관리</h3>
+                    <h3 id="guide_dbqcs_metadata" class="chapter-title">Managing Metadata</h3>
 
                     <div class="chapter-contents">
 
                         <h4 id="guide_dbqcs_metadata_dictionary" class="chapter-sub-title">1. Dictionary</h4>
                         <p class="chapter-title-description">
-                            표준 용어, 표준 단어, 표준 도메인, 금칙어, 주제어 등을 관리합니다. <br />
-                            Create New 버튼의 Metadata의 변경 관련 요청을 작성할 수 있습니다.
+                            Manages standard terminology, standard word, standard domain, banned word, subject area, etc.<br />
+                            You can make a request to change metadata with “Create New” button.
                         </p>
                         <figure>
                             <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_1_1_3.png" alt="" style="width:800px;"></div>
-                            <figcaption>표준 용어는 표준 단어와 표준 도메인으로만 구성할 수 있습니다.</figcaption>
+                            <figcaption>Standard terms can only be composed of standard words and standard domains.</figcaption>
                             
                             <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_1_1_4.png" alt="" style="width:800px;"></div>
-                            <figcaption>Meta Data를 엑셀파일로 Export 할 수 있습니다.</figcaption>
+                            <figcaption>Metadata can be exported as an excel file.</figcaption>
                             
                             <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_1_1_5.png" alt="" style="width:800px;"></div>
-                            <figcaption>표준 단어는 도메인을 제외하고 사용할 수 있습니다.<figcaption>
+                            <figcaption>Standard word can be used excluding the domain.<figcaption>
 
                             <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_1_1_6.png" alt="" style="width:800px;"></div>
-                            <figcaption>표준도메인은 Database Type 별로 Data Type을 설정할 수 있습니다.</figcaption>
+                            <figcaption>The data type of standard domain can be set per Database Type.</figcaption>
 
                             <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_1_1_7.png" alt="" style="width:800px;"></div>
-                            <figcaption>표준 단어로 대체 가능한 단어는 금칙어로 설정할 수 있습니다.</figcaption>
+                            <figcaption>Replaceable words as standard words can be set as banned words.</figcaption>
 
                             <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_1_1_8.png" alt="" style="width:800px;"></div>
-                            <figcaption>Database에서 사용할 주제 영역을 구성할 수 있습니다.</figcaption>
+                            <figcaption>You can compose the subject area to be used in the database.</figcaption>
                         </figure>
                     </div>
 
@@ -109,13 +109,13 @@
                         <h4 id="guide_dbqcs_metadata_request_for_metadata" class="chapter-sub-title">2. Request for Metadata</h4>
                         <figure>
                             <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_2_1.png" alt="" style="width:800px;"></div>
-                            <figcaption>Dictionary로 관리되는 메타데이터의 추가/수정/삭제 요청을 할 수 있습니다.</figcaption>
+                            <figcaption>You can make a request to add/edit/delete the metadata managed by Dictionary.</figcaption>
                         </figure>
                     </div>
 
                     <div class="chapter-contents">
                         <h4 id="guide_dbqcs_metadata_db_guideline" class="chapter-sub-title">3. DB Guideline</h4>
-                        <p class="chapter-title-description">조직 내에서 사용하는 표준 정책 및 설계 가이드라인 등의 매뉴얼을 관리합니다.</p>
+                        <p class="chapter-title-description">i.	Manages the manual that includes standard policy and design guidelines used within the organization.</p>
                         <figure>
                             <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_2_2_A.png" alt="" style="width:800px;"></div>
                             <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_2_2_B.png" alt="" style="width:800px;"></div>
@@ -130,13 +130,13 @@
                         <h4 class="chapter_sub_title"></h4>
                         <figure>
                             <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_3_2_A.png" alt="" style="width:800px;"></div>
-                            <figcaption>DB 성능 및 품질 향상을 위한 요청 및 검수 업무를 관리할 수 있습니다.</figcaption>
+                            <figcaption>You can manage request or inspection to improve DB function and quality.</figcaption>
 
                             <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_3_2_B.png" alt="" style="width:800px;"></div>
-                            <figcaption>Create New 버튼으로 Request를 작성할 수 있습니다. </figcaption>
+                            <figcaption>You can make a request with “Create New” button. </figcaption>
 
                             <div class="screenshot"><img src="./image/bnr_guide_dbqcs_common_3_2_C.png" alt="" style="width:800px;"></div>
-                            <figcaption>모든 요청 목록 / 내가 요청한 목록 / 내게 할당된 요청 목록 / 참조자로 추가된 요청 목록을 의도에 따라 조회할 수 있습니다.</figcaption>
+                            <figcaption>You can view All Requests/My Requests/Assign to me/Watching Only according to your intention.</figcaption>
                         </figure>
                     </div>
                 </section>

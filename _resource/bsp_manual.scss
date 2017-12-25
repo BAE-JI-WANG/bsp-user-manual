@@ -476,7 +476,6 @@ $sqrt_2: 1.41421356237;
 		            text-align: center;
 		            background-color: #EFEFEF;
 		            &:nth-child(3n+2) {
-		                border-right: 1px solid #CCC;
 		                border-left: 1px solid #CCC;
 		            }
 		        }
@@ -676,18 +675,50 @@ main[role=main] { min-height: $minHeight; }
 					strong { display: block; font-weight: 700; line-height: (20, 20); }
 					.description { display: block; font-size: rem(16); line-height: em(18, 16); }
 
-					// &[data-state=alarm]:before { @include retina-sprite($sl-icon-service-alarm-01-b-hover-group); }
-					// &[data-state=project]:before { @include retina-sprite($sl-icon-service-project-01-b-hover-group); }
-					// &[data-state=request]:before { @include retina-sprite($sl-icon-service-request-01-b-hover-group); }
-					// &[data-state=approval]:before { @include retina-sprite($sl-icon-service-approval-01-b-hover-group); }
 					// &[data-state=portal]:before { @include retina-sprite($sl-icon-service-portal-01-b-group); }
 					// &[data-state=asset]:before { @include retina-sprite($sl-icon-service-asset-01-b-group); }
 					// &[data-state=metering]:before { @include retina-sprite($sl-icon-service-metering-01-b-group); }
 					// &[data-state=monitoring]:before { @include retina-sprite($sl-icon-service-monitoring-01-b-group); }
+                    //
+					&[data-state=devops]:before { 
+                        width: 40px;
+                        height: 40px;
+                        background: url('../images/brand_ci_service_devops.svg') center center no-repeat;
+                        background-size: 40px;
+                    }
+
 					&[data-state=dbqcs]:before { 
                         width: 40px;
                         height: 40px;
                         background: url('../images/brand_ci_service_dbqcs.svg') center center no-repeat;
+                        background-size: 40px;
+                    }
+
+					&[data-state=alarm]:before { 
+                        width: 40px;
+                        height: 40px;
+                        background: url('../images/brand_ci_service_alarm.svg') center center no-repeat;
+                        background-size: 40px;
+                    }
+
+					&[data-state=appproval]:before { 
+                        width: 40px;
+                        height: 40px;
+                        background: url('../images/brand_ci_service_approval.svg') center center no-repeat;
+                        background-size: 40px;
+                    }
+
+					&[data-state=project]:before { 
+                        width: 40px;
+                        height: 40px;
+                        background: url('../images/brand_ci_service_project.svg') center center no-repeat;
+                        background-size: 40px;
+                    }
+
+					&[data-state=request]:before { 
+                        width: 40px;
+                        height: 40px;
+                        background: url('../images/brand_ci_service_request.svg') center center no-repeat;
                         background-size: 40px;
                     }
 				}
@@ -732,18 +763,6 @@ main[role=main] { min-height: $minHeight; }
                     }
 					.layout-page-title-description { padding-left: 5px; }
 
-					// &[data-state=alarm] {
-					// 	h1:before { @include retina-sprite($sl-icon-service-alarm-01-b-hover-group); }
-					// }
-					// &[data-state=project] {
-					// 	h1:before { @include retina-sprite($sl-icon-service-project-01-b-hover-group); }
-					// }
-					// &[data-state=request] {
-					// 	h1:before { @include retina-sprite($sl-icon-service-request-01-b-hover-group); }
-					// }
-					// &[data-state=approval] {
-					// 	h1:before { @include retina-sprite($sl-icon-service-approval-01-b-hover-group); }
-					// }
 					// &[data-state=portal] {
 					// 	h1:before { @include retina-sprite($sl-icon-service-portal-01-b-group); }
 					// }
@@ -756,6 +775,24 @@ main[role=main] { min-height: $minHeight; }
 					// &[data-state=monitoring] {
 					// 	h1:before { @include retina-sprite($sl-icon-service-monitoring-01-b-group); }
 					// }
+					&[data-state=devops] {
+                        h1:before { 
+                            width: 40px;
+                            height: 40px;
+                            background: url('./brand_ci_service_devops.svg') center center no-repeat;
+                            background-size: 40px;
+                        }
+                    }
+
+					&[data-state=alarm] {
+                        h1:before { 
+                            width: 40px;
+                            height: 40px;
+                            background: url('./brand_ci_service_alarm.svg') center center no-repeat;
+                            background-size: 40px;
+                        }
+                    }
+                    
 					&[data-state=dbqcs] {
                         h1:before { 
                             width: 40px;
@@ -764,6 +801,34 @@ main[role=main] { min-height: $minHeight; }
                             background-size: 40px;
                         }
                     }
+                    
+					&[data-state=approval] {
+                        h1:before { 
+                            width: 40px;
+                            height: 40px;
+                            background: url('./brand_ci_service_approval.svg') center center no-repeat;
+                            background-size: 40px;
+                        }
+                    }
+                    
+					&[data-state=project] {
+                        h1:before { 
+                            width: 40px;
+                            height: 40px;
+                            background: url('./brand_ci_service_project.svg') center center no-repeat;
+                            background-size: 40px;
+                        }
+                    }
+                    
+					&[data-state=request] {
+                        h1:before { 
+                            width: 40px;
+                            height: 40px;
+                            background: url('./brand_ci_service_request.svg') center center no-repeat;
+                            background-size: 40px;
+                        }
+                    }
+                    
                     &.opsnow {
                         h1:before {
                             width: 40px;
@@ -772,12 +837,6 @@ main[role=main] { min-height: $minHeight; }
                             background-size:40px;
                         }
                     }
-					// &[data-state=dbqcs] {
-					// 	h1:before { @include retina-sprite($sl-icon-service-dbqcs-01-group); }
-					// }
-					// &[data-state=devops] {
-					// 	h1:before { @include retina-sprite($sl-icon-service-devops-01-group); }
-					// }
 				}
 
 			}
@@ -816,13 +875,11 @@ main[role=main] { min-height: $minHeight; }
 					&:before { content: ''; display: inline-block; margin: -2px 10px 0 0; vertical-align: middle; transform: scale(1.2); }
 
 					// &[data-state=alarm]:before { @include retina-sprite($sl-icon-service-alarm-01-hover-group); }
-					// &[data-state=project]:before { @include retina-sprite($sl-icon-service-project-01-hover-group); }
-					// &[data-state=request]:before { @include retina-sprite($sl-icon-service-request-01-hover-group); }
-					// &[data-state=approval]:before { @include retina-sprite($sl-icon-service-approval-01-hover-group); }
 					// &[data-state=portal]:before { @include retina-sprite($sl-icon-service-portal-01-group); }
 					// &[data-state=asset]:before { @include retina-sprite($sl-icon-service-asset-01-group); }
 					// &[data-state=metering]:before { @include retina-sprite($sl-icon-service-metering-01-group); }
 					// &[data-state=monitoring]:before { @include retina-sprite($sl-icon-service-monitoring-01-group); }
+
                     &.opsnow:before {
                         width: 20px;
                         height: 20px;
@@ -830,10 +887,45 @@ main[role=main] { min-height: $minHeight; }
                         background-size:20px;
                     }
 
+                    &[data-state=devops]:before {
+                        width: 20px;
+                        height: 20px;
+                        background: url('./brand_ci_service_devops.svg') center center no-repeat;
+                        background-size: 20px;
+                    }
+
+                    &[data-state=alarm]:before {
+                        width: 20px;
+                        height: 20px;
+                        background: url('./brand_ci_service_alarm.svg') center center no-repeat;
+                        background-size: 20px;
+                    }
+
                     &[data-state=dbqcs]:before {
                         width: 20px;
                         height: 20px;
                         background: url('./brand_ci_service_dbqcs.svg') center center no-repeat;
+                        background-size: 20px;
+                    }
+
+                    &[data-state=approval]:before {
+                        width: 20px;
+                        height: 20px;
+                        background: url('./brand_ci_service_approval.svg') center center no-repeat;
+                        background-size: 20px;
+                    }
+
+                    &[data-state=project]:before {
+                        width: 20px;
+                        height: 20px;
+                        background: url('./brand_ci_service_project.svg') center center no-repeat;
+                        background-size: 20px;
+                    }
+
+                    &[data-state=request]:before {
+                        width: 20px;
+                        height: 20px;
+                        background: url('./brand_ci_service_request.svg') center center no-repeat;
                         background-size: 20px;
                     }
 				}
@@ -968,7 +1060,7 @@ main[role=main] { min-height: $minHeight; }
 			}
 
 			h4.chapter-sub-title {
-			    font-size: rem(16);
+			    font-size: rem(15);
 			    font-weight: 700;
 			    line-height: em(24, 16);
                 margin-top:20px;
@@ -977,24 +1069,23 @@ main[role=main] { min-height: $minHeight; }
 			.location { display: inline-block; margin-top: 18px; padding: 0 10px; font-size: rem(13); color: #4A4A4A; line-height: 30px; border-radius: 1px; background-color: #E6EFFA;
 				em { font-weight: 700; }
 			}
-			.chapter-contents { padding: 0 0 0 18px;
+			.chapter-contents { padding: 0 0 0px 18px;
 				.chapter { border-bottom: 0; }
 
                 .list-description {
                     counter-reset: seq;
                     margin-top: 5px;
 
-                    >li {
-                        padding-top: 30px;
+                    li {
+                        padding-top: 10px;
                         font-size: rem(14);
                         font-weight: 700;
                         color: #0072F7;
-                        line-height: em(22, 14);
-                        counter-increment: seq;
                         line-height: 1.5;
 
-                        &:before {
-                            content: counter(seq)")";
+                        &::before {
+                            counter-increment: seq;
+                            content: counters(seq, ".") ")"; 
                             margin-right: 0.3em;
                         }
 
@@ -1008,17 +1099,27 @@ main[role=main] { min-height: $minHeight; }
 
                         ol,
                         ul {
+                            counter-reset: seq;
                             margin: 1em 0 0 1em;
 
-                            >li {
+                            > li {
                                 margin-top: 0.6em;
+                                color:#666;
+                                &:before {
+                                    counter-increment: seq;
+                                    content: counters(seq, ".") ")"; 
+                                }
                             }
 
-                            >li:first-child {
+                            > li:first-child {
                                 padding-top: 0;
                                 margin-top: 0;
                             }
+
+                            > li:before {
+                            }
                         }
+
                     }
 
                     >li:first-child {
@@ -1026,6 +1127,10 @@ main[role=main] { min-height: $minHeight; }
                     }
                 }
 			}
+
+            .chapter-contents + .chapter-contents {
+                margin-top:30px;
+            }
 
             table {
                 margin-top:20px;
@@ -1136,7 +1241,7 @@ main[role=main] { min-height: $minHeight; }
 /* 이미지 핸들러 */
 figure {
     figcaption {
-        margin-top: 15px;
+        margin:10px 0 25px;
         font-size: rem(14);
         font-weight: 400;
         color: #666;
@@ -1163,10 +1268,6 @@ figure {
     .screenshot.align.center + figcaption {
         text-align: center; 
     }
-
-    figcaption + .screenshot {
-        margin-top:40px;
-    } 
 
     .screenshot + .screenshot {
         margin-top:10px;
