@@ -264,11 +264,6 @@ $z-layers: (
 	}
 }
 
-@mixin transition($args...) {
-	transition: $args;
-}
-
-
 
 @mixin clearBoth {
 	content: ''; display: table; clear: both;
@@ -675,50 +670,51 @@ main[role=main] { min-height: $minHeight; }
 					strong { display: block; font-weight: 700; line-height: (20, 20); }
 					.description { display: block; font-size: rem(16); line-height: em(18, 16); }
 
-					// &[data-state=portal]:before { @include retina-sprite($sl-icon-service-portal-01-b-group); }
-					// &[data-state=asset]:before { @include retina-sprite($sl-icon-service-asset-01-b-group); }
-					// &[data-state=metering]:before { @include retina-sprite($sl-icon-service-metering-01-b-group); }
-					// &[data-state=monitoring]:before { @include retina-sprite($sl-icon-service-monitoring-01-b-group); }
-                    //
 					&[data-state=devops]:before { 
                         width: 40px;
                         height: 40px;
-                        background: url('../images/brand_ci_service_devops.svg') center center no-repeat;
+                        background: url('brand_ci_service_devops.svg') center center no-repeat;
                         background-size: 40px;
                     }
 
 					&[data-state=dbqcs]:before { 
                         width: 40px;
                         height: 40px;
-                        background: url('../images/brand_ci_service_dbqcs.svg') center center no-repeat;
+                        background: url('brand_ci_service_dbqcs.svg') center center no-repeat;
                         background-size: 40px;
                     }
 
 					&[data-state=alarm]:before { 
                         width: 40px;
                         height: 40px;
-                        background: url('../images/brand_ci_service_alarm.svg') center center no-repeat;
+                        background: url('brand_ci_service_alarm.svg') center center no-repeat;
                         background-size: 40px;
                     }
 
 					&[data-state=appproval]:before { 
                         width: 40px;
                         height: 40px;
-                        background: url('../images/brand_ci_service_approval.svg') center center no-repeat;
+                        background: url('brand_ci_service_approval.svg') center center no-repeat;
                         background-size: 40px;
                     }
 
 					&[data-state=project]:before { 
                         width: 40px;
                         height: 40px;
-                        background: url('../images/brand_ci_service_project.svg') center center no-repeat;
+                        background: url('brand_ci_service_project.svg') center center no-repeat;
                         background-size: 40px;
                     }
 
 					&[data-state=request]:before { 
                         width: 40px;
                         height: 40px;
-                        background: url('../images/brand_ci_service_request.svg') center center no-repeat;
+                        background: url('brand_ci_service_request.svg') center center no-repeat;
+                        background-size: 40px;
+                    }
+					&[data-state=opsnow]:before { 
+                        width: 40px;
+                        height: 40px;
+                        background: url('brand_ci_service_opsnow.svg') center center no-repeat;
                         background-size: 40px;
                     }
 				}
@@ -763,23 +759,11 @@ main[role=main] { min-height: $minHeight; }
                     }
 					.layout-page-title-description { padding-left: 5px; }
 
-					// &[data-state=portal] {
-					// 	h1:before { @include retina-sprite($sl-icon-service-portal-01-b-group); }
-					// }
-					// &[data-state=asset] {
-					// 	h1:before { @include retina-sprite($sl-icon-service-asset-01-b-group); }
-					// }
-					// &[data-state=metering] {
-					// 	h1:before { @include retina-sprite($sl-icon-service-metering-01-b-group); }
-					// }
-					// &[data-state=monitoring] {
-					// 	h1:before { @include retina-sprite($sl-icon-service-monitoring-01-b-group); }
-					// }
 					&[data-state=devops] {
                         h1:before { 
                             width: 40px;
                             height: 40px;
-                            background: url('./brand_ci_service_devops.svg') center center no-repeat;
+                            background: url('brand_ci_service_devops.svg') center center no-repeat;
                             background-size: 40px;
                         }
                     }
@@ -788,7 +772,7 @@ main[role=main] { min-height: $minHeight; }
                         h1:before { 
                             width: 40px;
                             height: 40px;
-                            background: url('./brand_ci_service_alarm.svg') center center no-repeat;
+                            background: url('brand_ci_service_alarm.svg') center center no-repeat;
                             background-size: 40px;
                         }
                     }
@@ -797,7 +781,7 @@ main[role=main] { min-height: $minHeight; }
                         h1:before { 
                             width: 40px;
                             height: 40px;
-                            background: url('./brand_ci_service_dbqcs.svg') center center no-repeat;
+                            background: url('brand_ci_service_dbqcs.svg') center center no-repeat;
                             background-size: 40px;
                         }
                     }
@@ -806,7 +790,7 @@ main[role=main] { min-height: $minHeight; }
                         h1:before { 
                             width: 40px;
                             height: 40px;
-                            background: url('./brand_ci_service_approval.svg') center center no-repeat;
+                            background: url('brand_ci_service_approval.svg') center center no-repeat;
                             background-size: 40px;
                         }
                     }
@@ -815,7 +799,7 @@ main[role=main] { min-height: $minHeight; }
                         h1:before { 
                             width: 40px;
                             height: 40px;
-                            background: url('./brand_ci_service_project.svg') center center no-repeat;
+                            background: url('brand_ci_service_project.svg') center center no-repeat;
                             background-size: 40px;
                         }
                     }
@@ -824,16 +808,16 @@ main[role=main] { min-height: $minHeight; }
                         h1:before { 
                             width: 40px;
                             height: 40px;
-                            background: url('./brand_ci_service_request.svg') center center no-repeat;
+                            background: url('brand_ci_service_request.svg') center center no-repeat;
                             background-size: 40px;
                         }
                     }
                     
-                    &.opsnow {
+                    &[data-state=opsnow] {
                         h1:before {
                             width: 40px;
                             height: 40px;
-                            background:url('/assets/images/guide/opsnow/brand_ci_opsnow.svg#orange') center center no-repeat;
+                            background:url('brand_ci_service_opsnow.svg#orange') center center no-repeat;
                             background-size:40px;
                         }
                     }
@@ -874,16 +858,10 @@ main[role=main] { min-height: $minHeight; }
 				.btn-section { display: block; box-sizing: border-box; padding: 0 0 0 15px; height: 50px; width: 270px; font-size: rem(14); font-weight: 400; color: #000; line-height: 48px; text-align: left; border: 1px solid #CACACA; background-color: #fff;
 					&:before { content: ''; display: inline-block; margin: -2px 10px 0 0; vertical-align: middle; transform: scale(1.2); }
 
-					// &[data-state=alarm]:before { @include retina-sprite($sl-icon-service-alarm-01-hover-group); }
-					// &[data-state=portal]:before { @include retina-sprite($sl-icon-service-portal-01-group); }
-					// &[data-state=asset]:before { @include retina-sprite($sl-icon-service-asset-01-group); }
-					// &[data-state=metering]:before { @include retina-sprite($sl-icon-service-metering-01-group); }
-					// &[data-state=monitoring]:before { @include retina-sprite($sl-icon-service-monitoring-01-group); }
-
-                    &.opsnow:before {
+                    &[data-state=opsnow]:before {
                         width: 20px;
                         height: 20px;
-                        background:url('./resource/brand_ci_opsnow.svg#orange') center center no-repeat;
+                        background:url('./brand_ci_service_opsnow.svg#orange') center center no-repeat;
                         background-size:20px;
                     }
 

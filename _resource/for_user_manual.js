@@ -146,14 +146,14 @@ $(window.document).ready(function () {
         var ko = languageSet.querySelector('input[value=ko]'),
             en = languageSet.querySelector('input[value=en]');
 
-        if (!en.checked) {
+        if (!!en && !en.checked) {
             en.addEventListener('click',function (_event) {
                 _event.preventDefault;
                 location.pathname = location.pathname.replace('KO','EN');
             });
         }
 
-        if (!ko.checked) {
+        if (!!ko && !ko.checked) {
             ko.addEventListener('click',function (_event) {
                 _event.preventDefault;
                 location.pathname = location.pathname.replace('EN','KO');

@@ -1,11 +1,10 @@
 /************************************
  *
- *  
  *  처음 왔으면 readme.md좀 읽어보세요. 아직 없지만.. 
  *  스캐폴딩 구조를 써야된다.
  *
- *
  */
+
 var	gulp = require('gulp'),
 	clean = require('gulp-clean'),                      // 개발 혹은 빌드 전 이전 파일들을 꺠끗하게 비우고 시작함
     stripComment = require('gulp-strip-comments'),      // 빌드할때 써먹을 설정입니다.  
@@ -22,22 +21,11 @@ var	gulp = require('gulp'),
 var path = {
     resource : './_resource/',
     its  : './source/its',
+    opsnow  : './source/opsnow',
     devServer : './.dev-server',
     build : './build'
 };
-
-// 인메모리 스토리지로 잡파일 생성을 하지 않게 만들자
-// 인메모리 스토리지가 문제가 좀 있는게, directory view가 되질 않는데다, browsersync 몇몇의 옵션 설정이 아예 되질 않네.
-// var GulpMem = require('gulp-mem');      // 인메모리 스토리지 
-// var gulpMem = new GulpMem();            // 인메모리 스토리지 생성
-// gulpMem.enableLog = true;               // 콘솔에 로그를 남겨준다.
-
-// gulpMem.serveBasePath = path.devServer       // gulp의 inmenory storage
-// 사용 일례 :: 아레 코드처럼 gulp.dest 대산에 gulpMem.dest를 사용한다.
-// .pipe(gulpMem.dest(path.devServer + '/resource'))
-// middleware : gulp.middleware
-
-
+//
 // 서버 기동
 gulp.task('server:start', function() {
     browserSync.init({
@@ -51,8 +39,8 @@ gulp.task('server:start', function() {
 });
 
 
-// ITS :: 개발 스타일 처리
-gulp.task('dev:its:style:sourcemap', function () {
+// 공통 dev :: 로컬 개발 스타일 처리
+gulp.task('dev:style:sourcemap', function () {
 	return gulp.src(path.resource + '*.scss')
 		.pipe(sourcemaps.init({
             largeFile: true
@@ -68,13 +56,14 @@ gulp.task('dev:its:style:sourcemap', function () {
 			flatten: true
 		}))
         .pipe(sourcemaps.write('./'))	
-    //sass-sourcemap 작성. sourcemap에서 정확한 위치를 반영하려면 전처리가 모두 끝난 위치에 반영해주어야 한다.
+        //sass-sourcemap 작성. sourcemap에서 정확한 위치를 반영하려면 전처리가 모두 끝난 위치에 반영해주어야 한다.
         .pipe(gulp.dest(path.devServer + '/resource'))
         .pipe(browserSync.stream());
 });
 
-// ITS :: build 스타일 처리
-gulp.task('build:its:style', function () {
+
+// 공통 build :: build 스타일 처리
+gulp.task('build:style', function () {
 	return gulp.src(path.resource + '*.scss')
 		.pipe(sass({ errLogToConsole: false }))
 		.on('error', function(err) {
@@ -86,13 +75,12 @@ gulp.task('build:its:style', function () {
 			expand: true,
 			flatten: true
 		}))
-    //sass-sourcemap 작성. sourcemap에서 정확한 위치를 반영하려면 전처리가 모두 끝난 위치에 반영해주어야 한다.
         .pipe(gulp.dest(path.build + '/resource'));
 });
 
 
 
-// ITS 개발 :: 스크립트와 폰트파일 복사
+// 공통 dev :: 스크립트와 폰트파일 복사
 gulp.task('dev:copy:asset',function () {
     return gulp.src(
         [
@@ -104,7 +92,7 @@ gulp.task('dev:copy:asset',function () {
     .pipe(browserSync.stream());
 });
 
-// ITS 빌드 :: 스크립트와 폰트파일 복사
+// 공통 build :: 스크립트와 폰트파일 복사
 gulp.task('build:copy:asset',function () {
     return gulp.src(
         [
@@ -118,45 +106,86 @@ gulp.task('build:copy:asset',function () {
 
 // ITS 개발 :: html 파일
 gulp.task('dev:its:make-html',function () {
-    var its_path = './source/its/'
     
     // html파일은 일단 복사만...
-    gulp.src(its_path + '/*.html') 
+    gulp.src(path.its + '/*.html') 
     .pipe(gulp.dest(path.devServer))
 });
 
 // ITS 빌드 :: html 파일
 gulp.task('build:its:make-html',function () {
-    var its_path = './source/its/'
     
     // html파일은 일단 복사만...
-    gulp.src(its_path + '/*.html') 
+    gulp.src(path.its + '/*.html') 
     .pipe(stripComment())
     .pipe(gulp.dest(path.build))
 });
 
-// ITS 개발 :: 이미지 파일 처리
-gulp.task('dev:its:image', function () {
-    var its_path = './source/its/'
-
-    gulp.src(its_path + '**/*') 
+// opsnow dev :: html 파일
+gulp.task('dev:opsnow:make-html',function () {
+    
+    // html파일은 일단 복사만...
+    gulp.src(path.opsnow + '/*.html') 
     .pipe(gulp.dest(path.devServer))
 });
 
-// ITS 빌드 :: 이미지 파일은 압축해서 넘김 
+// opsnow build :: html 파일
+gulp.task('build:opsnow:make-html',function () {
+    
+    // html파일은 일단 복사만...
+    gulp.src(path.opsnow + '/*.html') 
+    .pipe(stripComment())
+    .pipe(gulp.dest(path.build))
+});
+
+
+
+// ITS dev :: 이미지 파일 처리
+gulp.task('dev:its:image', function () {
+    gulp.src(path.opsnow + '/**/*') 
+    .pipe(gulp.dest(path.devServer))
+});
+
+// ITS build :: 이미지 파일은 압축해서 넘김 
 gulp.task('build:its:image', function () {
     console.log('image 압축 과정이 시간이 좀 걸립니다. 1~2분 정도 시간이 소요되니까 잠시 기다려 주세요.');
-    var its_path = './source/its/'
-
-    gulp.src(its_path + '**/*') 
+    gulp.src(path.its + '/**/*') 
     .pipe(imagemin())
     .pipe(gulp.dest(path.build))
 });
 
+
+
+// opsnow dev :: 이미지 파일 처리
+gulp.task('dev:opsnow:image', function () {
+    gulp.src(path.opsnow + '/**/*') 
+    .pipe(gulp.dest(path.devServer))
+});
+
+// opsnow build :: 이미지 파일은 압축해서 넘김 
+gulp.task('build:opsnow:image', function () {
+    console.log('image 압축 과정이 시간이 좀 걸립니다. 1~2분 정도 시간이 소요되니까 잠시 기다려 주세요.');
+    gulp.src(path.opsnow + '/**/*') 
+    .pipe(imagemin())
+    .pipe(gulp.dest(path.build))
+});
+
+
+
+
+
+
 // watch option
 gulp.task('watch', function() {
-    gulp.watch('./source/**/*.html',['dev:its:make-html']).on('change', browserSync.reload);
-    gulp.watch(path.resource + "/*.scss", ['dev:its:style:sourcemap']);
+    gulp.watch('./source/**/*.html',[
+        'dev:its:make-html',
+        'dev:opsnow:make-html'
+    ]).on('change', browserSync.reload);
+
+    gulp.watch(path.resource + "/*.scss", [
+        'dev:style:sourcemap'
+    ]);
+
     gulp.watch(path.resource + "/*.js", ['dev:copy:asset']);
 });
 
@@ -171,16 +200,11 @@ gulp.task('default', function(done) {
                 {
                     name : 'ITS',
                     value : 'its'
+                },
+                {
+                    name : 'OpsNow',
+                    value : 'opsnow'
                 }
-                // ,
-                // {
-                //     name : 'MD',
-                //     value : 'md'
-                // },
-                // {
-                //     name : 'OpsNow',
-                //     value : 'opsnow'
-                // }
             ]
         },
         {
@@ -202,43 +226,84 @@ gulp.task('default', function(done) {
         // console.log(JSON.stringify(answers, null, '  '));
 
         //답 받아왔지?
-        if (answers.select === 'its' && answers.devOrBuild === 'dev') {
-            gulp.src(path.build, {read:false}).pipe(clean());
-            gulp.start('dev:run:its');  //   ITS 개발모드 시작
-        } else if (answers.select === 'its' && answers.devOrBuild === 'build') {
-            // 있던거 지워야지
-            gulp.src(path.devServer, {read:false}).pipe(clean());
-            console.log('build를 시작합니다.')
-            gulp.start('build:run:its')
+        if (answers.select === 'its') {
+            if (answers.devOrBuild === 'dev') {
+                gulp.src(path.build, {read:false}).pipe(clean());
+                gulp.start('dev:run:its');  //   ITS 개발모드 시작
+            } else if (answers.devOrBuild === 'build') {
+                gulp.src(path.devServer, {read:false}).pipe(clean());
+                console.log('build를 시작합니다.')
+                gulp.start('build:run:its')
+            }
+        } else if (answers.select === 'opsnow') {
+            if (answers.devOrBuild === 'dev') {
+                gulp.src(path.build, {read:false}).pipe(clean());
+                gulp.start('dev:run:opsnow');  //   ITS 개발모드 시작
+            } else if (answers.devOrBuild === 'build') {
+                gulp.src(path.devServer, {read:false}).pipe(clean());
+                console.log('build를 시작합니다.')
+                gulp.start('build:run:opsnow')
+            }
         } else {
             console.log('현재는 지원하지 않습니다. 곧 만들게요 ㅜㅜ. 종료합니다!');
             done();
         }
-
     });
 });
 
 
 // 태스크 모임
+gulp.task('clean',function () {
+    gulp.src(path.build).pipe(clean());
+    gulp.src(path.devServer).pipe(clean());
+});
 
-// ITS 매뉴얼 개발 
+var path = {
+    resource : './_resource/',
+    its  : './source/its',
+    opsnow  : './source/opsnow',
+    devServer : './.dev-server',
+    build : './build'
+};
+// dev :: ITS 매뉴얼
 gulp.task('dev:run:its', [
+    'clean',
     'watch',
     'server:start',
-    'dev:its:style:sourcemap',
+    'dev:style:sourcemap',
     'dev:copy:asset',
     'dev:its:image',
     'dev:its:make-html'
 ]);
 
+// dev :: opsnow 매뉴얼
+gulp.task('dev:run:opsnow', [
+    'clean',
+    'watch',
+    'server:start',
+    'dev:style:sourcemap',
+    'dev:copy:asset',
+    'dev:opsnow:image',
+    'dev:opsnow:make-html'
+]);
+
+// build :: ITS 매뉴얼
 gulp.task('build:run:its', [
-    'build:its:style',
+    'clean',
+    'build:style',
     'build:copy:asset',
     'build:its:image',
     'build:its:make-html'
 ]);
 
-
+// build :: opsnow 매뉴얼
+gulp.task('build:run:opsnow', [
+    'clean',
+    'build:style',
+    'build:copy:asset',
+    'build:opsnow:image',
+    'build:opsnow:make-html'
+]);
 
 
 
