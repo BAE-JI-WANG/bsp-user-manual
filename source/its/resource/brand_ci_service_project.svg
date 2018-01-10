@@ -1,0 +1,21 @@
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>BSP brand ci :: project</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-101.000000, -267.000000)">
+            <g transform="translate(91.000000, 48.000000)">
+                <g transform="translate(10.000000, 219.000000)">
+                    <rect fill="#000000" x="0" y="0" width="20" height="20"></rect>
+                    <path d="M10,3.33333333 L10,5.55555556" stroke="#FFFFFF" stroke-width="1.30000007"></path>
+                    <path d="M10,14.4444444 L10,16.6666667" stroke="#FFFFFF" stroke-width="1.30000007"></path>
+                    <path d="M3.33333333,10 L5.55555556,10" stroke="#FFFFFF" stroke-width="1.30000007"></path>
+                    <path d="M14.4444444,10 L16.6666667,10" stroke="#FFFFFF" stroke-width="1.30000007"></path>
+                    <path d="M5.55555556,5.55555556 L7.12690396,7.12690396" stroke="#FFFFFF" stroke-width="1.30000007"></path>
+                    <path d="M13.3333333,13.3333333 L14.9046817,14.9046817" stroke="#FFFFFF" stroke-width="1.30000007"></path>
+                    <path d="M5.55555556,14.9046817 L7.12690396,13.3333333" stroke="#FFFFFF" stroke-width="1.30000007"></path>
+                    <path d="M13.3333333,7.12690396 L14.9046817,5.55555556" stroke="#FFFFFF" stroke-width="1.30000007"></path>
+                    <path d="M11.9312672,9.3483253 L11.1983761,9.3483253 L11.1983761,8.96705692 C11.1983761,8.46364769 10.783962,8.05555556 10.2725829,8.05555556 L9.17067648,8.05555556 C8.65946866,8.05555556 8.24488324,8.46364769 8.24488324,8.96705692 L8.24488324,9.35811007 C7.82618622,9.40686518 7.5,9.75371819 7.5,10.1791867 L7.5,11.1809441 C7.5,11.6398158 7.87775242,12.0118055 8.34373274,12.0118055 L11.9312672,12.0118055 C12.3972475,12.0118055 12.7749999,11.6398158 12.7749999,11.1809441 L12.7749999,10.1791867 C12.7749999,9.72031503 12.3972475,9.3483253 11.9312672,9.3483253" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

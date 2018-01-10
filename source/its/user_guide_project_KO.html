@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<title>BESPIN USER GUIDE</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" href="./resource/bsp_manual.css">
-	<script src="./resource/jquery-2.2.3.min.js"></script>
+    <meta charset="UTF-8">
+    <title>BESPIN USER GUIDE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./resource/bsp_manual.css">
+    <script src="./resource/jquery-2.2.3.min.js"></script>
 </head>
 
 <body class="service-its page-user-guide-detail" data-state="none">
 <div class="layout-wrap">
 
-	<header class="global-menu">
-		<div class="title">
-			<a href="user_guide.html" class="btn-user-guide">USER GUIDE</a>
-		</div>
-        <div class="utils">  
+    <header class="global-menu">
+        <div class="title">
+            <a href="#" class="btn-user-guide">USER GUIDE</a>
+        </div>
+        <div class="utils">
             <fieldset class="select-language">
                 <legend>언어 설정</legend>
 
@@ -27,9 +27,9 @@
 
             </fieldset>
         </div>
-	</header>
+    </header>
 
-	<!-- 본문 영역 -->
+    <!-- 본문 영역 -->
     <main role="main">
     <div class="layout-contents layout-fixed">
 
@@ -40,7 +40,7 @@
                 <span>Project</span>
                 <ul class="shortcut-toc">
                     <li class="active">
-                        <a href="./user_guide_alarm.html" class="btn-section" data-state="project">Project</a>
+                        <a href="#guide_top" class="btn-section" data-state="project">Project</a>
                         <div class="section-sub">
                             <a href="#guide-category01" class="btn-toggle">Overview</a>
                             <ol class="toc">
@@ -85,7 +85,7 @@
 
             <!-- 서비스 시작 -->
             <div class="layout-page-title" data-state="project">
-                <h1>Project</h1>
+                <h1 id="guide_top">Project</h1>
                 <p class="layout-page-title-description">프로젝트 혹은 팀 별로 업무를 등록하고 등록된 업무의 이력을 관리할 수 있습니다.</p>
             </div>
 
@@ -169,7 +169,7 @@
                                                         <td style="padding: 15px;">프로젝트가 서비스되고 있는 URL을 입력할 수 있습니다.</td>
                                                     </tr>
                                                     <tr style="border-bottom: 1px solid #ddd;">
-                                                        <td style="padding: 15px;">⑦</td>
+                                                        <td style="padding: 15px;">⑧</td>
                                                         <td style="padding: 15px;">Description</td>
                                                         <td style="padding: 15px;">.</td>
                                                         <td style="padding: 15px;">생성할 프로젝트, 팀에 대한 설명을 입력합니다.<br>텍스트 편집기를 통해 자유롭게 입력할 수 있습니다.</td>
@@ -297,11 +297,11 @@
                                                         <td style="padding: 15px;">④</td>
                                                         <td style="padding: 15px;">Description</td>
                                                         <td style="padding: 15px;">.</td>
-                                                        <td style="padding: 15px;">	Issue Type에 대한 설명을 입력할 수 있습니다.</td>
+                                                        <td style="padding: 15px;">    Issue Type에 대한 설명을 입력할 수 있습니다.</td>
                                                     </tr>
                                                     <tr style="border-bottom: 1px solid #ddd;">
                                                         <td style="padding: 15px;">⑤</td>
-                                                        <td style="padding: 15px;">	Icon</td>
+                                                        <td style="padding: 15px;">    Icon</td>
                                                         <td style="padding: 15px;">Required</td>
                                                         <td style="padding: 15px;">Issue Type 목록에 표시될 아이콘을 업로드 할 수 있습니다.</td>
                                                     </tr>
@@ -365,7 +365,7 @@
                                                     </tr>
                                                     <tr style="border-bottom: 1px solid #ddd;">
                                                         <td style="padding: 15px;">②</td>
-                                                        <td style="padding: 15px;">	Issue Priority Name</td>
+                                                        <td style="padding: 15px;">    Issue Priority Name</td>
                                                         <td style="padding: 15px;">Required</td>
                                                         <td style="padding: 15px;">Issue Priority의 이름을 입력합니다.<br>여기에 입력된 내용이 Issue Priority의 이름으로 표시됩니다.</td>
                                                     </tr>
@@ -378,14 +378,14 @@
                                                     <tr style="border-bottom: 1px solid #ddd;">
                                                         <td style="padding: 15px;">④</td>
                                                         <td style="padding: 15px;">Term (Unit:day)</td>
-                                                        <td style="padding: 15px;">	Required</td>
+                                                        <td style="padding: 15px;">    Required</td>
                                                         <td style="padding: 15px;">Issue Priority의 처리 기한을 입력할 수 있습니다.<br>숫자만 입력 가능합니다.<br>업무 생성 후 Issue Priority 선택 시 시작일로부터 여기에 입력된 값이 자동으로 계산되어 완료일로 표시됩니다.</td>
                                                     </tr>
                                                     <tr style="border-bottom: 1px solid #ddd;">
                                                         <td style="padding: 15px;">⑤</td>
                                                         <td style="padding: 15px;">Description</td>
                                                         <td style="padding: 15px;">.</td>
-                                                        <td style="padding: 15px;">	Issue Priority에 대한 설명을 입력할 수 있습니다.</td>
+                                                        <td style="padding: 15px;">    Issue Priority에 대한 설명을 입력할 수 있습니다.</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -483,7 +483,7 @@
                                                     </tr>
                                                     <tr style="border-bottom: 1px solid #ddd;">
                                                         <td style="padding: 15px;">④</td>
-                                                        <td style="padding: 15px;">	Assignee</td>
+                                                        <td style="padding: 15px;">    Assignee</td>
                                                         <td style="padding: 15px;">Required</td>
                                                         <td style="padding: 15px;">업무의 담당자를 선택할 수 있습니다.<br>[Search] 버튼을 클릭해 담당자를 선택할 수 있으며, 한 업무당 한명의 사용자만을 등록할 수 있습니다.</td>
                                                     </tr>
@@ -515,25 +515,25 @@
                                                         <td style="padding: 15px;">⑨</td>
                                                         <td style="padding: 15px;">Watcher</td>
                                                         <td style="padding: 15px;">.</td>
-                                                        <td style="padding: 15px;">	업무의 참조자를 선택할 수 있습니다.<br>
+                                                        <td style="padding: 15px;">    업무의 참조자를 선택할 수 있습니다.<br>
                                                             업무의 참조자는 등록된 업무 상태가 변경될 때 이메일로 변경 상태에 대한 알림을 받을 수 있습니다.<br>
                                                             [Search] 버튼을 클릭해 참조자를 선택할 수 있으며, 복수의 사용자를 등록할 수 있습니다.</td>
                                                     </tr>
                                                     <tr style="border-bottom: 1px solid #ddd;">
                                                         <td style="padding: 15px;">⑩</td>
-                                                        <td style="padding: 15px;">	Related Issue</td>
+                                                        <td style="padding: 15px;">    Related Issue</td>
                                                         <td style="padding: 15px;">.</td>
                                                         <td style="padding: 15px;">현재 등록한 업무와 연관이 있는 업무를 지정할 수 있습니다.</td>
                                                     </tr>
                                                     <tr style="border-bottom: 1px solid #ddd;">
                                                         <td style="padding: 15px;">⑪</td>
-                                                        <td style="padding: 15px;">	Related Service Request</td>
+                                                        <td style="padding: 15px;">    Related Service Request</td>
                                                         <td style="padding: 15px;">.</td>
-                                                        <td style="padding: 15px;">	현재 등록한 업무와 연관이 있는 업무 요청을 지정할 수 있습니다.</td>
+                                                        <td style="padding: 15px;">    현재 등록한 업무와 연관이 있는 업무 요청을 지정할 수 있습니다.</td>
                                                     </tr>
                                                     <tr style="border-bottom: 1px solid #ddd;">
                                                         <td style="padding: 15px;">⑫</td>
-                                                        <td style="padding: 15px;">	Description</td>
+                                                        <td style="padding: 15px;">    Description</td>
                                                         <td style="padding: 15px;">.</td>
                                                         <td style="padding: 15px;">업무의 상세 내용을 입력할 수 있습니다.</td>
                                                     </tr>
@@ -604,9 +604,9 @@
                                                     </tr>
                                                     <tr style="border-bottom: 1px solid #ddd;">
                                                         <td style="padding: 15px;">①</td>
-                                                        <td style="padding: 15px;">	Subject</td>
+                                                        <td style="padding: 15px;">    Subject</td>
                                                         <td style="padding: 15px;">Required</td>
-                                                        <td style="padding: 15px;">	회의록의 제목을 입력할 수 있습니다.</td>
+                                                        <td style="padding: 15px;">    회의록의 제목을 입력할 수 있습니다.</td>
                                                     </tr>
                                                     <tr style="border-bottom: 1px solid #ddd;">
                                                         <td style="padding: 15px;">②</td>
@@ -622,7 +622,7 @@
                                                     </tr>
                                                     <tr style="border-bottom: 1px solid #ddd;">
                                                         <td style="padding: 15px;">④</td>
-                                                        <td style="padding: 15px;">	Attachment</td>
+                                                        <td style="padding: 15px;">    Attachment</td>
                                                         <td style="padding: 15px;">.</td>
                                                         <td style="padding: 15px;">첨부 파일을 등록할 수 있습니다.<br>복수의 파일을 업로드할 수 있습니다.</td>
                                                     </tr>
@@ -689,13 +689,13 @@
                                                         <th style="padding: 15px;">Description</th>
                                                     </tr>
                                                     <tr style="border-bottom: 1px solid #ddd;">
-                                                        <td style="padding: 15px;">Open	</td>
+                                                        <td style="padding: 15px;">Open    </td>
                                                         <td style="padding: 15px;">새로운 업무로 등록되었으나, 아직 업무에 착수하지 않은 상태를 의미합니다.</td>
                                                     </tr>
                                                     <tr style="border-bottom: 1px solid #ddd;">
 
                                                         <td style="padding: 15px;">In-progress</td>
-                                                        <td style="padding: 15px;">	담당자가 업무를 처리 중인 상태를 의미합니다.</td>
+                                                        <td style="padding: 15px;">    담당자가 업무를 처리 중인 상태를 의미합니다.</td>
                                                     </tr>
                                                     <tr style="border-bottom: 1px solid #ddd;">
                                                         <td style="padding: 15px;">Resolve</td>
@@ -911,7 +911,6 @@
                                     검색할 조건을 선택합니다. [Priority], [Type], [Status], [Assignee] 버튼을 클릭하면 드롭다운 메뉴로 선택 가능한 조건이 표시됩니다.
                                     <ul>
                                         <li>
-                                            <br>
                                             'Priority' 조건 선택
                                             <figure>
                                                 <div class="screenshot"><img src="./image/bnr_guide_project_1_39.png" alt="" style="width:800px;"></div>
@@ -919,15 +918,13 @@
                                             </figure>
                                         </li>
                                         <li>
-                                            <br>
-                                            Type' 조건 선택
+                                            'Type' 조건 선택
                                             <figure>
                                                 <div class="screenshot"><img src="./image/bnr_guide_project_1_40.png" alt="" style="width:800px;"></div>
                                                 <figcaption></figcaption>
                                             </figure>
                                         </li>
                                         <li>
-                                            <br>
                                             'Status' 조건 선택
                                             <figure>
                                                 <div class="screenshot"><img src="./image/bnr_guide_project_1_41.png" alt="" style="width:800px;"></div>
@@ -935,7 +932,6 @@
                                             </figure>
                                         </li>
                                         <li>
-                                            <br>
                                             'Asignee' 조건 선택
                                             <figure>
                                                 <div class="screenshot"><img src="./image/bnr_guide_project_1_42.png" alt="" style="width:800px;"></div>
@@ -990,16 +986,16 @@
     </div>
     </main>
 
-	<!-- 하단 영역 -->
-	<footer class="layout-footer">
+    <!-- 하단 영역 -->
+    <footer class="layout-footer">
         <div class="contents-inner">
             <div class="service">
                 <h2 class="title">USER GUIDE</h2>
             </div>
         </div>
-	</footer> 
+    </footer>
 
-</div>	<!-- class="layout-wrap" -->
+</div>    <!-- class="layout-wrap" -->
 <script src="./resource/for_user_manual.js"></script>
 </body>
 </html>
