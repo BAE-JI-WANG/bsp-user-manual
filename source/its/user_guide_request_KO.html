@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<title>BESPIN USER GUIDE</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" href="./resource/bsp_manual.css">
-	<script src="./resource/jquery-2.2.3.min.js"></script>
+    <meta charset="UTF-8">
+    <title>BESPIN USER GUIDE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./resource/bsp_manual.css">
+    <script src="./resource/jquery-2.2.3.min.js"></script>
 </head>
 
 <body class="service-its page-user-guide-detail" data-state="none">
 <div class="layout-wrap">
 
-	<header class="global-menu">
-		<div class="title">
-			<a href="user_guide_request_KO.html" class="btn-user-guide">USER GUIDE</a>
-		</div>
-        <div class="utils">  
+    <header class="global-menu">
+        <div class="title">
+            <a href="#" class="btn-user-guide">USER GUIDE</a>
+        </div>
+        <div class="utils">
             <fieldset class="select-language">
                 <legend>언어 설정</legend>
 
@@ -27,9 +27,9 @@
 
             </fieldset>
         </div>
-	</header>
+    </header>
 
-	<!-- 본문 영역 -->
+    <!-- 본문 영역 -->
     <main role="main">
     <div class="layout-contents layout-fixed">
 
@@ -40,7 +40,7 @@
                 <span>Service Request</span>
                 <ul class="shortcut-toc">
                     <li class="active">
-                        <a href="user_guide_request.html" class="btn-section" data-state="request">Service Request</a>
+                        <a href="#guide_top" class="btn-section" data-state="request">Service Request</a>
                         <div class="section-sub">
                             <a href="#guide-category01" class="btn-toggle">Overview</a>
                             <ol class="toc">
@@ -73,7 +73,7 @@
 
             <!-- 서비스 시작 -->
             <div class="layout-page-title" data-state="request">
-                <h1>Service Request</h1>
+                <h1 id="guide_top">Service Request</h1>
                 <p class="layout-page-title-description">모든 서비스 요청을 기록 후 절차에 따라 서비스 요청을 신속하게 조치할 수 있습니다..</p>
             </div>
 
@@ -111,21 +111,21 @@
                                             </tr>
                                             <tr style="border-bottom: 1px solid #ddd;">
                                                 <td style="padding: 15px;">①</td>
-                                                <td style="padding: 15px;">	Request Type</td>
+                                                <td style="padding: 15px;">    Request Type</td>
                                                 <td style="padding: 15px;">Required</td>
                                                 <td style="padding: 15px;">새롭게 생성할 업무 요청의 이름을 입력합니다.</td>
                                             </tr>
                                             <tr style="border-bottom: 1px solid #ddd;">
                                                 <td style="padding: 15px;">②</td>
-                                                <td style="padding: 15px;">	Assignee</td>
+                                                <td style="padding: 15px;">    Assignee</td>
                                                 <td style="padding: 15px;">Required</td>
                                                 <td style="padding: 15px;">새롭게 생성할 업무 요청의 기본 담당자를 지정할 수 있습니다.<br>복수의 담당자를 지정할 수 있습니다.<br>Assignee 목록의 가장 위에 있는 사용자가 기본 담당자로 설정됩니다.</td>
                                             </tr>
                                             <tr style="border-bottom: 1px solid #ddd;">
                                                 <td style="padding: 15px;">③</td>
-                                                <td style="padding: 15px;">	Description</td>
+                                                <td style="padding: 15px;">    Description</td>
                                                 <td style="padding: 15px;">.</td>
-                                                <td style="padding: 15px;">	업무 요청의 설명을 입력합니다.</td>
+                                                <td style="padding: 15px;">    업무 요청의 설명을 입력합니다.</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -172,7 +172,7 @@
                                             </tr>
                                             <tr style="border-bottom: 1px solid #ddd;">
                                                 <td style="padding: 15px;">①</td>
-                                                <td style="padding: 15px;">	Request Type</td>
+                                                <td style="padding: 15px;">    Request Type</td>
                                                 <td style="padding: 15px;">Required</td>
                                                 <td style="padding: 15px;">요청할 업무의 Type을 선택할 수 있습니다.<br>[Search] 버튼 클릭 시 요청 가능한 업무의 목록이 표시되며, 요청할 업무를 선택할 수 있습니다.</td>
                                             </tr>
@@ -294,7 +294,7 @@
                                                         <th style="padding: 15px;">Description</th>
                                                     </tr>
                                                     <tr style="border-bottom: 1px solid #ddd;">
-                                                        <td style="padding: 15px;">Open	</td>
+                                                        <td style="padding: 15px;">Open    </td>
                                                         <td style="padding: 15px;">업무 요청이 작성되었으나 아직 업무에 착수하지 않은 상태를 의미합니다.</td>
                                                     </tr>
                                                     <tr style="border-bottom: 1px solid #ddd;">
@@ -427,16 +427,16 @@
     </div>
     </main>
 
-	<!-- 하단 영역 -->
-	<footer class="layout-footer">
+    <!-- 하단 영역 -->
+    <footer class="layout-footer">
         <div class="contents-inner">
             <div class="service">
                 <h2 class="title">USER GUIDE</h2>
             </div>
         </div>
-	</footer> 
+    </footer>
 
-</div>	<!-- class="layout-wrap" -->
+</div>    <!-- class="layout-wrap" -->
 <script src="./resource/for_user_manual.js"></script>
 </body>
 </html>

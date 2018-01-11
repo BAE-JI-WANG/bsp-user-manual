@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<title>BESPIN USER GUIDE</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" href="./resource/bsp_manual.css">
-	<script src="./resource/jquery-2.2.3.min.js"></script>
+    <meta charset="UTF-8">
+    <title>BESPIN USER GUIDE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./resource/bsp_manual.css">
+    <script src="./resource/jquery-2.2.3.min.js"></script>
 </head>
 
 
 <body class="service-its page-user-guide-detail" data-state="none">
 <div class="layout-wrap">
 
-	<header class="global-menu">
-		<div class="title">
-			<a href="#" onclick="return false;" class="btn-user-guide">USER GUIDE</a>
-		</div>
-        <div class="utils">  
+    <header class="global-menu">
+        <div class="title">
+            <a href="#" onclick="return false;" class="btn-user-guide">USER GUIDE</a>
+        </div>
+        <div class="utils">
             <fieldset class="select-language">
                 <legend>언어 설정</legend>
 
@@ -28,45 +28,45 @@
 
             </fieldset>
         </div>
-	</header>
+    </header>
 
-	<!-- 본문 영역 -->
-	<main role="main">
-		<div class="layout-contents layout-fixed">
+    <!-- 본문 영역 -->
+    <main role="main">
+        <div class="layout-contents layout-fixed">
 
-			<!-- 페이지 타이틀 -->
-			<div class="layout-page-title">
+            <!-- 페이지 타이틀 -->
+            <div class="layout-page-title">
 
-				<nav id="toc-menu" class="navigation-toc">
-					<span>DevOps</span>
-					<ul class="shortcut-toc">
-						<li class="active">
-                            <a href="#guide_devops" class="btn-section" data-state="devops">devops</a>
+                <nav id="toc-menu" class="navigation-toc">
+                    <span>DevOps</span>
+                    <ul class="shortcut-toc">
+                        <li class="active">
+                            <a href="#guide_top" class="btn-section" data-state="devops">devops</a>
                             <div class="section-sub">
                                 <a href="#guide_devops_setting" class="btn-toggle">사전 설정</a>
-								<ol class="toc">
+                                <ol class="toc">
                                     <li><a href="#guide_devops_setting_01">대상 서비스의 관리 주체 프로젝트와 프로세스, 릴리스 담당자를 설정합니다.</a></li>
                                     <li><a href="#guide_devops_setting_02">Build 설정을 추가합니다.</a></li>
                                     <li><a href="#guide_devops_setting_03">빌드 설정을 확인합니다</a></li>
-								</ol>
-							</div>
-							<div class="section-sub">
-								<a href="#guide_devops_planning" class="btn-toggle">개발 계획 작성</a>
-								<ol class="toc">
+                                </ol>
+                            </div>
+                            <div class="section-sub">
+                                <a href="#guide_devops_planning" class="btn-toggle">개발 계획 작성</a>
+                                <ol class="toc">
                                     <li><a href="#guide_devops_planning_01">Create New 버튼을 클릭하여, 개발 계획 작성화면으로 이동합니다.</a></li>
                                     <li><a href="#guide_devops_planning_02">개발 계획 입력 양식을 작성합니다.</a></li>
                                     <li><a href="#guide_devops_planning_03">프로젝트 서비스와 연동하여 관리되고 있는 개발 이슈를 연결합니다.</a></li>
                                 </ol>
-							</div>
-							<div class="section-sub">
-								<a href="#guide_devops_release_planning" class="btn-toggle">릴리스 계획 작성</a>
+                            </div>
+                            <div class="section-sub">
+                                <a href="#guide_devops_release_planning" class="btn-toggle">릴리스 계획 작성</a>
                                 <ol class="toc">
                                     <li><a href="#guide_devops_release_planning_01">릴리스 작업 계획을 작성합니다.</a></li>
                                     <li><a href="#guide_devops_release_planning_02">릴리스 목록을 확인합니다.</a></li>
                                 </ol>
-							</div>
-							<div class="section-sub">
-								<a href="#guide_devops_release_flow" class="btn-toggle">릴리스 작업 진행</a>
+                            </div>
+                            <div class="section-sub">
+                                <a href="#guide_devops_release_flow" class="btn-toggle">릴리스 작업 진행</a>
                                 <ol class="toc">
                                     <li><a href="#guide_devops_release_flow_01">릴리스 상세 내용을 확인합니다.</a></li>
                                     <li><a href="#guide_devops_release_flow_02">Configuration에서 설정한 Workflow에 따라 개별 Phase 별 프로세스를 진행합니다.</a></li>
@@ -74,44 +74,44 @@
                                     <li><a href="#guide_devops_release_flow_04">결재 완료 시, Approved 상태로 변경되며, 해당 버튼을 클릭하면 결재 내역 페이지로 이동하여 확인할 수 있습니다.</a></li>
                                     <li><a href="#guide_devops_release_flow_05">Deploy 버튼이 활성화 되며, 해당 버튼을 클릭하여 배포 실행 화면으로 이동합니다..</a></li>
                                 </ol>
-							</div>
-							<div class="section-sub">
-								<a href="#guide_devops_build_and_deploy" class="btn-toggle">Build &amp; Deploy 진행</a>
+                            </div>
+                            <div class="section-sub">
+                                <a href="#guide_devops_build_and_deploy" class="btn-toggle">Build &amp; Deploy 진행</a>
                                 <ol class="toc">
                                     <li><a href="#guide_devops_build_and_deploy_01">빌드 설정 및 Deploy Type을 선택하여, 배포를 진행합니다.</a></li>
                                     <li><a href="#guide_devops_build_and_deploy_02">Execute Result에서 Build 로그를 확인할 수 있습니다.</a></li>
                                     <li><a href="#guide_devops_build_and_deploy_03">배포 실행.</a></li>
                                 </ol>
-							</div>
-							<div class="section-sub">
-								<a href="#guide_devops_deploy_history" class="btn-toggle">Deploy 이력 확인</a>
-							</div>
-							<div class="section-sub">
-								<a href="#guide_devops_report" class="btn-toggle">배포 후 완료 보고</a>
+                            </div>
+                            <div class="section-sub">
+                                <a href="#guide_devops_deploy_history" class="btn-toggle">Deploy 이력 확인</a>
+                            </div>
+                            <div class="section-sub">
+                                <a href="#guide_devops_report" class="btn-toggle">배포 후 완료 보고</a>
                                 <ol class="toc">
                                     <li><a href="#guide_devops_report_01">Report 작성</a></li>
                                     <li><a href="#guide_devops_report_02">릴리스 계획 종료</a></li>
                                     <li><a href="#guide_devops_report_03">개발 계획 종료</a></li>
                                 </ol>
-                                
-							</div>
-							<div class="section-sub">
-								<a href="#guide_devops_scenario" class="btn-toggle">타 서비스 통합 운영 시나리오</a>
-							</div>
-							<div class="section-sub">
-								<a href="#guide_devops_constraints" class="btn-toggle">DevOps 제약사항</a>
-							</div>
-						</li>
-					</ul>
-				</nav>
-			</div>
+
+                            </div>
+                            <div class="section-sub">
+                                <a href="#guide_devops_scenario" class="btn-toggle">타 서비스 통합 운영 시나리오</a>
+                            </div>
+                            <div class="section-sub">
+                                <a href="#guide_devops_constraints" class="btn-toggle">DevOps 제약사항</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
 
 
             <div class="layout-contents-inner">
 
                 <!-- 서비스 시작 -->
                 <div class="layout-page-title" data-state="devops">
-                    <h1 id="guide_devops">DevOps</h1>
+                    <h1 id="guide_top">DevOps</h1>
                     <p class="layout-page-title-description">개발 및 릴리스 계획, Build &amp; Deploy 설정을 관리하며, End To End로 프로세스화 하여 관리할 수 있습니다.</p>
                 </div>
 
@@ -321,7 +321,7 @@
                     </div>
 
                 </section>
-                
+
                 <section class="chapter">
                     <h3 id="guide_devops_build_and_deploy" class="chapter-title">Build &amp; Deploy 진행</h3>
                     <div class="chapter-contents">
@@ -354,7 +354,7 @@
                             </li>
                         </ol>
                     </div>
-                    
+
                 </section>
 
                 <section class="chapter">
@@ -459,19 +459,19 @@
                 </section>
 
             </div>
-		</div>
-	</main>
+        </div>
+    </main>
 
-	<!-- 하단 영역 -->
-	<footer class="layout-footer">
+    <!-- 하단 영역 -->
+    <footer class="layout-footer">
         <div class="contents-inner">
             <div class="service">
                 <h2 class="title">USER GUIDE</h2>
             </div>
         </div>
-	</footer> 
+    </footer>
 
-</div>	<!-- class="layout-wrap" -->
+</div>    <!-- class="layout-wrap" -->
 <script src="./resource/for_user_manual.js"></script>
 </body>
 </html>
