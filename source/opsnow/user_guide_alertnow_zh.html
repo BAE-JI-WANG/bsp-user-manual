@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<title>USER GUIDE :: AlertNow</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" href="./resource/bsp_manual.css">
-	<script src="./resource/jquery-2.2.3.min.js"></script>
+    <meta charset="UTF-8">
+    <title>USER GUIDE :: AlertNow</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./resource/bsp_manual.css">
+    <script src="./resource/jquery-2.2.3.min.js"></script>
 </head>
 
 <body class="service-its page-user-guide-detail">
@@ -31,16 +31,16 @@
     </header>
 
 
-	<!-- 본문 영역 -->
-	<main role="main">
-		<div class="layout-contents layout-fixed">
+    <!-- 본문 영역 -->
+    <main role="main">
+        <div class="layout-contents layout-fixed">
 
-			<!-- 페이지 타이틀 -->
-			<div class="layout-page-title">
+            <!-- 페이지 타이틀 -->
+            <div class="layout-page-title">
 
-				<nav id="toc-menu" class="navigation-toc">
-					<span>AlertNow</span>
-					<p class="layout-page-title-description">AlertNow의 상황별 가이드를 제공합니다.</p>
+                <nav id="toc-menu" class="navigation-toc">
+                    <span>AlertNow</span>
+                    <p class="layout-page-title-description">AlertNow의 상황별 가이드를 제공합니다.</p>
 
                     <!-- LNB -->
                     <ul class="shortcut-toc">
@@ -154,16 +154,16 @@
 
                     </ul>
                     <!-- // LNB -->
-				</nav>
-			</div>
+                </nav>
+            </div>
 
-			<div class="layout-contents-inner">
+            <div class="layout-contents-inner">
 
-				<!-- 서비스 시작 -->
+                <!-- 서비스 시작 -->
                 <div class="layout-page-title" data-state="opsnow">
-					<h1 id="guide_opsnow">AlertNow</h1>
-					<p class="layout-page-title-description">각 서비스들의 상태를 확인할 수 있고 서비스에서 발생한 알람의 장애 현황 및 이력 관리를 할 수 있습니다.</p>
-				</div>
+                    <h1 id="guide_opsnow">AlertNow</h1>
+                    <p class="layout-page-title-description">각 서비스들의 상태를 확인할 수 있고 서비스에서 발생한 알람의 장애 현황 및 이력 관리를 할 수 있습니다.</p>
+                </div>
 
 
                 <!-- 가이드 컨텐트 본문 -->
@@ -179,7 +179,7 @@
                         <p class="chapter-title-description">사용자가 등록한 서비스 그룹 별로 장애 발생 시 알람을 받을 사용자(Receiver)와 처리할 담당자(Assignee)를 지정합니다.</p>
 
                         <h4 id="guide_opsnow_integration_1_1" class="chapter-sub-title">1.1. 접속</h4>
-                        <p class="chapter-title-description">BSP 가입 후, AlertNow 서비스 신청 고객의 경우, 서비스 영역에 아래와 같이 AlertNow Beta 서비스가 노출이 됩니다.</p>
+                        <p class="chapter-title-description">OpsNow 가입 후, AlertNow 서비스 신청 고객의 경우, 서비스 영역에 아래와 같이 AlertNow Beta 서비스가 노출이 됩니다.</p>
                         <div class="chapter-contents">
 
                             <span class="location">화면 경로 : Portal  - <em>AlertNow</em></span>
@@ -207,55 +207,55 @@
                                     <col>
                                 </colgroup>
                                 <thead>
-                                    <tr>
-                                        <th scope="col">항목</th>
-                                        <th scope="col">설명</th>
-                                    </tr>
+                                <tr>
+                                    <th scope="col">항목</th>
+                                    <th scope="col">설명</th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">Incident</th>
-                                        <td>
-                                            Alert 수집 시 Incident Definition Policy에 의해 발급된 티켓의 상태를 관리 합니다.<br />
-                                            <br />
-                                            1)	Incident Definition Policy<br />
-                                            -	Service Tagging Rule <br />
-                                            -	Alert Urgency Rule<br />
-                                            -	Alert Suppression Rule<br />
-                                            <br />
-                                            Incident Definition Policy는 고객이 설정이 가능 합니다.
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Service</th>
-                                        <td>
-                                            고객이 설정한 Service 단위로 Incident를 상태를 관리 합니다.<br />
-                                            Service는 Integration에서 발생하는 Incident를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다.<br />
-                                            <br />
-                                            1)	구성<br />
-                                            -	Integration Type / Escalation Rule / Alert Rule / Member<br />
-                                            구성 필수 요소 : Integration
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Escalation</th>
-                                        <td>Incident 발생 시 단계별로 이를 처리할 담당자 및 담당자가 처리해야 할 Action과
-    시간(Timeout)을 설정하여 Rule로 관리 합니다.</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Integration</th>
-                                        <td>3rd Party(외부) 모니터링 툴에서 발생하는 알람을 AlertNow에 연동하기 위해서는
-    기본적으로 Integration을 설정해야 합니다. Integration  설정 정보를 관리 합니다.</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Extension</th>
-                                        <td>Extension은 AlertNow 내에서 생성된 특정 데이터를 외부 Tool이나 서비스로 Outgoing
-    할 수 있도록 하는 기능 입니다. </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Personal Setting</th>
-                                        <td>개인 정보 및 Incident에 대한 Notification Rule에 대한 개인화 기능을 제공 합니다.</td>
-                                    </tr>
+                                <tr>
+                                    <th scope="row">Incident</th>
+                                    <td>
+                                        Alert 수집 시 Incident Definition Policy에 의해 발급된 티켓의 상태를 관리 합니다.<br />
+                                        <br />
+                                        1)	Incident Definition Policy<br />
+                                        -	Service Tagging Rule <br />
+                                        -	Alert Urgency Rule<br />
+                                        -	Alert Suppression Rule<br />
+                                        <br />
+                                        Incident Definition Policy는 고객이 설정이 가능 합니다.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Service</th>
+                                    <td>
+                                        고객이 설정한 Service 단위로 Incident를 상태를 관리 합니다.<br />
+                                        Service는 Integration에서 발생하는 Incident를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다.<br />
+                                        <br />
+                                        1)	구성<br />
+                                        -	Integration Type / Escalation Rule / Alert Rule / Member<br />
+                                        구성 필수 요소 : Integration
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Escalation</th>
+                                    <td>Incident 발생 시 단계별로 이를 처리할 담당자 및 담당자가 처리해야 할 Action과
+                                        시간(Timeout)을 설정하여 Rule로 관리 합니다.</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Integration</th>
+                                    <td>3rd Party(외부) 모니터링 툴에서 발생하는 알람을 AlertNow에 연동하기 위해서는
+                                        기본적으로 Integration을 설정해야 합니다. Integration  설정 정보를 관리 합니다.</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Extension</th>
+                                    <td>Extension은 AlertNow 내에서 생성된 특정 데이터를 외부 Tool이나 서비스로 Outgoing
+                                        할 수 있도록 하는 기능 입니다. </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Personal Setting</th>
+                                    <td>개인 정보 및 Incident에 대한 Notification Rule에 대한 개인화 기능을 제공 합니다.</td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -296,65 +296,65 @@
                                             <col style="width:200px;" />
                                         </colgroup>
                                         <thead>
-                                            <tr>
-                                                <th scope="col">항목</th>
-                                                <th scope="col">설명</th>
-                                                <th scope="col">비고</th>
-                                            </tr>
+                                        <tr>
+                                            <th scope="col">항목</th>
+                                            <th scope="col">설명</th>
+                                            <th scope="col">비고</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">Integration Name</th>
-                                                <td>고객이 Integration Name을 설정할 수 있습니다</td>
-                                                <td>필수 입력사항</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Integration Type</th>
-                                                <td>기 선택한 대상의 로고가 보입니다.<br />
-                                                    <img src="./image/bnr_guide_opsnow_integration_1_3_4_in_table.jpg" alt="" width="165" height="39" />
-                                                </td>
-                                                <td>입력 및 수정 불가 사항</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Service</th>
-                                                <td>Service는 여러 Integration을 Group화 하여 고객이 관리하고자 하는 고객 지향의 서비스로 지정하여 Incident를 관리 할 수 있습니다.<br />
-                                                    -	Create Default Service<br />
-                                                    -	기존 생성/사용 서비스에서 선택<br />
-                                                    -   Add Service Routing Rule</td>
-                                                <td>
-                                                    필수 선택 사항. <br />
-                                                    중복 선택 불가.<br />
-                                                    <br />
-                                                    Default :<br />
-                                                    Create Default Service
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Escalation Rule</th>
-                                                <td>
-                                                    -	No Escalation<br />
-                                                    -	Single Escalation<br />
-                                                    -   Escalation Routing
-                                                </td>
-                                                <td>
-                                                    필수 선택 사항. <br />
-                                                    중복 선택 불가.<br />
-                                                    <br />
-                                                    Default :<br />
-                                                    No Escalation
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Alert Rule</th>
-                                                <td>
-                                                    -	Add alert suppression rule<br />
-                                                    -   Manually add incident urgency rule
-                                                </td>
-                                                <td>
-                                                    옵션 선택사항<br />
-                                                    중복 선택 가능
-                                                </td>
-                                            </tr>
+                                        <tr>
+                                            <th scope="row">Integration Name</th>
+                                            <td>고객이 Integration Name을 설정할 수 있습니다</td>
+                                            <td>필수 입력사항</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Integration Type</th>
+                                            <td>기 선택한 대상의 로고가 보입니다.<br />
+                                                <img src="./image/bnr_guide_opsnow_integration_1_3_4_in_table.jpg" alt="" width="165" height="39" />
+                                            </td>
+                                            <td>입력 및 수정 불가 사항</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Service</th>
+                                            <td>Service는 여러 Integration을 Group화 하여 고객이 관리하고자 하는 고객 지향의 서비스로 지정하여 Incident를 관리 할 수 있습니다.<br />
+                                                -	Create Default Service<br />
+                                                -	기존 생성/사용 서비스에서 선택<br />
+                                                -   Add Service Routing Rule</td>
+                                            <td>
+                                                필수 선택 사항. <br />
+                                                중복 선택 불가.<br />
+                                                <br />
+                                                Default :<br />
+                                                Create Default Service
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Escalation Rule</th>
+                                            <td>
+                                                -	No Escalation<br />
+                                                -	Single Escalation<br />
+                                                -   Escalation Routing
+                                            </td>
+                                            <td>
+                                                필수 선택 사항. <br />
+                                                중복 선택 불가.<br />
+                                                <br />
+                                                Default :<br />
+                                                No Escalation
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Alert Rule</th>
+                                            <td>
+                                                -	Add alert suppression rule<br />
+                                                -   Manually add incident urgency rule
+                                            </td>
+                                            <td>
+                                                옵션 선택사항<br />
+                                                중복 선택 가능
+                                            </td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </li>
@@ -417,28 +417,28 @@
                                             <col style="width:150px;" />
                                         </colgroup>
                                         <thead>
-                                            <tr>
-                                                <th scope="col">항목</th>
-                                                <th scope="col">설명</th>
-                                                <th scope="col">비고</th>
-                                            </tr>
+                                        <tr>
+                                            <th scope="col">항목</th>
+                                            <th scope="col">설명</th>
+                                            <th scope="col">비고</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">Topic Name</th>
-                                                <td>
-                                                    메시지 전송 및 알림 구독을 위한 커뮤니케이션 채널이며 이후 생성 Topic에 대한 ARN 작성하는데 활용 됩니다.<br />
-                                                    <br />
-                                                    -	Topic Name ARN 예시 :<br />
-                                                    arn:aws:sns:us-west-2:111122223333:MyTopic
-                                                </td>
-                                                <td>입력 필수 항목</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Display Name</th>
-                                                <td>SMS 구독 시, 표현 되어지는 Topic에 대한 Display Name 입니다.</td>
-                                                <td>입력 옵션 항목</td>
-                                            </tr>
+                                        <tr>
+                                            <th scope="row">Topic Name</th>
+                                            <td>
+                                                메시지 전송 및 알림 구독을 위한 커뮤니케이션 채널이며 이후 생성 Topic에 대한 ARN 작성하는데 활용 됩니다.<br />
+                                                <br />
+                                                -	Topic Name ARN 예시 :<br />
+                                                arn:aws:sns:us-west-2:111122223333:MyTopic
+                                            </td>
+                                            <td>입력 필수 항목</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Display Name</th>
+                                            <td>SMS 구독 시, 표현 되어지는 Topic에 대한 Display Name 입니다.</td>
+                                            <td>입력 옵션 항목</td>
+                                        </tr>
                                         </tbody>
                                     </table>
 
@@ -461,34 +461,34 @@
                                         </colgroup>
 
                                         <thead>
-                                            <tr>
-                                                <th scope="col">항목</th>
-                                                <th scope="col">설명</th>
-                                                <th scope="col">비고</th>
-                                            </tr>
+                                        <tr>
+                                            <th scope="col">항목</th>
+                                            <th scope="col">설명</th>
+                                            <th scope="col">비고</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">Topic ARN</th>
-                                                <td>생성한 Topic Name을 기준으로 자동으로 반영 되어 있습니다.</td>
-                                                <td>수정 가능</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Protocol</th>
-                                                <td>
-                                                    HTTPS로 선택 합니다.<br />
-                                                    <br />
-                                                    선택 항목 : <br />
-                                                    HTTP / HTTPS / Email / Email-JSON / Amazon SQS / <br />
-                                                    Application / AWS Lambda
-                                                </td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Endpoint</th>
-                                                <td>기존 AlertNow에서 저장해둔 URL을 Paste 합니다.</td>
-                                                <td>입력 항목</td>
-                                            </tr>
+                                        <tr>
+                                            <th scope="row">Topic ARN</th>
+                                            <td>생성한 Topic Name을 기준으로 자동으로 반영 되어 있습니다.</td>
+                                            <td>수정 가능</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Protocol</th>
+                                            <td>
+                                                HTTPS로 선택 합니다.<br />
+                                                <br />
+                                                선택 항목 : <br />
+                                                HTTP / HTTPS / Email / Email-JSON / Amazon SQS / <br />
+                                                Application / AWS Lambda
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Endpoint</th>
+                                            <td>기존 AlertNow에서 저장해둔 URL을 Paste 합니다.</td>
+                                            <td>입력 항목</td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                     <p>“Create Subscription”을 선택 합니다.</p>
@@ -539,23 +539,23 @@
                                         </colgroup>
 
                                         <thead>
-                                            <tr>
-                                                <th scope="col">항목</th>
-                                                <th scope="col">설명</th>
-                                                <th scope="col">비고</th>
-                                            </tr>
+                                        <tr>
+                                            <th scope="col">항목</th>
+                                            <th scope="col">설명</th>
+                                            <th scope="col">비고</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">Send a notification to </th>
-                                                <td>생성한 Topic을 찾아서 선택 합니다.</td>
-                                                <td>선택 항목</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Whenever</th>
-                                                <td>해당 임계 치를 설정 합니다.</td>
-                                                <td>입력 항목</td>
-                                            </tr>
+                                        <tr>
+                                            <th scope="row">Send a notification to </th>
+                                            <td>생성한 Topic을 찾아서 선택 합니다.</td>
+                                            <td>선택 항목</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Whenever</th>
+                                            <td>해당 임계 치를 설정 합니다.</td>
+                                            <td>입력 항목</td>
+                                        </tr>
                                         </tbody>
                                     </table>
 
@@ -599,7 +599,7 @@
 
                 <section class="chapter">
                     <h3 id="guide_opsnow_extension_1_1" class="chapter-sub-title">1. AlertNow접속</h3>
-                    <p class="chapter-title-description">BSP 가입 후, AlertNow 서비스 신청 고객의 경우, 서비스 영역에 아래와 같이 AlertNow Beta 서비스가 노출이 됩니다. <br />
+                    <p class="chapter-title-description">OpsNow 가입 후, AlertNow 서비스 신청 고객의 경우, 서비스 영역에 아래와 같이 AlertNow Beta 서비스가 노출이 됩니다. <br />
                         “AlertNow” 선택하여 서비스로 접속 합니다.</p>
                     <div class="chapter-contents">
                         <figure>
@@ -621,55 +621,55 @@
                                 <col>
                             </colgroup>
                             <thead>
-                                <tr>
-                                    <th scope="col">항목</th>
-                                    <th scope="col">설명</th>
-                                </tr>
+                            <tr>
+                                <th scope="col">항목</th>
+                                <th scope="col">설명</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">Incident</th>
-                                    <td>
-                                        Alert 수집 시 Incident Definition Policy에 의해 발급된 티켓의 상태를 관리 합니다.<br>
-                                        <br>
-                                        1)	Incident Definition Policy<br>
-                                        -	Service Tagging Rule <br>
-                                        -	Alert Urgency Rule<br>
-                                        -	Alert Suppression Rule<br>
-                                        <br>
-                                        Incident Definition Policy는 고객이 설정이 가능 합니다.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Service</th>
-                                    <td>
-                                        고객이 설정한 Service 단위로 Incident를 상태를 관리 합니다.<br>
-                                        Service는 Integration에서 발생하는 Incident를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다.<br>
-                                        <br>
-                                        1)	구성<br>
-                                        -	Integration Type / Escalation Rule / Alert Rule / Member<br>
-                                        구성 필수 요소 : Integration
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Escalation</th>
-                                    <td>Incident 발생 시 단계별로 이를 처리할 담당자 및 담당자가 처리해야 할 Action과
-                                        시간(Timeout)을 설정하여 Rule로 관리 합니다.</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Integration</th>
-                                    <td>3rd Party(외부) 모니터링 툴에서 발생하는 알람을 AlertNow에 연동하기 위해서는
-                                        기본적으로 Integration을 설정해야 합니다. Integration  설정 정보를 관리 합니다.</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Extension</th>
-                                    <td>Extension은 AlertNow 내에서 생성된 특정 데이터를 외부 Tool이나 서비스로 Outgoing
-                                        할 수 있도록 하는 기능 입니다. </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Personal Setting</th>
-                                    <td>개인 정보 및 Incident에 대한 Notification Rule에 대한 개인화 기능을 제공 합니다.</td>
-                                </tr>
+                            <tr>
+                                <th scope="row">Incident</th>
+                                <td>
+                                    Alert 수집 시 Incident Definition Policy에 의해 발급된 티켓의 상태를 관리 합니다.<br>
+                                    <br>
+                                    1)	Incident Definition Policy<br>
+                                    -	Service Tagging Rule <br>
+                                    -	Alert Urgency Rule<br>
+                                    -	Alert Suppression Rule<br>
+                                    <br>
+                                    Incident Definition Policy는 고객이 설정이 가능 합니다.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Service</th>
+                                <td>
+                                    고객이 설정한 Service 단위로 Incident를 상태를 관리 합니다.<br>
+                                    Service는 Integration에서 발생하는 Incident를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다.<br>
+                                    <br>
+                                    1)	구성<br>
+                                    -	Integration Type / Escalation Rule / Alert Rule / Member<br>
+                                    구성 필수 요소 : Integration
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Escalation</th>
+                                <td>Incident 발생 시 단계별로 이를 처리할 담당자 및 담당자가 처리해야 할 Action과
+                                    시간(Timeout)을 설정하여 Rule로 관리 합니다.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Integration</th>
+                                <td>3rd Party(외부) 모니터링 툴에서 발생하는 알람을 AlertNow에 연동하기 위해서는
+                                    기본적으로 Integration을 설정해야 합니다. Integration  설정 정보를 관리 합니다.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Extension</th>
+                                <td>Extension은 AlertNow 내에서 생성된 특정 데이터를 외부 Tool이나 서비스로 Outgoing
+                                    할 수 있도록 하는 기능 입니다. </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Personal Setting</th>
+                                <td>개인 정보 및 Incident에 대한 Notification Rule에 대한 개인화 기능을 제공 합니다.</td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -767,7 +767,7 @@
 
                 <section class="chapter">
                     <h3 id="guide_opsnow_escalation_1_1" class="chapter-title">1. 접속</h3>
-                    <p class="chapter-title-description">BSP 가입 후, AlertNow 서비스 신청 고객의 경우, 서비스 영역에 아래와 같이 AlertNow Beta 서비스가 노출이 됩니다.</p>
+                    <p class="chapter-title-description">OpsNow 가입 후, AlertNow 서비스 신청 고객의 경우, 서비스 영역에 아래와 같이 AlertNow Beta 서비스가 노출이 됩니다.</p>
                     <p class="chapter-title-description">“AlertNow” 선택하여 서비스로 접속 합니다.</p>
                     <figure>
                         <div class="screenshot"><img src="./image/bnr_guide_opsnow_common_1.jpg" alt="" width="816" height="260"></div>
@@ -785,55 +785,55 @@
                             <col>
                         </colgroup>
                         <thead>
-                            <tr>
-                                <th scope="col">항목</th>
-                                <th scope="col">설명</th>
-                            </tr>
+                        <tr>
+                            <th scope="col">항목</th>
+                            <th scope="col">설명</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">Incident</th>
-                                <td>
-                                    Alert 수집 시 Incident Definition Policy에 의해 발급된 티켓의 상태를 관리 합니다.<br>
-                                    <br>
-                                    1)	Incident Definition Policy<br>
-                                    -	Service Tagging Rule <br>
-                                    -	Alert Urgency Rule<br>
-                                    -	Alert Suppression Rule<br>
-                                    <br>
-                                    Incident Definition Policy는 고객이 설정이 가능 합니다.
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">ervice</th>
-                                <td>
-                                    고객이 설정한 Service 단위로 Incident를 상태를 관리 합니다.<br>
-                                    Service는 Integration에서 발생하는 Incident를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다.<br>
-                                    <br>
-                                    1)	구성<br>
-                                    -	Integration Type / Escalation Rule / Alert Rule / Member<br>
-                                    구성 필수 요소 : Integration
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Escalation</th>
-                                <td>Incident 발생 시 단계별로 이를 처리할 담당자 및 담당자가 처리해야 할 Action과
-                                    시간(Timeout)을 설정하여 Rule로 관리 합니다.</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Integration</th>
-                                <td>3rd Party(외부) 모니터링 툴에서 발생하는 알람을 AlertNow에 연동하기 위해서는
-                                    기본적으로 Integration을 설정해야 합니다. Integration  설정 정보를 관리 합니다.</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Extension</th>
-                                <td>Extension은 AlertNow 내에서 생성된 특정 데이터를 외부 Tool이나 서비스로 Outgoing
-                                    할 수 있도록 하는 기능 입니다. </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Personal Setting</th>
-                                <td>개인 정보 및 Incident에 대한 Notification Rule에 대한 개인화 기능을 제공 합니다.</td>
-                            </tr>
+                        <tr>
+                            <th scope="row">Incident</th>
+                            <td>
+                                Alert 수집 시 Incident Definition Policy에 의해 발급된 티켓의 상태를 관리 합니다.<br>
+                                <br>
+                                1)	Incident Definition Policy<br>
+                                -	Service Tagging Rule <br>
+                                -	Alert Urgency Rule<br>
+                                -	Alert Suppression Rule<br>
+                                <br>
+                                Incident Definition Policy는 고객이 설정이 가능 합니다.
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ervice</th>
+                            <td>
+                                고객이 설정한 Service 단위로 Incident를 상태를 관리 합니다.<br>
+                                Service는 Integration에서 발생하는 Incident를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다.<br>
+                                <br>
+                                1)	구성<br>
+                                -	Integration Type / Escalation Rule / Alert Rule / Member<br>
+                                구성 필수 요소 : Integration
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Escalation</th>
+                            <td>Incident 발생 시 단계별로 이를 처리할 담당자 및 담당자가 처리해야 할 Action과
+                                시간(Timeout)을 설정하여 Rule로 관리 합니다.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Integration</th>
+                            <td>3rd Party(외부) 모니터링 툴에서 발생하는 알람을 AlertNow에 연동하기 위해서는
+                                기본적으로 Integration을 설정해야 합니다. Integration  설정 정보를 관리 합니다.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Extension</th>
+                            <td>Extension은 AlertNow 내에서 생성된 특정 데이터를 외부 Tool이나 서비스로 Outgoing
+                                할 수 있도록 하는 기능 입니다. </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Personal Setting</th>
+                            <td>개인 정보 및 Incident에 대한 Notification Rule에 대한 개인화 기능을 제공 합니다.</td>
+                        </tr>
                         </tbody>
                     </table>
                 </section>
@@ -853,51 +853,51 @@
                             <col>
                         </colgroup>
                         <thead>
-                            <tr>
-                                <th scope="col">Case</th>
-                                <th scope="col">설명</th>
-                            </tr>
+                        <tr>
+                            <th scope="col">Case</th>
+                            <th scope="col">설명</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <strong>Use Case 1)</strong><br />
-                                    “Escalation” 메뉴에서 생성
-                                </th>
-                                <td>
-                                    Escalation 메뉴에서 오른쪽 상위에 있는 “Create New Escalation” 버튼을 Click 합니다.<br />
-                                    <span class="black middle button">Create new escalation</span><br />
-                                    <br />
-                                    Escalation Policy를 생성 합니다.
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <strong>Use Case 2)</strong><br />
-                                    “Integration” 메뉴 상에 Integration Creation시에 생성
+                        <tr>
+                            <th scope="row">
+                                <strong>Use Case 1)</strong><br />
+                                “Escalation” 메뉴에서 생성
+                            </th>
+                            <td>
+                                Escalation 메뉴에서 오른쪽 상위에 있는 “Create New Escalation” 버튼을 Click 합니다.<br />
+                                <span class="black middle button">Create new escalation</span><br />
+                                <br />
+                                Escalation Policy를 생성 합니다.
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <strong>Use Case 2)</strong><br />
+                                “Integration” 메뉴 상에 Integration Creation시에 생성
 
-                                </th>
-                                <td>
-                                    Integration 메뉴에서 오른쪽 상위에 있는 “Create new integration” 버튼을 Click 합니다. <br />
-                                    <span class="black middle button">Create new escalation</span><br />
-                                    <br />
-                                    Escalation Rule을 선택 합니다.<br />
-                                    -	No escalation<br />
-                                    -	Single escalation<br />
-                                    -	Escalation routing
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <strong>Use Case 3)</strong> <br />
-                                    “Integration” 메뉴 상에
-                                    기 생성 Integration에서
-                                    기 생성 Escalation Rule을 매핑 하는 방안
-                                </th>
-                                <td>
-                                    Integration 메뉴에서 왼쪽 기 생성된 Integration 중 Escalation Rule을 매핑 하고자 하는 Integration을 Click 합니다.
-                                </td>
-                            </tr>
+                            </th>
+                            <td>
+                                Integration 메뉴에서 오른쪽 상위에 있는 “Create new integration” 버튼을 Click 합니다. <br />
+                                <span class="black middle button">Create new escalation</span><br />
+                                <br />
+                                Escalation Rule을 선택 합니다.<br />
+                                -	No escalation<br />
+                                -	Single escalation<br />
+                                -	Escalation routing
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <strong>Use Case 3)</strong> <br />
+                                “Integration” 메뉴 상에
+                                기 생성 Integration에서
+                                기 생성 Escalation Rule을 매핑 하는 방안
+                            </th>
+                            <td>
+                                Integration 메뉴에서 왼쪽 기 생성된 Integration 중 Escalation Rule을 매핑 하고자 하는 Integration을 Click 합니다.
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
 
@@ -936,70 +936,70 @@
                                         <col style="widith:200px" />
                                     </colgroup>
                                     <thead>
-                                        <tr>
-                                            <th scope="col">항목</th>
-                                            <th scope="col">설명</th>
-                                            <th scope="col">비고</th>
-                                        </tr>
+                                    <tr>
+                                        <th scope="col">항목</th>
+                                        <th scope="col">설명</th>
+                                        <th scope="col">비고</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">Name</th>
-                                            <td>고객이 Escalation Policy Name을 설정할 수 있습니다.</td>
-                                            <td>필수 입력 사항</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Description</th>
-                                            <td>해당 Escalation에 대한 설명을 추가 합니다.</td>
-                                            <td>옵션 사항</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Rule 설정</th>
-                                            <td>
-                                                If the incident is not “acknowledged / closed” it will escalate to next step. <br />
-                                                -	Acknowledged 상태가 아닌 경우,<br />
-                                                -	Closed 상태가 아닌 경우,Escalation Policy를 적용 하도록 설정 합니다.<br />
-                                                <br />
-                                                Rule 설정 Option<br />
-                                                -	No Escalation <br />
-                                                -	Single Escalation<br />
-                                                -	Escalation Routing<br />
-                                            </td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Responder <br />(수신자 설정)</th>
-                                            <td>같은 회사 소속 User들 중에 선택 할 수 있습니다. 수신자를 여러 명 선택 할 수 있습니다.</td>
-                                            <td>Policy 선택 시, 필수 설정 사항</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Time</th>
-                                            <td>Noti 를 전달할 Time 주기를 분 단위로 설정 할 수 있습니다.</td>
-                                            <td>Policy 선택 시, 필수 설정 사항</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Action</th>
-                                            <td>
-                                                Responder에게 Time 주기로 설정하여 Notification을 한 이후, Action을 “escalation to next step” / “repeat this step” 중 선택 할 수 있습니다.<br />
-                                                -	escalation to next step : 다음 Escalation 단계로 수행 합니다.<br />
-                                                -	repeat this step : 현재 단계를 반복 합니다. 반복 주기를 시간 단위로 설정할 수 있습니다
-                                            </td>
-                                            <td>Policy 선택 시, 필수 설정 사항</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">추가 Option 설정</th>
-                                            <td>Escalation이 Action 및 추가 Escalation 단계까지 Escalate 됐는데도 아무런 조치가 취해지지 않는 경우, 다음의 옵션을 설정할 수 있습니다.<br />
-                                                -	Escalation 1단계부터 다시 시작 합니다. 혹은 무한 반복 할 수 있습니다.<br />
-                                                -	해당 Escalation에 등록되어 있는 모든 스텝, 모든 담당자들에게 Notification 하도록 설정할 수 있습니다.<br />
-                                                -	이 때 해당 Notifications를 (1) 몇 시간 동안 (2) 몇 분 간격으로 반복 실행 할 수 있는지 설정 할 수 있습니다.
-                                            </td>
-                                            <td>옵션 설정 항목</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"></th>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
+                                    <tr>
+                                        <th scope="row">Name</th>
+                                        <td>고객이 Escalation Policy Name을 설정할 수 있습니다.</td>
+                                        <td>필수 입력 사항</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Description</th>
+                                        <td>해당 Escalation에 대한 설명을 추가 합니다.</td>
+                                        <td>옵션 사항</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Rule 설정</th>
+                                        <td>
+                                            If the incident is not “acknowledged / closed” it will escalate to next step. <br />
+                                            -	Acknowledged 상태가 아닌 경우,<br />
+                                            -	Closed 상태가 아닌 경우,Escalation Policy를 적용 하도록 설정 합니다.<br />
+                                            <br />
+                                            Rule 설정 Option<br />
+                                            -	No Escalation <br />
+                                            -	Single Escalation<br />
+                                            -	Escalation Routing<br />
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Responder <br />(수신자 설정)</th>
+                                        <td>같은 회사 소속 User들 중에 선택 할 수 있습니다. 수신자를 여러 명 선택 할 수 있습니다.</td>
+                                        <td>Policy 선택 시, 필수 설정 사항</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Time</th>
+                                        <td>Noti 를 전달할 Time 주기를 분 단위로 설정 할 수 있습니다.</td>
+                                        <td>Policy 선택 시, 필수 설정 사항</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Action</th>
+                                        <td>
+                                            Responder에게 Time 주기로 설정하여 Notification을 한 이후, Action을 “escalation to next step” / “repeat this step” 중 선택 할 수 있습니다.<br />
+                                            -	escalation to next step : 다음 Escalation 단계로 수행 합니다.<br />
+                                            -	repeat this step : 현재 단계를 반복 합니다. 반복 주기를 시간 단위로 설정할 수 있습니다
+                                        </td>
+                                        <td>Policy 선택 시, 필수 설정 사항</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">추가 Option 설정</th>
+                                        <td>Escalation이 Action 및 추가 Escalation 단계까지 Escalate 됐는데도 아무런 조치가 취해지지 않는 경우, 다음의 옵션을 설정할 수 있습니다.<br />
+                                            -	Escalation 1단계부터 다시 시작 합니다. 혹은 무한 반복 할 수 있습니다.<br />
+                                            -	해당 Escalation에 등록되어 있는 모든 스텝, 모든 담당자들에게 Notification 하도록 설정할 수 있습니다.<br />
+                                            -	이 때 해당 Notifications를 (1) 몇 시간 동안 (2) 몇 분 간격으로 반복 실행 할 수 있는지 설정 할 수 있습니다.
+                                        </td>
+                                        <td>옵션 설정 항목</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"></th>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
                                     </tbody>
 
                                 </table>
@@ -1022,19 +1022,19 @@
                                         <col>
                                     </colgroup>
                                     <thead>
-                                        <tr>
-                                            <th scope="col">항목</th>
-                                            <th scope="col">설명</th>
-                                            <th scope="col">비고</th>
-                                        </tr>
+                                    <tr>
+                                        <th scope="col">항목</th>
+                                        <th scope="col">설명</th>
+                                        <th scope="col">비고</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">옵션 항목</th>
-                                            <td>이전 Escalation Rule 설정 시, 포함한 수신자를 포함하여 신규 수신자 추가하여 Rule을 생성할 수 있습니다.<br />
-                                                비 활성화 하게 되면, 신규 수신자 추가하여 Rule을 생성 할 수 있습니다.</td>
-                                            <td>옵션 설정 사항</td>
-                                        </tr>
+                                    <tr>
+                                        <th scope="row">옵션 항목</th>
+                                        <td>이전 Escalation Rule 설정 시, 포함한 수신자를 포함하여 신규 수신자 추가하여 Rule을 생성할 수 있습니다.<br />
+                                            비 활성화 하게 되면, 신규 수신자 추가하여 Rule을 생성 할 수 있습니다.</td>
+                                        <td>옵션 설정 사항</td>
+                                    </tr>
                                     </tbody>
                                 </table>
 
@@ -1089,62 +1089,62 @@
                                         <col style="width:200px;`">
                                     </colgroup>
                                     <thead>
-                                        <tr>
-                                            <th scope="col">항목</th>
-                                            <th scope="col">설명</th>
-                                            <th scope="col">비고</th>
-                                        </tr>
+                                    <tr>
+                                        <th scope="col">항목</th>
+                                        <th scope="col">설명</th>
+                                        <th scope="col">비고</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">Integration Name</th>
-                                            <td>고객이 Integration Name을 설정할 수 있습니다.</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Integration Type</th>
-                                            <td>기 선택한 대상의 로고가 보입니다.<br />
-                                                <img src="./image/bnr_guide_opsnow_escalation_1_5_4_in_table.jpg" alt="" width="165" height="39" />
-                                            </td>
-                                            <td>입력 및 수정 불가 사항</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Service</th>
-                                            <td>
-                                                -	Create Default Service<br />
-                                                -	기존 생성/사용 서비스에서 선택<br />
-                                                -	Add Service Routing Rule
-                                            </td>
-                                            <td>
-                                                필수 선택 사항. <br />
-                                                중복 선택 불가.<br />
-                                                Default : Create Default Service
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Escalation Rule</th>
-                                            <td>
-                                                -	No Escalation<br />
-                                                -	Single Escalation<br />
-                                                -	Escalation Routing
-                                            </td>
-                                            <td>
-                                                필수 선택 사항.<br />
-                                                중복 선택 불가.<br />
-                                                Default : No Escalation
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Alert Rule</th>
-                                            <td>
-                                                -	Add alert suppression rule<br />
-                                                -	Manually add incident urgency rule
-                                            </td>
-                                            <td>
-                                                옵션 선택 사항.<br />
-                                                중복 선택 가능.
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <th scope="row">Integration Name</th>
+                                        <td>고객이 Integration Name을 설정할 수 있습니다.</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Integration Type</th>
+                                        <td>기 선택한 대상의 로고가 보입니다.<br />
+                                            <img src="./image/bnr_guide_opsnow_escalation_1_5_4_in_table.jpg" alt="" width="165" height="39" />
+                                        </td>
+                                        <td>입력 및 수정 불가 사항</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Service</th>
+                                        <td>
+                                            -	Create Default Service<br />
+                                            -	기존 생성/사용 서비스에서 선택<br />
+                                            -	Add Service Routing Rule
+                                        </td>
+                                        <td>
+                                            필수 선택 사항. <br />
+                                            중복 선택 불가.<br />
+                                            Default : Create Default Service
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Escalation Rule</th>
+                                        <td>
+                                            -	No Escalation<br />
+                                            -	Single Escalation<br />
+                                            -	Escalation Routing
+                                        </td>
+                                        <td>
+                                            필수 선택 사항.<br />
+                                            중복 선택 불가.<br />
+                                            Default : No Escalation
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Alert Rule</th>
+                                        <td>
+                                            -	Add alert suppression rule<br />
+                                            -	Manually add incident urgency rule
+                                        </td>
+                                        <td>
+                                            옵션 선택 사항.<br />
+                                            중복 선택 가능.
+                                        </td>
+                                    </tr>
                                     </tbody>
 
                                 </table>
@@ -1173,56 +1173,56 @@
                                         <col style="width:200px;">
                                     </colgroup>
                                     <thead>
-                                        <tr>
-                                            <th scope="col">항목</th>
-                                            <th scope="col">설명</th>
-                                            <th scope="col">비고</th>
-                                        </tr>
+                                    <tr>
+                                        <th scope="col">항목</th>
+                                        <th scope="col">설명</th>
+                                        <th scope="col">비고</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">ALERT_SUMMARY</th>
-                                            <td>Alert 및 Incident의 Title의 내용</td>
-                                            <td>옵션 사항</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">ALERT_METRIC_NAME</th>
-                                            <td>AWS Cloud-Watch에서 설정한 Metric Name</td>
-                                            <td>옵션 사항</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">ALERT_RESOURCE_ID</th>
-                                            <td>AWS Cloud-Watch에서 모니터링 설정한 Resource ID</td>
-                                            <td>옵션 사항</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Sign</th>
-                                            <td>
-                                                <img src="./image/bnr_guide_opsnow_escalation_1_5_6_in_table.jpg" alt="" width="140" height="178" />
-                                            </td>
-                                            <td>필수 사항(선택)</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">To</th>
-                                            <td>매치 값을 입력 합니다.</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">route using escalation to</th>
-                                            <td>기존 생성한 Escalation Rule중에 선택 합니다.</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">ELSE</th>
-                                            <td>
-                                                -	Route the Applied : 기존 생성 Escalation Rule 중에 선택 합니다.<br />
-                                                -	Route the higher-level escalation routing rule : Service 단위의 Escalation Rule로 이동 합니다.<br />
-                                                Service 단위의 Escalation Rule이 없을 경우, Escalation Policy는 없게 됩니다.
-                                                <br />
-                                                -	Not route the any escalation policy
-                                            </td>
-                                            <td></td>
-                                        </tr>
+                                    <tr>
+                                        <th scope="row">ALERT_SUMMARY</th>
+                                        <td>Alert 및 Incident의 Title의 내용</td>
+                                        <td>옵션 사항</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">ALERT_METRIC_NAME</th>
+                                        <td>AWS Cloud-Watch에서 설정한 Metric Name</td>
+                                        <td>옵션 사항</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">ALERT_RESOURCE_ID</th>
+                                        <td>AWS Cloud-Watch에서 모니터링 설정한 Resource ID</td>
+                                        <td>옵션 사항</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Sign</th>
+                                        <td>
+                                            <img src="./image/bnr_guide_opsnow_escalation_1_5_6_in_table.jpg" alt="" width="140" height="178" />
+                                        </td>
+                                        <td>필수 사항(선택)</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">To</th>
+                                        <td>매치 값을 입력 합니다.</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">route using escalation to</th>
+                                        <td>기존 생성한 Escalation Rule중에 선택 합니다.</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">ELSE</th>
+                                        <td>
+                                            -	Route the Applied : 기존 생성 Escalation Rule 중에 선택 합니다.<br />
+                                            -	Route the higher-level escalation routing rule : Service 단위의 Escalation Rule로 이동 합니다.<br />
+                                            Service 단위의 Escalation Rule이 없을 경우, Escalation Policy는 없게 됩니다.
+                                            <br />
+                                            -	Not route the any escalation policy
+                                        </td>
+                                        <td></td>
+                                    </tr>
                                     </tbody>
 
                                 </table>
@@ -1268,33 +1268,33 @@
                                         <col style="width:200px;">
                                     </colgroup>
                                     <thead>
-                                        <tr>
-                                            <th scope="col">항목</th>
-                                            <th scope="col">설명</th>
-                                            <th scope="col">비고</th>
-                                        </tr>
+                                    <tr>
+                                        <th scope="col">항목</th>
+                                        <th scope="col">설명</th>
+                                        <th scope="col">비고</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">Select Type</th>
-                                            <td>
-                                                -	No Escalation<br />
-                                                -	Single Escalation<br />
-                                                -	Escalation Routing
-                                            </td>
-                                            <td>
-                                                필수 선택 사항.<br />
-                                                중복 선택 불가.<br />
-                                                Default : No Escalation
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Detail</th>
-                                            <td>
-                                                위 Select Type에서 설정한 사항에 따라 상세 설정 내용이 보여 집니다.
-                                            </td>
-                                            <td></td>
-                                        </tr>
+                                    <tr>
+                                        <th scope="row">Select Type</th>
+                                        <td>
+                                            -	No Escalation<br />
+                                            -	Single Escalation<br />
+                                            -	Escalation Routing
+                                        </td>
+                                        <td>
+                                            필수 선택 사항.<br />
+                                            중복 선택 불가.<br />
+                                            Default : No Escalation
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Detail</th>
+                                        <td>
+                                            위 Select Type에서 설정한 사항에 따라 상세 설정 내용이 보여 집니다.
+                                        </td>
+                                        <td></td>
+                                    </tr>
                                     </tbody>
 
                                 </table>
@@ -1322,56 +1322,56 @@
                                         <col style="width:200px;">
                                     </colgroup>
                                     <thead>
-                                        <tr>
-                                            <th scope="col">항목</th>
-                                            <th scope="col">설명</th>
-                                            <th scope="col">비고</th>
-                                        </tr>
+                                    <tr>
+                                        <th scope="col">항목</th>
+                                        <th scope="col">설명</th>
+                                        <th scope="col">비고</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">ALERT_SUMMARY</th>
-                                            <td>Alert 및 Incident의 Title의 내용</td>
-                                            <td>옵션 사항</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">ALERT_METRIC_NAME</th>
-                                            <td>AWS Cloud-Watch에서 설정한 Metric Name</td>
-                                            <td>옵션 사항</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">ALERT_RESOURCE_ID</th>
-                                            <td>AWS Cloud-Watch에서 모니터링 설정한 Resource ID</td>
-                                            <td>옵션 사항</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Sign</th>
-                                            <td>
-                                                <img src="./image/bnr_guide_opsnow_escalation_1_5_6_in_table.jpg" alt="" width="140" height="178" />
-                                            </td>
-                                            <td>필수 사항(선택)</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">To</th>
-                                            <td>매치 값을 입력 합니다.</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">route using escalation to</th>
-                                            <td>기존 생성한 Escalation Rule중에 선택 합니다.</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">ELSE</th>
-                                            <td>
-                                                -	Route the Applied : 기존 생성 Escalation Rule 중에 선택 합니다.<br />
-                                                -	Route the higher-level escalation routing rule : Service 단위의 Escalation Rule로 이동 합니다.<br />
-                                                Service 단위의 Escalation Rule이 없을 경우, Escalation Policy는 없게 됩니다.
-                                                <br />
-                                                -	Not route the any escalation policy
-                                            </td>
-                                            <td></td>
-                                        </tr>
+                                    <tr>
+                                        <th scope="row">ALERT_SUMMARY</th>
+                                        <td>Alert 및 Incident의 Title의 내용</td>
+                                        <td>옵션 사항</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">ALERT_METRIC_NAME</th>
+                                        <td>AWS Cloud-Watch에서 설정한 Metric Name</td>
+                                        <td>옵션 사항</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">ALERT_RESOURCE_ID</th>
+                                        <td>AWS Cloud-Watch에서 모니터링 설정한 Resource ID</td>
+                                        <td>옵션 사항</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Sign</th>
+                                        <td>
+                                            <img src="./image/bnr_guide_opsnow_escalation_1_5_6_in_table.jpg" alt="" width="140" height="178" />
+                                        </td>
+                                        <td>필수 사항(선택)</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">To</th>
+                                        <td>매치 값을 입력 합니다.</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">route using escalation to</th>
+                                        <td>기존 생성한 Escalation Rule중에 선택 합니다.</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">ELSE</th>
+                                        <td>
+                                            -	Route the Applied : 기존 생성 Escalation Rule 중에 선택 합니다.<br />
+                                            -	Route the higher-level escalation routing rule : Service 단위의 Escalation Rule로 이동 합니다.<br />
+                                            Service 단위의 Escalation Rule이 없을 경우, Escalation Policy는 없게 됩니다.
+                                            <br />
+                                            -	Not route the any escalation policy
+                                        </td>
+                                        <td></td>
+                                    </tr>
                                     </tbody>
                                 </table>
 
@@ -1468,50 +1468,50 @@
                                         <col>
                                     </colgroup>
                                     <thead>
-                                        <tr>
-                                            <th scope="col">항목</th>
-                                            <th scope="col">설명</th>
-                                        </tr>
+                                    <tr>
+                                        <th scope="col">항목</th>
+                                        <th scope="col">설명</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">No</th>
-                                            <td>Incident 의 Serial Number 를 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Title</th>
-                                            <td>Incident 의 제목을 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Status</th>
-                                            <td>
-                                                Incident 의 상태를 표시한다.<br />
-                                                Incident 는 아래의 상태 값을 가진다.<br />
-                                                -	Opened<br />
-                                                -	Acknowledged<br />
-                                                -	Closed
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Created Date</th>
-                                            <td>Incident 의 생성 날짜 및 시간을 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Updated Date</th>
-                                            <td>Incident 의 최종 업데이트 날짜 및 시간을 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Urgency</th>
-                                            <td>Incident 의 시급도를 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Service</th>
-                                            <td>Incident 가 발생한 서비스 이름을 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Assignee</th>
-                                            <td>Incident 의 담당자로 지정된 사용자 이름을 표시한다.</td>
-                                        </tr>
+                                    <tr>
+                                        <th scope="row">No</th>
+                                        <td>Incident 의 Serial Number 를 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Title</th>
+                                        <td>Incident 의 제목을 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Status</th>
+                                        <td>
+                                            Incident 의 상태를 표시한다.<br />
+                                            Incident 는 아래의 상태 값을 가진다.<br />
+                                            -	Opened<br />
+                                            -	Acknowledged<br />
+                                            -	Closed
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Created Date</th>
+                                        <td>Incident 의 생성 날짜 및 시간을 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Updated Date</th>
+                                        <td>Incident 의 최종 업데이트 날짜 및 시간을 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Urgency</th>
+                                        <td>Incident 의 시급도를 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Service</th>
+                                        <td>Incident 가 발생한 서비스 이름을 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Assignee</th>
+                                        <td>Incident 의 담당자로 지정된 사용자 이름을 표시한다.</td>
+                                    </tr>
                                     </tbody>
                                 </table>
 
@@ -1527,80 +1527,80 @@
                                         <col>
                                     </colgroup>
                                     <thead>
-                                        <tr>
-                                            <th scope="col" colspan="2">항목</th>
-                                            <th scope="col">설명</th>
-                                        </tr>
+                                    <tr>
+                                        <th scope="col" colspan="2">항목</th>
+                                        <th scope="col">설명</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row" rowspan="11">Detail</th>
-                                            <th scope="row">Status</th>
-                                            <td>
-                                                Incident 의 상태를 표시한다.<br />
-                                                Incident 는 아래의 상태 값을 가진다.<br />
-                                                -	Opened<br />
-                                                -	Acknowledged<br />
-                                                -	Closed
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Created Date</th>
-                                            <td>Incident의 생성 날짜 및 시간을 표시한다.
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Urgency</th>
-                                            <td>Incident의 시급도를 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Escalation</th>
-                                            <td>Incident에 설정된 Escalation Rule 을 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Service</th>
-                                            <td>Incident가 발생한 서비스 이름을 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Integration</th>
-                                            <td>Incident를 발생시킨 Integration 명을 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Integration Service</th>
-                                            <td>Incident를 발생시킨 Integration의 Type을 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Assignee</th>
-                                            <td>Incident의 담당자를 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Related Alert</th>
-                                            <td>Incident에 연결된 Alert 목록을 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Message</th>
-                                            <td>Alert 발생 시 첨부된 메시지를 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Description</th>
-                                            <td>Incident의 설명을 표시한다. 설명을 직접 입력할 수 있다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" rowspan="4">Activity History</th>
-                                            <th scope="row">All</th>
-                                            <td>Incident 의 모든 변경 이력을 Timeline 형식으로 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Comment</th>
-                                            <td>Incident 의 Comment 를 Timeline 형식으로 표시하며, 새로운 Comment 를 입력할 수 있다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Assignee</th>
-                                            <td>Incident 의 Assignee 변경 이력을 Timeline 형식으로 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Activity</th>
-                                            <td>Incident 의 상태 변경을 Timeline 형식으로 표시한다.</td>
-                                        </tr>
+                                    <tr>
+                                        <th scope="row" rowspan="11">Detail</th>
+                                        <th scope="row">Status</th>
+                                        <td>
+                                            Incident 의 상태를 표시한다.<br />
+                                            Incident 는 아래의 상태 값을 가진다.<br />
+                                            -	Opened<br />
+                                            -	Acknowledged<br />
+                                            -	Closed
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Created Date</th>
+                                        <td>Incident의 생성 날짜 및 시간을 표시한다.
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Urgency</th>
+                                        <td>Incident의 시급도를 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Escalation</th>
+                                        <td>Incident에 설정된 Escalation Rule 을 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Service</th>
+                                        <td>Incident가 발생한 서비스 이름을 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Integration</th>
+                                        <td>Incident를 발생시킨 Integration 명을 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Integration Service</th>
+                                        <td>Incident를 발생시킨 Integration의 Type을 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Assignee</th>
+                                        <td>Incident의 담당자를 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Related Alert</th>
+                                        <td>Incident에 연결된 Alert 목록을 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Message</th>
+                                        <td>Alert 발생 시 첨부된 메시지를 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Description</th>
+                                        <td>Incident의 설명을 표시한다. 설명을 직접 입력할 수 있다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" rowspan="4">Activity History</th>
+                                        <th scope="row">All</th>
+                                        <td>Incident 의 모든 변경 이력을 Timeline 형식으로 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Comment</th>
+                                        <td>Incident 의 Comment 를 Timeline 형식으로 표시하며, 새로운 Comment 를 입력할 수 있다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Assignee</th>
+                                        <td>Incident 의 Assignee 변경 이력을 Timeline 형식으로 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Activity</th>
+                                        <td>Incident 의 상태 변경을 Timeline 형식으로 표시한다.</td>
+                                    </tr>
 
                                     </tbody>
                                 </table>
@@ -1653,32 +1653,32 @@
                                                 <col>
                                             </colgroup>
                                             <thead>
-                                                <tr>
-                                                    <th scope="col">Preset</th>
-                                                    <th scope="col">기간</th>
-                                                </tr>
+                                            <tr>
+                                                <th scope="col">Preset</th>
+                                                <th scope="col">기간</th>
+                                            </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <th scope="row">24 Hours</th>
-                                                    <td>현재 시간을 기준으로 지난 24시간을 선택한다.</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Last Week</th>
-                                                    <td>현재 시간을 기준으로 지난 7일의 기간을 선택한다.</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Last Month</th>
-                                                    <td>현재 시간을 기준으로 지난 30일의 기간을 선택한다.</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Last Year</th>
-                                                    <td>현재 시간을 기준으로 지난 365일의 기간을 선택한다.</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Custom</th>
-                                                    <td>사용자가 직접 기간을 선택한다.</td>
-                                                </tr>
+                                            <tr>
+                                                <th scope="row">24 Hours</th>
+                                                <td>현재 시간을 기준으로 지난 24시간을 선택한다.</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Last Week</th>
+                                                <td>현재 시간을 기준으로 지난 7일의 기간을 선택한다.</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Last Month</th>
+                                                <td>현재 시간을 기준으로 지난 30일의 기간을 선택한다.</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Last Year</th>
+                                                <td>현재 시간을 기준으로 지난 365일의 기간을 선택한다.</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Custom</th>
+                                                <td>사용자가 직접 기간을 선택한다.</td>
+                                            </tr>
                                             </tbody>
 
                                         </table>
@@ -1842,36 +1842,36 @@
                                         <col>
                                     </colgroup>
                                     <thead>
-                                        <tr>
-                                            <th scope="col">항목</th>
-                                            <th scope="col">설명</th>
-                                        </tr>
+                                    <tr>
+                                        <th scope="col">항목</th>
+                                        <th scope="col">설명</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">No</th>
-                                            <td>Alert 의 Serial Number 를 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Title</th>
-                                            <td>Alert 의 제목을 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Status</th>
-                                            <td>Alert 의 상태를 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Created Date</th>
-                                            <td>Alert 의 생성 날짜 및 시간을 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Service</th>
-                                            <td>Alert 이 발생한 서비스명을 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Integration Type</th>
-                                            <td>Alert이 발생한 서비스의 Integration Type을 표시한다.</td>
-                                        </tr>
+                                    <tr>
+                                        <th scope="row">No</th>
+                                        <td>Alert 의 Serial Number 를 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Title</th>
+                                        <td>Alert 의 제목을 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Status</th>
+                                        <td>Alert 의 상태를 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Created Date</th>
+                                        <td>Alert 의 생성 날짜 및 시간을 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Service</th>
+                                        <td>Alert 이 발생한 서비스명을 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Integration Type</th>
+                                        <td>Alert이 발생한 서비스의 Integration Type을 표시한다.</td>
+                                    </tr>
                                     </tbody>
 
                                 </table>
@@ -1885,52 +1885,52 @@
                                         <col>
                                     </colgroup>
                                     <thead>
-                                        <tr>
-                                            <th scope="col">항목</th>
-                                            <th scope="col">설명</th>
-                                        </tr>
+                                    <tr>
+                                        <th scope="col">항목</th>
+                                        <th scope="col">설명</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">Title</th>
-                                            <td>Alert 의 Serial Number 를 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Status</th>
-                                            <td>Alert 의 제목을 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Created Date</th>
-                                            <td>Alert 의 상태를 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Occurred Date</th>
-                                            <td>Alert 의 생성 날짜 및 시간을 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Service</th>
-                                            <td>Alert 이 발생한 서비스명을 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Integration</th>
-                                            <td>Alert 이 Integration 을 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Integration Type</th>
-                                            <td>Alert 이 발생한 서비스의 Integration Type을 표시한다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Message</th>
-                                            <td>Alert 의 상세 메시지를 확인할 수 있다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Description</th>
-                                            <td>Alert 의 상세 설명을 확인할 수 있다.</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Related Incident</th>
-                                            <td>Alert 과 연결된 Incident를 표시한다.</td>
-                                        </tr>
+                                    <tr>
+                                        <th scope="row">Title</th>
+                                        <td>Alert 의 Serial Number 를 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Status</th>
+                                        <td>Alert 의 제목을 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Created Date</th>
+                                        <td>Alert 의 상태를 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Occurred Date</th>
+                                        <td>Alert 의 생성 날짜 및 시간을 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Service</th>
+                                        <td>Alert 이 발생한 서비스명을 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Integration</th>
+                                        <td>Alert 이 Integration 을 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Integration Type</th>
+                                        <td>Alert 이 발생한 서비스의 Integration Type을 표시한다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Message</th>
+                                        <td>Alert 의 상세 메시지를 확인할 수 있다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Description</th>
+                                        <td>Alert 의 상세 설명을 확인할 수 있다.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Related Incident</th>
+                                        <td>Alert 과 연결된 Incident를 표시한다.</td>
+                                    </tr>
                                     </tbody>
 
                                 </table>
@@ -1956,32 +1956,32 @@
                                                 <col>
                                             </colgroup>
                                             <thead>
-                                                <tr>
-                                                    <th scope="col">Preset</th>
-                                                    <th scope="col">기간</th>
-                                                </tr>
+                                            <tr>
+                                                <th scope="col">Preset</th>
+                                                <th scope="col">기간</th>
+                                            </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <th scope="row">24 Hours</th>
-                                                    <td>현재 시간을 기준으로 지난 24시간을 선택한��.</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Last Week</th>
-                                                    <td>현재 시간을 기준으로 지난 7일의 기간을 선택한다.</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Last Month </th>
-                                                    <td>현재 시간을 기준으로 지난 30일의 기간을 선택한다.</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Last Year
-                                                    </th><td>현재 시간을 기준으로 지난 365일의 기간을 선택한다.</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Custom</th>
-                                                    <td>사용자가 직접 기간을 선택한다.</td>
-                                                </tr>
+                                            <tr>
+                                                <th scope="row">24 Hours</th>
+                                                <td>현재 시간을 기준으로 지난 24시간을 선택한��.</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Last Week</th>
+                                                <td>현재 시간을 기준으로 지난 7일의 기간을 선택한다.</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Last Month </th>
+                                                <td>현재 시간을 기준으로 지난 30일의 기간을 선택한다.</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Last Year
+                                                </th><td>현재 시간을 기준으로 지난 365일의 기간을 선택한다.</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Custom</th>
+                                                <td>사용자가 직접 기간을 선택한다.</td>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </li>
@@ -2059,13 +2059,13 @@
                     </div>
                 </section>
 
-            <div class="category">
-                <h2 id="guide_opsnow_service" class="category-title">Service</h2>
-            </div>
+                <div class="category">
+                    <h2 id="guide_opsnow_service" class="category-title">Service</h2>
+                </div>
 
                 <section class="chapter">
                     <h3 id="guide_opsnow_service_1_1" class="chapter-title">1. 접속</h3>
-                    <p class="chapter-title-description">BSP 가입 후, AlertNow 서비스 신청 고객의 경우, 서비스 영역에 아래와 같이 AlertNow Beta 서비스가 노출이 됩니다.<br />
+                    <p class="chapter-title-description">OpsNow 가입 후, AlertNow 서비스 신청 고객의 경우, 서비스 영역에 아래와 같이 AlertNow Beta 서비스가 노출이 됩니다.<br />
                         “AlertNow” 선택하여 서비스로 접속 합니다.</p>
                     <div class="chapter-contents">
                         <figure>
@@ -2086,55 +2086,55 @@
                                 <col>
                             </colgroup>
                             <thead>
-                                <tr>
-                                    <th scope="col">항목</th>
-                                    <th scope="col">설명</th>
-                                </tr>
+                            <tr>
+                                <th scope="col">항목</th>
+                                <th scope="col">설명</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">Incident</th>
-                                    <td>
-                                        Alert 수집 시 Incident Definition Policy에 의해 발급된 티켓의 상태를 관리 합니다.<br>
-                                        <br>
-                                        1)	Incident Definition Policy<br>
-                                        -	Service Tagging Rule <br>
-                                        -	Alert Urgency Rule<br>
-                                        -	Alert Suppression Rule<br>
-                                        <br>
-                                        Incident Definition Policy는 고객이 설정이 가능 합니다.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Service</th>
-                                    <td>
-                                        고객이 설정한 Service 단위로 Incident를 상태를 관리 합니다.<br>
-                                        Service는 Integration에서 발생하는 Incident를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다.<br>
-                                        <br>
-                                        1)	구성<br>
-                                        -	Integration Type / Escalation Rule / Alert Rule / Member<br>
-                                        구성 필수 요소 : Integration
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Escalation</th>
-                                    <td>Incident 발생 시 단계별로 이를 처리할 담당자 및 담당자가 처리해야 할 Action과
-                                        시간(Timeout)을 설정하여 Rule로 관리 합니다.</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Integration</th>
-                                    <td>3rd Party(외부) 모니터링 툴에서 발생하는 알람을 AlertNow에 연동하기 위해서는
-                                        기본적으로 Integration을 설정해야 합니다. Integration  설정 정보를 관리 합니다.</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Extension</th>
-                                    <td>Extension은 AlertNow 내에서 생성된 특정 데이터를 외부 Tool이나 서비스로 Outgoing
-                                        할 수 있도록 하는 기능 입니다. </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Personal Setting</th>
-                                    <td>개인 정보 및 Incident에 대한 Notification Rule에 대한 개인화 기능을 제공 합니다.</td>
-                                </tr>
+                            <tr>
+                                <th scope="row">Incident</th>
+                                <td>
+                                    Alert 수집 시 Incident Definition Policy에 의해 발급된 티켓의 상태를 관리 합니다.<br>
+                                    <br>
+                                    1)	Incident Definition Policy<br>
+                                    -	Service Tagging Rule <br>
+                                    -	Alert Urgency Rule<br>
+                                    -	Alert Suppression Rule<br>
+                                    <br>
+                                    Incident Definition Policy는 고객이 설정이 가능 합니다.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Service</th>
+                                <td>
+                                    고객이 설정한 Service 단위로 Incident를 상태를 관리 합니다.<br>
+                                    Service는 Integration에서 발생하는 Incident를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다.<br>
+                                    <br>
+                                    1)	구성<br>
+                                    -	Integration Type / Escalation Rule / Alert Rule / Member<br>
+                                    구성 필수 요소 : Integration
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Escalation</th>
+                                <td>Incident 발생 시 단계별로 이를 처리할 담당자 및 담당자가 처리해야 할 Action과
+                                    시간(Timeout)을 설정하여 Rule로 관리 합니다.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Integration</th>
+                                <td>3rd Party(외부) 모니터링 툴에서 발생하는 알람을 AlertNow에 연동하기 위해서는
+                                    기본적으로 Integration을 설정해야 합니다. Integration  설정 정보를 관리 합니다.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Extension</th>
+                                <td>Extension은 AlertNow 내에서 생성된 특정 데이터를 외부 Tool이나 서비스로 Outgoing
+                                    할 수 있도록 하는 기능 입니다. </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Personal Setting</th>
+                                <td>개인 정보 및 Incident에 대한 Notification Rule에 대한 개인화 기능을 제공 합니다.</td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -2154,40 +2154,40 @@
                                 <col>
                             </colgroup>
                             <thead>
-                                <tr>
-                                    <th scope="col">Case</th>
-                                    <th scope="col">설명</th>
-                                </tr>
+                            <tr>
+                                <th scope="col">Case</th>
+                                <th scope="col">설명</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">
-                                        <strong>Use Case 1)</strong><br />
-                                        “Service” 메뉴에서 생성
-                                    </th>
-                                    <td>
-                                        Service 메뉴에서 오른쪽 위에 있는 “Create New service” 버튼을 Click 합니다.<br />
-                                        <span class="black middle button">Create new service</span><br />
-                                        <br />
-                                        Service를 생성 합니다.<br />
-                                        이 경우, Service Name과 Member 입력 만으로 Service를 생성 할 수 있습니다.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <strong>Use Case 2)</strong><br />
-                                        “Integration” 메뉴 상에 Integration Creation시에 생성
-                                    </th>
-                                    <td>
-                                        Integration 메뉴에서 오른쪽 위에 있는 “Create new service” 버튼을 Click 합니다. <br />
-                                        <span class="black middle button">Create new escalation</span><br />
-                                        <br />
-                                        Service를 선택 합니다.<br />
-                                        -	Create Default Service<br />
-                                        -	기 생성 Service 중 선택.<br />
-                                        -	Add service routing rule
-                                    </td>
-                                </tr>
+                            <tr>
+                                <th scope="row">
+                                    <strong>Use Case 1)</strong><br />
+                                    “Service” 메뉴에서 생성
+                                </th>
+                                <td>
+                                    Service 메뉴에서 오른쪽 위에 있는 “Create New service” 버튼을 Click 합니다.<br />
+                                    <span class="black middle button">Create new service</span><br />
+                                    <br />
+                                    Service를 생성 합니다.<br />
+                                    이 경우, Service Name과 Member 입력 만으로 Service를 생성 할 수 있습니다.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <strong>Use Case 2)</strong><br />
+                                    “Integration” 메뉴 상에 Integration Creation시에 생성
+                                </th>
+                                <td>
+                                    Integration 메뉴에서 오른쪽 위에 있는 “Create new service” 버튼을 Click 합니다. <br />
+                                    <span class="black middle button">Create new escalation</span><br />
+                                    <br />
+                                    Service를 선택 합니다.<br />
+                                    -	Create Default Service<br />
+                                    -	기 생성 Service 중 선택.<br />
+                                    -	Add service routing rule
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -2220,27 +2220,27 @@
                                         <col style="width:200px;">
                                     </colgroup>
                                     <thead>
-                                        <tr>
-                                            <th scope="col">항목</th>
-                                            <th scope="col">설명</th>
-                                            <th scope="col">비고</th>
-                                        </tr>
+                                    <tr>
+                                        <th scope="col">항목</th>
+                                        <th scope="col">설명</th>
+                                        <th scope="col">비고</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">Service name</th>
-                                            <td>고객이 생성하고자 하는 Service Name을 임의로 입력 합니다.</td>
-                                            <td>필수 입력 사항</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Member</th>
-                                            <td>
-                                                생성 서비스의 Member를 선택 합니다.
-                                                소속 사 내의 구성원 Name이 보여 집니다.
-                                                Member 선택 없이 Service 생성이 가능 합니다.
-                                            </td>
-                                            <td>옵션 사항</td>
-                                        </tr>
+                                    <tr>
+                                        <th scope="row">Service name</th>
+                                        <td>고객이 생성하고자 하는 Service Name을 임의로 입력 합니다.</td>
+                                        <td>필수 입력 사항</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Member</th>
+                                        <td>
+                                            생성 서비스의 Member를 선택 합니다.
+                                            소속 사 내의 구성원 Name이 보여 집니다.
+                                            Member 선택 없이 Service 생성이 가능 합니다.
+                                        </td>
+                                        <td>옵션 사항</td>
+                                    </tr>
                                     </tbody>
                                 </table>
 
@@ -2263,33 +2263,33 @@
                                         <col style="width:200px;">
                                     </colgroup>
                                     <thead>
-                                        <tr>
-                                            <th scope="col">항목</th>
-                                            <th scope="col">설명</th>
-                                            <th scope="col">비고</th>
-                                        </tr>
+                                    <tr>
+                                        <th scope="col">항목</th>
+                                        <th scope="col">설명</th>
+                                        <th scope="col">비고</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">Incident</th>
-                                            <td>기간 및 Search 조건에 따른 Incident 상태를 확인 할 수 있습니다.</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Integration</th>
-                                            <td>해당 서비스의 Integration 정보를 확인 할 수 있습니다</td>
-                                            <td>Eidt 불가 / Delete 가능</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Escalation</th>
-                                            <td>해당 서비스의 Escalation 정보를 확인 할 수 있습니다.</td>
-                                            <td>Eidt 불가 / Delete 가능</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Member</th>
-                                            <td>해당 서비스의 Member를 확인 할 수 있으며, Member를 추가 할 수 있습니다.</td>
-                                            <td></td>
-                                        </tr>
+                                    <tr>
+                                        <th scope="row">Incident</th>
+                                        <td>기간 및 Search 조건에 따른 Incident 상태를 확인 할 수 있습니다.</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Integration</th>
+                                        <td>해당 서비스의 Integration 정보를 확인 할 수 있습니다</td>
+                                        <td>Eidt 불가 / Delete 가능</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Escalation</th>
+                                        <td>해당 서비스의 Escalation 정보를 확인 할 수 있습니다.</td>
+                                        <td>Eidt 불가 / Delete 가능</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Member</th>
+                                        <td>해당 서비스의 Member를 확인 할 수 있으며, Member를 추가 할 수 있습니다.</td>
+                                        <td></td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </li>
@@ -2342,61 +2342,61 @@
                                         <col style="width:200px;">
                                     </colgroup>
                                     <thead>
-                                        <tr>
-                                            <th scope="col">항목</th>
-                                            <th scope="col">설명</th>
-                                            <th scope="col">비고</th>
-                                        </tr>
+                                    <tr>
+                                        <th scope="col">항목</th>
+                                        <th scope="col">설명</th>
+                                        <th scope="col">비고</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">Integration Name</th>
-                                            <td>고객이 Integration Name을 설정할 수 있습니다.</td>
-                                            <td>필수 입력 사항</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Integration Type</th>
-                                            <td>기 선택한 대상의 로고가 보입니다.  <br />
-                                                <img src="./image/bnr_guide_opsnow_service_2_1_5_4_in_table.jpg" alt="" width="165" height="39" />
-                                            </td>
-                                            <td>입력 및 수정 불가 사항</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Service</th>
-                                            <td>
-                                                -	Create Default Service<br />
-                                                -	기존 생성/사용 서비스에서 선택<br />
-                                                -	Add Service Routing Rule
-                                            </td>
-                                            <td>
-                                                필수 선택 사항. 중복 선택 불가.<br />
-                                                Default : Create Default Service
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Escalation Rule</th>
-                                            <td>
-                                                -	No Escalation<br />
-                                                -	Single Escalation<br />
-                                                -	Escalation Routing
-                                            </td>
-                                            <td>
-                                                필수 선택 사항.<br />
-                                                중복 선택 불가.<br />
-                                                Default : No Escalation
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Alert Rule</th>
-                                            <td>
-                                                -	Add alert suppression rule<br />
-                                                -	Manually add incident urgency rule
-                                            </td>
-                                            <td>
-                                                옵션 선택 사항.<br />
-                                                중복 선택 가능.
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <th scope="row">Integration Name</th>
+                                        <td>고객이 Integration Name을 설정할 수 있습니다.</td>
+                                        <td>필수 입력 사항</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Integration Type</th>
+                                        <td>기 선택한 대상의 로고가 보입니다.  <br />
+                                            <img src="./image/bnr_guide_opsnow_service_2_1_5_4_in_table.jpg" alt="" width="165" height="39" />
+                                        </td>
+                                        <td>입력 및 수정 불가 사항</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Service</th>
+                                        <td>
+                                            -	Create Default Service<br />
+                                            -	기존 생성/사용 서비스에서 선택<br />
+                                            -	Add Service Routing Rule
+                                        </td>
+                                        <td>
+                                            필수 선택 사항. 중복 선택 불가.<br />
+                                            Default : Create Default Service
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Escalation Rule</th>
+                                        <td>
+                                            -	No Escalation<br />
+                                            -	Single Escalation<br />
+                                            -	Escalation Routing
+                                        </td>
+                                        <td>
+                                            필수 선택 사항.<br />
+                                            중복 선택 불가.<br />
+                                            Default : No Escalation
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Alert Rule</th>
+                                        <td>
+                                            -	Add alert suppression rule<br />
+                                            -	Manually add incident urgency rule
+                                        </td>
+                                        <td>
+                                            옵션 선택 사항.<br />
+                                            중복 선택 가능.
+                                        </td>
+                                    </tr>
                                     </tbody>
 
                                 </table>
@@ -2426,7 +2426,7 @@
                 </div>
                 <section class="chapter">
                     <h3 id="guide_opsnow_personal_setting_1_1" class="chapter-title">1. 접속</h3>
-                    <p class="chapter-title-description">BSP 가입 후, AlertNow 서비스 신청 고객의 경우, 서비스 영역에 아래와 같이 AlertNow Beta 서비스가 노출이 됩니다. “AlertNow” 선택하여 서비스로 접속 합니다.</p>
+                    <p class="chapter-title-description">OpsNow 가입 후, AlertNow 서비스 신청 고객의 경우, 서비스 영역에 아래와 같이 AlertNow Beta 서비스가 노출이 됩니다. “AlertNow” 선택하여 서비스로 접속 합니다.</p>
                     <div class="chapter-contents">
                         <figure>
                             <div class="screenshot"><img src="./image/bnr_guide_opsnow_common_1.jpg" alt="" width="816" height="260"></div>
@@ -2446,55 +2446,55 @@
                                 <col>
                             </colgroup>
                             <thead>
-                                <tr>
-                                    <th scope="col">항목</th>
-                                    <th scope="col">설명</th>
-                                </tr>
+                            <tr>
+                                <th scope="col">항목</th>
+                                <th scope="col">설명</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">Incident</th>
-                                    <td>
-                                        Alert 수집 시 Incident Definition Policy에 의해 발급된 티켓의 상태를 관리 합니다.<br>
-                                        <br>
-                                        1)	Incident Definition Policy<br>
-                                        -	Service Tagging Rule <br>
-                                        -	Alert Urgency Rule<br>
-                                        -	Alert Suppression Rule<br>
-                                        <br>
-                                        Incident Definition Policy는 고객이 설정이 가능 합니다.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Service</th>
-                                    <td>
-                                        고객이 설정한 Service 단위로 Incident를 상태를 관리 합니다.<br>
-                                        Service는 Integration에서 발생하는 Incident를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다.<br>
-                                        <br>
-                                        1)	구성<br>
-                                        -	Integration Type / Escalation Rule / Alert Rule / Member<br>
-                                        구성 필수 요소 : Integration
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Escalation</th>
-                                    <td>Incident 발생 시 단계별로 이를 처리할 담당자 및 담당자가 처리해야 할 Action과
-                                        시간(Timeout)을 설정하여 Rule로 관리 합니다.</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Integration</th>
-                                    <td>3rd Party(외부) 모니터링 툴에서 발생하는 알람을 AlertNow에 연동하기 위해서는
-                                        기본적으로 Integration을 설정해야 합니다. Integration  설정 정보를 관리 합니다.</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Extension</th>
-                                    <td>Extension은 AlertNow 내에서 생성된 특정 데이터를 외부 Tool이나 서비스로 Outgoing
-                                        할 수 있도록 하는 기능 입니다. </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Personal Setting</th>
-                                    <td>개인 정보 및 Incident에 대한 Notification Rule에 대한 개인화 기능을 제공 합니다.</td>
-                                </tr>
+                            <tr>
+                                <th scope="row">Incident</th>
+                                <td>
+                                    Alert 수집 시 Incident Definition Policy에 의해 발급된 티켓의 상태를 관리 합니다.<br>
+                                    <br>
+                                    1)	Incident Definition Policy<br>
+                                    -	Service Tagging Rule <br>
+                                    -	Alert Urgency Rule<br>
+                                    -	Alert Suppression Rule<br>
+                                    <br>
+                                    Incident Definition Policy는 고객이 설정이 가능 합니다.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Service</th>
+                                <td>
+                                    고객이 설정한 Service 단위로 Incident를 상태를 관리 합니다.<br>
+                                    Service는 Integration에서 발생하는 Incident를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다.<br>
+                                    <br>
+                                    1)	구성<br>
+                                    -	Integration Type / Escalation Rule / Alert Rule / Member<br>
+                                    구성 필수 요소 : Integration
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Escalation</th>
+                                <td>Incident 발생 시 단계별로 이를 처리할 담당자 및 담당자가 처리해야 할 Action과
+                                    시간(Timeout)을 설정하여 Rule로 관리 합니다.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Integration</th>
+                                <td>3rd Party(외부) 모니터링 툴에서 발생하는 알람을 AlertNow에 연동하기 위해서는
+                                    기본적으로 Integration을 설정해야 합니다. Integration  설정 정보를 관리 합니다.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Extension</th>
+                                <td>Extension은 AlertNow 내에서 생성된 특정 데이터를 외부 Tool이나 서비스로 Outgoing
+                                    할 수 있도록 하는 기능 입니다. </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Personal Setting</th>
+                                <td>개인 정보 및 Incident에 대한 Notification Rule에 대한 개인화 기능을 제공 합니다.</td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -2517,38 +2517,38 @@
                                 <col>
                             </colgroup>
                             <thead>
-                                <tr>
-                                    <th scope="col">서비스 Tap 구성</th>
-                                    <th scope="col">설명</th>
-                                </tr>
+                            <tr>
+                                <th scope="col">서비스 Tap 구성</th>
+                                <th scope="col">설명</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">Basic Information</th>
-                                    <td>
-                                        개인 정보로 구성되어 있습니다.<br />
-                                        -	Name<br />
-                                        -	Login email<br />
-                                        -	Time Zone <br />
-                                        -	Service<br />
-                                        -	Escalation
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Notification rule</th>
-                                    <td>
-                                        사용자가 Notification을 받는 Case, 조건, 방식을 설정 합니다.<br />
-                                        사용자는 Notification Case 및 조건 별로 Rule을 설정해 자신이 원하는 방식으로 Notification을 받을 수 있습니다.<br />
-                                        -	When incident is created : <br />
-                                        Incident가 생성 된 경우 설정<br />
-                                        -	When incident is assigned to me : <br />
-                                        나에게 Incident가 Assign 되었을 때 (Alert 등급 또는 Incident 등급에 따라) 설정 가능<br />
-                                        -	When status of my incident is changed : <br />
-                                        나에게 Assign된 Incident의 상태가 변경(Acked, Closed 혹은 Reassign)되거나 Escalate 되었을 때 설정 가능<br />
-                                        -	When status of my incident is escalated : <br />
-                                        누군가에 의해 나의 Incident가 Escalation에 등록되었을 때
-                                    </td>
-                                </tr>
+                            <tr>
+                                <th scope="row">Basic Information</th>
+                                <td>
+                                    개인 정보로 구성되어 있습니다.<br />
+                                    -	Name<br />
+                                    -	Login email<br />
+                                    -	Time Zone <br />
+                                    -	Service<br />
+                                    -	Escalation
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Notification rule</th>
+                                <td>
+                                    사용자가 Notification을 받는 Case, 조건, 방식을 설정 합니다.<br />
+                                    사용자는 Notification Case 및 조건 별로 Rule을 설정해 자신이 원하는 방식으로 Notification을 받을 수 있습니다.<br />
+                                    -	When incident is created : <br />
+                                    Incident가 생성 된 경우 설정<br />
+                                    -	When incident is assigned to me : <br />
+                                    나에게 Incident가 Assign 되었을 때 (Alert 등급 또는 Incident 등급에 따라) 설정 가능<br />
+                                    -	When status of my incident is changed : <br />
+                                    나에게 Assign된 Incident의 상태가 변경(Acked, Closed 혹은 Reassign)되거나 Escalate 되었을 때 설정 가능<br />
+                                    -	When status of my incident is escalated : <br />
+                                    누군가에 의해 나의 Incident가 Escalation에 등록되었을 때
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -2568,42 +2568,42 @@
                                         <col style="width:100px;">
                                     </colgroup>
                                     <thead>
-                                        <tr>
-                                            <th scope="col">구분</th>
-                                            <th scope="col">설명</th>
-                                            <th scope="col">비고</th>
-                                        </tr>
+                                    <tr>
+                                        <th scope="col">구분</th>
+                                        <th scope="col">설명</th>
+                                        <th scope="col">비고</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">Name</th>
-                                            <td>개인 성명</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Login email</th>
-                                            <td>Login email 정보</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Time Zones</th>
-                                            <td>
-                                                개인의 경우, 최초 접속 시 사용 Browser Time으로 설정<br />
-                                                -	Auto<br />
-                                                -	변경 가능
-                                            </td>
-                                            <td>설정 가능</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Service</th>
-                                            <td>개인이 Member이거나 Owner인 Service Display</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Escalation</th>
-                                            <td>개인이 속하거나, 생성한 Escalation Display</td>
-                                            <td></td>
-                                        </tr>
+                                    <tr>
+                                        <th scope="row">Name</th>
+                                        <td>개인 성명</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Login email</th>
+                                        <td>Login email 정보</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Time Zones</th>
+                                        <td>
+                                            개인의 경우, 최초 접속 시 사용 Browser Time으로 설정<br />
+                                            -	Auto<br />
+                                            -	변경 가능
+                                        </td>
+                                        <td>설정 가능</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Service</th>
+                                        <td>개인이 Member이거나 Owner인 Service Display</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Escalation</th>
+                                        <td>개인이 속하거나, 생성한 Escalation Display</td>
+                                        <td></td>
+                                    </tr>
                                     </tbody>
 
                                 </table>
@@ -2632,28 +2632,28 @@
                                         <col style="width:200px;">
                                     </colgroup>
                                     <thead>
-                                        <tr>
-                                            <th scope="col">구분</th>
-                                            <th scope="col">설명</th>
-                                            <th scope="col">비고</th>
-                                        </tr>
+                                    <tr>
+                                        <th scope="col">구분</th>
+                                        <th scope="col">설명</th>
+                                        <th scope="col">비고</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">Email</th>
-                                            <td>Noti 받기 위한 Email 정보</td>
-                                            <td>변경 가능</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Mobile</th>
-                                            <td>Noti 받기 위한 Mobile 정보</td>
-                                            <td>변경 가능</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Slack</th>
-                                            <td>Noti 받기 위한 Slack 정보</td>
-                                            <td>변경 불가</td>
-                                        </tr>
+                                    <tr>
+                                        <th scope="row">Email</th>
+                                        <td>Noti 받기 위한 Email 정보</td>
+                                        <td>변경 가능</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Mobile</th>
+                                        <td>Noti 받기 위한 Mobile 정보</td>
+                                        <td>변경 가능</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Slack</th>
+                                        <td>Noti 받기 위한 Slack 정보</td>
+                                        <td>변경 불가</td>
+                                    </tr>
                                     </tbody>
 
                                 </table>
@@ -2671,32 +2671,32 @@
                     <div class="chapter-contents">
                         <table>
                             <thead>
-                                <tr>
-                                    <th scope="col">구분</th>
-                                    <th scope="col">설명</th>
-                                </tr>
+                            <tr>
+                                <th scope="col">구분</th>
+                                <th scope="col">설명</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">When incident is created</th>
-                                    <td>Incident가 생성 된 경우</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">When incident is assigned to me</th>
-                                    <td>로그인한 사용자에게 Incident가 Assign 된 경우</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">When status of my incident is changed</th>
-                                    <td>로그인한 사용자에게 Assign된 Incident의 상태가 변경(Acked, Closed 혹은 Reassign)된 경우</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">When status of my incident is escalated</th>
-                                    <td>다른 사용자에 의해 로그인한 사용자에게 Assign된 Incident가 Escalation 된 경우</td>
-                                    <td></td>
-                                </tr>
+                            <tr>
+                                <th scope="row">When incident is created</th>
+                                <td>Incident가 생성 된 경우</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">When incident is assigned to me</th>
+                                <td>로그인한 사용자에게 Incident가 Assign 된 경우</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">When status of my incident is changed</th>
+                                <td>로그인한 사용자에게 Assign된 Incident의 상태가 변경(Acked, Closed 혹은 Reassign)된 경우</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">When status of my incident is escalated</th>
+                                <td>다른 사용자에 의해 로그인한 사용자에게 Assign된 Incident가 Escalation 된 경우</td>
+                                <td></td>
+                            </tr>
                             </tbody>
 
                         </table>
