@@ -1,0 +1,30 @@
+{
+  "name": "bsp-user-manual",
+  "version": "1.0.0",
+  "description": "bsp 서비스 유저 매뉴얼",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@61.100.13.19:7999/ux/bsp-user-manual.git"
+  },
+  "author": "jinhun.shin",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.20.0",
+    "child_process": "^1.0.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-imagemin": "^4.0.0",
+    "gulp-mem": "^0.1.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-restart": "^0.1.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-strip-comments": "^2.5.1",
+    "gulp-watch": "^4.3.11",
+    "inquirer": "^4.0.1"
+  }
+}
