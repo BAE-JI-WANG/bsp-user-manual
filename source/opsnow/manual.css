@@ -566,6 +566,12 @@ article {
     -webkit-box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.05);
             box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.05);
     outline: 1px solid #ccc; }
+  article code {
+    background: #f0f0f0;
+    display: inline-block;
+    padding: 2px 4px;
+    margin: 2px 0;
+    font-size: 0.875rem; }
 
 article > h1 ~ p + h2 {
   margin-top: 50px;
@@ -602,7 +608,8 @@ article table {
     border-top: 1px solid #EAEAEA;
     text-align: left;
     padding: 10px;
-    font-size: 0.875rem; }
+    font-size: 0.875rem;
+    vertical-align: top; }
   article table thead th {
     font-weight: normal;
     text-align: left;
@@ -611,7 +618,6 @@ article table {
     padding: 10px 20px !important;
     white-space: nowrap; }
   article table tbody tr > *:first-child {
-    vertical-align: top;
     font-weight: 700; }
 
 article blockquote {
@@ -649,7 +655,7 @@ article li {
 article figure {
   display: inline-block;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 20px;
   margin-right: 0;
   margin-left: 0; }
   article figure figcaption {
@@ -658,6 +664,10 @@ article figure {
 
 article img {
   margin: 7px 0 15px; }
+
+article img + figcaption {
+  margin-top: -10px;
+  margin-bottom: 5px; }
 
 article td p,
 article td ul,
@@ -723,9 +733,13 @@ article h3 ~ * {
   margin-left: 1.5em; }
 
 article h2 + p,
+article h2 + p + blockquote,
+article h2 + p + blockquote + p,
+article h2 + p + blockquote + p + ol,
 article h2 + p + p,
 article h2 + p + p + p,
 article h2 + p + p + table,
+article h2 + p + p + p + table,
 article h2 + p + p + p + p,
 article h2 + p + p + p + p + p {
   margin-left: 0; }
