@@ -30,49 +30,49 @@
                         
                                                 <ul>
                         <li><a href="#alertnow">AlertNow</a><ul>
-                        <li><a href="#incident">Incident</a><ul>
+                        <li><a href="#incident">인시던트</a><ul>
                         <li><a href="#summary">개요</a><ul>
-                        <li><a href="#alert">Alert</a></li>
-                        <li><a href="#incident-1">Incident</a></li>
-                        <li><a href="#relationship">Alert, Incident 관계</a></li>
+                        <li><a href="#summary-incident-alert">경고</a></li>
+                        <li><a href="#summary-incident-incident">인시던트</a></li>
+                        <li><a href="#alert-incident-relationship">경고, 인시던트 관계</a></li>
                         </ul></li>
-                        <li><a href="#incident-2">Incident</a><ul>
+                        <li><a href="#incident-incident">인시던트</a><ul>
                         <li><a href="#incident-user-layout">화면구성</a></li>
-                        <li><a href="#incident-status">Incident 상태</a></li>
-                        <li><a href="#incident_search">Incident 검색</a></li>
-                        <li><a href="#incident-handling">Incident 조작</a></li>
+                        <li><a href="#incident-status">인시던트 상태</a></li>
+                        <li><a href="#incident_search">인시던트 검색</a></li>
+                        <li><a href="#incident-handling">인시던트 조작</a></li>
                         </ul></li>
-                        <li><a href="#alert-1">Alert</a><ul>
+                        <li><a href="#incident-alert">경고</a><ul>
                         <li><a href="#alert-user-interface">화면구성</a></li>
-                        <li><a href="#alert-search">Alert 검색</a></li>
-                        <li><a href="#alert-handling">Alert 조작</a></li>
+                        <li><a href="#alert-search">경고 검색</a></li>
+                        <li><a href="#alert-handling">경고 조작</a></li>
                         </ul></li>
                         </ul></li>
-                        <li><a href="#service">Service</a><ul>
-                        <li><a href="#service-use-case-1">Use Case 1. Service menu에서 생성</a></li>
+                        <li><a href="#service">서비스</a><ul>
+                        <li><a href="#service-use-case-1">Use Case 1.서비스 메뉴에서 생성</a></li>
                         <li><a href="#service-use-case-2">Use Case 2. Integration 생성 시에 생성</a></li>
                         </ul></li>
-                        <li><a href="#escalations">Escalations</a><ul>
+                        <li><a href="#escalations">에스컬레이션</a><ul>
                         <li><a href="#escalation-use-case-1">Use Case 1. Escalations 메뉴에서 생성</a></li>
-                        <li><a href="#escalation-use-case-2">Use Case 2. “Service” 생성시 Default Escalation Rule 생성</a></li>
-                        <li><a href="#escalation-use-case-3">Use Case 3. “Integration” 생성시, “Create Service”를 할 경우</a></li>
+                        <li><a href="#escalation-use-case-2">Use Case 2. “서비스” 생성시 Default Escalation Rule 생성</a></li>
+                        <li><a href="#escalation-use-case-3">Use Case 3. “인티그레이션”, “서비스” 생성을 동시에 할 경우</a></li>
                         </ul></li>
-                        <li><a href="#integration">Integration</a><ul>
-                        <li><a href="#integrations">Integrations</a></li>
+                        <li><a href="#integration">인티그레이션</a><ul>
                         <li><a href="#aws-sns-dashboard">AWS SNS Dashboard</a><ul>
                         <li><a href="#aws-connect">AWS Console 접속</a></li>
                         <li><a href="#move-to-sns">SNS Dashboard 이동</a></li>
                         <li><a href="#move-to-ec2">EC2 Console 이동</a></li>
-                        <li><a href="#set-aws-watch">AlertNow &gt; Incidents</a></li>
+                        <li><a href="#auto-closing-추가">Auto closing 추가</a></li>
+                        <li><a href="#set-aws-watch">AlertNow &gt; 인시던트</a></li>
                         </ul></li>
                         </ul></li>
-                        <li><a href="#extensions">Extensions</a><ul>
+                        <li><a href="#extensions">익스텐션</a><ul>
                         <li><a href="#set-slack">AlertNow Extension Slack 설정</a></li>
-                        <li><a href="#slack-설정-slack-화면으로-이동">Slack 설정 : Slack 화면으로 이동</a></li>
+                        <li><a href="#slack-move-to-slack-setting">Slack 설정 : Slack 화면으로 이동</a></li>
                         </ul></li>
-                        <li><a href="#personal-settings">Personal Settings</a><ul>
-                        <li><a href="#basic-information">Basic Information</a></li>
-                        <li><a href="#notification-rule">Notification Rule</a></li>
+                        <li><a href="#personal-settings">개인 설정</a><ul>
+                        <li><a href="#basic-infomation">기본 정보</a></li>
+                        <li><a href="#notification-rule">알림 규칙</a></li>
                         </ul></li>
                         </ul></li>
                         </ul>
@@ -89,7 +89,7 @@
                     <li><p><strong>접속</strong></p>
                     <p>OpsNow 가입 후, AlertNow 서비스 신청 고객의 경우, 서비스 영역에 아래와 같이 AlertNow 서비스가 노출이 됩니다.<br />
                     “AlertNow” 선택하여 서비스로 접속 합니다.</p>
-                    <p><img src="./image/bnr_alertnow_summary_01.png" width="524"  /></p></li>
+                    <p><img src="./image/bnr_alertnow_summary_01.png" width="467"  /></p></li>
                     <li><p>메뉴 구성</p>
                     <p>AlertNow 각 서비스 메뉴 구성은 다음과 같습니다.</p>
                     <table>
@@ -105,95 +105,103 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Incidents</td>
-                    <td><p>Alert 수집 시 Incident Definition Policy에 의해 발급된 티켓의 상태를 관리 합니다.</p>
+                    <td>인시던트</td>
+                    <td><p>경고 수집 시 인시던트 정책에 의해 발급된 티켓의 상태를 관리 합니다.</p>
                     <ol type="1">
-                    <li>Incident Definition Policy
+                    <li>인시던트 정책
                     <ul>
-                    <li>Service Routing Rule</li>
-                    <li>Urgency Rule</li>
-                    <li>Suppression Rule</li>
+                    <li>서비스 라우팅 규칙</li>
+                    <li>인시던트 긴급도 규칙</li>
+                    <li>인시던트 생성 제한 규칙</li>
                     </ul></li>
-                    <li>Incident Definition Policy는 고객이 설정 가능합니다.</li>
+                    <li>인시던트 정책은 고객이 설정 가능합니다.</li>
                     </ol></td>
                     </tr>
                     <tr class="even">
-                    <td>Services</td>
+                    <td>서비스</td>
                     <td><p>고객이 설정한 Service 단위로 Incident를 상태를 관리 합니다.<br />
-                    Service는 Integration에서 발생하는 Incident를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다.</p>
+                    서비스는 인티그레이션에서 발생하는 인시던트를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다</p>
                     <ol type="1">
                     <li>구성
                     <ul>
-                    <li>Escalation Rule /Incident Generation Rule</li>
+                    <li>에스컬레이션 규칙/인시던트 생성 규칙</li>
                     </ul></li>
                     </ol></td>
                     </tr>
                     <tr class="odd">
-                    <td>Escalations</td>
-                    <td>Incident 발생 시 단계별로 이를 처리할 담당자 및 담당자가 처리해야 할 Action과 시간(Timeout)을 설정하여 Rule로 관리 합니다.</td>
+                    <td>에스컬레이션</td>
+                    <td>인시던트 발생 시 단계별로 이를 처리할 담당자 및 담당자가 처리해야 할 처리와 시간(Timeout)을 설정하여 관리 합니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Integrations</td>
-                    <td>3rd Party(외부) 모니터링 툴에서 발생하는 알람을 AlertNow에 연동하기 위해서는 기본적으로 Integration을 설정해야 합니다.</td>
-                    </tr>
-                    <tr class="odd">
-                    <td>Integration</td>
-                    <td><p>설정 정보를 관리 합니다.</p>
+                    <td>인티그레이션</td>
+                    <td><p>3rd Party(외부) 모니터링 툴에서 발생하는 알림을 AlertNow에 연동하기 위해서는 기본적으로 인티그레이션을 설정해야 합니다.<br />
+                    설정 정보를 관리 합니다.</p>
                     <ul>
-                    <li>구성 필수 요소 : Service</li>
+                    <li>구성 필수 요소 : 서비스</li>
                     </ul></td>
                     </tr>
-                    <tr class="even">
-                    <td>Extensions</td>
-                    <td>Extension은 AlertNow 내에서 생성된 특정 데이터를 외부 Tool이나 서비스로 Outgoing할 수 있도록 하는 기능 입니다.</td>
-                    </tr>
                     <tr class="odd">
-                    <td>Personal Settings</td>
+                    <td>익스텐션</td>
+                    <td>익스텐션은 AlertNow 내에서 생성된 특정 데이터를 외부 툴이나 서비스로 Outgoing할 수 있도록 하는 기능 입니다.</td>
+                    </tr>
+                    <tr class="even">
+                    <td>개인 설정</td>
                     <td>개인 정보 및 Incident에 대한 Notification Rule에 대한 개인화 기능을 제공 합니다.</td>
                     </tr>
                     </tbody>
                     </table></li>
                     </ul>
                     <hr />
-                    <h2 id="incident">Incident</h2>
+                    <h2 id="incident">인시던트</h2>
                     <h3 id="summary">개요</h3>
-                    <p>Incidents 메뉴를 통해 각 서비스에서 발생한 Alert들과 incident 들의 목록을 확인할 수 있습니다. 사용자는 Incidents 메뉴를 통해 처리해야 할 문제를 확인하고, 각 문제들의 처리 상태를 기록할 수 있습니다.</p>
+                    <p>인시던트 메뉴를 통해 각 서비스에서 발생한 경고들과 인시던트 들의 목록을 확인할 수 있습니다. 사용자는 인시던트 메뉴를 통해 처리해야 할 문제를 확인하고, 각 문제들의 처리 상태를 기록할 수 있습니다.</p>
                     <figure>
-                    <img src="./image/bnr_map_alert_KO.png" width="817" alt="Figure 1. Alert, Incident 의 흐름도" /><figcaption>Figure 1. Alert, Incident 의 흐름도</figcaption>
+                    <img src="./image/bnr_map_alert_KO.png" width="817" alt="Figure 1. 경고,인시던트의 흐름도" /><figcaption>Figure 1. 경고,인시던트의 흐름도</figcaption>
                     </figure>
-                    <h4 id="alert">Alert</h4>
-                    <p>CloudWatch, Azure Alert, UIM 등의 Monitoring Tool이나 기타 서비스에서 발생한 알람을 Integration 설정으로 Alarm Event를 수신 받은 경우, 이를 Alert으로 생성합니다.</p>
+                    <h4 id="summary-incident-alert">경고</h4>
+                    <p>CloudWatch, Azure, UIM 등의 모니터링 툴이나 기타 서비스에서 발생한 알림을 인티그레이션 설정으로 알림 이벤트를 수신 받은 경우, 이를 경고로 생성합니다.</p>
                     <ul>
-                    <li>Alert 은 Raw Data 이며, 사용자가 임의로 Data를 변경하거나 생성된 Alert 을 삭제할 수 없습니다.</li>
-                    <li>Alert 을 기준으로 Incident를 생성합니다. 하지만 모든 Alert을 Incident로 생성하지 않으며, Incident Generation Rule 에 부합하는 Alert을 Incident로 생성합니다.</li>
-                    <li>Alert 은 사용자에게 Notification을 전달하지 않으며, 해당 Alert 을 통해 Incident 가 생성되어야 사용자에게 Notification 을 전달합니다.</li>
+                    <li>경고는 Raw Data 이며, 사용자가 임의로 Data를 변경하거나 생성된 경고를 삭제할 수 없습니다.</li>
+                    <li>경고를 기준으로 인시던트를 생성합니다. 하지만 모든 경고를 인시던트로 생성하지 않으며, 인시던트 생성 규칙에 부합하는 경고를 인시던트로 생성합니다.</li>
+                    <li>경고는 사용자에게 알림을 전달하지 않으며, 해당 경고를 통해 인시던트가 생성되어야 사용자에게 알림을 전달합니다.</li>
                     </ul>
-                    <p>사용자는 필요에 따라 서비스 별로 Alert 이 발생하지 않도록 Maintenance를 설정할 수 있습니다.</p>
+                    <p>사용자는 필요에 따라 서비스 별로 인시던트가 발생하지 않도록 유지보수 일정을 설정할 수 있습니다.</p>
                     <ul>
-                    <li>릴리즈, DB 작업, 인프라 작업, 보안 작업 등의 일정을 등록하여 해당 기간에 Incident의 발생을 억제할 수 있습니다.</li>
-                    <li>Maintenance 상태에서 발생한 Alert 은 Suppressed(by maintenance) 상태로 저장되며, Maintenance 일정으로 인해 해당 Alert 의 Incident가 생성되지 않았음을 확인할 수 있습니다.</li>
+                    <li>릴리즈, DB 작업, 인프라 작업, 보안 작업 등의 특정상황에 따라 유지보수 일정을 설정 할 수 있고, 설정한 기간 동안에는 인시던트가 발생하지 않습니다.</li>
+                    <li>유지보수 상태에서 발생한 경고는 “생성안됨(유지보수 일정)” 상태로 저장되며, 유지보수 일정으로 인해 해당 경고의 인시던트가 생성되지 않았음을 확인할 수 있습니다.</li>
                     </ul>
-                    <h4 id="incident-1">Incident</h4>
-                    <p>Alert이 수집되면 사전에 설정한 Incident Generation Rule을 통해 Incident가 생성됩니다. Incident 생성 이후, 사용자는 Incident에 대한 처리 상황을 기록하거나 Escalation을 통해 공지를 받을 수 있습니다.<br />
-                    이 외에 중복되는 incident 생성을 방지 하기 위해 Auto closing, unclosed Incident suppress 기능을 제공하고 있습니다.</p>
+                    <h4 id="summary-incident-incident">인시던트</h4>
+                    <p>경고가 수집되면 사전에 설정한 인시던트 생성 규칙을 통해 인시던트가 생성됩니다.<br />
+                    인시던트 생성 이후, 사용자는 인시던트에 대한 처리 상황을 기록하거나 에스컬레이션을 통해 공지를 받을 수 있습니다.</p>
+                    <p>사용자는 필요에 따라 서비스 별로 인시던트가 발생하지 않도록 유지보수 일정을 설정할 수 있습니다.</p>
                     <ul>
-                    <li>Auto closing 기능<br />
-                    <img src="./image/bnr_incident_01.png" width="531"  /><br />
-                    임계치 설정에 따라 Incident가 생성되어 있고, 만약 인스턴스 상태가 정상적으로 돌아오면, 기존에 생성된 Incident를 자동으로 closing 합니다.</li>
-                    <li>Unclosed Incident Suppression<br />
-                    Cloudwatch로 수신되는 알람 중, Cloudwatch Alarm Name이 동일한 Alert에 대해 Close 되지 않은 Incident가 존재하는 경우, Incident 의 추가 생성을 제한하는 기능을 제공합니다.<br />
-                    <img src="./image/bnr_incident_02.png" width="531"  /></li>
+                    <li>릴리즈, DB 작업, 인프라 작업, 보안 작업 등의 특정상황에 따라 유지보수 일정을 설정 할 수 있고, 설정한 기간 동안에는 인시던트가 발생하지 않습니다.</li>
+                    <li>유지보수 상태에서 발생한 경고는 “생성안됨(유지보수 일정)” 상태로 저장되며, 유지보수 일정으로 인해 해당 경고의 인시던트가 생성되지 않았음을 확인할 수 있습니다.</li>
                     </ul>
-                    <p>또한 사용자는 사용자의 판단에 따라 Alert 이 생성되지 않은 상태에서도 수동으로 Incident 를 생성해 장애 대응을 진행할 수 있습니다. (추후예정)</p>
+                    <p>이 외에 중복되는 인시던트 생성을 방지 하기 위해 “Stable Alert Receive”, “Unclosed Incident suppress” 기능을 제공하고 있습니다.</p>
                     <ul>
-                    <li>사용자는 Alert Rule 에 의해 Incident 가 생성되지 않은 Alert 을 선택해 Incident 로 생성할 수 있습니다.(추후예정)</li>
-                    <li>사용자는 Alert 이 생성되지 않은 상태에서도 수동으로 Incident 를 생성할 수 있습니다.(추후예정)</li>
-                    <li>사용자는 이미 Incident 가 생성된 Alert 을 선택해 다른 Incident 에 연결할 수 있습니다.(추후예정)</li>
+                    <li>Stable Alert Receive<br />
+                    <img src="./image/bnr_incident_01.png" width="629"  /><br />
+                    임계치 설정에 따라 인시던트가 생성되어 있고, 만약 인스턴스 상태가 정상적으로 돌아오면, 기존에 생성된 인시던트를 자동으로 종료 합니다.</li>
+                    <li><p>Unclosed Incident Suppression<br />
+                    Cloudwatch로 수신되는 알림 중, Cloudwatch Alert Name , dimension정보가 모두 동일한 종료되지 않은 인시던트가 존재하는 경우, 생성 억제 됩니다.<br />
+                    <img src="./image/bnr_incident_02.png" width="506"  /></p>
+                    <p>※ 참고 : Cloud watch에서 제공하는 Dimension정보<br />
+                    <code>InstanceId</code>, <code>ApiName</code>, <code>Fleet</code>, <code>ServiceName</code>, <code>DistributionId</code>, <code>ClientId</code>, <code>RuleName</code>, <code>LogGroupName</code>, <code>ConnectionId</code>, <code>DBInstanceIdentifier</code>, <code>VolumeId</code>, <code>FileSystemId</code>, <code>LoadBalancerName</code>, <code>AutoScalingGroupName</code>, <code>ActionType</code>, <code>ClientId</code>, <code>PipelineId</code>, <code>JobId</code>, <code>Flow</code>, <code>StreamName</code>, <code>KeyId</code>, <code>FunctionName</code>, <code>BotName</code>, <code>MLModelId</code>, <code>Broker</code>, <code>HealthCheckId</code>, <code>Host</code>, <code>TopicName</code>, <code>QueueName</code>, <code>BucketName</code>, <code>AttackVector</code>, <code>LambdaFunctionArn</code>, <code>Domain</code>, <code>GatewayId</code>, <code>ServiceName</code>, <code>NatGatewayId</code>, <code>VpnId</code>, <code>Rule</code>, <code>WorkspaceId</code></p></li>
+                    <li><p>인시던트 생성 – 억제 규칙<br />
+                    “Unclosed Incident Suppression”에서 걸러지지 않은 경고에 대해 서비스에서 설정한 규칙을 적용하여 생성억제 합니다.<br />
+                    단, 종료되지 않은 인시던트가 존재하여야 합니다.</p></li>
                     </ul>
-                    <h4 id="relationship">Alert, Incident 관계</h4>
-                    <p>위 내용을 종합했을 때, Alert 과 Incident 는 아래의 관계를 가질 수 있습니다.</p>
+                    <p>또한 사용자는 사용자의 판단에 따라 경고가 생성되지 않은 상태에서도 수동으로 인시던트를 생성해 장애 대응을 진행할 수 있습니다. (추후예정)</p>
+                    <ul>
+                    <li>사용자는 경고 규칙에 의해 인시던트가 생성되지 않은 경고를 선택해 인시던트로 생성할 수 있습니다.(추후예정)</li>
+                    <li>사용자는 경고 이 생성되지 않은 상태에서도 수동으로 인시던트를 생성할 수 있습니다.(추후예정)</li>
+                    <li>사용자는 이미 인시던트가 생성된 경고를 선택해 다른 인시던트에 연결할 수 있습니다.(추후예정)</li>
+                    </ul>
+                    <h4 id="alert-incident-relationship">경고, 인시던트 관계</h4>
+                    <p>위 내용을 종합했을 때, 경고와 인시던트는 아래의 관계를 가질 수 있습니다.</p>
                     <ol type="1">
-                    <li><p>Alert 기준</p>
+                    <li><p>경고 기준</p>
                     <table style="width:99%;">
                     <colgroup>
                     <col style="width: 23%" />
@@ -202,23 +210,23 @@
                     </colgroup>
                     <tbody>
                     <tr class="odd">
-                    <td>Incident 생성</td>
-                    <td>Alert : Generated Incident</td>
+                    <td>인시던트 생성</td>
+                    <td>경고 : 생성된 인시던트</td>
                     <td>[ 1 : 1 ]</td>
                     </tr>
                     <tr class="even">
-                    <td>참조 Alert</td>
-                    <td>Alert : Referred Alert</td>
+                    <td>참조 경고</td>
+                    <td>경고 : 참조 경고</td>
                     <td>[ 1 : N ] (추후예정)</td>
                     </tr>
                     <tr class="odd">
-                    <td>참조 Incident</td>
-                    <td>Alert : Referred Incident</td>
+                    <td>참조 인시던트</td>
+                    <td>경고 : 참조 인시던트</td>
                     <td>[ 1 : N ] (추후예정)</td>
                     </tr>
                     </tbody>
                     </table></li>
-                    <li><p>Incident 기준</p>
+                    <li><p>인시던트 기준</p>
                     <table>
                     <colgroup>
                     <col style="width: 23%" />
@@ -227,48 +235,48 @@
                     </colgroup>
                     <tbody>
                     <tr class="odd">
-                    <td>생성기준 Alert</td>
-                    <td>Incident : Triggered Alert</td>
+                    <td>생성기준 경고</td>
+                    <td>인시던트 : 경고</td>
                     <td>[ 1 : 1 ]</td>
                     </tr>
                     <tr class="even">
-                    <td>Incident 병합</td>
-                    <td>Incident : Merged Incident</td>
+                    <td>인시던트 병합</td>
+                    <td>인시던트 : 병합 인시던트</td>
                     <td>[ 1 : N ] (추후예정)</td>
                     </tr>
                     <tr class="odd">
-                    <td>참조 Incident</td>
-                    <td>Incident : Referred Incident</td>
+                    <td>참조 인시던트</td>
+                    <td>인시던트 : 참조 인시던트</td>
                     <td>[ 1 : N ] (추후예정)</td>
                     </tr>
                     <tr class="even">
-                    <td>참조 Alert</td>
-                    <td>Incident : Referred Alert</td>
+                    <td>참조 경고</td>
+                    <td>인시던트 : 참조 경고</td>
                     <td>[ 1 : N ] (추후예정)</td>
                     </tr>
                     </tbody>
                     </table></li>
                     </ol>
-                    <p>Alert는 다음과 같은 Incident 생성 결과를 가질 수 있습니다.</p>
+                    <p>경고는 다음과 같은 인시던트 생성 결과를 가질 수 있습니다.</p>
                     <ol type="1">
-                    <li>Incident 생성 Incident Creation</li>
-                    <li>생성억제(생성제한 규칙) Suppressed (by suppression rule)</li>
-                    <li>생성억제(유지보수) Suppressed (by maintenance)</li>
-                    <li>생성억제(미종료 Incident) Suppressed (by unclosed)</li>
+                    <li>인시던트 생성</li>
+                    <li>생성억제(생성제한 규칙)</li>
+                    <li>생성억제(유지보수)</li>
+                    <li>생성억제(미종료 인시던트)</li>
                     </ol>
                     <hr />
-                    <h3 id="incident-2">Incident</h3>
+                    <h3 id="incident-incident">인시던트</h3>
                     <blockquote>
-                    <p>접속 경로: Incident &gt; <em>Incident</em></p>
+                    <p>접속 경로: 인시던트 &gt; <em>인시던트</em></p>
                     </blockquote>
-                    <p>Incidents 메뉴를 통해 생성된 Incident 들을 목록으로 확인할 수 있으며, Incident 별 상세 내용을 확인하고 처리 상태를 기록할 수 있습니다.<br />
-                    또한 기간, 키워드를 설정해 특정 Incident를 검색할 수 있습니다.</p>
+                    <p>인시던트 메뉴를 통해 생성된 인시던트들을 목록으로 확인할 수 있으며, 인시던트 별 상세 내용을 확인하고 처리 상태를 기록할 수 있습니다.<br />
+                    또한 기간, 키워드를 설정해 특정 인시던트를 검색할 수 있습니다.</p>
                     <h4 id="incident-user-layout">화면구성</h4>
+                    <p>인시던트 메뉴는 아래와 이미지와 같이 크게 두 영역으로 구분됩니다.<br />
+                    <img src="./image/bnr_incident_03.png" width="940" alt="Incident 메뉴 구성" /></p>
                     <ol type="1">
-                    <li><p>Incident 메뉴는 아래와 이미지와 같이 크게 두 영역으로 구분됩니다.</p>
-                    <figure>
-                    <img src="./image/bnr_incident_03.png" width="940" alt="Incident 메뉴 구성" /><figcaption>Incident 메뉴 구성</figcaption>
-                    </figure>
+                    <li><p>인시던트 목록<br />
+                    기 발생한 인시던트의 목록으로 확인 및 검색할 수 있습니다. 목록화면에서 인시던트 선택 시, 선택한 항목의 정보가 상세 영역에 표시됩니다. 목록화면에서는 아래의 정보를 확인할 수 있습니다.</p>
                     <table style="width:92%;">
                     <colgroup>
                     <col style="width: 15%" />
@@ -282,49 +290,49 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>No</td>
-                    <td>Incident 의 Serial Number를 표시합니다.</td>
+                    <td>번호</td>
+                    <td>인시던트의 고유식별번호를 표시합니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Title</td>
-                    <td>Incident 의 제목을 표시합니다.</td>
+                    <td>이름</td>
+                    <td>인시던트의 제목을 표시합니다.</td>
                     </tr>
                     <tr class="odd">
-                    <td>Status</td>
-                    <td>Incident 의 상태를 표시합니다.<br />
-                    Incident 는 아래의 상태 값을 가집니다.
+                    <td>상태</td>
+                    <td>인시던트의 상태를 표시합니다.<br />
+                    인시던트는 아래의 상태 값을 가집니다.
                     <ul>
-                    <li>Open</li>
-                    <li>Acknowledge</li>
-                    <li>Close</li>
+                    <li>생성</li>
+                    <li>확인</li>
+                    <li>종료</li>
                     </ul></td>
                     </tr>
                     <tr class="even">
-                    <td>Created</td>
-                    <td>Incident 의 생성 날짜 및 시간을 표시합니다.</td>
+                    <td>생성일시</td>
+                    <td>인시던트의 생성 날짜 및 시간을 표시합니다.</td>
                     </tr>
                     <tr class="odd">
-                    <td>Updated</td>
-                    <td>Incident 의 최종 업데이트 날짜 및 시간을 표시합니다.</td>
+                    <td>변경일시</td>
+                    <td>인시던트의 의 최종 수정 날짜 및 시간을 표시합니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Urgency</td>
-                    <td>Incident 의 시급도를 표시합니다.</td>
+                    <td>긴급도</td>
+                    <td>인시던트의 긴급도를 표시합니다.</td>
                     </tr>
                     <tr class="odd">
-                    <td>Service</td>
-                    <td>Incident 가 발생한 서비스 이름을 표시합니다.</td>
+                    <td>서비스</td>
+                    <td>인시던트가 발생한 서비스 이름을 표시합니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Assignee</td>
-                    <td>Incident 의 담당자로 지정된 사용자 이름을 표시합니다.</td>
+                    <td>담당자</td>
+                    <td>인시던트의 담당자로 지정된 사용자 이름을 표시합니다.</td>
                     </tr>
                     </tbody>
                     </table></li>
-                    <li><p>Incident Detail<br />
-                    Incident List 에서 선택한 Incident 의 상세 정보를 확인할 수 있습니다. 해당 영역은 사용자의 필요에 따라 확장해 큰 화면으로 확인할 수도 있습니다. Incident Detail에서는 아래의 정보를 확인할 수 있습니다.</p>
+                    <li><p>인시던트 상세<br />
+                    인시던트 목록에서 선택한 항목의 상세 정보를 확인할 수 있습니다. 해당 영역은 사용자의 필요에 따라 확장해 큰 화면으로 확인할 수도 있습니다. 인시던트 상세화면에서는 아래의 정보를 확인할 수 있습니다.</p>
                     <ul>
-                    <li><p>summary</p>
+                    <li><p>기본정보</p>
                     <table>
                     <colgroup>
                     <col style="width: 17%" />
@@ -338,28 +346,28 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Service</td>
-                    <td>Incident 가 발생한 서비스 이름을 표시합니다.</td>
+                    <td>서비스</td>
+                    <td>인시던트가 발생한 서비스 이름을 표시합니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Created</td>
-                    <td>Incident 의 생성 날짜 및 시간을 표시합니다.</td>
+                    <td>생성일시</td>
+                    <td>인시던트의 생성 날짜 및 시간을 표시합니다.</td>
                     </tr>
                     <tr class="odd">
-                    <td>Urgency</td>
-                    <td>Incident 의 시급도를 표시합니다.</td>
+                    <td>긴급도</td>
+                    <td>인시던트의 긴급도를 표시합니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Assignee</td>
-                    <td>Incident 의 담당자를 표시합니다.</td>
+                    <td>담당자</td>
+                    <td>인시던트의 담당자를 표시합니다.</td>
                     </tr>
                     </tbody>
                     </table></li>
-                    <li><p>detail</p>
+                    <li><p>상세정보</p>
                     <table>
                     <colgroup>
-                    <col style="width: 17%" />
-                    <col style="width: 82%" />
+                    <col style="width: 23%" />
+                    <col style="width: 76%" />
                     </colgroup>
                     <thead>
                     <tr class="header">
@@ -369,9 +377,9 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Status</td>
-                    <td>Incident 의 상태를 표시합니다.<br />
-                    Incident는 아래의 상태 값을 가집니다.
+                    <td>상태</td>
+                    <td>인시던트의 상태를 표시합니다.<br />
+                    인시던트는 아래의 상태 값을 가집니다.
                     <ul>
                     <li>Open</li>
                     <li>Acknowledge</li>
@@ -379,58 +387,64 @@
                     </ul></td>
                     </tr>
                     <tr class="even">
-                    <td>Escalation</td>
-                    <td>Incident 에 설정된 Escalation Rule 을 표시합니다.</td>
+                    <td>에스컬레이션</td>
+                    <td>인시던트에 설정된 에스컬레이션 규칙을 표시합니다.</td>
                     </tr>
                     <tr class="odd">
-                    <td>Integration</td>
-                    <td>Incident 를 발생시킨 Integration 명을 표시합니다.</td>
+                    <td>인티그레이션</td>
+                    <td>인시던트 를 발생시킨 인티그레이션 명을 표시합니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Integration</td>
-                    <td>Type Incident 를 발생시킨 Integration Type을 표시합니다.</td>
+                    <td>인티그레이션 유형</td>
+                    <td>인시던트 를 발생시킨 인티그레이션 유형을 표시합니다.</td>
                     </tr>
                     <tr class="odd">
-                    <td>Referenced</td>
-                    <td>alerts Incident 를 발생시킨 alert를 표시합니다.</td>
+                    <td>참조 경고</td>
+                    <td>인시던트 를 발생시킨 경고를 표시합니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Message</td>
-                    <td>Alert 발생 시 첨부된 메시지를 표시합니다.</td>
+                    <td>메세지</td>
+                    <td>경고 발생 시 첨부된 메시지를 표시합니다.</td>
                     </tr>
                     <tr class="odd">
-                    <td>Description</td>
-                    <td>Incident 의 설명을 표시합니다. 설명을 직접 입력할 수 있습니다.</td>
+                    <td>설명</td>
+                    <td>인시던트 의 설명을 표시합니다. 설명을 직접 입력할 수 있습니다.</td>
                     </tr>
                     </tbody>
                     </table></li>
                     </ul></li>
                     </ol>
-                    <h4 id="incident-status">Incident 상태</h4>
-                    <p>Incident 는 아래의 세가지 상태 값을 가지며, 상태에 따라 Title 영역을 다른 색상으로 표시합니다.</p>
+                    <h4 id="incident-status">인시던트 상태</h4>
+                    <p>인시던트는 아래의 세가지 상태 값을 가지며, 상태에 따라 제목 영역을 다른 색상으로 표시합니다.</p>
                     <ol type="1">
-                    <li>Open<br />
-                    새롭게 Incident 로 생성되어 아직 처리 전인 상태를 의미합니다.<br />
-                    <img src="./image/bnr_incident_status_01.png" width="485" alt="Open의 incident 상태 표시" /></li>
-                    <li>Acknowledge<br />
-                    장애 사실을 인지하고 담당자가 처리 중인 상태를 의미합니다.<br />
-                    <img src="./image/bnr_incident_status_02.png" width="484" alt="Acknowledge Incident의 표시" /></li>
-                    <li>Closed<br />
-                    장애 처리가 완료되어 종결된 상태를 의미합니다.<br />
-                    <img src="./image/bnr_incident_status_03.png" width="466" alt="Closed Incident의 표시" /></li>
+                    <li><p>생성<br />
+                    새롭게 인시던트로 생성되어 아직 처리 전인 상태를 의미합니다.</p>
+                    <figure>
+                    <img src="./image/bnr_incident_status_01.png" width="485" alt="생성 상태" /><figcaption>생성 상태</figcaption>
+                    </figure></li>
+                    <li><p>확인<br />
+                    장애 사실을 인지하고 담당자가 처리 중인 상태를 의미합니다.</p>
+                    <figure>
+                    <img src="./image/bnr_incident_status_02.png" width="484" alt="확인 상태" /><figcaption>확인 상태</figcaption>
+                    </figure></li>
+                    <li><p>종료<br />
+                    장애 처리가 완료되어 종결된 상태를 의미합니다.</p>
+                    <figure>
+                    <img src="./image/bnr_incident_status_03.png" width="466" alt="종료 상태" /><figcaption>종료 상태</figcaption>
+                    </figure></li>
                     </ol>
-                    <h4 id="incident_search">Incident 검색</h4>
+                    <h4 id="incident_search">인시던트 검색</h4>
                     <p>사용자는 Incident 목록에서 Incident를 기간/키워드 조건을 설정해 incident를 검색할 수 있습니다. 검색 결과는 incident 목록에 바로 표시됩니다.</p>
                     <ol type="1">
-                    <li>기간 검색<br />
-                    <img src="./image/bnr_incident_search_01.png" width="704" alt="검색 조건" />
+                    <li><p>기간 검색<br />
+                    <img src="./image/bnr_incident_search_01.png" width="705" alt="검색 조건" /></p>
                     <ol type="A">
                     <li><p>기간 선택 Preset<br />
-                    사용자가 선택 가능한 기간을 Preset 형태로 제공합니다. 사용자는 아래의 기간 Preset 을 선택할 수 있으며, 선택 시 기간 선택 영역에 선택된 기간이 표시됩니다.</p>
-                    <table>
+                    사용자는 인시던트 목록에서 기간/키워드 조건을 설정해서 검색할 수 있습니다. 검색 결과는 목록에 바로 표시됩니다.</p>
+                    <table style="width:86%;">
                     <colgroup>
-                    <col style="width: 17%" />
-                    <col style="width: 82%" />
+                    <col style="width: 13%" />
+                    <col style="width: 72%" />
                     </colgroup>
                     <thead>
                     <tr class="header">
@@ -440,152 +454,169 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Today</td>
+                    <td>전체</td>
+                    <td>인시던트가 발생한 전체 기간을 검색합니다.</td>
+                    </tr>
+                    <tr class="even">
+                    <td>오늘</td>
                     <td>현재 날짜를 선택한다.</td>
                     </tr>
-                    <tr class="even">
-                    <td>Yesterday</td>
+                    <tr class="odd">
+                    <td>어제</td>
                     <td>어제의 날짜를 선택한다.</td>
                     </tr>
-                    <tr class="odd">
-                    <td>This week</td>
+                    <tr class="even">
+                    <td>이번 주</td>
                     <td>현재 시간을 기준으로 이번 주를 선택한다.</td>
                     </tr>
-                    <tr class="even">
-                    <td>This month</td>
+                    <tr class="odd">
+                    <td>이번 달</td>
                     <td>현재 시간을 기준으로 해당 월을 선택한다.</td>
                     </tr>
-                    <tr class="odd">
-                    <td>Last Week</td>
+                    <tr class="even">
+                    <td>지난 주</td>
                     <td>현재 시간을 기준으로 지난 주를 선택한다</td>
                     </tr>
-                    <tr class="even">
-                    <td>Last Month</td>
+                    <tr class="odd">
+                    <td>지난 달</td>
                     <td>현재 시간을 기준으로 지난 달을 선택한다.</td>
                     </tr>
                     </tbody>
                     </table></li>
-                    <li><p>Custom(기간 선택)<br />
-                    사용자는 검색 시작/종료일 및 시간을 선택할 수 있습니다. 기간 선택 시 선택한 기간 내의 Incident 가 Incident 목록에 표시됩니다. 또한 사용자는 좌/우 화살표를 선택해 현재 설정된 날짜를 기준으로 이전/이후 주기를 설정할 수 있습니다.</p></li>
+                    <li><p>사용자 정의<br />
+                    사용자는 검색 시작/종료일 및 시간을 선택할 수 있습니다.<br />
+                    기간 선택 시 선택한 기간 내의 인시던트가 목록에 표시됩니다.<br />
+                    또한 사용자는 좌/우 화살표를 선택해 현재 설정된 날짜를 기준으로 이전/이후 주기를 설정할 수 있습니다.</p></li>
                     </ol></li>
                     <li><p>키워드 검색<br />
-                    사용자는 키워드를 입력해 입력한 키워드와 일치하는 Incident를 검색할 수 있습니다. 선택한 기간의 Incident 중 입력한 키워드와 일치하는 Incident를 검색 결과로 표시합니다.</p></li>
-                    <li>상태 필터<br />
-                    <img src="./image/bnr_incident_search_02.png" width="632" alt="상태 필터(우측상단)" /><br />
-                    목록 내 Incident 중, Assignee가 현재 로그인한 사용자인 Incident 만 필터링해 확인할 수 있습니다.
+                    사용자는 키워드를 입력해 입력한 키워드와 일치하는 인시던트를 검색할 수 있습니다. 선택한 기간의 인시던트 중 입력한 키워드와 일치하는 항목을 검색 결과로 표시합니다.</p></li>
+                    <li><p>상태 필터</p>
+                    <figure>
+                    <img src="./image/bnr_incident_search_02.png" width="169" alt="상태 필터(우측상단)" /><figcaption>상태 필터(우측상단)</figcaption>
+                    </figure>
+                    <p>목록 내 인시던트 중, 담당자가 현재 로그인한 사용자인 인시던트만 필터링해 확인할 수 있습니다.</p>
                     <ol type="a">
-                    <li>Assign to me<br />
-                    Incident 목록에서 Assignee가 현재 로그인한 사용자인 Incident 만 표시합니다..</li>
-                    <li>All<br />
-                    전체 Incident를 표시합니다.</li>
+                    <li>나에게 할당<br />
+                    인시던트 목록에서 담당자가 현재 로그인한 사용자인 인시던트만 표시합니다.</li>
+                    <li>전체<br />
+                    전체 인시던트를 표시합니다.</li>
                     </ol></li>
                     </ol>
-                    <h4 id="incident-handling">Incident 조작</h4>
-                    <p>목록 내 Incident 에 대해 아래의 작업들을 수행할 수 있습니다.</p>
+                    <h4 id="incident-handling">인시던트 조작</h4>
+                    <p>목록 내 인시던트에 대해 아래의 작업들을 수행할 수 있습니다.</p>
                     <ol type="1">
-                    <li>상태 변경<br />
-                    Incident 의 상태를 변경할 수 있습니다. 개별 Incident 의 상태를 변경할 수 있으며, 복수의 Incident 를 선택해 상태를 일괄 변경할 수 있습니다.
+                    <li><p>상태 변경<br />
+                    인시던트의 상태를 변경할 수 있습니다. 개별 인시던트의 상태를 변경할 수 있으며, 복수의 인시던트를 선택해 상태를 일괄 변경할 수 있습니다.</p>
                     <ol type="a">
-                    <li>Incident 상태 변경<br />
-                    Incident Detail 화면에서 Title 하단의 버튼으로, 상태를 변경 할 수 있습니다.<br />
+                    <li>인시던트 상태 변경<br />
+                    인시던트 상세 화면에서 이름 하단의 버튼으로, 상태를 변경 할 수 있습니다.<br />
                     <img src="./image/bnr_incident_handing_01.png" width="481"  />
                     <ul>
-                    <li>Open 상태인 Incident 는 Acknowledge, Close 상태로 변경할 수 있습니다.</li>
-                    <li>Acknowledge 상태의 Incident 를 Close 상태로 변경할 수 있습니다.</li>
-                    <li>Close 상태의 Incident 는 상태를 변경할 수 없습니다.</li>
+                    <li>생성 상태인 인시던트는 확인, 종료 상태로 변경할 수 있습니다.</li>
+                    <li>확인 상태의 인시던트는 종료 상태로 변경할 수 있습니다.</li>
+                    <li>종료 상태의 인시던트는 상태를 변경할 수 없습니다.</li>
                     </ul></li>
-                    <li>복수 Incident 상태 일괄 변경<br />
-                    Incident List 에서 상태를 변경할 Incident를 선택해 Incident 의 상태를 일괄 변경할 수 있습니다.<br />
-                    <img src="./image/bnr_incident_handing_02.png" width="934"  /><br />
-                    복수 Incident 선택 후, Incident List 좌측 상단의 [Acknowledge] [Close] 버튼을 클릭해 상태를 변경할 수 있습니다.</li>
+                    <li><p>복수 인시던트 상태 일괄 변경<br />
+                    인시던트 목록에서 상태를 변경할 인시던트를 선택 후 상태를 일괄 변경할 수 있습니다.<br />
+                    <img src="./image/bnr_incident_handing_02.png" width="934"  /></p>
+                    <p>복수 인시던트 선택 후 목록 좌측 상단의 [확인][종료] 버튼을 클릭해 상태를 변경할 수 있습니다.</p></li>
                     </ol></li>
-                    <li>Assignee 지정 및 변경<br />
-                    Incident별로 Assignee를 지정하거나 변경할 수 있습니다. Incident Detail 화면의 [Assign] 버튼 클릭 시 Assignee를 지정할 수 있는 팝업이 표시됩니다.
+                    <li>담당자 지정 및 변경<br />
+                    인시던트 별로 담당자를 지정하거나 변경할 수 있습니다. 인시던트 상세 화면의 [담당자 지정] 버튼 클릭 시 담당자를 지정할 수 있는 팝업이 표시됩니다.
                     <ol type="a">
-                    <li>Assignee를 지정할 Incident 선택<br />
-                    Assignee 항목에는 현재 지정된 Assignee 의 이름이 표시되며, [Assign] 버튼 클릭 시 Assignee를 변경할 수 있는 팝업이 표시됩니다.<br />
+                    <li>담당자를 지정할 인시던트 선택<br />
+                    담당자 항목에는 현재 지정된 담당자 의 이름이 표시되며, [담당자] 버튼 클릭 시 담당자를 변경할 수 있는 팝업이 표시됩니다.<br />
                     <img src="./image/bnr_incident_handing_03.png" width="485"  /></li>
-                    <li>Asignee 선택<br />
-                    Assign User 팝업을 통해 담당자를 검색 후 지정할 수 있습니다.<br />
+                    <li>담당자 선택<br />
+                    담당자 지정 팝업을 통해 담당자를 검색 후 지정할 수 있습니다.<br />
                     <img src="./image/bnr_incident_handing_04.png" width="537"  /><br />
-                    하나의 Incident 에 대해 복수의 Assignee를 지정할 수 없습니다.</li>
+                    하나의 인시던트에 대해 복수의 담당자를 지정할 수 없습니다.</li>
                     <li>코멘트 작성<br />
-                    Incident에 대한 Comment를 작성할 수 있습니다.
+                    인시던트에 대한 댓글을 작성할 수 있습니다.
                     <ol type="1">
-                    <li>Incident detail의 full screen으로 이동<br />
-                    Incident Detail 화면에서 Active History 탭의 COMMENT에서 입력<br />
-                    <img src="./image/bnr_incident_handing_05.png" width="589"  /></li>
-                    <li>Comment 입력 후 [Add] 버튼 클릭</li>
-                    <li>입력된 Comment 확인<br />
+                    <li>인시던트 상세 화면의 “전체화면”으로 이동<br />
+                    <img src="./image/bnr_incident_handing_05.png" width="589"  /><br />
+                    인시던트 상세 화면에서 활동 이력 탭의 “전체” 또는 “댓글에”서 입력</li>
+                    <li>댓글 입력 후 [작성] 버튼 클릭</li>
+                    <li>입력된 댓글 확인<br />
                     <img src="./image/bnr_incident_handing_06.png" width="581"  /></li>
-                    <li>Title 변경<br />
-                    사용자의 필요에 따라 각 Incident 의 Title을 변경할 수 있습니다.
+                    <li>제목 변경<br />
+                    사용자의 필요에 따라 각 인시던트의 제목을 변경할 수 있습니다.
                     <ol type="a">
-                    <li>Full Screen의 Title 영역에서 [수정] 버튼 클릭<br />
+                    <li>전체 화면의 제목 영역에서 [수정] 버튼 클릭<br />
                     <img src="./image/bnr_incident_handing_07.png" width="1176"  /></li>
-                    <li>Title 수정 후, [완료] 버튼 클릭<br />
+                    <li>제목 수정 후, [확인] 버튼 클릭<br />
                     <img src="./image/bnr_incident_handing_08.png" width="1180"  /></li>
-                    <li>변경된 title 확인<br />
+                    <li>변경된 제목 확인<br />
                     <img src="./image/bnr_incident_handing_09.png" width="290"  /></li>
                     </ol></li>
                     </ol></li>
                     </ol></li>
-                    <li>연관 Alert 확인<br />
-                    각 Incident 의 연관 Alert 을 확인할 수 있으며, 각 Alert 의 Detail 화면으로 이동할 수 있습니다.
+                    <li>연관 경고 확인<br />
+                    각 인시던트의 참조 경고를 확인할 수 있으며, 각 경고의 상세 화면으로 이동할 수 있습니다.
                     <ol type="a">
-                    <li>Incident 연관 Alert 확인<br />
+                    <li>인시던트 참조 경고 확인<br />
                     <img src="./image/bnr_incident_handing_10.png" width="592"  /></li>
-                    <li>연관 Alert 클릭해 Alert 상세 정보 확인<br />
+                    <li>참조 경고 클릭해 경고 상세 정보 확인<br />
                     <img src="./image/bnr_incident_handing_11.png" width="582"  /></li>
                     </ol></li>
                     </ol>
-                    <h3 id="alert-1">Alert</h3>
+                    <h3 id="incident-alert">경고</h3>
                     <blockquote>
-                    <p>접속 경로: Incidents &gt; <em>Alerts</em></p>
+                    <p>접속 경로: 인시던트 &gt; <em>경고</em></p>
                     </blockquote>
-                    <p>Alert 메뉴를 통해 Alert 들을 목록으로 확인할 수 있으며, Alert의 상세 내용을 확인할 수 있습니다. 또한 기간, 키워드를 설정해 특정 Alert을 검색할 수 있습니다.</p>
+                    <p>경고 메뉴를 통해 경고 항목들을 목록으로 확인할 수 있으며, 상세 내용을 확인할 수 있습니다.<br />
+                    또한 기간, 키워드를 설정해 특정 경고를 검색할 수 있습니다.</p>
                     <h4 id="alert-user-interface">화면구성</h4>
-                    <p>Alert 메뉴는 아래와 이미지와 같이 크게 두 영역으로 구분됩니다.</p>
+                    <p>경고 메뉴는 아래와 이미지와 같이 크게 두 영역으로 구분됩니다.</p>
                     <figure>
-                    <img src="./image/bnr_alert_01.png" width="940" alt="Alert 구성" /><figcaption>Alert 구성</figcaption>
+                    <img src="./image/bnr_alert_01.png" width="940" alt="경고 구성" /><figcaption>경고 구성</figcaption>
                     </figure>
                     <ol type="1">
-                    <li><p>Alert list<br />
-                    기 발생한 Alert 들을 목록으로 확인할 수 있으며, 발생한 Alert 들을 검색할 수 있습니다. Alert List 에서 Alert 선택 시, 선택한 Alert의 정보가 Alert Detail 영역에 표시됩니다. Alert List 에서는 아래의 정보를 확인할 수 있습니다.</p>
+                    <li><p>경고 목록<br />
+                    기 발생한 경고들을 목록으로 확인할 수 있으며, 발생한 항목들을 검색할 수 있습니다.<br />
+                    경고 목록에서 항목 선택 시, 선택한 항목의 정보가 상세 영역에 표시됩니다.</p>
+                    <p>경고 목록에서는 아래의 정보를 확인할 수 있습니다.</p>
                     <table>
                     <colgroup>
-                    <col style="width: 18%" />
-                    <col style="width: 81%" />
+                    <col style="width: 19%" />
+                    <col style="width: 80%" />
                     </colgroup>
+                    <thead>
+                    <tr class="header">
+                    <th>항목</th>
+                    <th>설명</th>
+                    </tr>
+                    </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>No</td>
-                    <td>Alert 의 Serial Number 를 표시합니다.</td>
+                    <td>번호</td>
+                    <td>경고의 고유식별번호를 표시합니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Title</td>
-                    <td>Alert 의 제목을 표시합니다.</td>
+                    <td>이름</td>
+                    <td>경고의 제목을 표시합니다.</td>
                     </tr>
                     <tr class="odd">
-                    <td>Status</td>
-                    <td>Alert 의 상태를 표시합니다.</td>
+                    <td>인시던트 생성 여부</td>
+                    <td>해당 경고의 인시던트 생성 유무를 표시합니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Created</td>
-                    <td>Alert 의 생성 날짜 및 시간을 표시합니다.</td>
+                    <td>생성 일시</td>
+                    <td>경고의 생성 날짜 및 시간을 표시합니다.</td>
                     </tr>
                     <tr class="odd">
-                    <td>Service</td>
-                    <td>Alert 이 발생한 서비스 명을 표시합니다.</td>
+                    <td>서비스</td>
+                    <td>경고가 발생한 서비스 명을 표시합니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Integration Type</td>
-                    <td>Alert이 발생한 서비스의 Integration Type을 표시합니다.</td>
+                    <td>인티그레이션 유형</td>
+                    <td>경고이 발생한 서비스의 인티그레이션 유형을 표시합니다.</td>
                     </tr>
                     </tbody>
                     </table></li>
-                    <li><p>Alert Detail<br />
-                    Alert List 에서 선택한 Alert의 상세 정보를 확인할 수 있습니다. 해당 영역은 사용자의 필요에 따라 확장해 큰 화면으로 확인할 수도 있습니다. Alert Detail 에서는 아래의 정보를 확인할 수 있습니다.</p>
+                    <li><p>경고 상세<br />
+                    경고 항목에서 선택한 경고의 상세 정보를 확인할 수 있습니다. 해당 영역은 사용자의 필요에 따라 확장해 큰 화면으로 확인할 수도 있습니다. 경고 상세 화면에서는 아래의 정보를 확인할 수 있습니다.</p>
                     <table>
                     <colgroup>
                     <col style="width: 21%" />
@@ -599,80 +630,83 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Incident creation</td>
-                    <td>Incident generation rule에 따라 incident 생성 결과를 표시합니다.</td>
+                    <td>인시던트 생성여부</td>
+                    <td>인시던트 생성 규칙에 따라 인시던트 생성 결과를 표시합니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Created</td>
-                    <td>Alert의 생성 날짜 및 시간을 표시합니다.</td>
+                    <td>생성일시</td>
+                    <td>경고의 생성 날짜 및 시간을 표시합니다.</td>
                     </tr>
                     <tr class="odd">
-                    <td>Occurred</td>
-                    <td>Alert의 발생 날짜 및 시간을 표시합니다.</td>
+                    <td>발생일시</td>
+                    <td>경고의 발생 날짜 및 시간을 표시합니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Service</td>
-                    <td>Alert의 발생한 서비스 명을 표시합니다.</td>
+                    <td>서비스</td>
+                    <td>경고가 발생한 서비스 명을 표시합니다.</td>
                     </tr>
                     <tr class="odd">
-                    <td>Integration</td>
-                    <td>Alert의 Integration 을 표시합니다.</td>
+                    <td>인티그레이션</td>
+                    <td>경고의 인티그레이션 을 표시합니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Integration Type</td>
-                    <td>Alert 의 발생한 서비스의 Integration Type을 표시합니다.</td>
+                    <td>인티그레이션 유형</td>
+                    <td>경고가 발생한 서비스의 인티그레이션 유형을 표시합니다.</td>
                     </tr>
                     <tr class="odd">
-                    <td>Region</td>
-                    <td>Alert의 발생한 지역을 표시합니다.</td>
+                    <td>지역</td>
+                    <td>경고가 발생한 지역을 표시합니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Statistic type</td>
-                    <td>Cloud watch에 설정된 경보의 통계 타입을 표시합니다.</td>
+                    <td>집계유형</td>
+                    <td>경보의 집계 유형을 표시합니다.</td>
                     </tr>
                     <tr class="odd">
-                    <td>Statistic</td>
-                    <td>Cloudwatch에 설정된 경보의 통계 설정 값을 표시합니다.</td>
+                    <td>통계</td>
+                    <td>경보의 통계 설정 값을 표시합니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Comparison operator</td>
-                    <td>Cloud watch에 설정된 경보의 임계치 설정 비교 연산자를 표시합니다.</td>
+                    <td>비교연산자</td>
+                    <td>경보의 임계치 설정 비교 연산자를 표시합니다.</td>
                     </tr>
                     <tr class="odd">
-                    <td>Period</td>
-                    <td>Cloudwatch에 설정된 경보의 기간을 표시합니다.</td>
+                    <td>수집 기간</td>
+                    <td>Metric에 설정된 경보 수집 기준 기간을 표시합니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Evaluation periods</td>
-                    <td>Cloud watch에 설정된 경보 임계치의 발생 횟수를 표시합니다.</td>
+                    <td>측정 기간</td>
+                    <td>Metric에 설정된 경보 측정을 표시합니다.</td>
                     </tr>
                     <tr class="odd">
-                    <td>Message</td>
-                    <td>Alert의 상세 메시지를 확인할 수 있습니다.</td>
+                    <td>메시지</td>
+                    <td>경고의 상세 메시지를 확인할 수 있습니다.</td>
                     </tr>
                     <tr class="even">
-                    <td>Description</td>
-                    <td>Alert의 상세 설명을 확인할 수 있습니다.</td>
+                    <td>참조</td>
+                    <td>인시던트 경고와 연결된 인시던트를 표시한다.</td>
                     </tr>
                     <tr class="odd">
-                    <td>Related</td>
-                    <td>IncidentAlert 과 연결된 Incident를 표시한다.</td>
+                    <td>설명</td>
+                    <td>경고의 상세 설명을 확인할 수 있습니다.</td>
                     </tr>
                     </tbody>
                     </table></li>
                     </ol>
-                    <h4 id="alert-search">Alert 검색</h4>
-                    <p>사용자는 Alert List에서 기간/키워드 조건을 설정해 Alert을 검색할 수 있습니다. 검색 결과는 Alert 목록에 바로 표시됩니다.</p>
+                    <h4 id="alert-search">경고 검색</h4>
+                    <p>사용자는 경고 목록에서 기간/키워드 조건을 설정해 경고를 검색할 수 있습니다.<br />
+                    검색 결과는 경고 목록에 바로 표시됩니다.</p>
                     <ol type="1">
-                    <li>기간 검색<br />
-                    <img src="./image/bnr_alert_search_01.png" width="704" alt="검색 조건" />
+                    <li><p>기간 검색</p>
+                    <figure>
+                    <img src="./image/bnr_incident_search_01.png" width="705" alt="검색 조건" /><figcaption>검색 조건</figcaption>
+                    </figure>
                     <ol type="a">
                     <li><p>기간 선택 Preset<br />
                     사용자가 선택 가능한 기간을 Preset 형태로 제공합니다. 사용자는 아래의 기간 Preset 을 선택할 수 있으며, 선택 시 기간 선택 영역에 선택된 기간이 표시됩니다.</p>
-                    <table>
+                    <table style="width:86%;">
                     <colgroup>
-                    <col style="width: 17%" />
-                    <col style="width: 82%" />
+                    <col style="width: 13%" />
+                    <col style="width: 72%" />
                     </colgroup>
                     <thead>
                     <tr class="header">
@@ -682,83 +716,89 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Today</td>
+                    <td>전체</td>
+                    <td>경고가 발생한 전체 기간을 검색합니다.</td>
+                    </tr>
+                    <tr class="even">
+                    <td>오늘</td>
                     <td>현재 날짜를 선택한다.</td>
                     </tr>
-                    <tr class="even">
-                    <td>Yesterday</td>
+                    <tr class="odd">
+                    <td>어제</td>
                     <td>어제의 날짜를 선택한다.</td>
                     </tr>
-                    <tr class="odd">
-                    <td>This week</td>
+                    <tr class="even">
+                    <td>이번 주</td>
                     <td>현재 시간을 기준으로 이번 주를 선택한다.</td>
                     </tr>
-                    <tr class="even">
-                    <td>This month</td>
+                    <tr class="odd">
+                    <td>이번 달</td>
                     <td>현재 시간을 기준으로 해당 월을 선택한다.</td>
                     </tr>
-                    <tr class="odd">
-                    <td>Last Week</td>
+                    <tr class="even">
+                    <td>지난 주</td>
                     <td>현재 시간을 기준으로 지난 주를 선택한다</td>
                     </tr>
-                    <tr class="even">
-                    <td>Last Month</td>
+                    <tr class="odd">
+                    <td>지난 달</td>
                     <td>현재 시간을 기준으로 지난 달을 선택한다.</td>
                     </tr>
                     </tbody>
                     </table></li>
                     <li><p>기간 선택<br />
-                    사용자는 검색 시작/종료일 및 시간을 선택할 수 있습니다. 기간 선택 시 선택한 기간 내의 Alert이 Alert List에 표시됩니다. 또한 사용자는 좌/우 화살표를 선택해 현재 설정된 날짜를 기준으로 이전/이후 주기를 설정할 수 있습니다.</p></li>
+                    사용자는 검색 시작/종료일 및 시간을 선택할 수 있습니다.<br />
+                    기간 선택 시 선택한 기간 내의 경고가 경고 List에 표시됩니다.<br />
+                    또한 사용자는 좌/우 화살표를 선택해 현재 설정된 날짜를 기준으로 이전/이후 주기를 설정할 수 있습니다.</p></li>
                     </ol></li>
-                    <li>키워드 검색<br />
-                    사용자는 키워드를 입력해 입력한 키워드와 일치하는 Alert을 검색할 수 있습니다. 선택한 기간의 Alert 중 입력한 키워드와 일치하는 Incident를 검색 결과로 표시합니다.</li>
+                    <li><p>키워드 검색<br />
+                    사용자는 키워드를 입력해 입력한 키워드와 일치하는 경고를 검색할 수 있습니다. 선택한 기간의 경고 중 입력한 키워드와 일치하는 인시던트를 검색 결과로 표시합니다.</p></li>
                     </ol>
-                    <h4 id="alert-handling">Alert 조작</h4>
-                    <p>목록 내 Alert 에 대해 아래의 작업을 수행할 수 있습니다.</p>
+                    <h4 id="alert-handling">경고 조작</h4>
+                    <p>목록 내 경고에 대해 아래의 작업을 수행할 수 있습니다.</p>
                     <ol type="1">
                     <li>메시지 확인<br />
-                    발생한 Alert 에 대한 상세 메시지를 확인할 수 있습니다.
+                    발생한 경고에 대한 상세 메시지를 확인할 수 있습니다.
                     <ol type="a">
-                    <li>Alert Detail 화면에서 [Message] &gt; [View] 버튼을 클릭합니다.<br />
-                    <img src="./image/bnr_alert_search_01.png" width="704"  /></li>
-                    <li>새 탭으로 상세 Message가 표시됩니다.<br />
+                    <li>경고 상세 화면에서 [메시지]&gt;[보기] 버튼을 클릭합니다.<br />
                     <img src="./image/bnr_alert_search_02.png" width="485"  /></li>
-                    </ol></li>
-                    <li>Description 입력<br />
-                    발생한 Alert 에 대해 상세 설명을 입력할 수 있습니다.
-                    <ol type="a">
-                    <li>Alert Detail 화면에서 [수정] 버튼을 클릭합니다.<br />
+                    <li>새 탭으로 상세 메세지가 표시됩니다.<br />
                     <img src="./image/bnr_alert_search_03.png" width="1140"  /></li>
-                    <li>Description 입력 후 [저장] 버튼을 클릭합니다.<br />
-                    <img src="./image/bnr_alert_search_04.png" width="448"  /></li>
-                    <li>입력된 Description 을 확인합니다.<br />
-                    <img src="./image/bnr_alert_search_05.png" width="446"  /></li>
                     </ol></li>
-                    <li>연관 Incident 보기<br />
-                    선택한 Alert을 통해 생성된 Incident 들을 확인할 수 있으며, 각 Incident 의 상세 화면으로 이동할 수 있습니다.
+                    <li>설명 입력<br />
+                    발생한 경고에 대해 상세 설명을 입력할 수 있습니다.
                     <ol type="a">
-                    <li>Alert 연관 Incident 확인<br />
+                    <li>경고 상세 화면에서 [수정] 버튼을 클릭합니다.<br />
+                    <img src="./image/bnr_alert_search_04.png" width="448"  /></li>
+                    <li>설명 입력 후 [저장] 버튼을 클릭합니다.<br />
+                    <img src="./image/bnr_alert_search_05.png" width="446"  /></li>
+                    <li>입력된 Description 을 확인합니다.<br />
                     <img src="./image/bnr_alert_search_06.png" width="430"  /></li>
-                    <li>연관 Incident 클릭해 Incident 상세 정보 확인<br />
+                    </ol></li>
+                    <li>참조 인시던트 보기<br />
+                    선택한 경고를 통해 생성된 인시던트 들을 확인할 수 있으며, 각 인시던트 의 상세 화면으로 이동할 수 있습니다.
+                    <ol type="a">
+                    <li>참조 인시던트 확인<br />
+                    <img src="./image/bnr_alert_search_06.png" width="430"  /></li>
+                    <li>연관 인시던트 클릭해 인시던트 상세 정보 확인<br />
                     <img src="./image/bnr_alert_search_07.png" width="1382"  /></li>
                     </ol></li>
                     </ol>
                     <hr />
-                    <h2 id="service">Service</h2>
-                    <p>고객이 설정한 Service 단위로 Incident를 상태를 관리 합니다.</p>
-                    <p>Service는 Integration에서 발생하는 Incident를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다.<br />
-                    Integration에 설정된 routing rule에 따라 Service로 분기 되어 incident를 관리 할 수 있습니다.<br />
-                    Service 생성을 위한 Use Case는 다음과 같습니다.</p>
-                    <h3 id="service-use-case-1">Use Case 1. Service menu에서 생성</h3>
+                    <h2 id="service">서비스</h2>
+                    <p>고객이 설정한 서비스 단위로 인시던트를 상태를 관리합니다.</p>
+                    <p>서비스는 인티그레이션에서 발생하는 인시던트를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다.<br />
+                    인티그레이션에 설정된 라우팅 룰에 따라 서비스로 분기 되어 인시던트를 관리 할 수 있습니다.</p>
+                    <p>서비스 생성을 위한 Use Case는 다음과 같습니다.</p>
+                    <h3 id="service-use-case-1">Use Case 1.서비스 메뉴에서 생성</h3>
                     <ol type="1">
-                    <li>1단계 : Services 메뉴 선택<br />
-                    Services 메뉴를 클릭 합니다.<br />
+                    <li>1단계 : 서비스 메뉴 선택<br />
+                    서비스 메뉴를 클릭 합니다.<br />
                     <img src="./image/bnr_service_case1_01.png" width="633"  /></li>
-                    <li>2단계 : 신규 Service 생성<br />
-                    “Create service” 버튼을 클릭 합니다.<br />
+                    <li>2단계 : 신규 서비스 생성<br />
+                    “서비스 생성” 버튼을 클릭 합니다.<br />
                     <img src="./image/bnr_service_case1_02.png" width="1430"  /></li>
-                    <li><p>3단계 : Service를 생성<br />
-                    Service 생성을 위한 입력 항목은 다음과 같습니다.</p>
+                    <li><p>3단계 : 서비스를 생성<br />
+                    서비스 생성을 위한 입력 항목은 다음과 같습니다.</p>
                     <table>
                     <colgroup>
                     <col style="width: 17%" />
@@ -774,44 +814,42 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Service name</td>
-                    <td>고객이 생성하고자 하는 Service Name을 임의로 입력 합니다.</td>
+                    <td>서비스 이름</td>
+                    <td>고객이 생성하고자 하는 서비스 이름을 임의로 입력 합니다..</td>
                     <td>필수 입력 사항</td>
                     </tr>
                     <tr class="even">
-                    <td>Escalation rules</td>
+                    <td>에스컬레이션 규칙</td>
                     <td><ul>
-                    <li>Escalation basic rules : Escalation 기본 규칙을 설정합니다.<br />
-                    생성된 Escalation rule이 없는 경우, Default Escalation Rule이 생성됩니다.</li>
-                    <li>Add custom criteria : 사용자가 우선순위를 결정하여, 조건에 따라 Escalation을 선택 할 수 있습니다.<br />
+                    <li>에스컬레이션 기본 규칙<br />
+                    생성된 에스컬레이션 규칙이 없는 경우, “Default Escaltion Rule”이 생성됩니다.</li>
+                    <li>사용자 설정 조건 추가<br />
+                    사용자가 우선순위를 결정하여, 조건에 따라 에스컬레이션을 선택 할 수 있습니다.<br />
                     (선택 시 사용자가 설정한 조건의 규칙을 기본규칙보다 우선적으로 적용 됩니다.)</li>
                     </ul></td>
                     <td>필수 입력 사항</td>
                     </tr>
                     <tr class="odd">
-                    <td>Incident generation rules</td>
+                    <td>인시던트 생성 규칙</td>
                     <td><ul>
-                    <li>Incident suppression rules<br />
+                    <li>인시던트 제한 규칙<br />
                     조건 항목( Alert Summary, Alert Metric Name, Alert Resource Id)가<br />
                     연속해서 발생 할 경우, 기간(초)를 설정하여, incident 중복 생성을 방지 할 수 있습니다.</li>
-                    <li>Incident urgency rules<br />
-                    Incident 의 시급도를 설정 할 수 있습니다.</li>
-                    <li>Add custom criteria에서, 조건 항목( Alert Summary, Alert Metric Name,<br />
-                    Alert Resource Id)의 비교연산자 설정으로 시급도를 설정 할 수 있습니다.</li>
+                    <li>인시던트 긴급도 규칙<br />
+                    인시던트의 긴급도를 설정 할 수 있습니다.</li>
                     </ul></td>
                     <td>옵션 입력 사항</td>
                     </tr>
                     </tbody>
                     </table>
-                    <p><img src="./image/bnr_service_case1_03.png" width="1398"  /><br />
-                    Escalation rule이 없는 경우 자동으로 Create Default Escalation Rule이 생성됩니다.<br />
-                    (Service생성자가 기본 수신자로 설정이 됩니다.)</p>
-                    <img src="./image/bnr_service_case1_04.png" width="1391"  /><br />
-                    Escalation이 있는 경우 “Save”를 Click 합니다.</li>
-                    <li><p>4단계 : 생성된 Service를 선택<br />
-                    생성된 Service를 Click 하면 다음과 같은 화면으로 이동 합니다.<br />
+                    <p>에스컬레이션 규칙이 없는 경우 자동으로 “Default Escalation Rule”이 생성됩니다. (서비스 생성자가 기본 수신자로 설정이 됩니다.)<br />
+                    <img src="./image/bnr_service_case1_03.png" width="1398"  /></p>
+                    <p>Escalation이 있는 경우 “Save”를 Click 합니다.<br />
+                    <img src="./image/bnr_service_case1_04.png" width="1391"  /></p></li>
+                    <li><p>4단계 : 생성된 서비스를 선택<br />
+                    생성된 서비스를 클릭하면 다음과 같은 화면으로 이동 합니다.<br />
                     <img src="./image/bnr_service_case1_05.png" width="1414"  /></p>
-                    <p>각 Tap에 대한 내용은 다음과 같습니다.</p>
+                    <p>각 탭에 대한 내용은 다음과 같습니다.</p>
                     <table>
                     <colgroup>
                     <col style="width: 23%" />
@@ -827,50 +865,50 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Incident</td>
+                    <td>인시던트</td>
                     <td>기간 및 Search 조건에 따른 Incident 상태를 확인 할 수 있습니다.</td>
                     <td></td>
                     </tr>
                     <tr class="even">
-                    <td>Integration</td>
+                    <td>인티그레이션</td>
                     <td>해당 서비스의 Integration 정보를 확인 할 수 있습니다</td>
                     <td></td>
                     </tr>
                     <tr class="odd">
-                    <td>Escalation rule in use</td>
+                    <td>사용중인 에스컬레이션</td>
                     <td>해당 서비스의 Escalation 정보를 확인 할 수 있습니다.</td>
-                    <td>Edit가능</td>
+                    <td>수정 가능</td>
                     </tr>
                     <tr class="even">
-                    <td>Incident generation rules</td>
+                    <td>인시던트 생성 규칙</td>
                     <td>해당 서비스의 incident 생성 룰을 확인 할 수 있습니다.</td>
-                    <td>Edit가능</td>
+                    <td>수정 가능</td>
                     </tr>
                     </tbody>
                     </table></li>
-                    <li><p>5단계 : 생성된 Service에 Integration 설정<br />
+                    <li><p>5단계 : 생성된 서비스에 인티그레이션 설정<br />
                     다음 안내 Use Case 2.를 참조 하시기 바랍니다.</p></li>
                     </ol>
                     <h3 id="service-use-case-2">Use Case 2. Integration 생성 시에 생성</h3>
                     <ol type="1">
-                    <li>1단계 : Integration 메뉴 선택<br />
-                    Integrations 메뉴를 클릭 합니다.<br />
+                    <li>1단계 : 인티그레이션 메뉴 선택<br />
+                    인티그레이션 메뉴를 클릭 합니다.<br />
                     <img src="./image/bnr_service_case2_01.png" width="574"  /></li>
-                    <li>2단계 : 신규 Integration 생성<br />
-                    “Create Integration” 버튼을 클릭 합니다.<br />
+                    <li>2단계 : 신규 인티그레이션 생성<br />
+                    “인티그레이션 생성” 버튼을 클릭 합니다.<br />
                     <img src="./image/bnr_service_case2_02.png" width="1431"  /></li>
                     <li>3단계 : AWS Cloud Watch 선택<br />
-                    Integration Type의 “Add Integration” 버튼을 클릭합니다.<br />
+                    “새 인티그레이선 추가” 버튼을 클릭합니다.<br />
                     <img src="./image/bnr_service_case2_03.png" width="584"  /></li>
-                    <li><p>4단계 : Integration 설정<br />
+                    <li><p>4단계 : 인티그레이션 설정<br />
                     <img src="./image/bnr_service_case2_04.png" width="1413"  /></p>
-                    <p>Integration 설정을 위한 입력 항목은 다음과 같습니다.</p>
-                    <p>Service는 여러 Integration을 Group화 하여 고객이 관리하고자 하는 고객 향의 서비스로 지정하여 Incident를 관리 할 수 있습니다.</p>
+                    <p>인티그레이션 설정을 위한 입력 항목은 다음과 같습니다.</p>
+                    <p>서비스는 여러 인티그레이션을 그룹화 하여 고객이 관리하고자 하는 고객 향의 서비스로 지정하여 인시던트를 관리 할 수 있습니다.</p>
                     <table>
                     <colgroup>
-                    <col style="width: 18%" />
-                    <col style="width: 55%" />
-                    <col style="width: 25%" />
+                    <col style="width: 17%" />
+                    <col style="width: 56%" />
+                    <col style="width: 26%" />
                     </colgroup>
                     <thead>
                     <tr class="header">
@@ -881,34 +919,35 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Integration Name</td>
-                    <td>고객이 Integration Name을 설정할 수 있습니다.</td>
+                    <td>인티그레이션 이름</td>
+                    <td>고객이 인티그레이션 이름을 설정할 수 있습니다.</td>
                     <td>필수 입력 사항</td>
                     </tr>
                     <tr class="even">
-                    <td>Integration Type</td>
+                    <td>인티그레이션 유형</td>
                     <td>기 선택한 대상의 로고가 보입니다.<br />
                     <img src="./image/bnr_service_case2_aws_demo.png" width="192"  /></td>
                     <td>입력 및 수정 불가 사항</td>
                     </tr>
                     <tr class="odd">
-                    <td>Service</td>
+                    <td>서비스</td>
                     <td><ul>
-                    <li>Create Service 필수 선택 사항.<br />
-                    Integration 생성시, Service도 동시에 생성을 합니다.</li>
-                    <li>Select Service<br />
-                    Integration 생성시, 기존에 있는 Service를 매핑 합니다.</li>
+                    <li>신규 서비스 생성. |<br />
+                    인티그레이션 생성 시, 서비스도 동시에 생성을 합니다.</li>
+                    <li>서비스 선택<br />
+                    인티그레이션 생성 시, 기존에 있는 서비스를 매핑 합니다.</li>
                     </ul></td>
-                    <td>중복 선택 불가.</td>
+                    <td>필수 선택 사항<br />
+                    중복 선택 불가</td>
                     </tr>
                     </tbody>
                     </table>
-                    <p>Creation Service화면은 다음과 같습니다.<br />
+                    <p>“신규 서비스 생성” 화면은 다음과 같습니다.<br />
                     <img src="./image/bnr_service_case2_05.png" width="1421"  /></p>
                     <table>
                     <colgroup>
-                    <col style="width: 14%" />
-                    <col style="width: 69%" />
+                    <col style="width: 16%" />
+                    <col style="width: 68%" />
                     <col style="width: 15%" />
                     </colgroup>
                     <thead>
@@ -920,39 +959,41 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Enter a service name</td>
+                    <td>서비스 이름</td>
                     <td>고객이 생성하고자 하는 Service Name을 임의로 입력 합니다.</td>
                     <td>필수 입력 사항</td>
                     </tr>
                     <tr class="even">
-                    <td>Escalation rules</td>
+                    <td>에스컬레이션 규칙</td>
                     <td><ul>
-                    <li>Escalation basic rules : Escalation 기본 규칙을 설정합니다.</li>
-                    <li>Add custom criteria : 사용자가 우선순위를 결정하여, 조건에 따라 Escalation을 선택 할 수 있습니다.<br />
+                    <li>에스컬레이션 기본 규칙<br />
+                    Escalation 기본 규칙을 설정합니다.</li>
+                    <li>사용자 설정 조건 추가<br />
+                    사용자가 우선순위를 결정하여, 조건에 따라 Escalation을 선택 할 수 있습니다.<br />
                     (선택 시 사용자가 설정한 조건의 규칙을 기본규칙보다 우선적으로 적용 됩니다.)</li>
                     </ul></td>
                     <td>필수 입력 사항</td>
                     </tr>
                     <tr class="odd">
-                    <td>Incident generation rules</td>
+                    <td>인시던트 생성 규칙</td>
                     <td><ul>
-                    <li>Incident suppression rules<br />
-                    조건 항목( Alert Summary, Alert Metric Name, Alert Resource Id)가 연속해서 발생 할 경우, 기간(초)를 설정하여, incident 중복 생성을 방지 할 수 있습니다.</li>
-                    <li>Incident urgency rules<br />
-                    Incident 의 시급도를 설정 할 수 있습니다.</li>
-                    <li>Add custom criteria에서, 조건 항목( Alert Summary, Alert Metric Name, Alert Resource Id)의 비교연산자 설정으로 시급도를 설정 할 수 있습니다.</li>
+                    <li>인시던트 생성 제한 규칙<br />
+                    조건 항목( Alert Summary, Alert Metric Name)가 연속해서 발생 할 경우,<br />
+                    기간(초)를 설정하여, 인시던트 중복 생성을 방지 할 수 있습니다.</li>
+                    <li>인시던트 긴급도 규칙<br />
+                    인시던트의 긴급도를 설정 할 수 있습니다.</li>
                     </ul></td>
                     <td>옵션 입력 사항</td>
                     </tr>
                     </tbody>
                     </table></li>
-                    <li><p>5단계 : 생성 Integration, Service 저장<br />
-                    “Integration Name”을 입력하고, 사용자의 설정에 따른 Service를 생성, 혹은 선택한 후에 우측 하단의 “SAVE” 버튼을 클릭 합니다.</p></li>
+                    <li><p>5단계 : 생성 인티그레이션, 서비스 저장<br />
+                    “인티그레이션 이름”을 입력하고, 사용자의 설정에 따른 서비스를 생성, 혹은 선택한 후에 우측 하단의 “저장” 버튼을 클릭 합니다</p></li>
                     </ol>
                     <hr />
-                    <h2 id="escalations">Escalations</h2>
-                    <p>Incident 발생 시 단계별로 이를 처리할 담당자 및 담당자가 처리해야 할 Action과 시간(Timeout)을 설정하여 Rule로 관리 할 수 있습니다.</p>
-                    <p>Escalation Policy 생성을 위한 Use Case는 다음과 같습니다.</p>
+                    <h2 id="escalations">에스컬레이션</h2>
+                    <p>인시던트 발생 시 단계별로 이를 처리할 담당자 및 담당자가 처리해야 할 Action과 시간(Timeout)을 설정하여 Rule로 관리 할 수 있습니다.</p>
+                    <p>에스컬레이션 정책 생성을 위한 Use Case는 다음과 같습니다.</p>
                     <table>
                     <colgroup>
                     <col style="width: 28%" />
@@ -965,40 +1006,40 @@
                     </tr>
                     <tr class="even">
                     <td>Use Case 1.<br />
-                    “Escalations” 메뉴에서 생성</td>
-                    <td>Escalation 메뉴에서 오른쪽 상위에 있는 “Create New Escalation” 버튼을 Click 합니다.<br />
+                    “에스컬레이션” 메뉴에서 생성</td>
+                    <td>에스컬레이션 메뉴에서 오른쪽 상위에 있는 “에스컬레이션 생성” 버튼을 클릭합니다.<br />
                     <img src="./image/bnr_escalation_01_button.png" width="163"  /><br />
-                    Escalation Policy를 생성 합니다.</td>
+                    에스컬레이션 정책을 생성 합니다.</td>
                     </tr>
                     <tr class="odd">
                     <td>Use case 2.<br />
-                    “Service” 생성시, Default Escalation Rule 생성</td>
-                    <td>Create service경우, 기존에 생성된 escalation rules가 없다면 “Default Escalation Rule”이 생성됩니다.</td>
+                    “서비스” 생성시, Default Escalation Rule 생성</td>
+                    <td>서비스 생성의 경우, 기존에 생성된 에스컬레이션 규칙이 없다면 “Default Escalation Rule”이 생성됩니다.</td>
                     </tr>
                     <tr class="even">
                     <td>Use case 3.<br />
-                    “Integration” 생성시, “Create Service”를 선택할 경우,<br />
-                    기존에 생성된 escalation rules가 없는 경우</td>
-                    <td>Create Integration 하면서 동시에 Create Service 할 경우, 기존에 생성된 escalation rules가 없다면 “Default Escalation Rule”이 생성됩니다.</td>
+                    “인티그레이션”, “서비스” 생성을 동시에 할 경우,<br />
+                    기존에 생성된 에스컬레이션 규칙이 없는 경우</td>
+                    <td>“인티그레이션”, “서비스” 생성을 동시에 할 경우, 기존에 생성된 에스컬레이션 규칙이 없다면 “Default Escalation Rule”이 생성됩니다</td>
                     </tr>
                     </tbody>
                     </table>
                     <h3 id="escalation-use-case-1">Use Case 1. Escalations 메뉴에서 생성</h3>
                     <ol type="1">
-                    <li>1단계 : Escalation 메뉴 선택<br />
-                    Escalations 메뉴를 클릭 합니다.<br />
+                    <li>1단계 : 에스컬레이션 메뉴 선택<br />
+                    에스컬레이션 메뉴를 클릭 합니다.<br />
                     <img src="./image/bnr_escalation_case1_01.png" width="566"  /></li>
-                    <li>2단계 : 신규 Escalation 생성<br />
-                    “Create new Escalation” 버튼을 클릭 합니다.<br />
+                    <li>2단계 : 신규 에스컬레이션 생성<br />
+                    “에스컬레이션 생성” 버튼을 클릭 합니다.<br />
                     <img src="./image/bnr_escalation_case1_02.png" width="1419"  /></li>
-                    <li><p>3단계 : Escalation Policy를 수립<br />
+                    <li><p>3단계 : 에스컬레이션 정책 생성<br />
                     <img src="./image/bnr_escalation_case1_03.png" width="1414"  /><br />
-                    Escalation 설정을 위한 입력 항목은 다음과 같습니다.</p>
+                    에스컬레이션 설정을 위한 입력 항목은 다음과 같습니다</p>
                     <table>
                     <colgroup>
-                    <col style="width: 13%" />
-                    <col style="width: 70%" />
                     <col style="width: 16%" />
+                    <col style="width: 62%" />
+                    <col style="width: 21%" />
                     </colgroup>
                     <thead>
                     <tr class="header">
@@ -1009,118 +1050,131 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Name</td>
-                    <td>고객이 Escalation Policy Name을 설정할 수 있습니다.</td>
+                    <td>이름</td>
+                    <td>고객이 에스컬레이션 정책 이름을 설정할 수 있습니다.</td>
                     <td>필수 입력 사항</td>
                     </tr>
                     <tr class="even">
-                    <td>Description</td>
-                    <td>해당 Escalation에 대한 설명을 추가 합니다.</td>
+                    <td>설명</td>
+                    <td>해당 에스컬레이션에 대한 설명을 추가 합니다.</td>
                     <td>옵션 사항</td>
                     </tr>
                     <tr class="odd">
-                    <td>Rule 설정</td>
+                    <td>규칙 설정</td>
                     <td>If the incidents is not “acknowledged / closed” It will escalate to next step.
                     <ul>
-                    <li>Acknowledged 상태가 아닌 경우,</li>
-                    <li>Closed 상태가 아닌 경우,<br />
-                    Escalation Policy를 적용 하도록 설정 합니다.</li>
+                    <li>“확인” 상태가 아닌 경우,</li>
+                    <li>“종료” 상태가 아닌 경우,<br />
+                    에스컬레이션 정책을 설정 합니다.</li>
                     </ul></td>
                     <td></td>
                     </tr>
                     <tr class="even">
-                    <td>Responder(수신자 설정)</td>
+                    <td>수신자 설정</td>
                     <td>같은 회사 소속 User들 중에 선택 할 수 있습니다. 수신자를 여러 명 선택 할 수 있습니다.</td>
-                    <td>Policy 선택 시, 필수 설정 사항</td>
+                    <td>정책 선택 시, 필수 설정 사항</td>
                     </tr>
                     <tr class="odd">
-                    <td>Time</td>
-                    <td>Noti 를 전달할 Time 주기를 분 단위로 설정 할 수 있습니다.</td>
-                    <td>Policy 선택 시, 필수 설정 사항</td>
+                    <td>시간(단위:분)</td>
+                    <td>알림을 전달할 시간 주기를 분 단위로 설정 할 수 있습니다.</td>
+                    <td>정책 선택 시, 필수 설정 사항</td>
                     </tr>
                     <tr class="even">
-                    <td>Action</td>
-                    <td>Responder에게 Time 주기로 설정하여 Notification을 한 이후, Action을 “escalation to next step” / “repeat this step” 중 선택 할 수 있습니다.
+                    <td>조치</td>
+                    <td>수신자에게 시간(분 단위) 주기로 설정하여 알림을 받은 이후,<br />
+                    조치를 “escalation to next step” / “repeat this step” 중 선택 할 수 있습니다.
                     <ul>
-                    <li>escalation to next step : 다음 Escalation 단계로 수행 합니다.</li>
+                    <li>escalation to next step : 다음 에스컬레이션단계로 수행 합니다.</li>
                     <li>repeat this step : 현재 단계를 반복 합니다. 반복 주기를 시간 단위로 설정할 수 있습니다.</li>
                     </ul></td>
-                    <td>Policy 선택 시, 필수 설정 사항</td>
+                    <td>정책 선택 시, 필수 설정 사항</td>
                     </tr>
                     <tr class="odd">
-                    <td>추가 Option 설정</td>
-                    <td>Escalation이 Action 및 추가 Escalation 단계까지 Escalate 됐는데도 아무런 조치가 취해지지 않는 경우, 다음의 옵션을 설정할 수 있습니다.
+                    <td>추가 항목 설정</td>
+                    <td>에스컬레이션이 조치 및 추가 에스컬레이션 단계까지 승급 되었는데도<br />
+                    아무런 조치가 취해지지 않는 경우, 다음의 옵션을 설정할 수 있습니다.
                     <ul>
-                    <li>If no one acknowledged, repeat this policy (1) Times<br />
-                    &gt; Escalation 1단계부터 마지막단계 까지 (1)회 다시 시작 합니다.<br />
-                    &gt; (1) 횟수의 Max number은 9 입니다.</li>
-                    <li>If no one acknowledged, there will be (1) more attempts once every (2) minutes<br />
-                    &gt; Escalation 1단계부터 마지막 단계까지 (1)회 (2)분 간격으로 다시 시작 합니다.<br />
-                    &gt; (1) 횟수의Max number은 9 입니다.<br />
+                    <li>If no one acknowledged, repeat this policy
+                    <ol type="1">
+                    <li>Times<br />
+                    &gt; 에스컬레이션 1단계부터 마지막 단계 까지 (1)회 다시 시작 합니다.<br />
+                    &gt; (1) 횟수의 최대 숫자는 9 입니다.</li>
+                    </ol></li>
+                    <li>If no one acknowledged, there will be
+                    <ol type="1">
+                    <li>more attempts once every (2) minutes<br />
+                    &gt; 에스컬레이션 1단계부터 마지막 단계까지 (2)분 간격으로 (1)회 다시 시작 합니다.<br />
+                    &gt; (1) 횟수의 최대 숫자는 9 입니다.<br />
                     &gt; (2)분의 시간 간격을 설정 할 수 있습니다.</li>
+                    </ol></li>
                     </ul></td>
                     <td>옵션 설정 항목</td>
                     </tr>
                     </tbody>
                     </table></li>
-                    <li><p>4단계 : 생성 Escalation 저장<br />
-                    Single Escalation 설정을 아래와 같이 저장 합니다.<br />
+                    <li><p>4단계 : 생성 에스컬레이션 저장<br />
+                    에스컬레이션 설정을 아래와 같이 저장 합니다.<br />
                     <img src="./image/bnr_escalation_case1_04.png" width="1400"  /></p></li>
                     </ol>
-                    <h3 id="escalation-use-case-2">Use Case 2. “Service” 생성시 Default Escalation Rule 생성</h3>
+                    <h3 id="escalation-use-case-2">Use Case 2. “서비스” 생성시 Default Escalation Rule 생성</h3>
                     <ol type="1">
-                    <li>1단계 : Services 메뉴 선택<br />
-                    Services 메뉴를 클릭 합니다.<br />
+                    <li>1단계 : 서비스 메뉴 선택<br />
+                    서비스 메뉴를 클릭 합니다.<br />
                     <img src="./image/bnr_service_case1_01.png" width="633"  /></li>
-                    <li>2단계 : 신규 Service 생성<br />
-                    “Create service” 버튼을 클릭 합니다.<br />
+                    <li>2단계 : 신규 서비스 생성<br />
+                    “서비스 생성” 버튼을 클릭 합니다.<br />
                     <img src="./image/bnr_service_case1_02.png" width="1430"  /></li>
                     <li>3단계 : Create Default Escalation Rule<br />
                     <img src="./image/bnr_service_case1_03.png" width="1398"  /><br />
-                    Escalation rule이 없는 경우 자동으로 Create Default Escalation Rule이 생성됩니다.<br />
-                    (Service 생성자가 기본 수신자로 설정이 됩니다.)<br />
-                    ※ 나머지 Service 생성은 Service 가이드 항목을 참고 해 주세요</li>
+                    에스컬레이션 규칙이 없는 경우 자동으로 “Create Default Escalation Rule”이 생성됩니다.<br />
+                    (Service 생성자가 기본 수신자로 설정이 됩니다.)</li>
                     </ol>
-                    <h3 id="escalation-use-case-3">Use Case 3. “Integration” 생성시, “Create Service”를 할 경우</h3>
+                    <p>※ 나머지 Service 생성은 Service 가이드 항목을 참고 해 주세요</p>
+                    <h3 id="escalation-use-case-3">Use Case 3. “인티그레이션”, “서비스” 생성을 동시에 할 경우</h3>
                     <ol type="1">
-                    <li><p>1단계 : Integration 메뉴 선택<br />
-                    Integrations 메뉴를 클릭 합니다.<br />
+                    <li><p>1단계 : 인티그레이션 메뉴 선택<br />
+                    인티그레이션 메뉴를 클릭 합니다.<br />
                     <img src="./image/bnr_escalation_case3_01.png" width="607"  /></p></li>
-                    <li><p>2단계 : 신규 Integration 생성<br />
-                    “Create Integration” 버튼을 클릭 합니다.<br />
+                    <li><p>2단계 : 신규 인티그레이션 생성<br />
+                    “인티그레이션 생성” 버튼을 클릭 합니다.<br />
                     <img src="./image/bnr_escalation_case3_02.png" width="1413"  /></p></li>
                     <li><p>3단계 : AWS Cloud Watch 선택<br />
-                    Integration Type의 “Add Integration” 버튼을 클릭합니다.<br />
+                    “새 인티그레이션 추가” 버튼을 클릭합니다.<br />
                     <img src="./image/bnr_service_case2_03.png" width="584"  /></p></li>
-                    <li><p>4단계 : Integration 설정<br />
+                    <li><p>4단계 : 인티그레이션 설정<br />
                     <img src="./image/bnr_escalation_case3_04.png" width="940"  /></p>
-                    <p>Create Integration 하면서 동시에 Create Service 할 경우, 기존에 생성된 escalation rules가 없다면 “Default Escalation Rule”이 생성됩니다. (Service 생성자가 기본 수신자로 설정이 됩니다.)</p>
-                    <p>※ 나머지 Integration 생성은 Integration 가이드 항목을 참고 해 주세요.</p></li>
+                    <p>인티그레이션, 서비스 생성을 동시에 할 경우, 기존에 생성된 에스컬레이션 규칙이 없다면 “Default Escalation Rule”이 생성됩니다. (서비스 생성자가 기본 수신자로 설정이 됩니다.)</p></li>
                     </ol>
+                    <p>※ 나머지 Integration 생성은 Integration 가이드 항목을 참고 해 주세요.</p>
                     <hr />
-                    <h2 id="integration">Integration</h2>
-                    <h3 id="integrations">Integrations</h3>
-                    <p>사용자는 AlertNow가 제공하는 Integration Templates 목록 중 자신이 사용 중인 툴이나 서비스를 선택하여Integration 설정을 함으로써 해당 툴에서 발생 하는 Alert 을 AlertNow로 전달 하고 관리할 수 있습니다.<br />
+                    <h2 id="integration">인티그레이션</h2>
+                    <p>사용자는 AlertNow가 제공하는 인티그레이션 목록 중 자신이 사용 중인 툴이나 서비스를 선택하여인티그레이션 설정을 함으로써 해당 툴에서 발생 하는 알림을 AlertNow로 전달 하고 관리할 수 있습니다.<br />
                     Integration 설정 가이드는 다음과 같습니다.</p>
+                    <blockquote>
+                    <p><strong>Note : AlertNow에서 제공하는 인티그레이션 자원은 다음과 같습니다.<br />
+                    AWS CLOUD WATCH : EC2, RDS, EBS, Redshift, ELB, S3<br />
+                    (항목 추가 시, UPDATE될 예정)</strong></p>
+                    </blockquote>
+                    <p>인티그레이션 설정 가이드는 다음과 같습니다.</p>
                     <ol type="1">
-                    <li><p>1단계 : Integration 메뉴 선택<br />
-                    Integrations 메뉴를 클릭 합니다.<br />
+                    <li><p>1단계 : 인티그레이션 메뉴 선택<br />
+                    인티그레이션 메뉴를 클릭 합니다.<br />
                     <img src="./image/bnr_escalation_case3_01.png" width="607"  /></p></li>
-                    <li><p>2단계 : 신규 Integration 생성<br />
-                    “Create Integration” 버튼을 클릭 합니다.<br />
+                    <li><p>2단계 : 신규 인티그레이션 생성<br />
+                    “인티그레이션 생성” 버튼을 클릭 합니다.<br />
                     <img src="./image/bnr_escalation_case3_02.png" width="1413"  /></p></li>
                     <li><p>3단계 : AWS Cloud Watch 선택<br />
-                    Integration Type의 “Add Integration” 버튼을 클릭합니다.<br />
+                    “새 인티그레이션 추가” 버튼을 클릭합니다.<br />
                     <img src="./image/bnr_service_case2_03.png" width="584"  /></p></li>
                     <li><p>4단계 : Integration 설정<br />
                     <img src="./image/bnr_service_case2_04.png" width="1413"  /></p>
-                    <p>Integration 설정을 위한 입력 항목은 다음과 같습니다.<br />
-                    Service는 여러 Integration을 Group화 하여 고객이 관리하고자 하는 고객 향의 서비스로 지정하여 Incident를 관리 할 수 있습니다.</p>
+                    <p>인티그레이션 설정을 위한 입력 항목은 다음과 같습니다.</p>
+                    <p>서비스는 여러 인티그레이션을 그룹화 하여 고객이 관리하고자 하는 고객 향의 서비스로 지정하여 인시던트를 관리 할 수 있습니다.</p>
                     <table>
                     <colgroup>
-                    <col style="width: 16%" />
-                    <col style="width: 53%" />
-                    <col style="width: 29%" />
+                    <col style="width: 18%" />
+                    <col style="width: 57%" />
+                    <col style="width: 24%" />
                     </colgroup>
                     <thead>
                     <tr class="header">
@@ -1131,35 +1185,35 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Integration Name</td>
-                    <td>고객이 Integration Name을 설정할 수 있습니다.</td>
+                    <td>인티그레이션 이름</td>
+                    <td>고객이 인티그레이션 이름을 설정할 수 있습니다</td>
                     <td>필수 입력 사항</td>
                     </tr>
                     <tr class="even">
-                    <td>Integration Type</td>
-                    <td>대상의 로고가 보입니다. <img src="./image/bnr_service_case2_aws_demo.png" width="192"  /></td>
+                    <td>인티그레이션 유형</td>
+                    <td>선택한 대상의 로고가 보입니다. <img src="./image/bnr_service_case2_aws_demo.png" width="192"  /></td>
                     <td>입력 및 수정 불가 사항</td>
                     </tr>
                     <tr class="odd">
-                    <td>Service</td>
+                    <td>서비스</td>
                     <td><ul>
-                    <li>Create Service<br />
-                    Integration 생성시, Service도 동시에 생성을 합니다.</li>
-                    <li>Select Service<br />
-                    Integration 생성시, 기존에 있는 Service를 매핑 합니다.</li>
+                    <li>신규 서비스 생성<br />
+                    인티그레이션 생성 시, 서비스도 동시에 생성을 합니다.</li>
+                    <li>서비스 선택<br />
+                    인티그레이션 생성 시, 기존에 있는 서비스를 매핑합니다.</li>
                     </ul></td>
-                    <td>필수 선택 사항.<br />
-                    중복 선택 불가.</td>
+                    <td>필수 선택 사항<br />
+                    중복 선택 불가</td>
                     </tr>
                     </tbody>
                     </table>
-                    <p>Creation Integration 화면은 다음과 같습니다.<br />
+                    <p>신규 서비스화면은 다음과 같습니다.<br />
                     <img src="./image/bnr_integration_05.png" width="1383"  /></p>
-                    <table>
+                    <table style="width:100%;">
                     <colgroup>
-                    <col style="width: 13%" />
-                    <col style="width: 71%" />
-                    <col style="width: 15%" />
+                    <col style="width: 19%" />
+                    <col style="width: 64%" />
+                    <col style="width: 16%" />
                     </colgroup>
                     <thead>
                     <tr class="header">
@@ -1170,39 +1224,41 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Enter a service name</td>
-                    <td>고객이 생성하고자 하는 Service Name을 임의로 입력 합니다.</td>
+                    <td>서비스 이름</td>
+                    <td>고객이 생성하고자 하는 서비스 이름을 임의로 입력 합니다..</td>
                     <td>필수 입력 사항</td>
                     </tr>
                     <tr class="even">
-                    <td>Escalation rules</td>
+                    <td>에스컬레이션 규칙</td>
                     <td><ul>
-                    <li>Escalation basic rules : Escalation 기본 규칙을 설정합니다.</li>
-                    <li>Add custom criteria : 사용자가 우선순위를 결정하여, 조건에 따라 Escalation을 선택 할 수 있습니다.<br />
+                    <li>에스컬레이션 기본 규칙<br />
+                    생성된 에스컬레이션 규칙이 없는 경우, “Default Escaltion Rule”이 생성됩니다.</li>
+                    <li>사용자 설정 조건 추가<br />
+                    사용자가 우선순위를 결정하여, 조건에 따라 에스컬레이션을 선택 할 수 있습니다.<br />
                     (선택 시 사용자가 설정한 조건의 규칙을 기본규칙보다 우선적으로 적용 됩니다.)</li>
                     </ul></td>
                     <td>필수 입력 사항</td>
                     </tr>
                     <tr class="odd">
-                    <td>Incident generation rules</td>
+                    <td>인시던트 생성 규칙</td>
                     <td><ul>
-                    <li>Incident suppression rules<br />
-                    조건 항목( Alert Summary, Alert Metric Name, Alert Resource Id)가 연속해서 발생 할 경우, 기간(초)를 설정하여, incident 중복 생성을 방지 할 수 있습니다.</li>
-                    <li>Incident urgency rules<br />
-                    Incident 의 시급도를 설정 할 수 있습니다.</li>
-                    <li>Add custom criteria에서, 조건 항목( Alert Summary, Alert Metric Name, Alert Resource Id)의 비교연산자 설정으로 시급도를 설정 할 수 있습니다.</li>
+                    <li>인시던트 제한 규칙<br />
+                    조건 항목( Alert Summary, Alert Metric Name, Alert Resource Id)가<br />
+                    연속해서 발생 할 경우, 기간(초)를 설정하여, incident 중복 생성을 방지 할 수 있습니다.</li>
+                    <li>인시던트 긴급도 규칙<br />
+                    인시던트의 긴급도를 설정 할 수 있습니다.</li>
                     </ul></td>
                     <td>옵션 입력 사항</td>
                     </tr>
                     </tbody>
                     </table>
-                    <p>Select Service화면은 다음과 같습니다.<br />
+                    <p>서비스 선택 화면은 다음과 같습니다.<br />
                     <img src="./image/bnr_integration_06.png" width="1415"  /></p>
                     <table>
                     <colgroup>
-                    <col style="width: 13%" />
-                    <col style="width: 76%" />
-                    <col style="width: 9%" />
+                    <col style="width: 18%" />
+                    <col style="width: 69%" />
+                    <col style="width: 12%" />
                     </colgroup>
                     <thead>
                     <tr class="header">
@@ -1213,27 +1269,28 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Service routing rules</td>
+                    <td>서비스 라우팅 규칙</td>
                     <td>기본 라우팅 Service를 선택합니다.<br />
-                    Add custom criteria 의 조건 항목( Alert Summary, Alert Metric Name, Alert Resource Id) 설정을 통해 서비스 라우팅 설정을 할 수 있습니다.</td>
+                    Add custom criteria 의 조건 항목( Alert Summary, Alert Metric Name, Alert Resource Id)<br />
+                    설정을 통해 서비스 라우팅 설정을 할 수 있습니다.</td>
                     <td>필수 선택 사항.</td>
                     </tr>
                     </tbody>
                     </table></li>
-                    <li><p>5단계 : 생성 Integration 저장<br />
-                    “Integration Name”을 입력하고, 사용자의 설정에 따른 Service를 생성, 혹은 선택한 후에 우측 하단의 “SAVE” 버튼을 클릭 합니다.</p></li>
-                    <li><p>6단계 : 생성 Integration 정보 확인<br />
+                    <li><p>5단계 : 생성 인티그레이션 저장<br />
+                    “인티그레이션 이름”을 입력하고, 사용자의 설정에 따른 서비스를 생성, 혹은 선택한 후에 우측 하단의 “저장” 버튼을 클릭 합니다.</p></li>
+                    <li><p>6단계 : 생성 인티그레이션 정보 확인<br />
                     5단계 수행 후, 아래 화면으로 자동 이동 합니다.<br />
                     <img src="./image/bnr_integration_07.png" width="967"  /><br />
-                    위 정보 중 “URL” 의 경우, AWS Console 상에서 SNS(Simple Notification Service) 에서 Alert와 연결하기 위한 SNS Webhook URL 정보로 Copy를 해 두시기 바랍니다.</p></li>
+                    위 정보 중 “URL” 의 경우, AWS Console 상에서 SNS(Simple Notification Service) 에서 AlertNow와 연결하기 위한 SNS Webhook URL 정보를 복사 해 두시기 바랍니다.</p></li>
                     </ol>
                     <h3 id="aws-sns-dashboard">AWS SNS Dashboard</h3>
-                    <p>AWS Cloud Watch를 Alert에서 생성한 Integration과 연결 시키기 위해서 AWS Console에 접속하여 Topic을 생성하여야 합니다.</p>
+                    <p>AWS Cloud Watch를 AlertNow에서 생성한 인티그레이션과 연결 시키기 위해서 AWS Console에 접속하여 주제를 생성하여야 합니다.</p>
                     <h4 id="aws-connect">AWS Console 접속</h4>
                     <p>SNS Dashboard 로 이동 합니다.<br />
                     <img src="./image/bnr_integration_aws_01.jpg" width="845"  /></p>
                     <h4 id="move-to-sns">SNS Dashboard 이동</h4>
-                    <p>SNS Dashboard 에서 Create topic을 선택 합니다.</p>
+                    <p>SNS Dashboard 에서 주제 생성을 선택 합니다.</p>
                     <ol type="1">
                     <li><p>1단계 : Create New Topic</p>
                     <p><img src="./image/bnr_integration_aws_02.jpg" width="816"  /></p>
@@ -1253,24 +1310,24 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Topic Name</td>
-                    <td>메시지 전송 및 알림 구독을 위한 커뮤니케이션 채널이며 이후 생성 Topic에 대한 ARN 작성하는데 활용 됩니다.<br />
+                    <td>주제 이름</td>
+                    <td>메시지 전송 및 알림 구독을 위한 커뮤니케이션 채널이며 이후 생성 주제에 대한 ARN 작성하는데 활용 됩니다..<br />
                     Topic Name ARN 예시 : <code>arn:aws:sns:us-west-2:111122223333:MyTopic</code></td>
                     <td>입력 필수 항목</td>
                     </tr>
                     <tr class="even">
-                    <td>Display Name</td>
-                    <td>SMS 구독 시, 표현 되어지는 Topic에 대한 Display Name 입니다.</td>
+                    <td>표시 이름</td>
+                    <td>SMS 구독 시, 표현 되어지는 주제에 대한 표시 이름 입니다.</td>
                     <td>입력 옵션 항목</td>
                     </tr>
                     </tbody>
                     </table>
-                    <p>“Create topic”을 Click 합니다.</p></li>
-                    <li><p>2단계 : Create Subscription</p>
+                    <p>“주제 이름”을 클릭합니다.</p></li>
+                    <li><p>2단계 : “구독 생성”을 클릭 합니다.</p>
+                    <p>“구독 생성”을 클릭합니다.</p>
                     <p><img src="./image/bnr_integration_aws_03.jpg" width="816"  /></p>
-                    <p>“Create Subscription”을 Click 합니다.</p>
-                    <p><img src="./image/bnr_integration_aws_04.jpg" width="816"  /></p>
                     <p>다음과 같은 입력 창이 보입니다.</p>
+                    <p><img src="./image/bnr_integration_aws_04.jpg" width="816"  /></p>
                     <p>입력 항목은 다음과 같습니다.</p>
                     <table>
                     <colgroup>
@@ -1287,46 +1344,46 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Topic ARN</td>
-                    <td>생성한 Topic Name을 기준으로 자동으로 반영 되어 있습니다.</td>
+                    <td>주제 ARN</td>
+                    <td>생성한 주제 이름을 기준으로 자동으로 반영 되어 있습니다.</td>
                     <td>수정 가능</td>
                     </tr>
                     <tr class="even">
-                    <td>Protocol</td>
+                    <td>프로토콜</td>
                     <td>HTTPS로 선택 합니다.</td>
                     <td>선택 항목 :<br />
                     HTTP / HTTPS / Email / Email-JSON / Amazon SQS / Application / AWS Lambda</td>
                     </tr>
                     <tr class="odd">
-                    <td>Endpoint</td>
-                    <td>기존 Alert에서 저장해둔 URL을 Paste 합니다.</td>
+                    <td>엔드포인트</td>
+                    <td>기존 AlertNow에서 저장해둔 URL을 붙여넣기 합니다.</td>
                     <td>입력 항목</td>
                     </tr>
                     </tbody>
                     </table>
-                    <p>“Create Subscription”을 선택 합니다.</p></li>
-                    <li><p>3단계 : Subscription<br />
-                    아래와 같은 Subscription이 생성이 됩니다.<br />
+                    <p>“구독 생성”을 선택 합니다.</p></li>
+                    <li><p>3단계 : 구독<br />
+                    아래와 같은 구독이 생성이 됩니다.<br />
                     <img src="./image/bnr_integration_aws_05.jpg" width="816"  /></p>
-                    <p>오른쪽 상위 Refresh Icon을 Click 합니다. Subscription ID에 대한 승인 확인이 이루어 집니다.<br />
+                    <p>오른쪽 상위 리프레쉬 아이콘을 클릭합니다. 구독 ID에 대한 승인 확인이 이루어 집니다.<br />
                     <img src="./image/bnr_integration_aws_06.jpg" width="816"  /></p></li>
                     </ol>
                     <h4 id="move-to-ec2">EC2 Console 이동</h4>
-                    <p>Alert로 연결할 Alert을 생성하기 위해 EC2 Console로 이동 합니다.</p>
+                    <p>Alert로 연결할 경고를 생성하기 위해 EC2 Console로 이동 합니다.</p>
                     <ol type="1">
                     <li><p>1단계 : Add / Edit Alarm 선택<br />
-                    해당 EC2 선택 후, 아래와 같이 Action &gt; CloudWatch Monitoring &gt; Add/Edit Alarm을 선택 합니다.<br />
+                    해당 EC2 선택 후, 아래와 같이 작업 &gt; CloudWatch 모니터링 &gt; 경보 추가/편집을 선택 합니다.<br />
                     <img src="./image/bnr_integration_ec2_01.jpg" width="615"  /></p></li>
-                    <li><p>2단계 : Create Alarm</p>
+                    <li><p>2단계 : 경보 생성</p>
                     <p><img src="./image/bnr_integration_ec2_02.jpg" width="816"  /><br />
-                    “Create Alarm”을 선택 합니다.</p>
+                    “경보 생성” 을 선택 합니다.</p>
                     <p><img src="./image/bnr_integration_ec2_03.jpg" width="816"  /><br />
                     입력 항목은 다음과 같습니다.</p>
-                    <table>
+                    <table style="width:92%;">
                     <colgroup>
-                    <col style="width: 33%" />
-                    <col style="width: 52%" />
-                    <col style="width: 14%" />
+                    <col style="width: 23%" />
+                    <col style="width: 51%" />
+                    <col style="width: 16%" />
                     </colgroup>
                     <thead>
                     <tr class="header">
@@ -1337,51 +1394,70 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Send a notification to</td>
+                    <td>알림 받을 대상</td>
                     <td>생성한 Topic을 찾아서 선택 합니다.</td>
                     <td>선택 항목</td>
                     </tr>
                     <tr class="even">
-                    <td>Whenever</td>
+                    <td>다음 경우 항상</td>
                     <td>해당 임계 치를 설정 합니다.</td>
                     <td>입력 항목</td>
                     </tr>
                     </tbody>
                     </table>
-                    <p>“Create Alarm”을 생성하면 다음과 같은 메시지가 보입니다.<br />
-                    [][integration_ec2_04]</p></li>
+                    <p>“저장” 후 다음과 같은 메세지가 보입니다.<br />
+                    <img src="./image/bnr_integration_ec2_04.jpg" width="816"  /></p></li>
                     </ol>
-                    <h4 id="set-aws-watch">AlertNow &gt; Incidents</h4>
-                    <p>AlertNow초기 접속 시, “Incidents” 화면이 Default로 Display 됩니다.</p>
+                    <h4 id="auto-closing-추가">Auto closing 추가</h4>
+                    <p><strong>Auto closing이란?</strong><br />
+                    임계치 설정에 따라 인시던트가 생성되어 있고, 만약 인스턴스 상태가 정상적으로 돌아오면, 기존에 생성된 인시던트를 자동으로 완료 합니다.<br />
+                    <img src="./image/bnr_integration_autoclosing_01.png" width="531"  /></p>
+                    <ol type="1">
+                    <li><p>1단계 : Add / Edit Alarm 선택<br />
+                    해당 EC2 선택 후, 아래와 같이 작업 &gt; CloudWatch 모니터링&gt; 경보 추가/편집을 선택 합니다.<br />
+                    <img src="./image/bnr_integration_autoclosing_02.png" width="669"  /></p></li>
+                    <li><p>2단계 : Auto closing을 설정할 경보의 보기 클릭<br />
+                    <img src="./image/bnr_integration_autoclosing_03.png" width="643"  /></p></li>
+                    <li><p>3단계 : 작업 &gt; 수정 클릭<br />
+                    <img src="./image/bnr_integration_autoclosing_04.png" width="663"  /></p></li>
+                    <li><p>4단계 : 경보 수정&gt; 경보 정의 하단부 작업 &gt; +알림<br />
+                    <img src="./image/bnr_integration_autoclosing_05.png" width="679"  /></p></li>
+                    <li><p>5단계 : 알림을 추가하여 조건을 “정상 상태” 설정 후 “변경 사항 저장”<br />
+                    <img src="./image/bnr_integration_autoclosing_06.png" width="717"  /></p></li>
+                    <li><p>6단계 : 설정 변경 확인<br />
+                    <img src="./image/bnr_integration_autoclosing_07.png" width="785"  /></p></li>
+                    </ol>
+                    <h4 id="set-aws-watch">AlertNow &gt; 인시던트</h4>
+                    <p>AlertNow초기 접속 시, “인시던트” 화면이 기본으로 보여집니다.</p>
                     <ol type="1">
                     <li><p>서비스 처음 접속 초기 화면<br />
-                    처음 접속한 고객의 경우, “No Incidents” 가 보여 집니다. 추후 초기 Setting 절차를 고객이 직접 설정 할 수 있도록 유도하는 Wizard 기능이 제공 될 예정 입니다.<br />
+                    처음 접속한 고객의 경우, “인시던트 없음”이 보여 집니다. 추후 초기 Setting 절차를 고객이 직접 설정 할 수 있도록 유도하는 Wizard 기능이 제공 될 예정 입니다.<br />
                     <img src="./image/bnr_integration_default_1.png" width="1433"  /></p></li>
                     <li><p>서비스 초기 화면<br />
-                    Integration 가이드에 따라 AWS Cloud Watch에 대한 Integration 생성과 AWS Console 상에서 Alarm 설정을 완료 한 경우, 접속과 동시에 Incident를 확인 할 수 있습니다.<br />
+                    인티그레이션 가이드에 따라 AWS Cloud Watch에 대한 인티그레이션 생성과 AWS Console 상에서 경보 설정을 완료 한 경우, 접속과 동시에 인시던트를 확인 할 수 있습니다.<br />
                     <img src="./image/bnr_integration_default_2.png" width="1418"  /></p></li>
                     </ol>
                     <hr />
-                    <h2 id="extensions">Extensions</h2>
-                    <p>Extension은 AlertNow 내에서 생성된 인시던트 생성 push를 외부 Tool이나 서비스로 Outgoing할 수 있도록 하는 기능 입니다.<br />
-                    현재 Slack을 지원 하고 있으며, Slack에 대한 Extension 설정은 다음과 같습니다.</p>
+                    <h2 id="extensions">익스텐션</h2>
+                    <p>익스텐션은 AlertNow 내에서 생성된 인시던트 생성 push를 외부 툴이나 서비스로 Outgoing할 수 있도록 하는 기능 입니다.</p>
+                    <p>현재 Slack을 지원 하고 있으며, Slack에 대한 익스텐션 설정은 다음과 같습니다.</p>
                     <h3 id="set-slack">AlertNow Extension Slack 설정</h3>
                     <ol type="1">
-                    <li><p>1단계 : Extensions 메뉴 선택<br />
-                    Extensions 메뉴를 클릭 합니다.<br />
+                    <li><p>1단계 : 익스텐션 메뉴 선택<br />
+                    익스텐션 메뉴를 클릭 합니다.<br />
                     <img src="./image/bnr_extension_01.png" width="572"  /></p></li>
-                    <li><p>2단계 : Slack Icon 선택<br />
-                    “Set up for Extension” 버튼을 클릭 합니다.<br />
+                    <li><p>2단계 : 익스텐션 설정 선택<br />
+                    “익스텐션 설정” 버튼을 클릭 합니다.<br />
                     <img src="./image/bnr_extension_02.png" width="807"  /></p></li>
-                    <li><p>3단계 : 새로운 Contact을 생성<br />
-                    “Add new Contact” 버튼을 클릭 합니다.<br />
+                    <li><p>3단계 : 새로운 연락처 등록<br />
+                    “+ 연락처 등록” 버튼을 클릭 합니다.<br />
                     <img src="./image/bnr_extension_03.png" width="1427"  /></p></li>
                     <li><p>4단계 : Slack을 설정<br />
-                    “Slack” 선택 합니다.<br />
-                    <img src="./image/bnr_extension_04.png" width="547"  /><br />
-                    “Create New” 선택하여, Slack 도메인을 생성 합니다.</p></li>
+                    “Slack”을 선택 합니다.<br />
+                    <img src="./image/bnr_extension_04.png" width="547"  /></p>
+                    <p>“적용” 버튼을 틀릭하여, Slack 도메인을 생성 합니다.</p></li>
                     </ol>
-                    <h3 id="slack-설정-slack-화면으로-이동">Slack 설정 : Slack 화면으로 이동</h3>
+                    <h3 id="slack-move-to-slack-setting">Slack 설정 : Slack 화면으로 이동</h3>
                     <p>Slack에 Sign-In 합니다. Slack에 가입이 안되어 있는 경우, Slack 가입이 우선 되어야 합니다.</p>
                     <p><img src="./image/bnr_extension_05.png" width="397"  /></p>
                     <ol type="1">
@@ -1390,57 +1466,51 @@
                     <img src="./image/bnr_extension_06.png" width="258.5"  /><br />
                     <img src="./image/bnr_extension_07.png" width="545"  /><br />
                     위와 같은 메시지가 나옵니다.<br />
-                    “OK”를 선택 합니다.</p></li>
+                    “확인”을 선택 합니다.</p></li>
                     <li><p>2단계 : AlertNow에서 확인<br />
-                    AlertNow “Personal Setting” 메뉴에서 Contact method에 생성한 Slack Domain이 추가 된 것을 확인 합니다.<br />
+                    AlertNow “개인 설정” 메뉴에서 Contact method에 생성한 Slack 도메인이 추가 된 것을 확인 합니다.<br />
                     <img src="./image/bnr_extension_08.png" width="1414"  /></p></li>
                     </ol>
                     <hr />
-                    <h2 id="personal-settings">Personal Settings</h2>
-                    <p>개인의 기본 정보(Profile)와 개인이 Notification을 받기 위한 Contact 방법, Notification Rule을 관리하는 서비스 입니다.</p>
-                    <p>Personal Settings 메뉴를 Click 합니다.<br />
+                    <h2 id="personal-settings">개인 설정</h2>
+                    <p>사용자의 기본 정보와 알림을 받기 위한 알림 규칙을 관리하는 서비스 입니다.</p>
+                    <p>개인 설정 메뉴를 클릭 합니다.<br />
                     <img src="./image/bnr_personal_setting_01.png" width="579"  /></p>
-                    <p>Personal Settings 구성은 다음과 같습니다.</p>
+                    <p>“개인 설정” 구성은 다음과 같습니다.</p>
                     <table>
                     <colgroup>
-                    <col style="width: 15%" />
-                    <col style="width: 84%" />
+                    <col style="width: 20%" />
+                    <col style="width: 79%" />
                     </colgroup>
                     <thead>
                     <tr class="header">
-                    <th>서비스 Tab 구성</th>
+                    <th>서비스 탭 구성</th>
                     <th>설명</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Basic Information</td>
-                    <td><p>개인 정보로 구성되어 있습니다.</p>
-                    <ul>
-                    <li>Name</li>
-                    <li>Login email</li>
-                    <li>Time zone</li>
-                    <li>Service</li>
-                    <li>Escalation</li>
-                    </ul></td>
+                    <td>기본 정보</td>
+                    <td><p>개인 정보로 구성되어 있습니다.<br />
+                    - 이름<br />
+                    - 로그인 이메일<br />
+                    - 표준 시간대<br />
+                    - 에스컬레이션</p>
+                    <p>연락처<br />
+                    알림을 받을 연락처들을 등록합니다.</p></td>
                     </tr>
                     <tr class="even">
-                    <td>Contact method</td>
-                    <td>알람을 받을 연락처들을 등록 합니다.</td>
-                    </tr>
-                    <tr class="odd">
-                    <td>Notification rules</td>
-                    <td>사용자가 Notification을 받는 Case, 조건, 방식을 설정 합니다.<br />
-                    사용자는 Notification Case 및 조건 별로 Rule을 설정해 자신이 원하는 방식으로 Notification을 받을 수 있습니다.</td>
+                    <td>알림 규칙</td>
+                    <td>사용자는 인시던트 이벤트 별로, 알림 방식을 설정 할 수 있습니다.</td>
                     </tr>
                     </tbody>
                     </table>
-                    <h3 id="basic-information">Basic Information</h3>
-                    <p>개인 Profile과 Contact Method 정보를 Display 및 설정 할 수 있습니다.<br />
+                    <h3 id="basic-infomation">기본 정보</h3>
+                    <p>개인 프로필과 연락처 정보를 노출 및 설정 할 수 있습니다.<br />
                     <img src="./image/bnr_personal_setting_02.png" width="1409"  /></p>
                     <ol type="1">
-                    <li><p>Profile<br />
-                    Profile 구성 정보는 다음과 같습니다.</p>
+                    <li><p>프로필<br />
+                    프로필 구성 정보는 다음과 같습니다.</p>
                     <table>
                     <colgroup>
                     <col style="width: 17%" />
@@ -1456,36 +1526,31 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Name</td>
+                    <td>이름</td>
                     <td>개인 성명</td>
                     <td></td>
                     </tr>
                     <tr class="even">
-                    <td>Login</td>
-                    <td>email Login email정보</td>
+                    <td>로그인 이메일</td>
+                    <td>로그인 이메일 정보</td>
                     <td></td>
                     </tr>
                     <tr class="odd">
-                    <td>Time Zones</td>
-                    <td>개인의 경우, 최초 접속 시 사용 Browser TIme으로 설정
-                    <ul>
-                    <li>Auto</li>
-                    <li>변경 가능</li>
-                    </ul></td>
-                    <td>설정 가능</td>
+                    <td>표준 시간대</td>
+                    <td><div class="line-block"> 개인의 경우, 최초 접속 시 사용하는 브라우저 시간으로 설정 - Auto - 변경 가능</div></td>
+                    <td><div class="line-block">설정 가능</div></td>
                     </tr>
                     <tr class="even">
-                    <td>Escalation</td>
-                    <td>개인이 속하거나, 생성한 Escalation Display</td>
+                    <td>에스컬레이션</td>
+                    <td><div class="line-block">개인이 속하거나, 생성한 에스컬레이션</div></td>
                     <td></td>
                     </tr>
                     </tbody>
                     </table>
-                    <p>Time Zone의 경우, Setting 할 수 있습니다.<br />
-                    <img src="./image/bnr_personal_setting_03.png" width="530"  /><br />
-                    <img src="./image/bnr_personal_setting_04.png" width="560"  /></p></li>
-                    <li><p>Contact Method<br />
-                    Contact Method는 다음과 같이 구성되어 있습니다.</p>
+                    <p>표준 시간대의 경우, 설정할 수 있습니다.<br />
+                    <img src="./image/bnr_personal_setting_03.png" width="530"  /></p></li>
+                    <li><p>연락처<br />
+                    연락처는 다음과 같이 구성되어 있습니다.</p>
                     <table>
                     <colgroup>
                     <col style="width: 11%" />
@@ -1501,31 +1566,31 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>Email</td>
-                    <td>Noti 받기 위한 Email 정보</td>
+                    <td>이메일</td>
+                    <td>알림 받기 위한 Email 정보</td>
                     <td>변경 가능</td>
                     </tr>
                     <tr class="even">
-                    <td>Mobile</td>
-                    <td>Noti 받기 위한 Mobile 정보</td>
+                    <td>휴대폰</td>
+                    <td>알림 받기 위한 Mobile 정보</td>
                     <td></td>
                     </tr>
                     <tr class="odd">
                     <td>Slack</td>
-                    <td>Noti 받기 위한 Slack 정보</td>
+                    <td>알림 받기 위한 Slack 정보</td>
                     <td></td>
                     </tr>
                     </tbody>
                     </table></li>
                     </ol>
-                    <h3 id="notification-rule">Notification Rule</h3>
-                    <p>Notification Rule을 설정하거나 설정된 Notification Rule 들을 확인 할 수 있습니다. 사용자 별로 상황에 따른 Noti 발송 여부와 발송 방법을 설정할 수 있습니다.</p>
-                    <p>아래의 상황 별로 Noti 발송 여부와 방법을 설정할 수 있습니다.</p>
+                    <h3 id="notification-rule">알림 규칙</h3>
+                    <p>알림 규칙을 설정하거나 설정된 알림 규칙들을 확인 할 수 있습니다. 사용자 별로 상황에 따른 알림 발송 여부와 발송 방법을 설정할 수 있습니다.</p>
+                    <p>아래의 상황 별로 알림 발송 여부와 방법을 설정할 수 있습니다.</p>
                     <table>
                     <colgroup>
                     <col style="width: 30%" />
-                    <col style="width: 58%" />
-                    <col style="width: 11%" />
+                    <col style="width: 57%" />
+                    <col style="width: 12%" />
                     </colgroup>
                     <thead>
                     <tr class="header">
@@ -1536,23 +1601,23 @@
                     </thead>
                     <tbody>
                     <tr class="odd">
-                    <td>When an incident is created</td>
-                    <td>Incident가 생성 된 경우 수신할 방법을 설정합니다.</td>
-                    <td><div class="line-block">변경 가능</div></td>
+                    <td>인시던트가 생성된 경우</td>
+                    <td>인시던트가 생성 된 경우 수신할 방법을 설정합니다.</td>
+                    <td>변경 가능</td>
                     </tr>
                     <tr class="even">
-                    <td>When an incident is assigned to me</td>
-                    <td>나에게 Incident가 Assign 되었을 경우 수신할 방법을 설정합니다.</td>
+                    <td>내가 인시던트 담당자로 지정된 경우</td>
+                    <td>나에게 인시던트가 할당 되었을 경우 수신할 방법을 설정합니다.</td>
                     <td>변경 가능</td>
                     </tr>
                     <tr class="odd">
-                    <td>When a status of incident is changed</td>
-                    <td>Incident의 상태가 변경(Acked,closed) 된 경우 수신할 방법을 설정합니다.</td>
+                    <td>인시던트의 상태가 변경된 경우</td>
+                    <td>인시던트의 상태가 변경(확인, 종료) 된 경우 수신할 방법을 설정합니다.</td>
                     <td>변경 가능</td>
                     </tr>
                     <tr class="even">
-                    <td>When an incident is escalated</td>
-                    <td>Incident가 Escalatione된 경우 수신할 방법을 설정합니다.</td>
+                    <td>인시던트가 에스컬레이션된 경우</td>
+                    <td>인시던트가 에스컬레이션된 경우 수신할 방법을 설정합니다.</td>
                     <td>변경 가능</td>
                     </tr>
                     </tbody>
