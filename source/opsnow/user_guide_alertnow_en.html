@@ -58,6 +58,7 @@
                         <li><a href="#escalation-use-case-3">Use Case 3. “인티그레이션”, “서비스” 생성을 동시에 할 경우</a></li>
                         </ul></li>
                         <li><a href="#integration">인티그레이션</a><ul>
+                        <li><a href="#인티그레이션-설정">인티그레이션 설정</a></li>
                         <li><a href="#aws-sns-dashboard">AWS SNS Dashboard</a><ul>
                         <li><a href="#aws-connect">AWS Console 접속</a></li>
                         <li><a href="#move-to-sns">SNS Dashboard 이동</a></li>
@@ -89,7 +90,7 @@
                     <li><p><strong>접속</strong></p>
                     <p>OpsNow 가입 후, AlertNow 서비스 신청 고객의 경우, 서비스 영역에 아래와 같이 AlertNow 서비스가 노출이 됩니다.<br />
                     “AlertNow” 선택하여 서비스로 접속 합니다.</p>
-                    <p><img src="./image/bnr_alertnow_summary_01.png" width="467"  /></p></li>
+                    <p><img src="./image/bnr_alertnow_summary_01.png" width="458"  /></p></li>
                     <li><p>메뉴 구성</p>
                     <p>AlertNow 각 서비스 메뉴 구성은 다음과 같습니다.</p>
                     <table>
@@ -164,11 +165,6 @@
                     <li>경고는 Raw Data 이며, 사용자가 임의로 Data를 변경하거나 생성된 경고를 삭제할 수 없습니다.</li>
                     <li>경고를 기준으로 인시던트를 생성합니다. 하지만 모든 경고를 인시던트로 생성하지 않으며, 인시던트 생성 규칙에 부합하는 경고를 인시던트로 생성합니다.</li>
                     <li>경고는 사용자에게 알림을 전달하지 않으며, 해당 경고를 통해 인시던트가 생성되어야 사용자에게 알림을 전달합니다.</li>
-                    </ul>
-                    <p>사용자는 필요에 따라 서비스 별로 인시던트가 발생하지 않도록 유지보수 일정을 설정할 수 있습니다.</p>
-                    <ul>
-                    <li>릴리즈, DB 작업, 인프라 작업, 보안 작업 등의 특정상황에 따라 유지보수 일정을 설정 할 수 있고, 설정한 기간 동안에는 인시던트가 발생하지 않습니다.</li>
-                    <li>유지보수 상태에서 발생한 경고는 “생성안됨(유지보수 일정)” 상태로 저장되며, 유지보수 일정으로 인해 해당 경고의 인시던트가 생성되지 않았음을 확인할 수 있습니다.</li>
                     </ul>
                     <h4 id="summary-incident-incident">인시던트</h4>
                     <p>경고가 수집되면 사전에 설정한 인시던트 생성 규칙을 통해 인시던트가 생성됩니다.<br />
@@ -420,24 +416,24 @@
                     <li><p>생성<br />
                     새롭게 인시던트로 생성되어 아직 처리 전인 상태를 의미합니다.</p>
                     <figure>
-                    <img src="./image/bnr_incident_status_01.png" width="485" alt="생성 상태" /><figcaption>생성 상태</figcaption>
+                    <img src="./image/bnr_incident_status_01.png" width="364.5" alt="생성 상태" /><figcaption>생성 상태</figcaption>
                     </figure></li>
                     <li><p>확인<br />
                     장애 사실을 인지하고 담당자가 처리 중인 상태를 의미합니다.</p>
                     <figure>
-                    <img src="./image/bnr_incident_status_02.png" width="484" alt="확인 상태" /><figcaption>확인 상태</figcaption>
+                    <img src="./image/bnr_incident_status_02.png" width="356" alt="확인 상태" /><figcaption>확인 상태</figcaption>
                     </figure></li>
                     <li><p>종료<br />
                     장애 처리가 완료되어 종결된 상태를 의미합니다.</p>
                     <figure>
-                    <img src="./image/bnr_incident_status_03.png" width="466" alt="종료 상태" /><figcaption>종료 상태</figcaption>
+                    <img src="./image/bnr_incident_status_03.png" width="359.5" alt="종료 상태" /><figcaption>종료 상태</figcaption>
                     </figure></li>
                     </ol>
                     <h4 id="incident_search">인시던트 검색</h4>
                     <p>사용자는 Incident 목록에서 Incident를 기간/키워드 조건을 설정해 incident를 검색할 수 있습니다. 검색 결과는 incident 목록에 바로 표시됩니다.</p>
                     <ol type="1">
                     <li><p>기간 검색<br />
-                    <img src="./image/bnr_incident_search_01.png" width="705" alt="검색 조건" /></p>
+                    <img src="./image/bnr_incident_search_01.png" width="513.5" alt="검색 조건" /></p>
                     <ol type="A">
                     <li><p>기간 선택 Preset<br />
                     사용자는 인시던트 목록에서 기간/키워드 조건을 설정해서 검색할 수 있습니다. 검색 결과는 목록에 바로 표시됩니다.</p>
@@ -492,7 +488,7 @@
                     사용자는 키워드를 입력해 입력한 키워드와 일치하는 인시던트를 검색할 수 있습니다. 선택한 기간의 인시던트 중 입력한 키워드와 일치하는 항목을 검색 결과로 표시합니다.</p></li>
                     <li><p>상태 필터</p>
                     <figure>
-                    <img src="./image/bnr_incident_search_02.png" width="169" alt="상태 필터(우측상단)" /><figcaption>상태 필터(우측상단)</figcaption>
+                    <img src="./image/bnr_incident_search_02.png" width="116" alt="상태 필터(우측상단)" /><figcaption>상태 필터(우측상단)</figcaption>
                     </figure>
                     <p>목록 내 인시던트 중, 담당자가 현재 로그인한 사용자인 인시던트만 필터링해 확인할 수 있습니다.</p>
                     <ol type="a">
@@ -510,7 +506,7 @@
                     <ol type="a">
                     <li>인시던트 상태 변경<br />
                     인시던트 상세 화면에서 이름 하단의 버튼으로, 상태를 변경 할 수 있습니다.<br />
-                    <img src="./image/bnr_incident_handing_01.png" width="481"  />
+                    <img src="./image/bnr_incident_handing_01.png" width="364.5"  />
                     <ul>
                     <li>생성 상태인 인시던트는 확인, 종료 상태로 변경할 수 있습니다.</li>
                     <li>확인 상태의 인시던트는 종료 상태로 변경할 수 있습니다.</li>
@@ -518,7 +514,7 @@
                     </ul></li>
                     <li><p>복수 인시던트 상태 일괄 변경<br />
                     인시던트 목록에서 상태를 변경할 인시던트를 선택 후 상태를 일괄 변경할 수 있습니다.<br />
-                    <img src="./image/bnr_incident_handing_02.png" width="934"  /></p>
+                    <img src="./image/bnr_incident_handing_02.png" width="1146.5"  /></p>
                     <p>복수 인시던트 선택 후 목록 좌측 상단의 [확인][종료] 버튼을 클릭해 상태를 변경할 수 있습니다.</p></li>
                     </ol></li>
                     <li>담당자 지정 및 변경<br />
@@ -526,29 +522,30 @@
                     <ol type="a">
                     <li>담당자를 지정할 인시던트 선택<br />
                     담당자 항목에는 현재 지정된 담당자 의 이름이 표시되며, [담당자] 버튼 클릭 시 담당자를 변경할 수 있는 팝업이 표시됩니다.<br />
-                    <img src="./image/bnr_incident_handing_03.png" width="485"  /></li>
+                    <img src="./image/bnr_incident_handing_03.png" width="364.5"  /></li>
                     <li>담당자 선택<br />
                     담당자 지정 팝업을 통해 담당자를 검색 후 지정할 수 있습니다.<br />
-                    <img src="./image/bnr_incident_handing_04.png" width="537"  /><br />
+                    <img src="./image/bnr_incident_handing_04.png" width="386.5"  /><br />
                     하나의 인시던트에 대해 복수의 담당자를 지정할 수 없습니다.</li>
                     <li>코멘트 작성<br />
                     인시던트에 대한 댓글을 작성할 수 있습니다.
                     <ol type="1">
                     <li>인시던트 상세 화면의 “전체화면”으로 이동<br />
-                    <img src="./image/bnr_incident_handing_05.png" width="589"  /><br />
-                    인시던트 상세 화면에서 활동 이력 탭의 “전체” 또는 “댓글에”서 입력</li>
-                    <li>댓글 입력 후 [작성] 버튼 클릭</li>
+                    <img src="./image/bnr_incident_handing_05.png" width="364.5"  /><br />
+                    인시던트 상세 화면에서 활동 이력 탭의 “전체” 또는 “댓글”에서 입력</li>
+                    <li>댓글 입력 후 [작성] 버튼 클릭<br />
+                    <img src="./image/bnr_incident_handing_05_01.png" width="435.5"  /></li>
                     <li>입력된 댓글 확인<br />
                     <img src="./image/bnr_incident_handing_06.png" width="581"  /></li>
                     <li>제목 변경<br />
                     사용자의 필요에 따라 각 인시던트의 제목을 변경할 수 있습니다.
                     <ol type="a">
                     <li>전체 화면의 제목 영역에서 [수정] 버튼 클릭<br />
-                    <img src="./image/bnr_incident_handing_07.png" width="1176"  /></li>
+                    <img src="./image/bnr_incident_handing_07.png" width="1033"  /></li>
                     <li>제목 수정 후, [확인] 버튼 클릭<br />
-                    <img src="./image/bnr_incident_handing_08.png" width="1180"  /></li>
+                    <img src="./image/bnr_incident_handing_08.png" width="319"  /></li>
                     <li>변경된 제목 확인<br />
-                    <img src="./image/bnr_incident_handing_09.png" width="290"  /></li>
+                    <img src="./image/bnr_incident_handing_09.png" width="804"  /></li>
                     </ol></li>
                     </ol></li>
                     </ol></li>
@@ -556,9 +553,9 @@
                     각 인시던트의 참조 경고를 확인할 수 있으며, 각 경고의 상세 화면으로 이동할 수 있습니다.
                     <ol type="a">
                     <li>인시던트 참조 경고 확인<br />
-                    <img src="./image/bnr_incident_handing_10.png" width="592"  /></li>
+                    <img src="./image/bnr_incident_handing_10.png" width="337.5"  /></li>
                     <li>참조 경고 클릭해 경고 상세 정보 확인<br />
-                    <img src="./image/bnr_incident_handing_11.png" width="582"  /></li>
+                    <img src="./image/bnr_incident_handing_11.png" width="437.5"  /></li>
                     </ol></li>
                     </ol>
                     <h3 id="incident-alert">경고</h3>
@@ -698,7 +695,7 @@
                     <ol type="1">
                     <li><p>기간 검색</p>
                     <figure>
-                    <img src="./image/bnr_incident_search_01.png" width="705" alt="검색 조건" /><figcaption>검색 조건</figcaption>
+                    <img src="./image/bnr_incident_search_01.png" width="513.5" alt="검색 조건" /><figcaption>검색 조건</figcaption>
                     </figure>
                     <ol type="a">
                     <li><p>기간 선택 Preset<br />
@@ -760,7 +757,7 @@
                     발생한 경고에 대한 상세 메시지를 확인할 수 있습니다.
                     <ol type="a">
                     <li>경고 상세 화면에서 [메시지]&gt;[보기] 버튼을 클릭합니다.<br />
-                    <img src="./image/bnr_alert_search_02.png" width="485"  /></li>
+                    <img src="./image/bnr_alert_search_02.png" width="353"  /></li>
                     <li>새 탭으로 상세 메세지가 표시됩니다.<br />
                     <img src="./image/bnr_alert_search_03.png" width="1140"  /></li>
                     </ol></li>
@@ -768,19 +765,19 @@
                     발생한 경고에 대해 상세 설명을 입력할 수 있습니다.
                     <ol type="a">
                     <li>경고 상세 화면에서 [수정] 버튼을 클릭합니다.<br />
-                    <img src="./image/bnr_alert_search_04.png" width="448"  /></li>
+                    <img src="./image/bnr_alert_search_04.png" width="353"  /></li>
                     <li>설명 입력 후 [저장] 버튼을 클릭합니다.<br />
-                    <img src="./image/bnr_alert_search_05.png" width="446"  /></li>
+                    <img src="./image/bnr_alert_search_05.png" width="343.5"  /></li>
                     <li>입력된 Description 을 확인합니다.<br />
-                    <img src="./image/bnr_alert_search_06.png" width="430"  /></li>
+                    <img src="./image/bnr_alert_search_06.png" width="324"  /></li>
                     </ol></li>
                     <li>참조 인시던트 보기<br />
                     선택한 경고를 통해 생성된 인시던트 들을 확인할 수 있으며, 각 인시던트 의 상세 화면으로 이동할 수 있습니다.
                     <ol type="a">
                     <li>참조 인시던트 확인<br />
-                    <img src="./image/bnr_alert_search_06.png" width="430"  /></li>
+                    <img src="./image/bnr_alert_search_07.png" width="353.5"  /></li>
                     <li>연관 인시던트 클릭해 인시던트 상세 정보 확인<br />
-                    <img src="./image/bnr_alert_search_07.png" width="1382"  /></li>
+                    <img src="./image/bnr_alert_search_08.png" width="1274"  /></li>
                     </ol></li>
                     </ol>
                     <hr />
@@ -789,14 +786,47 @@
                     <p>서비스는 인티그레이션에서 발생하는 인시던트를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다.<br />
                     인티그레이션에 설정된 라우팅 룰에 따라 서비스로 분기 되어 인시던트를 관리 할 수 있습니다.</p>
                     <p>서비스 생성을 위한 Use Case는 다음과 같습니다.</p>
+                    <table>
+                    <colgroup>
+                    <col style="width: 22%" />
+                    <col style="width: 77%" />
+                    </colgroup>
+                    <thead>
+                    <tr class="header">
+                    <th>Case</th>
+                    <th>설명</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="odd">
+                    <td>Use Case 1)<br />
+                    “서비스” 메뉴에서 생성</td>
+                    <td>서비스 메뉴에서 오른쪽 상위에 있는 “서비스 생성” 버튼을 클릭 합니다.<br />
+                    <button class="demo black">서비스 생성</button><br />
+                    서비스를 생성 합니다.<br />
+                    이 경우, 서비스 이름과 에스컬레이션 규칙 설정으로 생성 할 수 있습니다.</td>
+                    </tr>
+                    <tr class="even">
+                    <td>Use Case 2)<br />
+                    “인티그레이션” 메뉴 상에<br />
+                    인티그레이션 생성시에 생성</td>
+                    <td>인티그레이션 메뉴에서 오른쪽 상위에 있는 “인티그레이션 생성” 버튼을 클릭 합니다.<br />
+                    <button class="demo black">인티그레이션 생성</button><br />
+                    서비스를 선택 합니다.<br />
+                    - 인티그레이션 이름<br />
+                    - 인티그레이션 유형<br />
+                    - 서비스 &gt; 신규 서비스 생성</td>
+                    </tr>
+                    </tbody>
+                    </table>
                     <h3 id="service-use-case-1">Use Case 1.서비스 메뉴에서 생성</h3>
                     <ol type="1">
                     <li>1단계 : 서비스 메뉴 선택<br />
                     서비스 메뉴를 클릭 합니다.<br />
-                    <img src="./image/bnr_service_case1_01.png" width="633"  /></li>
+                    <img src="./image/bnr_service_case1_01.png" width="369.5"  /></li>
                     <li>2단계 : 신규 서비스 생성<br />
                     “서비스 생성” 버튼을 클릭 합니다.<br />
-                    <img src="./image/bnr_service_case1_02.png" width="1430"  /></li>
+                    <img src="./image/bnr_service_case1_02.png" width="1274.5"  /></li>
                     <li><p>3단계 : 서비스를 생성<br />
                     서비스 생성을 위한 입력 항목은 다음과 같습니다.</p>
                     <table>
@@ -822,7 +852,7 @@
                     <td>에스컬레이션 규칙</td>
                     <td><ul>
                     <li>에스컬레이션 기본 규칙<br />
-                    생성된 에스컬레이션 규칙이 없는 경우, “Default Escaltion Rule”이 생성됩니다.</li>
+                    생성된 에스컬레이션 규칙이 없는 경우, “Default Escalation Rule”이 생성됩니다.</li>
                     <li>사용자 설정 조건 추가<br />
                     사용자가 우선순위를 결정하여, 조건에 따라 에스컬레이션을 선택 할 수 있습니다.<br />
                     (선택 시 사용자가 설정한 조건의 규칙을 기본규칙보다 우선적으로 적용 됩니다.)</li>
@@ -842,13 +872,12 @@
                     </tr>
                     </tbody>
                     </table>
-                    <p>에스컬레이션 규칙이 없는 경우 자동으로 “Default Escalation Rule”이 생성됩니다. (서비스 생성자가 기본 수신자로 설정이 됩니다.)<br />
-                    <img src="./image/bnr_service_case1_03.png" width="1398"  /></p>
-                    <p>Escalation이 있는 경우 “Save”를 Click 합니다.<br />
-                    <img src="./image/bnr_service_case1_04.png" width="1391"  /></p></li>
+                    <p>에스컬레이션 규칙이 없는 경우 자동으로 “Default Escalation Rule”이 생성됩니다. (서비스 생성자가 기본 수신자로 설정이 됩니다.)</p>
+                    <p>에스컬레이션이 있는 경우 “저장”을 클릭 합니다.<br />
+                    <img src="./image/bnr_service_case1_03.png" width="926"  /></p></li>
                     <li><p>4단계 : 생성된 서비스를 선택<br />
                     생성된 서비스를 클릭하면 다음과 같은 화면으로 이동 합니다.<br />
-                    <img src="./image/bnr_service_case1_05.png" width="1414"  /></p>
+                    <img src="./image/bnr_service_case1_05.png" width="932.5"  /></p>
                     <p>각 탭에 대한 내용은 다음과 같습니다.</p>
                     <table>
                     <colgroup>
@@ -893,15 +922,15 @@
                     <ol type="1">
                     <li>1단계 : 인티그레이션 메뉴 선택<br />
                     인티그레이션 메뉴를 클릭 합니다.<br />
-                    <img src="./image/bnr_service_case2_01.png" width="574"  /></li>
+                    <img src="./image/bnr_service_case2_01.png" width="369"  /></li>
                     <li>2단계 : 신규 인티그레이션 생성<br />
                     “인티그레이션 생성” 버튼을 클릭 합니다.<br />
-                    <img src="./image/bnr_service_case2_02.png" width="1431"  /></li>
+                    <img src="./image/bnr_service_case2_02.png" width="940.5"  /></li>
                     <li>3단계 : AWS Cloud Watch 선택<br />
                     “새 인티그레이선 추가” 버튼을 클릭합니다.<br />
-                    <img src="./image/bnr_service_case2_03.png" width="584"  /></li>
+                    <img src="./image/bnr_service_case2_03.png" width="212"  /></li>
                     <li><p>4단계 : 인티그레이션 설정<br />
-                    <img src="./image/bnr_service_case2_04.png" width="1413"  /></p>
+                    <img src="./image/bnr_service_case2_04.png" width="859"  /></p>
                     <p>인티그레이션 설정을 위한 입력 항목은 다음과 같습니다.</p>
                     <p>서비스는 여러 인티그레이션을 그룹화 하여 고객이 관리하고자 하는 고객 향의 서비스로 지정하여 인시던트를 관리 할 수 있습니다.</p>
                     <table>
@@ -943,7 +972,7 @@
                     </tbody>
                     </table>
                     <p>“신규 서비스 생성” 화면은 다음과 같습니다.<br />
-                    <img src="./image/bnr_service_case2_05.png" width="1421"  /></p>
+                    <img src="./image/bnr_service_case2_05.png" width="859"  /></p>
                     <table>
                     <colgroup>
                     <col style="width: 16%" />
@@ -1008,7 +1037,7 @@
                     <td>Use Case 1.<br />
                     “에스컬레이션” 메뉴에서 생성</td>
                     <td>에스컬레이션 메뉴에서 오른쪽 상위에 있는 “에스컬레이션 생성” 버튼을 클릭합니다.<br />
-                    <img src="./image/bnr_escalation_01_button.png" width="163"  /><br />
+                    <button class="demo black">에스컬레이션 생성</button><br />
                     에스컬레이션 정책을 생성 합니다.</td>
                     </tr>
                     <tr class="odd">
@@ -1028,12 +1057,12 @@
                     <ol type="1">
                     <li>1단계 : 에스컬레이션 메뉴 선택<br />
                     에스컬레이션 메뉴를 클릭 합니다.<br />
-                    <img src="./image/bnr_escalation_case1_01.png" width="566"  /></li>
+                    <img src="./image/bnr_escalation_case1_01.png" width="364.5"  /></li>
                     <li>2단계 : 신규 에스컬레이션 생성<br />
                     “에스컬레이션 생성” 버튼을 클릭 합니다.<br />
-                    <img src="./image/bnr_escalation_case1_02.png" width="1419"  /></li>
+                    <img src="./image/bnr_escalation_case1_02.png" width="890.5"  /></li>
                     <li><p>3단계 : 에스컬레이션 정책 생성<br />
-                    <img src="./image/bnr_escalation_case1_03.png" width="1414"  /><br />
+                    <img src="./image/bnr_escalation_case1_03.png" width="881.5"  /><br />
                     에스컬레이션 설정을 위한 입력 항목은 다음과 같습니다</p>
                     <table>
                     <colgroup>
@@ -1114,18 +1143,18 @@
                     </table></li>
                     <li><p>4단계 : 생성 에스컬레이션 저장<br />
                     에스컬레이션 설정을 아래와 같이 저장 합니다.<br />
-                    <img src="./image/bnr_escalation_case1_04.png" width="1400"  /></p></li>
+                    <img src="./image/bnr_escalation_case1_04.png" width="896"  /></p></li>
                     </ol>
                     <h3 id="escalation-use-case-2">Use Case 2. “서비스” 생성시 Default Escalation Rule 생성</h3>
                     <ol type="1">
                     <li>1단계 : 서비스 메뉴 선택<br />
                     서비스 메뉴를 클릭 합니다.<br />
-                    <img src="./image/bnr_service_case1_01.png" width="633"  /></li>
+                    <img src="./image/bnr_service_case1_01.png" width="369.5"  /></li>
                     <li>2단계 : 신규 서비스 생성<br />
                     “서비스 생성” 버튼을 클릭 합니다.<br />
-                    <img src="./image/bnr_service_case1_02.png" width="1430"  /></li>
+                    <img src="./image/bnr_service_case1_02.png" width="1274.5"  /></li>
                     <li>3단계 : Create Default Escalation Rule<br />
-                    <img src="./image/bnr_service_case1_03.png" width="1398"  /><br />
+                    <img src="./image/bnr_service_case1_03.png" width="926"  /><br />
                     에스컬레이션 규칙이 없는 경우 자동으로 “Create Default Escalation Rule”이 생성됩니다.<br />
                     (Service 생성자가 기본 수신자로 설정이 됩니다.)</li>
                     </ol>
@@ -1134,40 +1163,40 @@
                     <ol type="1">
                     <li><p>1단계 : 인티그레이션 메뉴 선택<br />
                     인티그레이션 메뉴를 클릭 합니다.<br />
-                    <img src="./image/bnr_escalation_case3_01.png" width="607"  /></p></li>
+                    <img src="./image/bnr_service_case2_01.png" width="369"  /></p></li>
                     <li><p>2단계 : 신규 인티그레이션 생성<br />
                     “인티그레이션 생성” 버튼을 클릭 합니다.<br />
-                    <img src="./image/bnr_escalation_case3_02.png" width="1413"  /></p></li>
+                    <img src="./image/bnr_service_case2_02.png" width="940.5"  /></p></li>
                     <li><p>3단계 : AWS Cloud Watch 선택<br />
                     “새 인티그레이션 추가” 버튼을 클릭합니다.<br />
-                    <img src="./image/bnr_service_case2_03.png" width="584"  /></p></li>
+                    <img src="./image/bnr_service_case2_03.png" width="212"  /></p></li>
                     <li><p>4단계 : 인티그레이션 설정<br />
-                    <img src="./image/bnr_escalation_case3_04.png" width="940"  /></p>
+                    <img src="./image/bnr_escalation_case3_04.png" width="859"  /></p>
                     <p>인티그레이션, 서비스 생성을 동시에 할 경우, 기존에 생성된 에스컬레이션 규칙이 없다면 “Default Escalation Rule”이 생성됩니다. (서비스 생성자가 기본 수신자로 설정이 됩니다.)</p></li>
                     </ol>
                     <p>※ 나머지 Integration 생성은 Integration 가이드 항목을 참고 해 주세요.</p>
                     <hr />
                     <h2 id="integration">인티그레이션</h2>
-                    <p>사용자는 AlertNow가 제공하는 인티그레이션 목록 중 자신이 사용 중인 툴이나 서비스를 선택하여인티그레이션 설정을 함으로써 해당 툴에서 발생 하는 알림을 AlertNow로 전달 하고 관리할 수 있습니다.<br />
-                    Integration 설정 가이드는 다음과 같습니다.</p>
+                    <p>사용자는 AlertNow가 제공하는 인티그레이션 목록 중 자신이 사용 중인 툴이나 서비스를 선택하여인티그레이션 설정을 함으로써 해당 툴에서 발생 하는 알림을 AlertNow로 전달 하고 관리할 수 있습니다.</p>
                     <blockquote>
-                    <p><strong>Note : AlertNow에서 제공하는 인티그레이션 자원은 다음과 같습니다.<br />
+                    <p><strong><em>Note : AlertNow에서 제공하는 인티그레이션 자원은 다음과 같습니다.<br />
                     AWS CLOUD WATCH : EC2, RDS, EBS, Redshift, ELB, S3<br />
-                    (항목 추가 시, UPDATE될 예정)</strong></p>
+                    (항목 추가 시, UPDATE될 예정)</em></strong></p>
                     </blockquote>
-                    <p>인티그레이션 설정 가이드는 다음과 같습니다.</p>
+                    <h3 id="인티그레이션-설정">인티그레이션 설정</h3>
+                    <p>인티그레이션 설정 방법은 다음과 같습니다.</p>
                     <ol type="1">
                     <li><p>1단계 : 인티그레이션 메뉴 선택<br />
                     인티그레이션 메뉴를 클릭 합니다.<br />
-                    <img src="./image/bnr_escalation_case3_01.png" width="607"  /></p></li>
+                    <img src="./image/bnr_service_case2_01.png" width="369"  /></p></li>
                     <li><p>2단계 : 신규 인티그레이션 생성<br />
                     “인티그레이션 생성” 버튼을 클릭 합니다.<br />
-                    <img src="./image/bnr_escalation_case3_02.png" width="1413"  /></p></li>
+                    <img src="./image/bnr_service_case2_02.png" width="940.5"  /></p></li>
                     <li><p>3단계 : AWS Cloud Watch 선택<br />
                     “새 인티그레이션 추가” 버튼을 클릭합니다.<br />
-                    <img src="./image/bnr_service_case2_03.png" width="584"  /></p></li>
+                    <img src="./image/bnr_service_case2_03.png" width="212"  /></p></li>
                     <li><p>4단계 : Integration 설정<br />
-                    <img src="./image/bnr_service_case2_04.png" width="1413"  /></p>
+                    <img src="./image/bnr_service_case2_04.png" width="859"  /></p>
                     <p>인티그레이션 설정을 위한 입력 항목은 다음과 같습니다.</p>
                     <p>서비스는 여러 인티그레이션을 그룹화 하여 고객이 관리하고자 하는 고객 향의 서비스로 지정하여 인시던트를 관리 할 수 있습니다.</p>
                     <table>
@@ -1208,7 +1237,7 @@
                     </tbody>
                     </table>
                     <p>신규 서비스화면은 다음과 같습니다.<br />
-                    <img src="./image/bnr_integration_05.png" width="1383"  /></p>
+                    <img src="./image/bnr_service_case2_05.png" width="859"  /></p>
                     <table style="width:100%;">
                     <colgroup>
                     <col style="width: 19%" />
@@ -1232,7 +1261,7 @@
                     <td>에스컬레이션 규칙</td>
                     <td><ul>
                     <li>에스컬레이션 기본 규칙<br />
-                    생성된 에스컬레이션 규칙이 없는 경우, “Default Escaltion Rule”이 생성됩니다.</li>
+                    생성된 에스컬레이션 규칙이 없는 경우, “Default Escalation Rule”이 생성됩니다.</li>
                     <li>사용자 설정 조건 추가<br />
                     사용자가 우선순위를 결정하여, 조건에 따라 에스컬레이션을 선택 할 수 있습니다.<br />
                     (선택 시 사용자가 설정한 조건의 규칙을 기본규칙보다 우선적으로 적용 됩니다.)</li>
@@ -1253,7 +1282,7 @@
                     </tbody>
                     </table>
                     <p>서비스 선택 화면은 다음과 같습니다.<br />
-                    <img src="./image/bnr_integration_06.png" width="1415"  /></p>
+                    <img src="./image/bnr_integration_06.png" width="867"  /></p>
                     <table>
                     <colgroup>
                     <col style="width: 18%" />
@@ -1281,7 +1310,7 @@
                     “인티그레이션 이름”을 입력하고, 사용자의 설정에 따른 서비스를 생성, 혹은 선택한 후에 우측 하단의 “저장” 버튼을 클릭 합니다.</p></li>
                     <li><p>6단계 : 생성 인티그레이션 정보 확인<br />
                     5단계 수행 후, 아래 화면으로 자동 이동 합니다.<br />
-                    <img src="./image/bnr_integration_07.png" width="967"  /><br />
+                    <img src="./image/bnr_integration_07.png" width="617"  /><br />
                     위 정보 중 “URL” 의 경우, AWS Console 상에서 SNS(Simple Notification Service) 에서 AlertNow와 연결하기 위한 SNS Webhook URL 정보를 복사 해 두시기 바랍니다.</p></li>
                     </ol>
                     <h3 id="aws-sns-dashboard">AWS SNS Dashboard</h3>
@@ -1432,10 +1461,10 @@
                     <ol type="1">
                     <li><p>서비스 처음 접속 초기 화면<br />
                     처음 접속한 고객의 경우, “인시던트 없음”이 보여 집니다. 추후 초기 Setting 절차를 고객이 직접 설정 할 수 있도록 유도하는 Wizard 기능이 제공 될 예정 입니다.<br />
-                    <img src="./image/bnr_integration_default_1.png" width="1433"  /></p></li>
+                    <img src="./image/bnr_integration_default_1.png" width="1195"  /></p></li>
                     <li><p>서비스 초기 화면<br />
                     인티그레이션 가이드에 따라 AWS Cloud Watch에 대한 인티그레이션 생성과 AWS Console 상에서 경보 설정을 완료 한 경우, 접속과 동시에 인시던트를 확인 할 수 있습니다.<br />
-                    <img src="./image/bnr_integration_default_2.png" width="1418"  /></p></li>
+                    <img src="./image/bnr_integration_default_2.png" width="1197"  /></p></li>
                     </ol>
                     <hr />
                     <h2 id="extensions">익스텐션</h2>
@@ -1445,16 +1474,16 @@
                     <ol type="1">
                     <li><p>1단계 : 익스텐션 메뉴 선택<br />
                     익스텐션 메뉴를 클릭 합니다.<br />
-                    <img src="./image/bnr_extension_01.png" width="572"  /></p></li>
+                    <img src="./image/bnr_extension_01.png" width="367.5"  /></p></li>
                     <li><p>2단계 : 익스텐션 설정 선택<br />
                     “익스텐션 설정” 버튼을 클릭 합니다.<br />
-                    <img src="./image/bnr_extension_02.png" width="807"  /></p></li>
+                    <img src="./image/bnr_extension_02.png" width="608"  /></p></li>
                     <li><p>3단계 : 새로운 연락처 등록<br />
                     “+ 연락처 등록” 버튼을 클릭 합니다.<br />
-                    <img src="./image/bnr_extension_03.png" width="1427"  /></p></li>
+                    <img src="./image/bnr_extension_03.png" width="901.5"  /></p></li>
                     <li><p>4단계 : Slack을 설정<br />
                     “Slack”을 선택 합니다.<br />
-                    <img src="./image/bnr_extension_04.png" width="547"  /></p>
+                    <img src="./image/bnr_extension_04.png" width="390"  /></p>
                     <p>“적용” 버튼을 틀릭하여, Slack 도메인을 생성 합니다.</p></li>
                     </ol>
                     <h3 id="slack-move-to-slack-setting">Slack 설정 : Slack 화면으로 이동</h3>
@@ -1463,19 +1492,19 @@
                     <ol type="1">
                     <li><p>1단계 : AlertNow에 대한 Slack 승인<br />
                     아래의 내용을 확인 한 후, “Authorize”를 선택 합니다.<br />
-                    <img src="./image/bnr_extension_06.png" width="258.5"  /><br />
-                    <img src="./image/bnr_extension_07.png" width="545"  /><br />
+                    <img src="./image/bnr_extension_06.png" width="350"  /><br />
+                    <img src="./image/bnr_extension_07.png" width="400"  /><br />
                     위와 같은 메시지가 나옵니다.<br />
                     “확인”을 선택 합니다.</p></li>
                     <li><p>2단계 : AlertNow에서 확인<br />
                     AlertNow “개인 설정” 메뉴에서 Contact method에 생성한 Slack 도메인이 추가 된 것을 확인 합니다.<br />
-                    <img src="./image/bnr_extension_08.png" width="1414"  /></p></li>
+                    <img src="./image/bnr_extension_08.png" width="444"  /></p></li>
                     </ol>
                     <hr />
                     <h2 id="personal-settings">개인 설정</h2>
                     <p>사용자의 기본 정보와 알림을 받기 위한 알림 규칙을 관리하는 서비스 입니다.</p>
                     <p>개인 설정 메뉴를 클릭 합니다.<br />
-                    <img src="./image/bnr_personal_setting_01.png" width="579"  /></p>
+                    <img src="./image/bnr_personal_setting_01.png" width="379.5"  /></p>
                     <p>“개인 설정” 구성은 다음과 같습니다.</p>
                     <table>
                     <colgroup>
@@ -1507,7 +1536,7 @@
                     </table>
                     <h3 id="basic-infomation">기본 정보</h3>
                     <p>개인 프로필과 연락처 정보를 노출 및 설정 할 수 있습니다.<br />
-                    <img src="./image/bnr_personal_setting_02.png" width="1409"  /></p>
+                    <img src="./image/bnr_personal_setting_02.png" width="889.5"  /></p>
                     <ol type="1">
                     <li><p>프로필<br />
                     프로필 구성 정보는 다음과 같습니다.</p>
@@ -1548,7 +1577,7 @@
                     </tbody>
                     </table>
                     <p>표준 시간대의 경우, 설정할 수 있습니다.<br />
-                    <img src="./image/bnr_personal_setting_03.png" width="530"  /></p></li>
+                    <img src="./image/bnr_personal_setting_03.png" width="385"  /></p></li>
                     <li><p>연락처<br />
                     연락처는 다음과 같이 구성되어 있습니다.</p>
                     <table>

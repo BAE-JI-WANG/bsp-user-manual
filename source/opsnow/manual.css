@@ -195,6 +195,35 @@ input {
   border-radius: 0;
   background-color: transparent; }
 
+button.demo {
+  margin: 0;
+  font-family: inherit;
+  cursor: default;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: inline-block;
+  line-height: 1.1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: center;
+  font-family: inherit;
+  border-radius: 0;
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+  min-width: 50px;
+  padding: 0 20px;
+  height: 32px;
+  font-size: 0.875rem;
+  line-height: 26px; }
+  button.demo.black {
+    color: #fff;
+    border: 2px solid #000;
+    background-color: #000; }
+
 .is-hidden {
   display: none !important; }
 
@@ -572,6 +601,9 @@ article {
     padding: 2px 4px;
     margin: 2px 0;
     font-size: 0.875rem; }
+  article strong > em {
+    color: #FF4058;
+    font-weight: 700; }
 
 article > h1 ~ p + h2 {
   margin-top: 50px;
