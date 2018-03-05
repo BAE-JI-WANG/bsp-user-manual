@@ -63,7 +63,7 @@
                         <li><a href="#aws-connect">AWS Console 접속</a></li>
                         <li><a href="#move-to-sns">SNS Dashboard 이동</a></li>
                         <li><a href="#move-to-ec2">EC2 Console 이동</a></li>
-                        <li><a href="#auto-closing-추가">Auto closing 추가</a></li>
+                        <li><a href="#auto-closing-추가">정상화 알람 수신 추가</a></li>
                         <li><a href="#set-aws-watch">AlertNow &gt; 인시던트</a></li>
                         </ul></li>
                         </ul></li>
@@ -1437,15 +1437,15 @@
                     <p>“저장” 후 다음과 같은 메세지가 보입니다.<br />
                     <img src="./image/bnr_integration_ec2_04.jpg" width="816"  /></p></li>
                     </ol>
-                    <h4 id="auto-closing-추가">Auto closing 추가</h4>
-                    <p><strong>Auto closing이란?</strong><br />
+                    <h4 id="auto-closing-추가">정상화 알람 수신 추가</h4>
+                    <p><strong>정상화 알람 수신이란?</strong><br />
                     임계치 설정에 따라 인시던트가 생성되어 있고, 만약 인스턴스 상태가 정상적으로 돌아오면, 기존에 생성된 인시던트를 자동으로 완료 합니다.<br />
                     <img src="./image/bnr_integration_autoclosing_01.png" width="531"  /></p>
                     <ol type="1">
                     <li><p>1단계 : Add / Edit Alarm 선택<br />
                     해당 EC2 선택 후, 아래와 같이 작업 &gt; CloudWatch 모니터링&gt; 경보 추가/편집을 선택 합니다.<br />
                     <img src="./image/bnr_integration_autoclosing_02.png" width="669"  /></p></li>
-                    <li><p>2단계 : Auto closing을 설정할 경보의 보기 클릭<br />
+                    <li><p>2단계 : 정상화 알람 수신을 설정할 경보의 보기 클릭<br />
                     <img src="./image/bnr_integration_autoclosing_03.png" width="643"  /></p></li>
                     <li><p>3단계 : 작업 &gt; 수정 클릭<br />
                     <img src="./image/bnr_integration_autoclosing_04.png" width="663"  /></p></li>
