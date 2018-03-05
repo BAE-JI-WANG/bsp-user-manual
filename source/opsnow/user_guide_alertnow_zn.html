@@ -180,12 +180,12 @@
                     <img src="./image/bnr_incident_01.png" width="629"  /><br />
                     임계치 설정에 따라 인시던트가 생성되어 있고, 만약 인스턴스 상태가 정상적으로 돌아오면, 기존에 생성된 인시던트를 자동으로 종료 합니다.</li>
                     <li><p>미종료 인시던트 생성 제한<br />
-                    Cloudwatch로 수신되는 알림 중, Cloudwatch Alert Name , dimension정보가 모두 동일한 종료되지 않은 인시던트가 존재하는 경우, 생성 억제 됩니다.<br />
+                    Cloudwatch로 수신되는 알림 중, Cloudwatch Alert Name , dimension정보가 모두 동일한 종료되지 않은 인시던트가 존재하는 경우, 생성 제한 됩니다.<br />
                     <img src="./image/bnr_incident_02.png" width="506"  /></p>
                     <p>※ 참고 : Cloud watch에서 제공하는 Dimension정보<br />
                     <code>InstanceId</code>, <code>ApiName</code>, <code>Fleet</code>, <code>ServiceName</code>, <code>DistributionId</code>, <code>ClientId</code>, <code>RuleName</code>, <code>LogGroupName</code>, <code>ConnectionId</code>, <code>DBInstanceIdentifier</code>, <code>VolumeId</code>, <code>FileSystemId</code>, <code>LoadBalancerName</code>, <code>AutoScalingGroupName</code>, <code>ActionType</code>, <code>ClientId</code>, <code>PipelineId</code>, <code>JobId</code>, <code>Flow</code>, <code>StreamName</code>, <code>KeyId</code>, <code>FunctionName</code>, <code>BotName</code>, <code>MLModelId</code>, <code>Broker</code>, <code>HealthCheckId</code>, <code>Host</code>, <code>TopicName</code>, <code>QueueName</code>, <code>BucketName</code>, <code>AttackVector</code>, <code>LambdaFunctionArn</code>, <code>Domain</code>, <code>GatewayId</code>, <code>ServiceName</code>, <code>NatGatewayId</code>, <code>VpnId</code>, <code>Rule</code>, <code>WorkspaceId</code></p></li>
-                    <li><p>인시던트 생성 – 억제 규칙<br />
-                    “미종료 인시던트 생성 제한”에서 걸러지지 않은 경고에 대해 서비스에서 설정한 규칙을 적용하여 생성억제 합니다.<br />
+                    <li><p>인시던트 생성 제한 규칙<br />
+                    “미종료 인시던트 생성 제한”에서 걸러지지 않은 경고에 대해 서비스에서 설정한 규칙을 적용하여 생성 제한 합니다.<br />
                     단, 종료되지 않은 인시던트가 존재하여야 합니다.</p></li>
                     </ul>
                     <p>또한 사용자는 사용자의 판단에 따라 경고가 생성되지 않은 상태에서도 수동으로 인시던트를 생성해 장애 대응을 진행할 수 있습니다. (추후예정)</p>
@@ -256,9 +256,9 @@
                     <p>경고는 다음과 같은 인시던트 생성 결과를 가질 수 있습니다.</p>
                     <ol type="1">
                     <li>인시던트 생성</li>
-                    <li>생성억제(생성제한 규칙)</li>
-                    <li>생성억제(유지보수)</li>
-                    <li>생성억제(미종료 인시던트)</li>
+                    <li>생성안됨(생성 제한 규칙)</li>
+                    <li>생성안됨(유지보수 일정)</li>
+                    <li>생성안됨(인시던트 미종료)</li>
                     </ol>
                     <hr />
                     <h3 id="incident-incident">인시던트</h3>
@@ -862,9 +862,9 @@
                     <tr class="odd">
                     <td>인시던트 생성 규칙</td>
                     <td><ul>
-                    <li>인시던트 제한 규칙<br />
+                    <li>인시던트 생성 제한 규칙<br />
                     조건 항목( Alert Summary, Alert Metric Name )가<br />
-                    연속해서 발생 할 경우, 기간(초)를 설정하여, 인시던트 중복 생성을 방지 할 수 있습니다.</li>
+                    연속해서 발생 할 경우, 초/분/시/일을 설정하여, 인시던트 중복 생성을 방지 할 수 있습니다.</li>
                     <li>인시던트 긴급도 규칙<br />
                     인시던트의 긴급도를 설정 할 수 있습니다.</li>
                     </ul></td>
@@ -1008,7 +1008,7 @@
                     <td><ul>
                     <li>인시던트 생성 제한 규칙<br />
                     조건 항목( Alert Summary, Alert Metric Name)가 연속해서 발생 할 경우,<br />
-                    기간(초)를 설정하여, 인시던트 중복 생성을 방지 할 수 있습니다.</li>
+                    초/분/시/일을 설정하여, 인시던트 중복 생성을 방지 할 수 있습니다.</li>
                     <li>인시던트 긴급도 규칙<br />
                     인시던트의 긴급도를 설정 할 수 있습니다.</li>
                     </ul></td>
@@ -1271,9 +1271,9 @@
                     <tr class="odd">
                     <td>인시던트 생성 규칙</td>
                     <td><ul>
-                    <li>인시던트 제한 규칙<br />
+                    <li>인시던트 생성 제한 규칙<br />
                     조건 항목( Alert Summary, Alert Metric Name )가<br />
-                    연속해서 발생 할 경우, 기간(초)를 설정하여, 인시던트 중복 생성을 방지 할 수 있습니다.</li>
+                    연속해서 발생 할 경우, 초/분/시/일을 설정하여, 인시던트 중복 생성을 방지 할 수 있습니다.</li>
                     <li>인시던트 긴급도 규칙<br />
                     인시던트의 긴급도를 설정 할 수 있습니다.</li>
                     </ul></td>
