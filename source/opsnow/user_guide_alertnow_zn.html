@@ -50,11 +50,11 @@
                         </ul></li>
                         <li><a href="#service">서비스</a><ul>
                         <li><a href="#service-use-case-1">Use Case 1.서비스 메뉴에서 생성</a></li>
-                        <li><a href="#service-use-case-2">Use Case 2. Integration 생성 시에 생성</a></li>
+                        <li><a href="#service-use-case-2">Use Case 2. 인티그레이션 생성 시에 생성</a></li>
                         </ul></li>
                         <li><a href="#escalations">에스컬레이션</a><ul>
-                        <li><a href="#escalation-use-case-1">Use Case 1. Escalations 메뉴에서 생성</a></li>
-                        <li><a href="#escalation-use-case-2">Use Case 2. “서비스” 생성시 Default Escalation Rule 생성</a></li>
+                        <li><a href="#escalation-use-case-1">Use Case 1. 에스컬레이션 메뉴에서 생성</a></li>
+                        <li><a href="#escalation-use-case-2">Use Case 2. “서비스” 생성시 에스컬레이션 기본 규칙 생성</a></li>
                         <li><a href="#escalation-use-case-3">Use Case 3. “인티그레이션”, “서비스” 생성을 동시에 할 경우</a></li>
                         </ul></li>
                         <li><a href="#integration">인티그레이션</a><ul>
@@ -120,7 +120,7 @@
                     </tr>
                     <tr class="even">
                     <td>서비스</td>
-                    <td><p>고객이 설정한 Service 단위로 Incident를 상태를 관리 합니다.<br />
+                    <td><p>고객이 설정한 서비스 단위로 인시던트 상태를 관리 합니다.<br />
                     서비스는 인티그레이션에서 발생하는 인시던트를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다</p>
                     <ol type="1">
                     <li>구성
@@ -174,18 +174,18 @@
                     <li>릴리즈, DB 작업, 인프라 작업, 보안 작업 등의 특정상황에 따라 유지보수 일정을 설정 할 수 있고, 설정한 기간 동안에는 인시던트가 발생하지 않습니다.</li>
                     <li>유지보수 상태에서 발생한 경고는 “생성안됨(유지보수 일정)” 상태로 저장되며, 유지보수 일정으로 인해 해당 경고의 인시던트가 생성되지 않았음을 확인할 수 있습니다.</li>
                     </ul>
-                    <p>이 외에 중복되는 인시던트 생성을 방지 하기 위해 “Stable Alert Receive”, “Unclosed Incident suppress” 기능을 제공하고 있습니다.</p>
+                    <p>이 외에 중복되는 인시던트 생성을 방지 하기 위해 “정상화 알람 수신”, “미종료 인시던트 생성 제한” 기능을 제공하고 있습니다.</p>
                     <ul>
-                    <li>Stable Alert Receive<br />
+                    <li>정상화 알람 수신<br />
                     <img src="./image/bnr_incident_01.png" width="629"  /><br />
                     임계치 설정에 따라 인시던트가 생성되어 있고, 만약 인스턴스 상태가 정상적으로 돌아오면, 기존에 생성된 인시던트를 자동으로 종료 합니다.</li>
-                    <li><p>Unclosed Incident Suppression<br />
+                    <li><p>미종료 인시던트 생성 제한<br />
                     Cloudwatch로 수신되는 알림 중, Cloudwatch Alert Name , dimension정보가 모두 동일한 종료되지 않은 인시던트가 존재하는 경우, 생성 억제 됩니다.<br />
                     <img src="./image/bnr_incident_02.png" width="506"  /></p>
                     <p>※ 참고 : Cloud watch에서 제공하는 Dimension정보<br />
                     <code>InstanceId</code>, <code>ApiName</code>, <code>Fleet</code>, <code>ServiceName</code>, <code>DistributionId</code>, <code>ClientId</code>, <code>RuleName</code>, <code>LogGroupName</code>, <code>ConnectionId</code>, <code>DBInstanceIdentifier</code>, <code>VolumeId</code>, <code>FileSystemId</code>, <code>LoadBalancerName</code>, <code>AutoScalingGroupName</code>, <code>ActionType</code>, <code>ClientId</code>, <code>PipelineId</code>, <code>JobId</code>, <code>Flow</code>, <code>StreamName</code>, <code>KeyId</code>, <code>FunctionName</code>, <code>BotName</code>, <code>MLModelId</code>, <code>Broker</code>, <code>HealthCheckId</code>, <code>Host</code>, <code>TopicName</code>, <code>QueueName</code>, <code>BucketName</code>, <code>AttackVector</code>, <code>LambdaFunctionArn</code>, <code>Domain</code>, <code>GatewayId</code>, <code>ServiceName</code>, <code>NatGatewayId</code>, <code>VpnId</code>, <code>Rule</code>, <code>WorkspaceId</code></p></li>
                     <li><p>인시던트 생성 – 억제 규칙<br />
-                    “Unclosed Incident Suppression”에서 걸러지지 않은 경고에 대해 서비스에서 설정한 규칙을 적용하여 생성억제 합니다.<br />
+                    “미종료 인시던트 생성 제한”에서 걸러지지 않은 경고에 대해 서비스에서 설정한 규칙을 적용하여 생성억제 합니다.<br />
                     단, 종료되지 않은 인시던트가 존재하여야 합니다.</p></li>
                     </ul>
                     <p>또한 사용자는 사용자의 판단에 따라 경고가 생성되지 않은 상태에서도 수동으로 인시던트를 생성해 장애 대응을 진행할 수 있습니다. (추후예정)</p>
@@ -852,7 +852,7 @@
                     <td>에스컬레이션 규칙</td>
                     <td><ul>
                     <li>에스컬레이션 기본 규칙<br />
-                    생성된 에스컬레이션 규칙이 없는 경우, “Default Escalation Rule”이 생성됩니다.</li>
+                    생성된 에스컬레이션 규칙이 없는 경우, “에스컬레이션 기본 규칙”이 생성됩니다.</li>
                     <li>사용자 설정 조건 추가<br />
                     사용자가 우선순위를 결정하여, 조건에 따라 에스컬레이션을 선택 할 수 있습니다.<br />
                     (선택 시 사용자가 설정한 조건의 규칙을 기본규칙보다 우선적으로 적용 됩니다.)</li>
@@ -872,7 +872,7 @@
                     </tr>
                     </tbody>
                     </table>
-                    <p>에스컬레이션 규칙이 없는 경우 자동으로 “Default Escalation Rule”이 생성됩니다. (서비스 생성자가 기본 수신자로 설정이 됩니다.)</p>
+                    <p>에스컬레이션 규칙이 없는 경우 자동으로 “에스컬레이션 기본 규칙”이 생성됩니다. (서비스 생성자가 기본 수신자로 설정이 됩니다.)</p>
                     <p>에스컬레이션이 있는 경우 “저장”을 클릭 합니다.<br />
                     <img src="./image/bnr_service_case1_03.png" width="926"  /></p></li>
                     <li><p>4단계 : 생성된 서비스를 선택<br />
@@ -895,22 +895,22 @@
                     <tbody>
                     <tr class="odd">
                     <td>인시던트</td>
-                    <td>기간 및 Search 조건에 따른 Incident 상태를 확인 할 수 있습니다.</td>
+                    <td>기간 및 검색 조건에 따른 인시던트 상태를 확인 할 수 있습니다.</td>
                     <td></td>
                     </tr>
                     <tr class="even">
                     <td>인티그레이션</td>
-                    <td>해당 서비스의 Integration 정보를 확인 할 수 있습니다</td>
+                    <td>해당 서비스의 인티그레이션 정보를 확인 할 수 있습니다</td>
                     <td></td>
                     </tr>
                     <tr class="odd">
                     <td>사용중인 에스컬레이션</td>
-                    <td>해당 서비스의 Escalation 정보를 확인 할 수 있습니다.</td>
+                    <td>해당 서비스의 에스컬레이션 정보를 확인 할 수 있습니다.</td>
                     <td>수정 가능</td>
                     </tr>
                     <tr class="even">
                     <td>인시던트 생성 규칙</td>
-                    <td>해당 서비스의 incident 생성 룰을 확인 할 수 있습니다.</td>
+                    <td>해당 서비스의 인시던트 생성 룰을 확인 할 수 있습니다.</td>
                     <td>수정 가능</td>
                     </tr>
                     </tbody>
@@ -918,7 +918,7 @@
                     <li><p>5단계 : 생성된 서비스에 인티그레이션 설정<br />
                     다음 안내 Use Case 2.를 참조 하시기 바랍니다.</p></li>
                     </ol>
-                    <h3 id="service-use-case-2">Use Case 2. Integration 생성 시에 생성</h3>
+                    <h3 id="service-use-case-2">Use Case 2. 인티그레이션 생성 시에 생성</h3>
                     <ol type="1">
                     <li>1단계 : 인티그레이션 메뉴 선택<br />
                     인티그레이션 메뉴를 클릭 합니다.<br />
@@ -989,16 +989,16 @@
                     <tbody>
                     <tr class="odd">
                     <td>서비스 이름</td>
-                    <td>고객이 생성하고자 하는 Service Name을 임의로 입력 합니다.</td>
+                    <td>고객이 생성하고자 하는 서비스 이름을 임의로 입력 합니다.</td>
                     <td>필수 입력 사항</td>
                     </tr>
                     <tr class="even">
                     <td>에스컬레이션 규칙</td>
                     <td><ul>
                     <li>에스컬레이션 기본 규칙<br />
-                    Escalation 기본 규칙을 설정합니다.</li>
+                    에스컬레이션 기본 규칙을 설정합니다.</li>
                     <li>사용자 설정 조건 추가<br />
-                    사용자가 우선순위를 결정하여, 조건에 따라 Escalation을 선택 할 수 있습니다.<br />
+                    사용자가 우선순위를 결정하여, 조건에 따라 에스컬레이션을 선택 할 수 있습니다.<br />
                     (선택 시 사용자가 설정한 조건의 규칙을 기본규칙보다 우선적으로 적용 됩니다.)</li>
                     </ul></td>
                     <td>필수 입력 사항</td>
@@ -1042,18 +1042,18 @@
                     </tr>
                     <tr class="odd">
                     <td>Use case 2.<br />
-                    “서비스” 생성시, Default Escalation Rule 생성</td>
-                    <td>서비스 생성의 경우, 기존에 생성된 에스컬레이션 규칙이 없다면 “Default Escalation Rule”이 생성됩니다.</td>
+                    “서비스” 생성시, 에스컬레이션 기본 규칙 생성</td>
+                    <td>서비스 생성의 경우, 기존에 생성된 에스컬레이션 규칙이 없다면 “에스컬레이션 기본 규칙”이 생성됩니다.</td>
                     </tr>
                     <tr class="even">
                     <td>Use case 3.<br />
                     “인티그레이션”, “서비스” 생성을 동시에 할 경우,<br />
                     기존에 생성된 에스컬레이션 규칙이 없는 경우</td>
-                    <td>“인티그레이션”, “서비스” 생성을 동시에 할 경우, 기존에 생성된 에스컬레이션 규칙이 없다면 “Default Escalation Rule”이 생성됩니다</td>
+                    <td>“인티그레이션”, “서비스” 생성을 동시에 할 경우, 기존에 생성된 에스컬레이션 규칙이 없다면 “에스컬레이션 기본 규칙”이 생성됩니다</td>
                     </tr>
                     </tbody>
                     </table>
-                    <h3 id="escalation-use-case-1">Use Case 1. Escalations 메뉴에서 생성</h3>
+                    <h3 id="escalation-use-case-1">Use Case 1. 에스컬레이션 메뉴에서 생성</h3>
                     <ol type="1">
                     <li>1단계 : 에스컬레이션 메뉴 선택<br />
                     에스컬레이션 메뉴를 클릭 합니다.<br />
@@ -1100,7 +1100,7 @@
                     </tr>
                     <tr class="even">
                     <td>수신자 설정</td>
-                    <td>같은 회사 소속 User들 중에 선택 할 수 있습니다. 수신자를 여러 명 선택 할 수 있습니다.</td>
+                    <td>같은 회사 소속 사용자들 중에 선택 할 수 있습니다. 수신자를 여러 명 선택 할 수 있습니다.</td>
                     <td>정책 선택 시, 필수 설정 사항</td>
                     </tr>
                     <tr class="odd">
@@ -1145,7 +1145,7 @@
                     에스컬레이션 설정을 아래와 같이 저장 합니다.<br />
                     <img src="./image/bnr_escalation_case1_04.png" width="896"  /></p></li>
                     </ol>
-                    <h3 id="escalation-use-case-2">Use Case 2. “서비스” 생성시 Default Escalation Rule 생성</h3>
+                    <h3 id="escalation-use-case-2">Use Case 2. “서비스” 생성시 에스컬레이션 기본 규칙 생성</h3>
                     <ol type="1">
                     <li>1단계 : 서비스 메뉴 선택<br />
                     서비스 메뉴를 클릭 합니다.<br />
@@ -1153,12 +1153,12 @@
                     <li>2단계 : 신규 서비스 생성<br />
                     “서비스 생성” 버튼을 클릭 합니다.<br />
                     <img src="./image/bnr_service_case1_02.png" width="1274.5"  /></li>
-                    <li>3단계 : Create Default Escalation Rule<br />
+                    <li>3단계 : 에스컬레이션 기본 규칙 생성<br />
                     <img src="./image/bnr_service_case1_03.png" width="926"  /><br />
-                    에스컬레이션 규칙이 없는 경우 자동으로 “Create Default Escalation Rule”이 생성됩니다.<br />
-                    (Service 생성자가 기본 수신자로 설정이 됩니다.)</li>
+                    에스컬레이션 규칙이 없는 경우 자동으로 “에스컬레이션 기본 규칙”이 생성됩니다.<br />
+                    (서비스 생성자가 기본 수신자로 설정이 됩니다.)</li>
                     </ol>
-                    <p>※ 나머지 Service 생성은 Service 가이드 항목을 참고 해 주세요</p>
+                    <p>※ 나머지 서비스 생성은 서비스 가이드 항목을 참고 해 주세요</p>
                     <h3 id="escalation-use-case-3">Use Case 3. “인티그레이션”, “서비스” 생성을 동시에 할 경우</h3>
                     <ol type="1">
                     <li><p>1단계 : 인티그레이션 메뉴 선택<br />
@@ -1172,9 +1172,9 @@
                     <img src="./image/bnr_service_case2_03.png" width="212"  /></p></li>
                     <li><p>4단계 : 인티그레이션 설정<br />
                     <img src="./image/bnr_escalation_case3_04.png" width="859"  /></p>
-                    <p>인티그레이션, 서비스 생성을 동시에 할 경우, 기존에 생성된 에스컬레이션 규칙이 없다면 “Default Escalation Rule”이 생성됩니다. (서비스 생성자가 기본 수신자로 설정이 됩니다.)</p></li>
+                    <p>인티그레이션, 서비스 생성을 동시에 할 경우, 기존에 생성된 에스컬레이션 규칙이 없다면 “에스컬레이션 기본 규칙”이 생성됩니다. (서비스 생성자가 기본 수신자로 설정이 됩니다.)</p></li>
                     </ol>
-                    <p>※ 나머지 Integration 생성은 Integration 가이드 항목을 참고 해 주세요.</p>
+                    <p>※ 나머지 인티그레이션 생성은 인티그레이션 가이드 항목을 참고 해 주세요.</p>
                     <hr />
                     <h2 id="integration">인티그레이션</h2>
                     <p>사용자는 AlertNow가 제공하는 인티그레이션 목록 중 자신이 사용 중인 툴이나 서비스를 선택하여인티그레이션 설정을 함으로써 해당 툴에서 발생 하는 알림을 AlertNow로 전달 하고 관리할 수 있습니다.</p>
@@ -1195,7 +1195,7 @@
                     <li><p>3단계 : AWS Cloud Watch 선택<br />
                     “새 인티그레이션 추가” 버튼을 클릭합니다.<br />
                     <img src="./image/bnr_service_case2_03.png" width="212"  /></p></li>
-                    <li><p>4단계 : Integration 설정<br />
+                    <li><p>4단계 : 인티그레이션 설정<br />
                     <img src="./image/bnr_service_case2_04.png" width="859"  /></p>
                     <p>인티그레이션 설정을 위한 입력 항목은 다음과 같습니다.</p>
                     <p>서비스는 여러 인티그레이션을 그룹화 하여 고객이 관리하고자 하는 고객 향의 서비스로 지정하여 인시던트를 관리 할 수 있습니다.</p>
@@ -1261,7 +1261,7 @@
                     <td>에스컬레이션 규칙</td>
                     <td><ul>
                     <li>에스컬레이션 기본 규칙<br />
-                    생성된 에스컬레이션 규칙이 없는 경우, “Default Escalation Rule”이 생성됩니다.</li>
+                    생성된 에스컬레이션 규칙이 없는 경우, “에스컬레이션 기본 규칙”이 생성됩니다.</li>
                     <li>사용자 설정 조건 추가<br />
                     사용자가 우선순위를 결정하여, 조건에 따라 에스컬레이션을 선택 할 수 있습니다.<br />
                     (선택 시 사용자가 설정한 조건의 규칙을 기본규칙보다 우선적으로 적용 됩니다.)</li>
@@ -1300,7 +1300,7 @@
                     <tr class="odd">
                     <td>서비스 라우팅 규칙</td>
                     <td>기본 라우팅 Service를 선택합니다.<br />
-                    Add custom criteria 의 조건 항목(Alert Summary, Alert Metric Name)<br />
+                    사용자 설정 조건 추가의 조건 항목(Alert Summary, Alert Metric Name)<br />
                     설정을 통해 서비스 라우팅 설정을 할 수 있습니다.</td>
                     <td>필수 선택 사항.</td>
                     </tr>
@@ -1497,7 +1497,7 @@
                     위와 같은 메시지가 나옵니다.<br />
                     “확인”을 선택 합니다.</p></li>
                     <li><p>2단계 : AlertNow에서 확인<br />
-                    AlertNow “개인 설정” 메뉴에서 Contact method에 생성한 Slack 도메인이 추가 된 것을 확인 합니다.<br />
+                    AlertNow “개인 설정” 메뉴에서 연락처에 생성한 Slack 도메인이 추가 된 것을 확인 합니다.<br />
                     <img src="./image/bnr_extension_08.png" width="444"  /></p></li>
                     </ol>
                     <hr />
