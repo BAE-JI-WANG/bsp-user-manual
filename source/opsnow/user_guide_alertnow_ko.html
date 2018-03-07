@@ -63,7 +63,7 @@
                         <li><a href="#aws-connect">AWS Console 접속</a></li>
                         <li><a href="#move-to-sns">SNS Dashboard 이동</a></li>
                         <li><a href="#move-to-ec2">EC2 Console 이동</a></li>
-                        <li><a href="#auto-closing-추가">정상화 알람 수신 추가</a></li>
+                        <li><a href="#add-close-notice">정상화 알람 수신 추가</a></li>
                         <li><a href="#set-aws-watch">AlertNow &gt; 인시던트</a></li>
                         </ul></li>
                         </ul></li>
@@ -135,9 +135,8 @@
                     </tr>
                     <tr class="even">
                     <td>인티그레이션</td>
-                    <td><p>3rd Party(외부) 모니터링 툴에서 발생하는 알림을 AlertNow에 연동하기 위해서는 기본적으로 인티그레이션을 설정해야 합니다.<br />
-                    필수 구성 요소인 서비스의 설정 정보를 관리합니다.</p>
-                    </td>
+                    <td>3rd Party(외부) 모니터링 툴에서 발생하는 알림을 AlertNow에 연동하기 위해서는 기본적으로 인티그레이션을 설정해야 합니다.<br />
+                    필수 구성 요소인 서비스의 설정 정보를 관리합니다.</td>
                     </tr>
                     <tr class="odd">
                     <td>익스텐션</td>
@@ -431,8 +430,8 @@
                     <p>사용자는 인시던트 목록에서 인시던트를 기간/키워드 조건을 설정해 인시던트를 검색할 수 있습니다. 검색 결과는 인시던트 목록에 바로 표시됩니다.</p>
                     <ol type="1">
                     <li><p>기간 검색<br />
-                    <img src="./image/bnr_incident_search_01.png" width="513.5" alt="검색 조건" /></p>
-                    <ol type="a">
+                    <img src="./image/bnr_incident_search_01.png" width="514" alt="검색 조건" /></p>
+                    <ol type="A">
                     <li><p>기간 선택 Preset<br />
                     사용자는 인시던트 목록에서 기간/키워드 조건을 설정해서 검색할 수 있습니다. 검색 결과는 목록에 바로 표시됩니다.</p>
                     <table style="width:86%;">
@@ -693,7 +692,7 @@
                     <ol type="1">
                     <li><p>기간 검색</p>
                     <figure>
-                    <img src="./image/bnr_incident_search_01.png" width="513.5" alt="검색 조건" /><figcaption>검색 조건</figcaption>
+                    <img src="./image/bnr_incident_search_01.png" width="342.5" alt="검색 조건" /><figcaption>검색 조건</figcaption>
                     </figure>
                     <ol type="a">
                     <li><p>기간 선택 Preset<br />
@@ -765,12 +764,12 @@
                     <li>경고 상세 화면에서 [수정] 버튼을 클릭합니다.<br />
                     <img src="./image/bnr_alert_search_04.png" width="353"  /></li>
                     <li>설명 입력 후 [저장] 버튼을 클릭합니다.<br />
-                    <img src="./image/bnr_alert_search_05.png" width="343.5"  /></li>
-                    <li>입력된 설명 을 확인합니다.<br />
+                    <img src="./image/bnr_alert_search_05.png" width="344"  /></li>
+                    <li>입력된 설명을 확인합니다.<br />
                     <img src="./image/bnr_alert_search_06.png" width="324"  /></li>
                     </ol></li>
                     <li>참조 인시던트 보기<br />
-                    선택한 경고를 통해 생성된 인시던트 들을 확인할 수 있으며, 각 인시던트의 상세 화면으로 이동할 수 있습니다.
+                    선택한 경고를 통해 생성된 인시던트 들을 확인할 수 있으며, 각 인시던트 의 상세 화면으로 이동할 수 있습니다.
                     <ol type="a">
                     <li>참조 인시던트 확인<br />
                     <img src="./image/bnr_alert_search_07.png" width="353.5"  /></li>
@@ -780,7 +779,7 @@
                     </ol>
                     <hr />
                     <h2 id="service">서비스</h2>
-                    <p>고객이 설정한 서비스 단위로 인시던트를 상태를 관리합니다.</p>
+                    <p>고객이 설정한 서비스 단위로 인시던트를 관리합니다.</p>
                     <p>서비스는 인티그레이션에서 발생하는 인시던트를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다.<br />
                     인티그레이션에 설정된 라우팅 룰에 따라 서비스로 분기 되어 인시던트를 관리 할 수 있습니다.</p>
                     <p>서비스 생성을 위한 Use Case는 다음과 같습니다.</p>
@@ -808,11 +807,13 @@
                     <td>Use Case 2)<br />
                     “인티그레이션” 메뉴 상에<br />
                     인티그레이션 생성시에 생성</td>
-                    <td>인티그레이션 메뉴에서 오른쪽 상위에 있는 “인티그레이션 생성” 버튼을 클릭 합니다.<br />
-                    <button class="demo black">인티그레이션 생성</button><br />
-                    - 인티그레이션 이름<br />
-                    - 인티그레이션 유형<br />
-                    - 서비스 &gt; 신규 서비스 생성</td>
+                    <td><p>인티그레이션 메뉴에서 오른쪽 상위에 있는 “인티그레이션 생성” 버튼을 클릭 합니다.<br />
+                    <button class="demo black">인티그레이션 생성</button></p>
+                    <ul>
+                    <li>인티그레이션 이름</li>
+                    <li>인티그레이션 유형</li>
+                    <li>서비스 &gt; 신규 서비스 생성</li>
+                    </ul></td>
                     </tr>
                     </tbody>
                     </table>
@@ -1004,7 +1005,7 @@
                     <td>인시던트 생성 규칙</td>
                     <td><ul>
                     <li>인시던트 생성 제한 규칙<br />
-                    조건 항목(Alert Summary, Alert Metric Name)가 연속해서 발생 할 경우,<br />
+                    조건 항목( Alert Summary, Alert Metric Name)가 연속해서 발생 할 경우,<br />
                     초/분/시/일을 설정하여, 인시던트 중복 생성을 방지 할 수 있습니다.</li>
                     <li>인시던트 긴급도 규칙<br />
                     인시던트의 긴급도를 설정 할 수 있습니다.</li>
@@ -1098,7 +1099,7 @@
                     <tr class="even">
                     <td>수신자 설정</td>
                     <td>같은 회사 소속 사용자들 중에 선택 할 수 있습니다. 수신자를 여러 명 선택 할 수 있습니다.</td>
-                    <td>정책 선택 시, 필수 설정 사항</td>
+                    <td><div class="line-block">정책 선택 시, 필수 설정 사항</div></td>
                     </tr>
                     <tr class="odd">
                     <td>시간(단위:분)</td>
@@ -1121,14 +1122,12 @@
                     아무런 조치가 취해지지 않는 경우, 다음의 옵션을 설정할 수 있습니다.
                     <ul>
                     <li>If no one acknowledged, repeat this policy (1) Times<br />
-                        &gt; 에스컬레이션 1단계부터 마지막 단계 까지 (1)회 다시 시작 합니다.<br />
-                        &gt; (1) 횟수의 최대 숫자는 9 입니다.
-                    </li>
+                    &gt; 에스컬레이션 1단계부터 마지막 단계 까지 (1)회 다시 시작 합니다.<br />
+                    &gt; (1) 횟수의 최대 숫자는 9 입니다.</li>
                     <li>If no one acknowledged, there will be (1) more attempts once every (2) minutes<br />
-                        &gt; 모든 수신자를 대상으로 (2)분 간격으로 (1)회 통지합니다.<br />
-                        &gt; (1) 횟수의 최대 숫자는 9 입니다.<br />
-                        &gt; (2)분의 시간 간격을 설정 할 수 있습니다.
-                    </li>
+                    &gt; 모든 수신자를 대상으로 (2)분 간격으로 (1)회 통지합니다.<br />
+                    &gt; (1) 횟수의 최대 숫자는 9 입니다.<br />
+                    &gt; (2)분의 시간 간격을 설정 할 수 있습니다.</li>
                     </ul></td>
                     <td>옵션 설정 항목</td>
                     </tr>
@@ -1147,7 +1146,7 @@
                     “서비스 생성” 버튼을 클릭 합니다.<br />
                     <img src="./image/bnr_service_case1_02.png" width="1274.5"  /></li>
                     <li>3단계 : 에스컬레이션 기본 규칙 생성<br />
-                    <img src="./image/bnr_service_case1_03.png" width="926"  /><br />
+                    <img src="./image/bnr_service_case1_03.png" width="582"  /><br />
                     에스컬레이션 규칙이 없는 경우 자동으로 “에스컬레이션 기본 규칙”이 생성됩니다.<br />
                     (서비스 생성자가 기본 수신자로 설정이 됩니다.)</li>
                     </ol>
@@ -1265,8 +1264,8 @@
                     <td>인시던트 생성 규칙</td>
                     <td><ul>
                     <li>인시던트 생성 제한 규칙<br />
-                    조건 항목(Alert Summary, Alert Metric Name)가<br />
-                    연속해서 발생 할 경우, 초/분/시/일을 설정하여, 인시던트 중복 생성을 방지 할 수 있습니다.</li>
+                    조건 항목( Alert Summary, Alert Metric Name)가 연속해서 발생 할 경우,<br />
+                    초/분/시/일을 설정하여, 인시던트 중복 생성을 방지 할 수 있습니다.</li>
                     <li>인시던트 긴급도 규칙<br />
                     인시던트의 긴급도를 설정 할 수 있습니다.</li>
                     </ul></td>
@@ -1278,9 +1277,9 @@
                     <img src="./image/bnr_integration_06.png" width="867"  /></p>
                     <table>
                     <colgroup>
-                    <col style="width: 18%" />
-                    <col style="width: 69%" />
-                    <col style="width: 12%" />
+                    <col style="width: 19%" />
+                    <col style="width: 66%" />
+                    <col style="width: 13%" />
                     </colgroup>
                     <thead>
                     <tr class="header">
@@ -1293,10 +1292,11 @@
                     <tr class="odd">
                     <td>서비스 라우팅 규칙</td>
                     <td><ul>
-                        <li>서비스 기본 규칙을 선택합니다.</li>
-                        <li>사용자 설정 조건 추가의 조건 항목(Alert Summary, Alert Metric Name)<br />
-                            설정을 통해 서비스 라우팅 설정을 할 수 있습니다.</li></ul></td>
-                    <td>필수 선택 사항.</td>
+                    <li>서비스 기본 규칙을 선택합니다.</li>
+                    <li>사용자 설정 조건 추가의 조건 항목( Alert Summary, Alert Metric Name)<br />
+                    설정을 통해 서비스 라우팅 설정을 할 수 있습니다.</li>
+                    </ul></td>
+                    <td>필수 선택 사항</td>
                     </tr>
                     </tbody>
                     </table></li>
@@ -1321,8 +1321,8 @@
                     <table>
                     <colgroup>
                     <col style="width: 11%" />
-                    <col style="width: 73%" />
-                    <col style="width: 14%" />
+                    <col style="width: 75%" />
+                    <col style="width: 13%" />
                     </colgroup>
                     <thead>
                     <tr class="header">
@@ -1431,7 +1431,7 @@
                     <p>“저장” 후 다음과 같은 메시지가 보입니다.<br />
                     <img src="./image/bnr_integration_ec2_04.jpg" width="816"  /></p></li>
                     </ol>
-                    <h4 id="auto-closing-추가">정상화 알람 수신 추가</h4>
+                    <h4 id="add-close-notice">정상화 알람 수신 추가</h4>
                     <p><strong>정상화 알람 수신이란?</strong><br />
                     임계치 설정에 따라 인시던트가 생성되어 있고, 만약 인스턴스 상태가 정상적으로 돌아오면, 기존에 생성된 인시던트를 자동으로 완료 합니다.<br />
                     <img src="./image/bnr_integration_autoclosing_01.png" width="531"  /></p>
@@ -1560,7 +1560,11 @@
                     </tr>
                     <tr class="odd">
                     <td>표준 시간대</td>
-                    <td><div class="line-block"> 개인의 경우, 최초 접속 시 사용하는 브라우저 시간으로 설정 - 자동 - 변경 가능</div></td>
+                    <td><div class="line-block">개인의 경우, 최초 접속 시 사용하는 브라우저 시간으로 설정</div>
+                    <ul>
+                    <li>자동</li>
+                    <li>변경 가능</li>
+                    </ul></td>
                     <td><div class="line-block">설정 가능</div></td>
                     </tr>
                     <tr class="even">
