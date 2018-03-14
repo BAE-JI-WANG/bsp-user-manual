@@ -30,7 +30,8 @@ var TOCMenu = (function ($) {
 
             var $target = $( $this.attr("href") );
 
-            if( $this.hasClass("btn-toggle") ) {
+            var isH2 = $(this).parent().parent().parent().parent().parent().prop('tagName').toLowerCase() === 'div' ? true : false;
+            if (isH2) {
                 $('html, body').animate({
                     scrollTop: $target.offset().top + 2
                 }, 0);
