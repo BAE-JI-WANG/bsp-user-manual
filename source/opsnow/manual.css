@@ -757,12 +757,6 @@ article > h4 {
   article > h4:before {
     content: counter(_h3) ". " counter(_h4) ". "; }
 
-article hr:nth-of-type(1) + h2 {
-  padding-top: 0;
-  padding-bottom: 30px; }
-  article hr:nth-of-type(1) + h2 + p {
-    padding-bottom: 20px; }
-
 @media print {
   * {
     display: none; } }
