@@ -618,11 +618,9 @@ article > h2 {
   padding-top: 80px;
   padding-bottom: 20px; }
 
-article > h3 {
-  margin-top: 0px;
-  padding-top: 80px; }
-
+article > h3,
 article > h4 {
+  margin-top: -40px;
   padding-top: 80px; }
 
 article hr {
@@ -750,6 +748,9 @@ article > h4 {
   counter-increment: _h4; }
   article > h4:before {
     content: counter(_h3) ". " counter(_h4) ". "; }
+
+article hr:nth-of-type(1) + h2 {
+  margin-top: -80px; }
 
 article td ul,
 article td ol {
