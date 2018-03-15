@@ -26,8 +26,7 @@
                 <nav id="toc-menu">
                     <span> AlertNow </span>
                     <p>
-                        AlertNow
-                                                    상황별 가이드를 제공합니다.
+                                                AlertNow 상황별 가이드를 제공합니다.
                                                                                             </p>
 
                     <div class="toc AlertNow">
@@ -62,7 +61,7 @@
                         </ul></li>
                         <li><a href="#escalations">에스컬레이션</a><ul>
                         <li><a href="#escalation-use-case-1">Use Case 1. 에스컬레이션 메뉴에서 생성</a></li>
-                        <li><a href="#escalation-use-case-2">Use Case 2. “서비스” 생성시 에스컬레이션 기본 규칙 생성</a></li>
+                        <li><a href="#escalation-use-case-2">Use Case 2. “서비스” 생성 시 에스컬레이션 기본 규칙 생성</a></li>
                         <li><a href="#escalation-use-case-3">Use Case 3. “인티그레이션”, “서비스” 생성을 동시에 할 경우</a></li>
                         </ul></li>
                         <li><a href="#integration">인티그레이션</a><ul>
@@ -1074,90 +1073,89 @@
                     </tr>
                     <tr class="even">
                     <td>설명</td>
-                    <td>해당 에스컬레이션에 대한 설명을 추가 합니다.</td>
+                    <td>해당 에스컬레이션에 대한 설명을 추가합니다.</td>
                     <td>옵션 사항</td>
                     </tr>
                     <tr class="odd">
                     <td>규칙 설정</td>
-                    <td>If the incidents is not “acknowledged / closed” It will escalate to next step.
+                    <td>인시던트가 “확인/종료”되지 않으면, 다음 단계로 에스컬레이션 됩니다.
                     <ul>
                     <li>“확인” 상태가 아닌 경우,</li>
                     <li>“종료” 상태가 아닌 경우,<br />
-                    에스컬레이션 정책을 설정 합니다.</li>
+                    에스컬레이션 정책을 설정합니다.</li>
                     </ul></td>
                     <td></td>
                     </tr>
                     <tr class="even">
                     <td>수신자 설정</td>
-                    <td>같은 회사 소속 사용자들 중에 선택 할 수 있습니다. 수신자를 여러 명 선택 할 수 있습니다.</td>
-                    <td><div class="line-block">정책 선택 시, 필수 설정 사항</div></td>
+                    <td>같은 회사 소속 사용자들 중에 선택할 수 있습니다. 수신자를 여러 명 선택할 수 있습니다.</td>
+                    <td>정책 선택 시, 필수 설정 사항</td>
                     </tr>
                     <tr class="odd">
-                    <td>시간(단위:분)</td>
-                    <td>알림을 전달할 시간 주기를 분 단위로 설정 할 수 있습니다.</td>
+                    <td>시간(단위: 분)</td>
+                    <td>알림을 전달할 시간 주기를 분 단위로 설정할 수 있습니다.</td>
                     <td>정책 선택 시, 필수 설정 사항</td>
                     </tr>
                     <tr class="even">
                     <td>조치</td>
                     <td>수신자에게 시간(분 단위) 주기로 설정하여 알림을 받은 이후,<br />
-                    조치를 “escalation to next step” / “repeat this step” 중 선택 할 수 있습니다.
+                    조치를 “다음 단계로 에스컬레이션” / “이 단계 반복” 중 선택할 수 있습니다.
                     <ul>
-                    <li>escalation to next step : 다음 에스컬레이션단계로 수행 합니다.</li>
-                    <li>repeat this step : 현재 단계를 반복 합니다. 반복 주기를 시간 단위로 설정할 수 있습니다.</li>
+                    <li>다음 단계로 에스컬레이션 : 다음 에스컬레이션 단계로 수행합니다.</li>
+                    <li>이 단계 반복 : 현재 단계를 반복합니다. 반복 주기를 시간 단위로 설정할 수 있습니다.</li>
                     </ul></td>
                     <td>정책 선택 시, 필수 설정 사항</td>
                     </tr>
                     <tr class="odd">
                     <td>추가 항목 설정</td>
                     <td>에스컬레이션이 조치 및 추가 에스컬레이션 단계까지 승급 되었는데도<br />
-                    아무런 조치가 취해지지 않는 경우, 다음의 옵션을 설정할 수 있습니다.
+                    아무런 조치가 취해지지 않는 경우, 다음과 같은 옵션을 설정할 수 있습니다.
                     <ul>
-                    <li>If no one acknowledged, repeat this policy (1) Times<br />
-                    &gt; 에스컬레이션 1단계부터 마지막 단계 까지 (1)회 다시 시작 합니다.<br />
-                    &gt; (1) 횟수의 최대 숫자는 9 입니다.</li>
-                    <li>If no one acknowledged, there will be (1) more attempts once every (2) minutes<br />
-                    &gt; 모든 수신자를 대상으로 (2)분 간격으로 (1)회 통지합니다.<br />
-                    &gt; (1) 횟수의 최대 숫자는 9 입니다.<br />
-                    &gt; (2)분의 시간 간격을 설정 할 수 있습니다.</li>
+                    <li>아무도 확인하지 않을 경우, 해당 정책을 (n)회 반복합니다.<br />
+                    &gt; 에스컬레이션 1단계부터 마지막 단계까지 (n)회 다시 시작합니다.<br />
+                    &gt; (n) 횟수의 최대 숫자는 9입니다.</li>
+                    <li>아무도 확인하지 않을 경우, 모든 응답자에게 (n)분 간격으로 (n)회 통지합니다.<br />
+                    &gt; (n)횟수의 최대 숫자는 9입니다.<br />
+                    &gt; (n)분의 시간 간격을 설정할 수 있습니다.</li>
                     </ul></td>
                     <td>옵션 설정 항목</td>
                     </tr>
                     </tbody>
                     </table></li>
                     <li><p>4단계 : 생성 에스컬레이션 저장<br />
-                    에스컬레이션 설정을 아래와 같이 저장 합니다.<br />
+                    에스컬레이션 설정을 아래와 같이 저장합니다.<br />
                     <img src="./resource/bnr_escalation_case1_04_ko.png" width="896"  /></p></li>
                     </ol>
-                    <h3 id="escalation-use-case-2">Use Case 2. “서비스” 생성시 에스컬레이션 기본 규칙 생성</h3>
+                    <h3 id="escalation-use-case-2">Use Case 2. “서비스” 생성 시 에스컬레이션 기본 규칙 생성</h3>
                     <ol type="1">
                     <li>1단계 : 서비스 메뉴 선택<br />
-                    서비스 메뉴를 클릭 합니다.<br />
+                    서비스 메뉴를 클릭합니다.<br />
                     <img src="./resource/bnr_service_case1_01_ko.png" width="370"  /></li>
                     <li>2단계 : 신규 서비스 생성<br />
-                    “서비스 생성” 버튼을 클릭 합니다.<br />
+                    [서비스 생성] 버튼을 클릭합니다.<br />
                     <img src="./resource/bnr_service_case1_02_ko.png" width="1275"  /></li>
                     <li>3단계 : 에스컬레이션 기본 규칙 생성<br />
                     <img src="./resource/bnr_service_case1_03_ko.png" width="582"  /><br />
                     에스컬레이션 규칙이 없는 경우 자동으로 “에스컬레이션 기본 규칙”이 생성됩니다.<br />
-                    (서비스 생성자가 기본 수신자로 설정이 됩니다.)</li>
+                    (서비스 생성자가 기본 수신자로 설정됩니다.)</li>
                     </ol>
-                    <p>※ 나머지 서비스 생성은 서비스 가이드 항목을 참고 해 주세요</p>
+                    <p>※ 서비스 생성에 대한 자세한 내용은 서비스 가이드 항목을 참조하십시오.</p>
                     <h3 id="escalation-use-case-3">Use Case 3. “인티그레이션”, “서비스” 생성을 동시에 할 경우</h3>
                     <ol type="1">
                     <li><p>1단계 : 인티그레이션 메뉴 선택<br />
-                    인티그레이션 메뉴를 클릭 합니다.<br />
+                    인티그레이션 메뉴를 클릭합니다.<br />
                     <img src="./resource/bnr_service_case2_01_ko.png" width="369"  /></p></li>
-                    <li><p>2단계 : 신규 인티그레이션 생성<br />
-                    “인티그레이션 생성” 버튼을 클릭 합니다.<br />
+                    <li><p>2단계 : 새 인티그레이션 생성<br />
+                    “인티그레이션 생성” 버튼을 클릭합니다.<br />
                     <img src="./resource/bnr_service_case2_02_ko.png" width="941"  /></p></li>
                     <li><p>3단계 : AWS Cloud Watch 선택<br />
-                    “새 인티그레이션 추가” 버튼을 클릭합니다.<br />
+                    [새 인티그레이션 추가] 버튼을 클릭합니다.<br />
                     <img src="./resource/bnr_service_case2_03_ko.png" width="212"  /></p></li>
                     <li><p>4단계 : 인티그레이션 설정<br />
                     <img src="./resource/bnr_escalation_case3_04_ko.png" width="859"  /></p>
-                    <p>인티그레이션, 서비스 생성을 동시에 할 경우, 기존에 생성된 에스컬레이션 규칙이 없다면 “에스컬레이션 기본 규칙”이 생성됩니다. (서비스 생성자가 기본 수신자로 설정이 됩니다.)</p></li>
+                    <p>인티그레이션, 서비스 생성을 동시에 할 경우, 기존에 생성된 에스컬레이션 규칙이 없다면 “에스컬레이션 기본 규칙”이 생성됩니다. (서비스 생성자가 기본 수신자로 설정됩니다.)</p></li>
                     </ol>
-                    <p>※ 나머지 인티그레이션 생성은 인티그레이션 가이드 항목을 참고 해 주세요.</p>
+                    <p>※ 인티그레이션 생성에 대한 자세한 내용은 인티그레이션 가이드 항목을 참조하십시오.</p>
                     <hr />
                     <h2 id="integration">인티그레이션</h2>
                     <p>사용자는 AlertNow가 제공하는 인티그레이션 목록 중 자신이 사용 중인 툴이나 서비스를 선택하여인티그레이션 설정을 함으로써 해당 툴에서 발생 하는 알림을 AlertNow로 전달 하고 관리할 수 있습니다.</p>
