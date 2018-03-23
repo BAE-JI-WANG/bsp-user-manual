@@ -1,0 +1,36 @@
+{
+  "name": "bsp-user-manual",
+  "version": "1.0.0",
+  "description": "서비스 도움말 문서를 누구나 작성해서 형상관리와 배포관리까지 할 수 있는 flow입니다.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@61.100.13.19:7999/ux/bsp-user-manual.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-base64": "^0.1.3",
+    "gulp-callback": "0.0.3",
+    "gulp-connect": "^5.5.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-pandoc": "^0.2.2",
+    "gulp-remove-html-comments": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "image-size": "^0.6.2",
+    "run-sequence": "^2.2.1",
+    "vinyl": "^2.1.0",
+    "yarg": "^1.0.8",
+    "yargs": "^11.0.0"
+  }
+}
