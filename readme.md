@@ -2,7 +2,7 @@
 
 서비스 도움말 문서를 누구나 작성해서 형상관리와 배포관리까지 할 수 있는 flow입니다. 
 
-markdown으로 작성해서 html(online 배포용)과 pdf() 두가지로 배포할 수 있는 task runner 집합입니다.
+markdown으로 작성해서 html(online 배포용)과 pdf(오프라인 배포용, 멀지 않은 기한 내 추가될 예정) 두가지로 배포할 수 있는 task runner 집합입니다.
 
 
 
@@ -29,7 +29,7 @@ UI / Task 개발자를 위한 설명입니다.
 │   ├── js              // 공통 js 파일
 │   ├── style           // 스타일링을 위한 sass 파일
 │   └── template         // pandoc markdown에서 markdown 문서를 html로 변환할때 참조하는 탬플릿 파일이 위치합니다.
-└── alertnow            // 서비스의 실제 document가 있습니다.
+└── 서비스명(예:alertnow)  // 서비스의 실제 document가 있습니다.
     ├── en              // 영문 markdown 문서
     │   └── resource    // 영문 도움말의 스크린샷이 위치합니다.
     ├── ko              // 국문 markdown 문서
@@ -38,7 +38,25 @@ UI / Task 개발자를 위한 설명입니다.
         └── resource    // 중문 도움말의 스크린샷이 위치합니다.
 ```
 
+이 구조에 따라서 추가 서비스/추가 매뉴얼을 구성해 주시면 됩니다. 
 
+로컬 개발시엔 `./devserver` 에 결과물이 쌓이고, 서비스 배포용 파일들은 `./deploy` 에 결과물이 쌓입니다. 
+
+
+### build operator :: gulp.js@3.9.1
+
+Gulp.js라는 태스크 러너를 사용합니다. 
+개별 플러그인에 대한 설명은 각 플러그인의 github 저장소를 참조하세요. 
+
+Pandoc markdown + sass + jquery를 이용해 서비스에 배포되는 아웃풋을 만듭니다. 
+멀지 않은 시간 내 pdf로 출력할 수 있는 기능을 만들 예정입니다. 
+
+태스크 추가 시 Markdown \> html로 변환하는 과정이나, 트랜스파일 전 종착지(dist)를 깔끔하게 하는 등 반드시 동기화로 태스크가 진행되는 경우가 있으므로 이를 주의해 태스크 순서와 동작을 지정해 주시면 됩니다. 
+
+스타일링은 sass로 구성되어 있습니다. 
+각 섹션별로 파일이 쪼개져 있고, `manual.css`로 최종 빌드됩니다. 
+
+Html탬플릿은 pandoc markdown에서 참조하여 마크다운을 html 파일로 변환하는데 사용됩니다. 
 
 
 
