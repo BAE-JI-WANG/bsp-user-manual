@@ -1,0 +1,325 @@
+// 기본 스타일 리셋과 재정의
+article {
+    margin-left:300px;
+    border-left: 1px solid #DDDDDD;
+    padding-left:40px;
+    padding-bottom:40px;
+    box-sizing:border-box;
+
+    font-size: rem(14);
+    line-height: rem(25);
+
+    p {
+        margin-top:0.3em;
+    }
+
+    p,li {
+        line-height:1.6;
+    }
+
+    img {
+        border: none;
+        vertical-align: top;
+        max-width: 100%;
+        box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.05);
+        outline:1px solid #ccc;
+
+        &[sizez="normal"] {
+            width:50%;
+            height:50%;
+        }
+    }
+
+    code {
+        background:#f0f0f0;
+        display:inline-block;
+        padding:2px 4px;
+        margin:2px 0;
+        font-size:rem(14);
+    }
+
+    strong > em {
+        color:#FF4058;
+        font-weight:700;
+    }
+}
+
+// linear
+article {
+    > h1 ~ p + h2 {
+        margin-top:50px;
+        padding-top:80px;
+        border-top:1px solid #ddd;
+    }
+
+    > h2 {
+        margin-top:0px;
+        // border-top:1px solid #eee;
+        padding-top:80px;
+        padding-bottom:20px;
+    }
+
+    > h3,
+    > h4 {
+        margin-top:-40px;
+        padding-top:80px;
+    }
+
+
+    hr {
+        display:block;
+        height:1px;
+        width:100%;
+        background-color:#eee;
+        margin:50px 0 30px !important;
+    }
+}
+
+
+// 매뉴얼 안의 테이블. 기니까 별도 서술..
+article table {
+    margin-top: 15px;
+    margin-bottom:30px;
+    color: #000;
+    width: 100% !important;
+    border-bottom: 1px solid #EAEAEA;
+
+    td,th {
+        border-top: 1px solid #EAEAEA;
+        text-align: left;
+        padding:10px;
+        font-size: 0.875rem;
+        vertical-align: top;
+    }
+
+    thead th {
+        font-weight:normal;
+        text-align:left;
+        font-size:rem(14);
+    }
+
+    tr > *:first-child {
+        padding: 10px 20px !important;
+        white-space:nowrap;
+    }
+
+    tbody tr > *:first-child {
+        font-weight:700;
+    }
+}
+
+
+// location path 표시
+article {
+    blockquote {
+        margin:10px 0;
+        padding:0;
+        display: inline-block;
+        margin-top: 18px;
+        padding: 0 10px;
+        font-size: 0.8125rem;
+        color: #4A4A4A;
+        line-height: 30px;
+        border-radius: 1px;
+        background-color: #E6EFFA;
+
+        p {
+            line-height: 30px;
+            margin:0;
+            padding:0;
+        }
+
+        em {
+            font-weight:bold;
+        }
+    }
+
+}
+
+// list type ordered,unordered
+article {
+    ol,ul {
+        margin-top:0.5em;
+        margin-bottom:2em;
+        padding-left:1.5em;
+
+        ul,ol {
+            margin-bottom:1em;
+        }
+        li {
+            padding-left:0;
+        }
+    }
+
+
+    li {
+        padding-top: 10px;
+        font-size: 0.875rem;
+        // color: #0072F7;      // 컬러링은 좀 생각해봐야 될 문제..
+        line-height: 1.5;
+
+        // p:first-child + * {
+        //     color:#000;
+        // }
+    }
+}
+
+//
+article {
+    figure {
+        max-width:100%;
+        display:inline-block;
+        margin-top:0;
+        margin-bottom:20px;
+        margin-right:0;
+        margin-left:0;
+
+        figcaption {
+            padding:5px 0;
+            text-align:center;
+        }
+    }
+
+    img {
+        margin:7px 0 15px;
+    }
+
+    img + figcaption {
+        margin-top:-10px;
+        margin-bottom:5px;
+    }
+}
+
+
+// 서비스 CI 출력
+article.AlertNow > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_alertnow_orange_40_40.png')
+}
+
+// 매뉴얼 아티클 타이틀
+article {
+    > h1:first-child {
+
+        font-size:rem(30);
+        background-position:left center;
+        background-repeat:no-repeat;
+        background-color:transparent;
+        background-size:40px 40px;
+        padding-left:55px;
+        padding-right:27px;
+        line-height:40px;
+
+        padding-top:60px;
+        padding-bottom:60px;
+
+        + p {
+            display: block;
+            margin-top: 15px;
+            font-size: rem(16);
+            font-weight: 400;
+            color: #999;
+            line-height: 1.25em;
+            padding-left:5px;
+            margin-top:-40px;
+        }
+    }
+
+
+    > h2 {
+        font-size: rem(20);
+        font-weight: 700;
+        line-height: rem(24);
+
+        counter-reset: _h3;
+
+    }
+
+    > h3 {
+
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.5em;
+        counter-increment: _h3;
+        counter-reset: _h4;
+        // margin-left:-1.2em;
+
+        &:before {
+            content: counter(_h3) ". ";
+        }
+    }
+
+    > h4 {
+        font-size: rem(15);
+        font-weight: 700;
+        line-height: 1.5em;
+        // padding-top: 20px;
+        padding-bottom:10px;
+
+        counter-increment: _h4;
+        // margin-left:-1.2em;
+
+        &:before {
+            content: counter(_h3) ". " counter(_h4) ". ";
+        }
+    }
+
+}
+
+// 각종 들여쓰기 설정
+article {
+    // h3 {
+    //     margin-left:0 !important;
+    // }
+
+    // h2 {
+    //     margin-left:0 !important;
+    // }
+
+
+    // h3 ~ * {
+    //     margin-left:1.5em;
+    // }
+
+    // h2 {
+    //     + p,
+    //     + p + blockquote,
+    //     + p + blockquote + p,
+    //     + p + blockquote + p + ol,
+    //     + p + p,
+    //     + p + p + p,
+    //     + p + p + table,
+    //     + p + p + p + table,
+    //     + p + p + p + p,
+    //     + p + p + p + p + p {
+    //         margin-left:0
+    //     }
+    // }
+
+    // h3+p,
+    // h2+p,
+    // h4+p {
+    //     margin-top:0.5em;
+    // }
+
+
+    hr:nth-of-type(1) + h2 {
+        margin-top:-80px;
+    }
+
+}
+// 개별 케이스 처리
+article td ul,
+article td ol {
+    margin-top:0.3em;
+    margin-bottom:0.3em;
+}
+
+article td > ol > li:first-child,
+article td > ul > li:first-child {
+    padding-top:0;
+}
+
+article td p {
+    padding-bottom:0.6em;
+}
+

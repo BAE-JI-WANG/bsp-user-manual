@@ -1,0 +1,67 @@
+// footer
+.layout-footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: z("gnb");
+    box-sizing: border-box;
+    color: #fff;
+    background-color: #000;
+
+    .contents-inner {
+        position: relative;
+        overflow: visible !important;
+        box-sizing: border-box;
+        padding: 0px 20px;
+        height: 34px;
+        min-width: $Contents-min-width;
+        &:after {
+            @include clearBoth();
+        }
+    }
+
+    .service {
+        float: left;
+        width: 40%;
+        .title {
+            display: inline-block;
+            height: 34px;
+            font-size: rem(11);
+            font-weight: 700;
+            color: #fff;
+            vertical-align: middle;
+            line-height: 34px;
+            img {
+                display: inline-block;
+                margin-top: -2px;
+                max-height: 10px;
+                vertical-align: middle;
+            }
+
+            &.admin {
+                img {
+                    margin-top: -5px;
+                }
+            }
+        }
+
+        .list-shortcut {
+            display: none;
+            margin-top: 19px;
+            text-align: left;
+            a {
+                font-family: $Font-special-stack;
+                font-size: rem(12);
+                font-weight: 700;
+                color: #fff;
+                line-height: em(25, 12);
+                transition: color 0.3s ease-in-out;
+                &:hover {
+                    color: rgba(255, 255, 255, 0.5);
+                }
+            }
+        }
+    } // logout
+}
+
