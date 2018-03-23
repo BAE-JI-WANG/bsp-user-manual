@@ -1,7 +1,6 @@
-.dev-server
 ~$*.docx
-build
 /node_modules/
 /.settings/
 /.gitignore
 deploy
+.devserver
