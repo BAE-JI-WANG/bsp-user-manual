@@ -1,4 +1,4 @@
-# OpsNow manual build system
+# OpsNow manual build system  
 
 서비스 도움말 문서를 누구나 작성해서 형상관리와 배포관리까지 할 수 있는 flow입니다. 
 
@@ -459,6 +459,5 @@ multiLang:
 다음은 각 서비스별 도움말 문서 root directory입니다.
 
 서비스명 : 디렉토리명
-alertnow : **/doc/**
-  
 
+alertnow : **/doc/**
