@@ -11,6 +11,18 @@ markdown으로 작성해서 html(online 배포용)과 pdf(오프라인 배포용
 
 ## for common
 
+### 설치 명령어
+
+``` bash
+npm install --save
+```
+
+만일 위의 명령어가 작동하지 않는다면
+
+``` bash
+npm install --save gulp gulp-rename gulp-replace image-size gulp-remove-html-comments gulp-pandoc gulp-sass gulp-autoprefixer gulp-connect gulp-livereload del run-sequence gulp-base64 gulp-sourcemaps yargs gulp-imagemin vinyl gulp-callback
+```
+
 
 ## for flow developer
 
@@ -20,10 +32,8 @@ UI / Task 개발자를 위한 설명입니다.
 
 디렉토리의 구조는 다음과 같습니다.
 
-`bsp-user-manual/source/`
-
 ```
-.
+source
 ├── _resource           // 공통 리소스 파일
 │   ├── image           // 공통으로 사용하는 이미지 있음.(brand CI 등)
 │   ├── js              // 공통 js 파일
@@ -36,6 +46,10 @@ UI / Task 개발자를 위한 설명입니다.
     │   └── resource    // 국문 도움말의 스크린샷이 위치합니다.
     └── zh              // 중문 markdown 문서
         └── resource    // 중문 도움말의 스크린샷이 위치합니다.
+```
+
+``` text
+deploy
 ```
 
 이 구조에 따라서 추가 서비스/추가 매뉴얼을 구성해 주시면 됩니다. 
