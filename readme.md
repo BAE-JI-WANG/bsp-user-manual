@@ -461,3 +461,37 @@ multiLang:
 서비스명 : 디렉토리명
 
 alertnow : **/doc/** 
+
+
+
+--------------------------------------------------------------------------------
+
+
+## for offlie PDF
+
+mac os 기준으로 설명합니다.
+다른 플랫폼에서는 맞지 않을 수 있습니다.
+
+
+brew 패키지매니저를 이용합니다. 없다면 설치해주세요.
+
+mactex를 설치합니다.  
+용량도 크고 속도도 느립니다. 한참 걸려요
+```
+brew install mactex
+```
+
+pdf-engine을 xelatex 로 하는 경우
+
+pandoc user_guide_alertnow_ko.md -s -o user_guide_alertnow_ko.pdf --pdf-engine=xelatex --variable mainfont='Nanum Myeongjo'
+
+폰트 설정을 해주지 않으면 한글이 제대로 보이지 않습니다.
+우리는 noto-sans로 쓰고 있으니까 noto-sans를 쓰자.
+
+스타일을 설정해 줘야되고
+noto
+
+이렇게 설정하면 될지도 모르겠다.
+```
+pandoc user_guide_alertnow_ko.md  -o ~/desktop/test.pdf  --pdf-engine=wkhtmltopdf
+```

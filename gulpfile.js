@@ -191,7 +191,7 @@ gulp.task('local',function (){
     console.log('간간히 브랜치에 있는 이미지들 수동으로 minify 돌려서 푸시해 주세요. 배포시간이 줄어듭니다. :)');
 });
 
-// 배포 개발모드 구동
+// 배포모드 구동
 gulp.task('deploy',function () {
 
     if (!!args.alertnow) {
@@ -205,6 +205,21 @@ gulp.task('deploy',function () {
 
 	runSequence(['clean:devserver','clean:deploy'],'copy:image:min','convert:sass','convert:md2html','copy:js');
 })
+
+//make pdf
+gulp.task('convert:md2pdf', function (){
+    // return gulp.src(path.source.root + '/' + source_path + '/**/*.md')
+    return gulp.src('./source/alertnow/ko/user_guide_alertnow_ko.md')
+        .pipe(pandoc({
+            from:'markdown',           // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
+            to : 'pdf',
+            ext : '.pdf',
+        }))
+        .pipe(gulp.dest('./pdf'));
+});
+
+
+
 
 gulp.task('help', function() {
     var comment;
