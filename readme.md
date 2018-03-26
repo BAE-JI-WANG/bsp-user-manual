@@ -1,4 +1,4 @@
-# OpsNow manual system
+# OpsNow manual build system
 
 서비스 도움말 문서를 누구나 작성해서 형상관리와 배포관리까지 할 수 있는 flow입니다. 
 
