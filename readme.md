@@ -11,34 +11,26 @@ markdown으로 작성해서 html(online 배포용)과 pdf(오프라인 배포용
 
 ## for common
 
-### 설치 명령어
 
-``` bash
-npm install --save
-```
+## for UI/task developer
 
-만일 위의 명령어가 작동하지 않는다면
-
-``` bash
-npm install --save gulp gulp-rename gulp-replace image-size gulp-remove-html-comments gulp-pandoc gulp-sass gulp-autoprefixer gulp-connect gulp-livereload del run-sequence gulp-base64 gulp-sourcemaps yargs gulp-imagemin vinyl gulp-callback
-```
+UI/Task 개발자를 위한 설명입니다.
 
 
-## for flow developer
-
-UI / Task 개발자를 위한 설명입니다.
 
 ### scaffolding
 
 디렉토리의 구조는 다음과 같습니다.
 
+`bsp-user-manual`
+
 ```
-source
+/source
 ├── _resource           // 공통 리소스 파일
 │   ├── image           // 공통으로 사용하는 이미지 있음.(brand CI 등)
 │   ├── js              // 공통 js 파일
 │   ├── style           // 스타일링을 위한 sass 파일
-│   └── template         // pandoc markdown에서 markdown 문서를 html로 변환할때 참조하는 탬플릿 파일이 위치합니다.
+│   └── template        // pandoc markdown에서 markdown 문서를 html로 변환할때 참조하는 탬플릿 파일이 위치합니다.
 └── 서비스명(예:alertnow)  // 서비스의 실제 document가 있습니다.
     ├── en              // 영문 markdown 문서
     │   └── resource    // 영문 도움말의 스크린샷이 위치합니다.
@@ -48,18 +40,17 @@ source
         └── resource    // 중문 도움말의 스크린샷이 위치합니다.
 ```
 
-``` text
-deploy
 ```
-
+/deploy
+```
 이 구조에 따라서 추가 서비스/추가 매뉴얼을 구성해 주시면 됩니다. 
 
 로컬 개발시엔 `./devserver` 에 결과물이 쌓이고, 서비스 배포용 파일들은 `./deploy` 에 결과물이 쌓입니다. 
 
 
-### build operator :: gulp.js@3.9.1
+### build operating :: gulp + sass + jquery
 
-Gulp.js라는 태스크 러너를 사용합니다. 
+Gulp.js라는 태스크 러너를 사용합니다. (ver :: 3.9.1)
 개별 플러그인에 대한 설명은 각 플러그인의 github 저장소를 참조하세요. 
 
 Pandoc markdown + sass + jquery를 이용해 서비스에 배포되는 아웃풋을 만듭니다. 
@@ -70,11 +61,11 @@ Pandoc markdown + sass + jquery를 이용해 서비스에 배포되는 아웃풋
 스타일링은 sass로 구성되어 있습니다. 
 각 섹션별로 파일이 쪼개져 있고, `manual.css`로 최종 빌드됩니다. 
 
-Html탬플릿은 pandoc markdown에서 참조하여 마크다운을 html 파일로 변환하는데 사용됩니다. 
+`/source/_resource/template` 중 Html탬플릿은 pandoc markdown에서 참조하여 마크다운을 html 파일로 변환하는데 사용됩니다. 
 
 
 
-## 작성자를 위해
+## for writer {#for-writer}
 
 테크니컬 라이터 / service maintain 개발자가 마크다운 파일에서 신규 파일 생성이나 실제 컨텐트를 작성할때 아셔야 할 내용을 설명합니다.
 
@@ -463,6 +454,7 @@ scaffolding
 
 서비스도메인(가변) / 루트폴더(고정) / 언어(가변) / 파일명.확장자(고정)
 service.bespinglobal.com / doc / en / user_guide.html
+
 
 
 
