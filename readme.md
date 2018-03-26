@@ -65,7 +65,8 @@ UI/Task 개발자를 위한 설명입니다.
 
 ### build operating :: gulp + sass + jquery
 
-Gulp.js라는 태스크 러너를 사용합니다. (ver :: 3.9.1)
+Gulp.js라는 태스크 러너를 사용합니다. (ver :: 3.9.1)  
+
 개별 플러그인에 대한 설명은 각 플러그인의 github 저장소를 참조하세요. 
 
 Pandoc markdown + sass + jquery를 이용해 서비스에 배포되는 아웃풋을 만듭니다. 
