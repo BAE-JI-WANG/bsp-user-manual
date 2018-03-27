@@ -324,13 +324,13 @@ gulp.task('convert:md2pdf', function() {
 
 
 gulp.task('test', function() {
-    gulp.src('./source/alertnow/ko/*.md')
-        .pipe(replace('./resource',function (matchString) {
-            return '/Users/mycoolade/workspace/bsp-user-manual/source/alertnow/ko/' + matchString.replace('./','');
-        }))
+    gulp.src('./source/alertnow/en/*.md')
+        // .pipe(replace('./resource',function (matchString) {
+        //     return '/Users/mycoolade/workspace/bsp-user-manual/source/alertnow/ko/' + matchString.replace('./','');
+        // }))
         .pipe(pdf({
             pdfDir: './pdf',
-            args : ['--pdf-engine=xelatex','--variable\ mainfont="Nanum\ Myeongjo"']
+            args : ['--pdf-engine=xelatex']
         }))
         // 아웃풋이 path.pdf로 출력되어야 한다.
         .pipe(gulp.dest('./'));

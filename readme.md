@@ -405,6 +405,7 @@ alertnow : **/doc/**
 실시간으로 pandoc-markdown을 파싱할 수 있는 편집기면 아무거나 사용하셔도 됩니다. [이 링크](https://github.com/jgm/pandoc/wiki/Pandoc-Extras#editors)에 자세한 설명이 있습니다.
 
 -   [Markdown monster](https://markdownmonster.west-wind.com/) (windows)
+-   [TEXTS](http://www.texts.io/support/) (windows,mac)
 -   [ghost writer](https://wereturtle.github.io/ghostwriter/) (windows & linux)
 -   [marked 2](http://marked2app.com/) (mac, 유료)
 
@@ -472,17 +473,48 @@ mac os 기준으로 설명합니다.
 다른 플랫폼에서는 맞지 않을 수 있습니다.
 
 
-brew 패키지매니저를 이용합니다. 없다면 설치해주세요.
+brew 패키지매니저를 이용하거나 아니면 [한국 tex 사용자모임의 mac 사용자 xelatex 설치 안내 방법에 따라 설치]합니다.
 
 mactex를 설치합니다.  
 용량도 크고 속도도 느립니다. 한참 걸려요
+
 ```
 brew install mactex
 ```
+터미널을 껐다가 다시 켭니다.
+
+아래 명령어를 입력해서 저장소를 추가합시다.
+
+```
+sudo tlmgr repository add http://ftp.ktug.org/KTUG/texlive/tlnet ktug
+```
+
+저장소의 정보는 여기를 참조합시다.
+http://wiki.ktug.org/wiki/wiki.php/KtugPrivateRepository
+
+sudo tlmgr pinning add ktug "*"
+sudo tlmgr install nanumttf hcr-lvt
+sudo tlmgr update --all --self
+```
+
+여기서 마지막 구문 업데이트를 걸면 하세월입니다.
+정말 시간날때 하세요 :(
+
+만일 `/usr/local/texlive/2017/tlpkg/` 이 퍼미션이 없다고 하면 다음 구문을 넣고 퍼미션을 추가해줍시다.
+
+```
+chmod 777 /usr/local/texlive/2017/tlpkg/
+```
+
+
+
+
 
 pdf-engine을 xelatex 로 하는 경우
 
+```
 pandoc user_guide_alertnow_ko.md -s -o user_guide_alertnow_ko.pdf --pdf-engine=xelatex --variable mainfont='Nanum Myeongjo'
+```
 
 폰트 설정을 해주지 않으면 한글이 제대로 보이지 않습니다.
 우리는 noto-sans로 쓰고 있으니까 noto-sans를 쓰자.
