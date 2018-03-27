@@ -1216,15 +1216,15 @@ Slack에 가입이 안되어 있는 경우, Slack 가입이 우선 되어야 합
 
 <!-- incident -->
 [incident_flow]: ./resource/bnr_map_alert_ko.png
-[incident_1]:  ./resource/bnr_incident_01_ko.png {sizes=normal}
-[incident_2]:  ./resource/bnr_incident_02_ko.png {sizes=normal}
-[incident_3]:  ./resource/bnr_incident_03_ko.png {sizes=normal}
+[incident_1]:  ./resource/bnr_incident_01_ko.png 
+[incident_2]:  ./resource/bnr_incident_02_ko.png 
+[incident_3]:  ./resource/bnr_incident_03_ko.png 
 
 [incident_status_01]: ./resource/bnr_incident_status_01_ko.png
 [incident_status_02]: ./resource/bnr_incident_status_02_ko.png  
 [incident_status_03]: ./resource/bnr_incident_status_03_ko.png
 
-[incident_search_01]: ./resource/bnr_incident_search_01_ko.png {sizes=normal}
+[incident_search_01]: ./resource/bnr_incident_search_01_ko.png 
 [incident_search_02]: ./resource/bnr_incident_search_02_ko.png 
 
 [incident_handling_01]:   ./resource/bnr_incident_handing_01_ko.png
@@ -1242,7 +1242,7 @@ Slack에 가입이 안되어 있는 경우, Slack 가입이 우선 되어야 합
 
 
 <!-- alert -->
-[alert_01]:  ./resource/bnr_alert_01_ko.png {sizes=normal}
+[alert_01]:  ./resource/bnr_alert_01_ko.png 
 [alert_search_01]: ./resource/bnr_incident_search_01_ko.png
 [alert_search_02]: ./resource/bnr_alert_search_02_ko.png
 [alert_search_03]: ./resource/bnr_alert_search_03_ko.png
@@ -1256,7 +1256,7 @@ Slack에 가입이 안되어 있는 경우, Slack 가입이 우선 되어야 합
 <!-- service -->
 [service_case1_01]: ./resource/bnr_service_case1_01_ko.png
 [service_case1_02]: ./resource/bnr_service_case1_02_ko.png
-[service_case1_03]: ./resource/bnr_service_case1_03_ko.png {sizes=normal}
+[service_case1_03]: ./resource/bnr_service_case1_03_ko.png 
 [service_case1_05]: ./resource/bnr_service_case1_05_ko.png
 
 [service_case2_01]: ./resource/bnr_service_case2_01_ko.png
@@ -1298,7 +1298,7 @@ Slack에 가입이 안되어 있는 경우, Slack 가입이 우선 되어야 합
 [integration_aws_01]: ./resource/bnr_integration_aws_01.jpg
 [integration_aws_02]: ./resource/bnr_integration_aws_02.jpg
 [integration_aws_03]: ./resource/bnr_integration_aws_03.jpg
-[integration_aws_04]: ./resource/bnr_integration_aws_04.jpg {sizes=normal}
+[integration_aws_04]: ./resource/bnr_integration_aws_04.jpg 
 [integration_aws_05]: ./resource/bnr_integration_aws_05.jpg
 [integration_aws_06]: ./resource/bnr_integration_aws_06.jpg
 
@@ -1307,13 +1307,13 @@ Slack에 가입이 안되어 있는 경우, Slack 가입이 우선 되어야 합
 [integration_ec2_03]: ./resource/bnr_integration_ec2_03.jpg
 [integration_ec2_04]: ./resource/bnr_integration_ec2_04.jpg
 
-[integration_autoclosing_01]: ./resource/bnr_integration_autoclosing_01_ko.png {sizes=normal}
-[integration_autoclosing_02]: ./resource/bnr_integration_autoclosing_02_ko.png {sizes=normal}
-[integration_autoclosing_03]: ./resource/bnr_integration_autoclosing_03_ko.png {sizes=normal}
-[integration_autoclosing_04]: ./resource/bnr_integration_autoclosing_04_ko.png {sizes=normal}
-[integration_autoclosing_05]: ./resource/bnr_integration_autoclosing_05_ko.png {sizes=normal}
-[integration_autoclosing_06]: ./resource/bnr_integration_autoclosing_06_ko.png {sizes=normal}
-[integration_autoclosing_07]: ./resource/bnr_integration_autoclosing_07_ko.png {sizes=normal}
+[integration_autoclosing_01]: ./resource/bnr_integration_autoclosing_01_ko.png 
+[integration_autoclosing_02]: ./resource/bnr_integration_autoclosing_02_ko.png 
+[integration_autoclosing_03]: ./resource/bnr_integration_autoclosing_03_ko.png 
+[integration_autoclosing_04]: ./resource/bnr_integration_autoclosing_04_ko.png 
+[integration_autoclosing_05]: ./resource/bnr_integration_autoclosing_05_ko.png 
+[integration_autoclosing_06]: ./resource/bnr_integration_autoclosing_06_ko.png 
+[integration_autoclosing_07]: ./resource/bnr_integration_autoclosing_07_ko.png 
 
 
 
@@ -1323,9 +1323,9 @@ Slack에 가입이 안되어 있는 경우, Slack 가입이 우선 되어야 합
 [extension_slack_02]: ./resource/bnr_extension_02_ko.png
 [extension_slack_03]: ./resource/bnr_extension_03_ko.png
 [extension_slack_04]: ./resource/bnr_extension_04_ko.png
-[extension_slack_05]: ./resource/bnr_extension_05_ko.png {sizes=normal}
-[extension_slack_06]: ./resource/bnr_extension_06_ko.png {sizes=normal}
-[extension_slack_07]: ./resource/bnr_extension_07_ko.png {sizes=normal}
+[extension_slack_05]: ./resource/bnr_extension_05_ko.png 
+[extension_slack_06]: ./resource/bnr_extension_06_ko.png 
+[extension_slack_07]: ./resource/bnr_extension_07_ko.png 
 [extension_slack_08]: ./resource/bnr_extension_08_ko.png
 
 
