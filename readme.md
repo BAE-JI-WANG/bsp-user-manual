@@ -1,3 +1,5 @@
+<!-- toc -->
+
 # OpsNow manual build system  
 
 서비스 도움말 문서를 누구나 작성해서 형상관리와 배포관리까지 할 수 있는 flow입니다. 
@@ -50,6 +52,32 @@ markdown으로 작성해서 html(online 배포용)과 pdf(오프라인 배포용
 이 구조에 따라서 추가 서비스/추가 매뉴얼을 구성해 주시면 됩니다. 
 
 로컬 개발시엔 `./devserver` 에 결과물이 쌓이고, 서비스 배포용 파일들은 `./deploy` 에 결과물이 쌓입니다. 
+
+
+### 구동을 위한 준비
+
+node.js, Gulp.js, pandoc을 준비합니다.
+
+1.  [node.js](https://nodejs.org/ko/)를 설치합니다.
+2.  설치 후 cmd 콘솔을 엽니다.
+3.  gulp를 전역으로 설치합니다.
+    ` npm install gulp -g `
+4.  [pandoc을 설치합니다](https://pandoc.org/installing.html). homebrew와 같은 패키지 매니저가 있다면 손쉽게 설치하실 수 있습니다.
+
+### 로컬 환경 꾸리기
+4.  다운로드 받은 저장소에서 설치 명령어를 입력합니다.
+    ` npm install --save `
+5.  설치 명령어를 입력한 뒤 설치가 완료되면 로컬 서버를 구동하는 명령어를 입력합니다.
+    ` gulp local --서비스명 `
+    alertnow에 대한 매뉴얼 작업을 하신다면 
+    ` gulp local --alertnow ` 를 입력해주세요.
+
+    만일 로컬서버 구동이 정상적으로 되지 않는다면 모든 모듈을 수동으로 설치하는 아래 명령어를 입력합니다.
+    `npm install --save gulp gulp-rename gulp-replace image-size gulp-remove-html-comments gulp-pandoc gulp-sass gulp-autoprefixer gulp-connect gulp-livereload del run-sequence gulp-base64 gulp-sourcemaps yargs gulp-imagemin vinyl gulp-callback `
+
+    그래도 구동이 안된다면 UX lab의 UI개발자에게 제보 부탁드립니다.
+
+
 
 
 
@@ -347,23 +375,6 @@ Pandoc markdown + sass + jquery를 이용해 서비스에 배포되는 아웃풋
 -   [marked 2](http://marked2app.com/) (mac, 유료)
 
 다른 방법으로 로컬에서도 웹서버를 설정해 확인할 수도 있습니다.
-
-1.  [node.js](https://nodejs.org/ko/)를 설치합니다.
-2.  설치 후 cmd 콘솔을 엽니다.
-3.  gulp를 전역으로 설치합니다.
-    ` npm install gulp -g `
-4.  다운로드 받은 저장소에서 설치 명령어를 입력합니다.
-    ` npm install --save `
-5.  설치 명령어를 입력한 뒤 설치가 완료되면 로컬 서버를 구동하는 명령어를 입력합니다.
-    ` gulp local --서비스명 `
-    alertnow에 대한 매뉴얼 작업을 하신다면 
-    ` gulp local --alertnow ` 를 입력해주세요.
-
-    만일 로컬서버 구동이 정상적으로 되지 않는다면 모든 모듈을 수동으로 설치하는 아래 명령어를 입력합니다.
-    `npm install --save gulp gulp-rename gulp-replace image-size gulp-remove-html-comments gulp-pandoc gulp-sass gulp-autoprefixer gulp-connect gulp-livereload del run-sequence gulp-base64 gulp-sourcemaps yargs gulp-imagemin vinyl gulp-callback `
-
-    그래도 구동이 안된다면 UX lab의 UI개발자에게 제보 부탁드립니다.
-
 
 
 
