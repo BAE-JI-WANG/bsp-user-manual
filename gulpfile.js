@@ -15,10 +15,15 @@ var gulp              = require('gulp')
 	sourcemaps        = require('gulp-sourcemaps'),            // 개발용 소스맵 처리
     args              = require('yargs').argv,
 
+    makePdf           = require('gulp-html-pdf'),
+    styleInject       = require("gulp-style-inject"),
+
     imagemin          = require('gulp-imagemin'),
     vinyl             = require('vinyl'),                      // 디버그 용도
     pipecallback      = require('gulp-callback')               // 디버그 용도
 ;
+var pdf = require('gulp-pandoc-pdf');
+
 
 // 경로 설정
 var path = {
@@ -29,7 +34,8 @@ var path = {
         template : './source/_resource/template'
     },
     devserver : './.devserver',
-    deploy : './deploy'
+    deploy : './deploy',
+    pdf : './pdf'
 
     //  디렉토리 예약어
     // .devserver
@@ -38,7 +44,7 @@ var path = {
 };
 
 // 서비스명에 따라서 종착 디렉토리를 지정해줌
-var source_path,dist_path;
+var source_path,dist_path,lang_path,locations;
 
 // 개발용 서버 설정
 gulp.task('connect', function() {
@@ -116,50 +122,60 @@ gulp.task('copy:image',function () {
         .pipe(livereload());
 });
 
-var a = [];
-
 //markdown 파일 변환, 이미지 정보를 가공하는 곳이 있으므로 반드시 이미지 복사가 끝난 후에 처리가 되어야 한다.
 gulp.task('convert:md2html',function () {
-    // html 변환할때 이미지 파일의 정보를 얻어온다.
     return gulp.src(path.source.root + '/' + source_path + '/**/*.md')
-        // markdown > html
-        .pipe(pandoc({
-            from:'markdown+hard_line_breaks+grid_tables',           // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
-            to : 'html5',
-            ext : '.html',
-            args : ['--standalone','--toc','--template=./source/_resource/template/master.html','--toc-depth=6','--tab-stop=4']
-        }))
-        // 이미지에 레티나 대응하는 프로퍼티를 덧씌운다.
-        // width만 설정한다. 세로를 기준으로 설정하게 되면 ratio가 달라지는 그림들이 생길 수 있음.
-        .pipe(replace(/<img.+?>/gi,function (matchString) {
+        // 이미지 크기 매핑
+        .pipe(replace(/!*(\[.+?\]|\[\])\s*(:|\().+/gi,function (matchString) {
+            var result = '';
+            var image = {};
 
-            var image = {
-                origin : matchString,
-                location : this.file.path.replace(/[\w-_]+(?=\.).html/i,'') + matchString.match(/[\w-_\/\.]+\.(png|gif|jpg)/gi)[0],
-                relativePath : matchString.match(/[\w-_\/\.]+\.(png|gif|jpg)/gi)[0],
-                file : matchString.match(/\w+\.(png|gif|jpg)/gi)[0],
-                alt : matchString.match(/alt="(.+?)"/gi),
-                sizes : !!matchString.match(/sizes="normal"/gi)
-            };
+            //이미지는 항상 상대경로로 시작한다.
+            image.origin = (function () {
+                var result = matchString.match(/\..+png/gi)
+                if (typeof result !== 'undefined' && !!result) {
+                    return result[0];
+                }
+            })();
 
+            if (image.origin === undefined) { return ''; }
+
+            if (image.origin) {
+                image.location = this.file.base + '/' +this.file.relative.match(/(ko|en|zh)/)[0] + '/' + image.origin.replace('./','')
+                image.sizes = !!matchString.match(/sizes="*normal"*/gi)
+            }
 
             image.width = (function (text) {
                 // 노멀한 크기라면 sizes="normal" 이면 width 뱉어야되고
                 // 그것도 아니라면 레티나 대응해야되고
+                if(!!image.origin) {
+                    // console.log(image.origin);
                 return !!image.sizes ? imageSize(image.location).width : Math.round(imageSize(image.location).width / 2)
+                }
             })(matchString);
 
-            // 혹시 width prop가 있다면 그걸 가지고 온다.
-            return '<img src="'  + image.relativePath + '"' + ' '
-                    + ('width="' + image.width + '"') + ' '
-                    + (image.alt || '')     // alt prop가 있다면 같이 넣어준다.
-                    + ' />';
-        }))
+            if (image.sizes) {
+                return matchString.replace(/\{.+?\}/,'{width='+image.width+'px}');
+            } else {
+                return matchString + ' ' + '{width='+image.width+'px}';
+            }
 
+        }))
+        // markdown > html
+        .pipe(pandoc({
+            // from:'markdown+hard_line_breaks+grid_tables-pipe_tables-simple_tables-multiline_tables+link_attributes',           // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
+
+            // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
+            from:'markdown+hard_line_breaks+link_attributes',
+            to : 'html5',
+            ext : '.html',
+            args : ['--standalone','--toc','--template=./source/_resource/template/master_web.html','--toc-depth=6','--tab-stop=4']
+        }))
         .pipe(removeHtmlComment())      //코멘트 제거
         .pipe(gulp.dest(dist_path + '/' +  source_path))
         .pipe(livereload());
 });
+
 
 
 // 이미지 압축
@@ -191,7 +207,7 @@ gulp.task('local',function (){
     console.log('간간히 브랜치에 있는 이미지들 수동으로 minify 돌려서 푸시해 주세요. 배포시간이 줄어듭니다. :)');
 });
 
-// 배포 개발모드 구동
+// 배포모드 구동
 gulp.task('deploy',function () {
 
     if (!!args.alertnow) {
@@ -205,6 +221,134 @@ gulp.task('deploy',function () {
 
 	runSequence(['clean:devserver','clean:deploy'],'copy:image:min','convert:sass','convert:md2html','copy:js');
 })
+
+
+gulp.task('pdf',function () {
+    console.log(args.lang);
+    if ((args.lang !=='ko' && args.lang !== 'en' && args.lang !== 'zh') || !args.alertnow) {
+        console.log(`
+PDF는 언어셋 별로 만들어집니다.
+아래처럼 명령어를 입력해주세요.
+
+> gulp pdf --서비스명 --언어=ko|zh|en
+
+예)
+> gulp pdf --alertnow --lang=ko
+
+help를 참조하셔서 명령어를 잘 넣어 주세요 :)
+
+            `);
+        return;
+
+    }
+    if (!!args.alertnow) {
+        source_path = 'alertnow';
+        dist_path = path.pdf;
+        lang_path = args.lang
+    } 
+
+	runSequence(['clean:devserver','clean:pdf'],'convert:scss:pdf','convert:md2pdf');
+});
+
+gulp.task('pdf:dev',function () {
+    console.log('pdf볼때 편의상 보기 편하라고 만들어 놨습니다.');
+
+    if ((args.lang !=='ko' && args.lang !== 'en' && args.lang !== 'zh') || !args.alertnow) {
+        return console.log('arguments 없는거 아니냐?');
+    }
+
+    if (!!args.alertnow) {
+        source_path = 'alertnow';
+        dist_path = path.pdf;
+        lang_path = args.lang;
+    } 
+
+	runSequence(['clean:devserver','clean:pdf'],'convert:scss:pdf','convert:md2pdf',['watch:pdf']);
+});
+
+
+
+// --------------------------------------------------------------------------------
+
+//pdf 빌드 전 watch형식으로 보려고..
+gulp.task('watch:pdf', function(callback) {
+    livereload.listen();
+    gulp.watch(path.source.style+'/*.{scss,sass,css}',['convert:scss:pdf','convert:md2pdf'],callback);
+    gulp.watch(path.source.root+'/**/*.{png|jpg|gif}', ['convert:md2pdf'],callback);
+    gulp.watch(path.source.root+'/**/*.md', ['convert:md2pdf']);
+});
+
+//
+
+
+gulp.task('clean:pdf',function () {
+	return clean(path.pdf);
+});
+
+// print.css
+gulp.task('convert:scss:pdf', function () {
+    return gulp.src(path.source.style + '/pdf.scss')
+        .pipe(sass())
+        .pipe(gulp.dest(path.devserver))
+        .pipe(livereload());
+});
+
+// make pdf
+gulp.task('convert:md2pdf', function() {
+    return gulp.src(path.source.root + '/' + source_path + '/' + lang_path + '/*.md')
+    // 테이블 처리
+        .pipe(replace(/!*(\[.+?\]|\[\])\s*(:|\().+/gi,function (matchString) {
+            var result = '';
+            var image = {};
+
+            //이미지는 항상 상대경로로 시작한다.
+            image.origin = (function () {
+                var result = matchString.match(/\..+png/gi)
+                if (typeof result !== 'undefined' && !!result) {
+                    return result[0];
+                }
+            })();
+
+            if (image.origin === undefined) { return ''; }
+
+            if (image.origin) {
+                image.location = this.file.base + '/' +  image.origin.replace('./','')
+                image.sizes = !!matchString.match(/sizes="*normal"*/gi)
+            }
+
+            image.width = (function (text) {
+                // 노멀한 크기라면 sizes="normal" 이면 width 뱉어야되고
+                // 그것도 아니라면 레티나 대응해야되고
+                if(!!image.origin) {
+                    // console.log(image.origin);
+                    return !!image.sizes ? imageSize(image.location).width : Math.round(imageSize(image.location).width / 2)
+                }
+            })(matchString);
+
+            if (image.sizes) {
+                return matchString.replace(/\{.+?\}/,'{width='+image.width+'px}');
+            } else {
+                return matchString + ' ' + '{width='+image.width+'px}';
+            }
+
+        }))
+        .pipe(pandoc({
+            from:'markdown+hard_line_breaks+grid_tables+link_attributes',           // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
+            to : 'html5',
+            ext : '.html',
+            args : ['--standalone','--toc','--template=./source/_resource/template/master_pdf.html','--toc-depth=1']
+        }))
+        .pipe(replace(/<img src=".+".+?>/gi,function (matchString) {
+            var string = '';
+            string += matchString.replace('./','file://'+this.file.base);
+            return string;
+        }))
+        .pipe(styleInject())    //스타일을 별개로 빼내기 어려우므로...
+        .pipe(makePdf(pdfConfig))
+        .pipe(gulp.dest(path.pdf));
+});
+
+
 
 gulp.task('help', function() {
     var comment;
@@ -242,3 +386,54 @@ http://61.100.13.19:7990/projects/UX/repos/bsp-user-manual/browse
 });
 
 gulp.task('default', ['help']);
+
+
+
+// pdf output만들 때 필요한 내용
+
+var pdfConfig = {
+    // Export options
+    directory: path.devserver,       // The directory the file gets written into if not using .toFile(filename, callback). default: '/tmp'
+
+    // Papersize Options: http://phantomjs.org/api/webpage/property/paper-size.html
+    format: 'A4',        // allowed units: A3, A4, A5, Legal, Letter, Tabloid
+    orientation: 'portrait', // portrait or landscape
+
+    // Page options
+    border: {
+        top: '10mm',            // default is 0, units: mm, cm, in, px
+        right: '15mm',
+        bottom: '15mm',
+        left: '15mm'
+    },
+
+    paginationOffset: 1,       // Override the initial pagination number
+    header: {
+        height: '10mm',
+        contents: `
+            <header>USER GUIDE</header>
+        `
+    },
+    footer: {
+        height: '10mm',
+        contents: {
+            first: '   ',
+            default: `
+                <footer class="layout-footer">{{page}}/{{pages}}</footer>
+            `, // fallback value
+        }
+    },
+
+
+    // Rendering options
+    // "base": 'file:///Users/mycoolade/workspace/bsp-user-manual/'+path.devserver, // Base path that's used to load files (images, css, js) when they aren't referenced using a host
+
+    // Zooming option, can be used to scale images if `options.type` is not pdf
+    zoomFactor: '1', // default is 1
+
+    // File options
+    type: 'pdf',             // allowed file types: png, jpeg, pdf
+    quality: '75'           // only used for types png & jpeg
+
+    // Script options
+}

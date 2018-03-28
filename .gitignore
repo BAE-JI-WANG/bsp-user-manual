@@ -4,4 +4,6 @@
 /.gitignore
 deploy
 .devserver
-pdf
+*.log
+*.pdf
+*.orig
