@@ -1,0 +1,93 @@
+$if(toc)$
+<!DOCTYPE html>
+<html lang="$if(ko)$ko$endif$$if(en)$en$endif$$if(zh)$zh$endif$">
+<head>
+    <meta charset="UTF-8">
+    <title>USER GUIDE :: $if(title)$$title$$endif$</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../resource/pdf.css">
+</head>
+<body>
+    <div class="layout-wrap">
+
+        <header>
+            <div class="title">
+                $if(ko)$
+                <a href="./user_guide_$service$_ko.html">USER GUIDE</a>
+                $endif$
+                $if(en)$
+                <a href="./user_guide_$service$_en.html">USER GUIDE</a>
+                $endif$
+                $if(zh)$
+                <a href="./user_guide_$service$_zh.html">USER GUIDE</a>
+                $endif$
+            </div>
+
+            <div class="utils select language">
+            <!-- @@insert :: multi language link -->
+            $if(en)$
+                <span>English</span>
+            $endif$
+            $for(multiLang)$
+                $if(multiLang.en)$
+                    <a href="../en/user_guide_$service$_en.html">English</a>
+                $endif$
+            $endfor$
+            $if(ko)$
+                <span>한국어</span>
+            $endif$
+            $for(multiLang)$
+                $if(multiLang.ko)$
+                    <a href="../ko/user_guide_$service$_ko.html">한국어</a>
+                $endif$
+            $endfor$
+            $if(zh)$
+                <span>简体中文</span>
+            $endif$
+
+            $for(multiLang)$
+                $if(multiLang.zh)$
+                    <a href="../zh/user_guide_$service$_zh.html">简体中文</a>
+                $endif$
+            $endfor$
+            </div>
+        </header>
+
+        <main role="main">
+            <div class="layout-contents">
+                <nav id="toc-menu">
+                    <span>$if(title)$ $title$ $endif$</span>
+                    <p>
+                        $if(ko)$$title$ 서비스에 대한 안내를 제공합니다.$endif$
+                        $if(en)$Provides guidelines for $title$  services.$endif$
+                        $if(zh)$<!-- 중국어로 제공되어야 되는데 -->$endif$
+                    </p>
+
+                    <div class="toc $if(service)$$service$$endif$">
+                        <!-- @@placeholder= lnb -->
+                        $if(toc)$
+                        $table-of-contents$
+                        $endif$
+                    </div>
+                </nav>
+
+                <article class="$if(title)$$title$$endif$">
+                    <!-- @@placeholder = content -->
+                    $body$
+                </article>
+            </div>
+
+        </main>
+
+        <footer class="layout-footer">
+            <div class="contents-inner">
+                <div class="service">
+                    <h2 class="title">USER GUIDE</h2>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+$endif$
+
