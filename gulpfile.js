@@ -164,12 +164,12 @@ gulp.task('convert:md2html',function () {
         }))
         // markdown > html
         .pipe(pandoc({
-            from:'markdown+hard_line_breaks+grid_tables-pipe_tables-simple_tables-multiline_tables+link_attributes',           // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
+            // from:'markdown+hard_line_breaks+grid_tables-pipe_tables-simple_tables-multiline_tables+link_attributes',           // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
+            from:'markdown+hard_line_breaks+link_attributes',                     // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
             to : 'html5',
             ext : '.html',
-            args : ['--standalone','--toc','--template=./source/_resource/template/master.html','--toc-depth=6','--tab-stop=4']
+            args : ['--standalone','--toc','--template=./source/_resource/template/master_web.html','--toc-depth=6','--tab-stop=4']
         }))
-       
         .pipe(removeHtmlComment())      //코멘트 제거
         .pipe(gulp.dest(dist_path + '/' +  source_path))
         .pipe(livereload());
