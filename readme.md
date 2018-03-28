@@ -372,7 +372,11 @@ alertnow : **/doc/**
 
 **opsnow의 이미지 포맷은 고밀도 디스플레이(레티나, 맥북프로등...)를 지원해야 합니다**.
 따라서 스크린샷 촬영시 가급적 고밀도 디스플레이에서 촬영해 주시고.
-일반 모니터(72ppi)로 촬영하셨을 경우 이미지에 `{sizez=normal}`이란 flag를 다음과 같이 붙여주세요.
+일반 모니터(72ppi)로 촬영하셨을 경우 이미지 이름에 `@2x`라는 prefix를 붙여주세요.
+
+예시
+-   고밀도 디스플레이에서 스크린샷한 이미지의 경우 : bnr_service_case2_01_ko@2x.png
+-   일반 모니터에서 스크린샷한 이미지의 경우 : bnr_service_case2_01_ko.png
 
 ``` markdown
 ![이미지 설명][이미지 링크]
@@ -382,9 +386,9 @@ alertnow : **/doc/**
 
 // 예시)
 ![인티그레이션 설명][integration_01]
-[integration_01]: ./resource/bnr_service_case2_01_ko.png {sizes=normal}
+[integration_01]: ./resource/bnr_service_case2_01_ko@2x.png {sizes=normal}
 
-![인티그레이션 설명](./resource/bnr_service_case2_01_ko.png) {sizes=normal}
+![인티그레이션 설명](./resource/bnr_service_case2_02_ko.png) {sizes=normal}
 
 ```
 

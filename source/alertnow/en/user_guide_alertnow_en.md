@@ -1228,128 +1228,128 @@ You can set whether to send notifications and delivery method by the following s
 <!-- 모든 스크린샷은 고밀도 디스플레이(@2x,144ppi)를 기준으로 합니다. 스크린 캡쳐할때 고밀도 디스플레이 모니터에서 진행해 주세요. -->
 <!-- 만일 사정상 72ppi로 된 이미지를 첨부하실 경우에는 아래처럼 이미지의 별도의 표시가 없을 경우 트랜스파일 할때 이미지를 1/4크기로 width와 height를 줄여서 보여주게 html 문법이 자동 생성되어 출력됩니다. -->
 
-[alertnow_default_1]: ./resource/bnr_integration_default_1_en.png
-[alertnow_default_2]: ./resource/bnr_integration_default_2_en.png
+[alertnow_default_1]: ./resource/bnr_integration_default_1_en@2x.png
+[alertnow_default_2]: ./resource/bnr_integration_default_2_en@2x.png
 
 <!-- summary -->
-[summary_1]: ./resource/bnr_alertnow_summary_01_en.png
+[summary_1]: ./resource/bnr_alertnow_summary_01_en@2x.png
 
 <!-- incident -->
-[incident_flow]: ./resource/bnr_map_alert_en.png
-[incident_1]:  ./resource/bnr_incident_01_en.png {sizes=normal}
-[incident_2]:  ./resource/bnr_incident_02_en.png {sizes=normal}
-[incident_3]:  ./resource/bnr_incident_03_en.png {sizes=normal}
+[incident_flow]: ./resource/bnr_map_alert_en@2x.png
+[incident_1]:  ./resource/bnr_incident_01_en.png
+[incident_2]:  ./resource/bnr_incident_02_en.png
+[incident_3]:  ./resource/bnr_incident_03_en.png
 
-[incident_status_01]: ./resource/bnr_incident_status_01_en.png
-[incident_status_02]: ./resource/bnr_incident_status_02_en.png  
-[incident_status_03]: ./resource/bnr_incident_status_03_en.png
+[incident_status_01]: ./resource/bnr_incident_status_01_en@2x.png
+[incident_status_02]: ./resource/bnr_incident_status_02_en@2x.png  
+[incident_status_03]: ./resource/bnr_incident_status_03_en@2x.png
 
-[incident_search_01]: ./resource/bnr_incident_search_01_en.png {sizes=normal}
-[incident_search_02]: ./resource/bnr_incident_search_02_en.png 
+[incident_search_01]: ./resource/bnr_incident_search_01_en@2x.png
+[incident_search_02]: ./resource/bnr_incident_search_02_en@2x.png 
 
-[incident_handling_01]:   ./resource/bnr_incident_handing_01_en.png
-[incident_handling_02]:   ./resource/bnr_incident_handing_02_en.png
-[incident_handling_03]:   ./resource/bnr_incident_handing_03_en.png
-[incident_handling_04]:   ./resource/bnr_incident_handing_04_en.png
-[incident_handling_05]:   ./resource/bnr_incident_handing_05_en.png
-[incident_handling_05_01]:./resource/bnr_incident_handing_05_01_en.png
-[incident_handling_06]:   ./resource/bnr_incident_handing_06_en.png
-[incident_handling_07]:   ./resource/bnr_incident_handing_07_en.png
-[incident_handling_08]:   ./resource/bnr_incident_handing_08_en.png
-[incident_handling_09]:   ./resource/bnr_incident_handing_09_en.png
-[incident_handling_10]:   ./resource/bnr_incident_handing_10_en.png
-[incident_handling_11]:   ./resource/bnr_incident_handing_11_en.png
+[incident_handling_01]:   ./resource/bnr_incident_handing_01_en@2x.png
+[incident_handling_02]:   ./resource/bnr_incident_handing_02_en@2x.png
+[incident_handling_03]:   ./resource/bnr_incident_handing_03_en@2x.png
+[incident_handling_04]:   ./resource/bnr_incident_handing_04_en@2x.png
+[incident_handling_05]:   ./resource/bnr_incident_handing_05_en@2x.png
+[incident_handling_05_01]:./resource/bnr_incident_handing_05_01_en@2x.png
+[incident_handling_06]:   ./resource/bnr_incident_handing_06_en@2x.png
+[incident_handling_07]:   ./resource/bnr_incident_handing_07_en@2x.png
+[incident_handling_08]:   ./resource/bnr_incident_handing_08_en@2x.png
+[incident_handling_09]:   ./resource/bnr_incident_handing_09_en@2x.png
+[incident_handling_10]:   ./resource/bnr_incident_handing_10_en@2x.png
+[incident_handling_11]:   ./resource/bnr_incident_handing_11_en@2x.png
 
 
 <!-- alert -->
-[alert_01]:  ./resource/bnr_alert_01_en.png {sizes=normal}
-[alert_search_01]: ./resource/bnr_incident_search_01_en.png
-[alert_search_02]: ./resource/bnr_alert_search_02_en.png
-[alert_search_03]: ./resource/bnr_alert_search_03_en.png
-[alert_search_04]: ./resource/bnr_alert_search_04_en.png
-[alert_search_05]: ./resource/bnr_alert_search_05_en.png
-[alert_search_06]: ./resource/bnr_alert_search_06_en.png
-[alert_search_07]: ./resource/bnr_alert_search_07_en.png
-[alert_search_08]: ./resource/bnr_alert_search_08_en.png
+[alert_01]:  ./resource/bnr_alert_01_en@2x.png
+[alert_search_01]: ./resource/bnr_incident_search_01_en@2x.png
+[alert_search_02]: ./resource/bnr_alert_search_02_en@2x.png
+[alert_search_03]: ./resource/bnr_alert_search_03_en@2x.png
+[alert_search_04]: ./resource/bnr_alert_search_04_en@2x.png
+[alert_search_05]: ./resource/bnr_alert_search_05_en@2x.png
+[alert_search_06]: ./resource/bnr_alert_search_06_en@2x.png
+[alert_search_07]: ./resource/bnr_alert_search_07_en@2x.png
+[alert_search_08]: ./resource/bnr_alert_search_08_en@2x.png
 
 
 <!-- service -->
-[service_case1_01]: ./resource/bnr_service_case1_01_en.png
-[service_case1_02]: ./resource/bnr_service_case1_02_en.png
-[service_case1_03]: ./resource/bnr_service_case1_03_en.png {sizes=normal}
-[service_case1_05]: ./resource/bnr_service_case1_05_en.png
+[service_case1_01]: ./resource/bnr_service_case1_01_en@2x.png
+[service_case1_02]: ./resource/bnr_service_case1_02_en@2x.png
+[service_case1_03]: ./resource/bnr_service_case1_03_en@2x.png
+[service_case1_05]: ./resource/bnr_service_case1_05_en@2x.png
 
-[service_case2_01]: ./resource/bnr_service_case2_01_en.png
-[service_case2_02]: ./resource/bnr_service_case2_02_en.png
-[service_case2_03]: ./resource/bnr_service_case2_03_en.png
-[service_case2_04]: ./resource/bnr_service_case2_04_en.png
-[service_case2_05]: ./resource/bnr_service_case2_05_en.png
-[service_case2_04_AWS]: ./resource/bnr_service_case2_aws_demo_en.png
+[service_case2_01]: ./resource/bnr_service_case2_01_en@2x.png
+[service_case2_02]: ./resource/bnr_service_case2_02_en@2x.png
+[service_case2_03]: ./resource/bnr_service_case2_03_en@2x.png
+[service_case2_04]: ./resource/bnr_service_case2_04_en@2x.png
+[service_case2_05]: ./resource/bnr_service_case2_05_en@2x.png
+[service_case2_04_AWS]: ./resource/bnr_service_case2_aws_demo_en@2x.png
 
 
 
 <!-- escalation -->
-[escalation_case1_01]: ./resource/bnr_escalation_case1_01_en.png
-[escalation_case1_02]: ./resource/bnr_escalation_case1_02_en.png
-[escalation_case1_03]: ./resource/bnr_escalation_case1_03_en.png
-[escalation_case1_04]: ./resource/bnr_escalation_case1_04_en.png
+[escalation_case1_01]: ./resource/bnr_escalation_case1_01_en@2x.png
+[escalation_case1_02]: ./resource/bnr_escalation_case1_02_en@2x.png
+[escalation_case1_03]: ./resource/bnr_escalation_case1_03_en@2x.png
+[escalation_case1_04]: ./resource/bnr_escalation_case1_04_en@2x.png
 
-[escalation_case2_01]: ./resource/bnr_service_case1_01_en.png
-[escalation_case2_02]: ./resource/bnr_service_case1_02_en.png
-[escalation_case2_03]: ./resource/bnr_service_case1_03_en.png
+[escalation_case2_01]: ./resource/bnr_service_case1_01_en@2x.png
+[escalation_case2_02]: ./resource/bnr_service_case1_02_en@2x.png
+[escalation_case2_03]: ./resource/bnr_service_case1_03_en@2x.png
 
-[escalation_case3_01]: ./resource/bnr_service_case2_01_en.png
-[escalation_case3_02]: ./resource/bnr_service_case2_02_en.png
-[escalation_case3_03]: ./resource/bnr_service_case2_03_en.png
-[escalation_case3_04]: ./resource/bnr_escalation_case3_04_en.png
+[escalation_case3_01]: ./resource/bnr_service_case2_01_en@2x.png
+[escalation_case3_02]: ./resource/bnr_service_case2_02_en@2x.png
+[escalation_case3_03]: ./resource/bnr_service_case2_03_en@2x.png
+[escalation_case3_04]: ./resource/bnr_escalation_case3_04_en@2x.png
 
 
 
 <!-- integration -->
-[integration_01]: ./resource/bnr_service_case2_01_en.png
-[integration_02]: ./resource/bnr_service_case2_02_en.png
-[integration_03]: ./resource/bnr_service_case2_03_en.png
-[integration_04]: ./resource/bnr_service_case2_04_en.png
-[integration_04_AWS]: ./resource/bnr_service_case2_aws_demo_en.png
-[integration_05]: ./resource/bnr_service_case2_05_en.png
-[integration_06]: ./resource/bnr_integration_06_en.png
-[integration_07]: ./resource/bnr_integration_07_en.png
+[integration_01]: ./resource/bnr_service_case2_01_en@2x.png
+[integration_02]: ./resource/bnr_service_case2_02_en@2x.png
+[integration_03]: ./resource/bnr_service_case2_03_en@2x.png
+[integration_04]: ./resource/bnr_service_case2_04_en@2x.png
+[integration_04_AWS]: ./resource/bnr_service_case2_aws_demo_en@2x.png
+[integration_05]: ./resource/bnr_service_case2_05_en@2x.png
+[integration_06]: ./resource/bnr_integration_06_en@2x.png
+[integration_07]: ./resource/bnr_integration_07_en@2x.png
 
-[integration_aws_01]: ./resource/bnr_integration_aws_01.jpg
-[integration_aws_02]: ./resource/bnr_integration_aws_02.jpg
-[integration_aws_03]: ./resource/bnr_integration_aws_03.jpg
-[integration_aws_04]: ./resource/bnr_integration_aws_04_en.png {sizes=normal}
-[integration_aws_05]: ./resource/bnr_integration_aws_05.jpg
-[integration_aws_06]: ./resource/bnr_integration_aws_06.jpg
+[integration_aws_01]: ./resource/bnr_integration_aws_01@2x.jpg
+[integration_aws_02]: ./resource/bnr_integration_aws_02@2x.jpg
+[integration_aws_03]: ./resource/bnr_integration_aws_03@2x.jpg
+[integration_aws_04]: ./resource/bnr_integration_aws_04_en.png
+[integration_aws_05]: ./resource/bnr_integration_aws_05@2x.jpg
+[integration_aws_06]: ./resource/bnr_integration_aws_06@2x.jpg
 
-[integration_ec2_01]: ./resource/bnr_integration_ec2_01.jpg
-[integration_ec2_02]: ./resource/bnr_integration_ec2_02.jpg
-[integration_ec2_03]: ./resource/bnr_integration_ec2_03.jpg
-[integration_ec2_04]: ./resource/bnr_integration_ec2_04.jpg
+[integration_ec2_01]: ./resource/bnr_integration_ec2_01@2x.jpg
+[integration_ec2_02]: ./resource/bnr_integration_ec2_02@2x.jpg
+[integration_ec2_03]: ./resource/bnr_integration_ec2_03@2x.jpg
+[integration_ec2_04]: ./resource/bnr_integration_ec2_04@2x.jpg
 
-[integration_autoclosing_01]: ./resource/bnr_incident_01_en.png {sizes=normal}
-[integration_autoclosing_02]: ./resource/bnr_integration_autoclosing_02_en.png {sizes=normal}
-[integration_autoclosing_03]: ./resource/bnr_integration_autoclosing_03_en.png {sizes=normal}
-[integration_autoclosing_04]: ./resource/bnr_integration_autoclosing_04_en.png {sizes=normal}
-[integration_autoclosing_05]: ./resource/bnr_integration_autoclosing_05_en.png {sizes=normal}
-[integration_autoclosing_06]: ./resource/bnr_integration_autoclosing_06_en.png {sizes=normal}
-[integration_autoclosing_07]: ./resource/bnr_integration_autoclosing_07_en.png {sizes=normal}
+[integration_autoclosing_01]: ./resource/bnr_incident_01_en.png
+[integration_autoclosing_02]: ./resource/bnr_integration_autoclosing_02_en.png
+[integration_autoclosing_03]: ./resource/bnr_integration_autoclosing_03_en.png
+[integration_autoclosing_04]: ./resource/bnr_integration_autoclosing_04_en.png
+[integration_autoclosing_05]: ./resource/bnr_integration_autoclosing_05_en.png
+[integration_autoclosing_06]: ./resource/bnr_integration_autoclosing_06_en.png
+[integration_autoclosing_07]: ./resource/bnr_integration_autoclosing_07_en.png
 
 
 
 
 <!-- extension -->
-[extension_slack_01]: ./resource/bnr_extension_01_en.png
-[extension_slack_02]: ./resource/bnr_extension_02_en.png
-[extension_slack_03]: ./resource/bnr_extension_03_en.png
-[extension_slack_04]: ./resource/bnr_extension_04_en.png
-[extension_slack_05]: ./resource/bnr_extension_05_en.png {sizes=normal}
-[extension_slack_06]: ./resource/bnr_extension_06_en.png {sizes=normal}
-[extension_slack_07]: ./resource/bnr_extension_07_en.png 
-[extension_slack_08]: ./resource/bnr_extension_08_en.png
+[extension_slack_01]: ./resource/bnr_extension_01_en@2x.png
+[extension_slack_02]: ./resource/bnr_extension_02_en@2x.png
+[extension_slack_03]: ./resource/bnr_extension_03_en@2x.png
+[extension_slack_04]: ./resource/bnr_extension_04_en@2x.png
+[extension_slack_05]: ./resource/bnr_extension_05_en.png
+[extension_slack_06]: ./resource/bnr_extension_06_en.png
+[extension_slack_07]: ./resource/bnr_extension_07_en@2x.png 
+[extension_slack_08]: ./resource/bnr_extension_08_en@2x.png
 
 
 <!-- personal setting -->
-[personal_setting_01]: ./resource/bnr_personal_setting_01_en.png
-[personal_setting_02]: ./resource/bnr_personal_setting_02_en.png
-[personal_setting_03]: ./resource/bnr_personal_setting_03_en.png
+[personal_setting_01]: ./resource/bnr_personal_setting_01_en@2x.png
+[personal_setting_02]: ./resource/bnr_personal_setting_02_en@2x.png
+[personal_setting_03]: ./resource/bnr_personal_setting_03_en@2x.png

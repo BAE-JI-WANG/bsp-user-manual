@@ -125,43 +125,6 @@ gulp.task('copy:image',function () {
 //markdown 파일 변환, 이미지 정보를 가공하는 곳이 있으므로 반드시 이미지 복사가 끝난 후에 처리가 되어야 한다.
 gulp.task('convert:md2html',function () {
     return gulp.src(path.source.root + '/' + source_path + '/**/*.md')
-        // 이미지 크기 매핑
-        .pipe(replace(/!*(\[.+?\]|\[\])\s*(:|\().+/gi,function (matchString) {
-            var result = '';
-            var image = {};
-
-            //이미지는 항상 상대경로로 시작한다.
-            image.origin = (function () {
-                var result = matchString.match(/\..+png/gi)
-                if (typeof result !== 'undefined' && !!result) {
-                    return result[0];
-                }
-            })();
-
-            if (image.origin === undefined) { return ''; }
-
-            if (image.origin) {
-                image.location = this.file.base + '/' +this.file.relative.match(/(ko|en|zh)/)[0] + '/' + image.origin.replace('./','')
-                image.sizes = !!matchString.match(/sizes="*normal"*/gi)
-            }
-
-            image.width = (function (text) {
-                // 노멀한 크기라면 sizes="normal" 이면 width 뱉어야되고
-                // 그것도 아니라면 레티나 대응해야되고
-                if(!!image.origin) {
-                    // console.log(image.origin);
-                return !!image.sizes ? imageSize(image.location).width : Math.round(imageSize(image.location).width / 2)
-                }
-            })(matchString);
-
-            if (image.sizes) {
-                return matchString.replace(/\{.+?\}/,'{width='+image.width+'px}');
-            } else {
-                return matchString + ' ' + '{width='+image.width+'px}';
-            }
-
-        }))
-        // markdown > html
         .pipe(pandoc({
             // from:'markdown+hard_line_breaks+grid_tables-pipe_tables-simple_tables-multiline_tables+link_attributes',           // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
 
@@ -171,6 +134,26 @@ gulp.task('convert:md2html',function () {
             ext : '.html',
             args : ['--standalone','--toc','--template=./source/_resource/template/master_web.html','--toc-depth=6','--tab-stop=4']
         }))
+        // 이미지 크기 매핑
+        .pipe(replace(/<img src="(.+?)".+?>/gi,function (matchString,p1) {
+            var is2x = Boolean(p1.match(/@2x/gi));
+            var lang = (function (string) {
+                // 여기에서 string은 gulp-vinyl에서 얻어온 이름입니다. 대개 태스크에서 prototype.src로 넘어오는 경로입죠.
+                // 항상 다국어 폴더를 끼고 오도록 되어있으니 다국어 폴더 자체를 반환한다. cross os전략.
+                if (/(ko|en|zh)/gi.test(string)) {
+                    return string.replace(/[\w]+.(html|md)/gi,'');
+                }
+            })(this.file.relative);
+
+            var _path = p1.replace('./',this.file.base+lang);
+            var _width = !!is2x ? Math.round(imageSize(_path).width/2) : imageSize(_path).width;
+            var _height = !!is2x ? Math.round(imageSize(_path).height/2) : imageSize(_path).height;
+
+            var alt = matchString.match(/alt=["'].+?["']/gi);
+
+            // 이제 이미지의 넓이와 크기를 구해올 시간입니다.
+            return '<img src="' + p1 + '" width="' + _width + '" height="' + _height + '" ' + (!!alt ? alt : ' ') + ' />';
+        })) 
         .pipe(removeHtmlComment())      //코멘트 제거
         .pipe(gulp.dest(dist_path + '/' +  source_path))
         .pipe(livereload());
@@ -251,7 +234,7 @@ help를 참조하셔서 명령어를 잘 넣어 주세요 :)
 });
 
 gulp.task('pdf:dev',function () {
-    console.log('pdf볼때 편의상 보기 편하라고 만들어 놨습니다.');
+    console.log('pdf 미리보기 시간 걸리니까 편의상 빨리빨리 프리뷰 하라고 만들어 놨습니다.');
 
     if ((args.lang !=='ko' && args.lang !== 'en' && args.lang !== 'zh') || !args.alertnow) {
         return console.log('arguments 없는거 아니냐?');
@@ -297,52 +280,35 @@ gulp.task('convert:scss:pdf', function () {
 gulp.task('convert:md2pdf', function() {
     return gulp.src(path.source.root + '/' + source_path + '/' + lang_path + '/*.md')
     // 테이블 처리
-        .pipe(replace(/!*(\[.+?\]|\[\])\s*(:|\().+/gi,function (matchString) {
-            var result = '';
-            var image = {};
-
-            //이미지는 항상 상대경로로 시작한다.
-            image.origin = (function () {
-                var result = matchString.match(/\..+png/gi)
-                if (typeof result !== 'undefined' && !!result) {
-                    return result[0];
-                }
-            })();
-
-            if (image.origin === undefined) { return ''; }
-
-            if (image.origin) {
-                image.location = this.file.base + '/' +  image.origin.replace('./','')
-                image.sizes = !!matchString.match(/sizes="*normal"*/gi)
-            }
-
-            image.width = (function (text) {
-                // 노멀한 크기라면 sizes="normal" 이면 width 뱉어야되고
-                // 그것도 아니라면 레티나 대응해야되고
-                if(!!image.origin) {
-                    // console.log(image.origin);
-                    return !!image.sizes ? imageSize(image.location).width : Math.round(imageSize(image.location).width / 2)
-                }
-            })(matchString);
-
-            if (image.sizes) {
-                return matchString.replace(/\{.+?\}/,'{width='+image.width+'px}');
-            } else {
-                return matchString + ' ' + '{width='+image.width+'px}';
-            }
-
-        }))
         .pipe(pandoc({
             from:'markdown+hard_line_breaks+grid_tables+link_attributes',           // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
             to : 'html5',
             ext : '.html',
             args : ['--standalone','--toc','--template=./source/_resource/template/master_pdf.html','--toc-depth=1']
         }))
-        .pipe(replace(/<img src=".+".+?>/gi,function (matchString) {
-            var string = '';
-            string += matchString.replace('./','file://'+this.file.base);
-            return string;
-        }))
+        // pdf에서는 절대경로만 사용한다.
+        .pipe(replace(/<img src="(.+?)".+?>/gi,function (matchString,p1) {
+
+            var is2x = Boolean(p1.match(/@2x/gi));
+            var lang = (function (string) {
+                // 여기에서 string은 gulp-vinyl에서 얻어온 이름입니다. 대개 태스크에서 prototype.src로 넘어오는 경로입죠.
+                // 항상 다국어 폴더를 끼고 오도록 되어있으니 다국어 폴더 자체를 반환한다. cross os전략.
+                if (/(ko|en|zh)/gi.test(string)) {
+                    return string.replace(/[\w]+.(html|md)/gi,'');
+                }
+            })(this.file.relative);
+
+
+            var _path = p1.replace('./',this.file.base+lang);
+            var _width = !!is2x ? Math.round(imageSize(_path).width/4) : Math.round(imageSize(_path).width/2); 
+            var _height = !!is2x ? Math.round(imageSize(_path).height/4) : Math.round(imageSize(_path).height/2);
+
+            var alt = matchString.match(/alt=["'].+?["']/gi);
+
+            console.log(_path,is2x);
+            // 이제 이미지의 넓이와 크기를 구해올 시간입니다.
+            return '<img src="file://' + _path + '" style="width:' + _width + 'px; height:' + _height + 'px;" />';
+        })) 
         .pipe(styleInject())    //스타일을 별개로 빼내기 어려우므로...
         .pipe(makePdf(pdfConfig))
         .pipe(gulp.dest(path.pdf));
