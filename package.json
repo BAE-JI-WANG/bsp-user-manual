@@ -30,6 +30,7 @@
     "gulp-replace": "^0.6.1",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.4",
+    "gulp-style-inject": "^0.1.1",
     "image-size": "^0.6.2",
     "run-sequence": "^2.2.1",
     "vinyl": "^2.1.0",

@@ -15,7 +15,8 @@ var gulp              = require('gulp')
 	sourcemaps        = require('gulp-sourcemaps'),            // 개발용 소스맵 처리
     args              = require('yargs').argv,
 
-    markdownPdf       = require('gulp-markdown-pdf'),          // markdown pdf
+    makePdf           = require('gulp-html-pdf'),
+    styleInject       = require("gulp-style-inject"),
 
     imagemin          = require('gulp-imagemin'),
     vinyl             = require('vinyl'),                      // 디버그 용도
@@ -43,7 +44,7 @@ var path = {
 };
 
 // 서비스명에 따라서 종착 디렉토리를 지정해줌
-var source_path,dist_path;
+var source_path,dist_path,lang_path,locations;
 
 // 개발용 서버 설정
 gulp.task('connect', function() {
@@ -124,9 +125,9 @@ gulp.task('copy:image',function () {
 //markdown 파일 변환, 이미지 정보를 가공하는 곳이 있으므로 반드시 이미지 복사가 끝난 후에 처리가 되어야 한다.
 gulp.task('convert:md2html',function () {
     return gulp.src(path.source.root + '/' + source_path + '/**/*.md')
-        // 이미지 프로퍼티를 html로 변경한다.
-        .pipe(replace(/\[[^\]].+?\][^\[].+/gi,function (matchString) {
-
+        // 이미지 크기 매핑
+        .pipe(replace(/!*(\[.+?\]|\[\])\s*(:|\().+/gi,function (matchString) {
+            var result = '';
             var image = {};
 
             //이미지는 항상 상대경로로 시작한다.
@@ -137,7 +138,7 @@ gulp.task('convert:md2html',function () {
                 }
             })();
 
-            if (image.origin === undefined) { return }
+            if (image.origin === undefined) { return ''; }
 
             if (image.origin) {
                 image.location = this.file.base + '/' +this.file.relative.match(/(ko|en|zh)/)[0] + '/' + image.origin.replace('./','')
@@ -153,19 +154,19 @@ gulp.task('convert:md2html',function () {
                 }
             })(matchString);
 
-            return (function () {
-                if (image.sizes) {
-                    return matchString.replace(/\{.+?\}/,'{width='+image.width+'px}');
-                } else {
-                    return matchString + ' ' + '{width='+image.width+'px}';
-                }
-            })();
+            if (image.sizes) {
+                return matchString.replace(/\{.+?\}/,'{width='+image.width+'px}');
+            } else {
+                return matchString + ' ' + '{width='+image.width+'px}';
+            }
 
         }))
         // markdown > html
         .pipe(pandoc({
             // from:'markdown+hard_line_breaks+grid_tables-pipe_tables-simple_tables-multiline_tables+link_attributes',           // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
-            from:'markdown+hard_line_breaks+link_attributes',                     // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
+
+            // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
+            from:'markdown+hard_line_breaks+link_attributes',
             to : 'html5',
             ext : '.html',
             args : ['--standalone','--toc','--template=./source/_resource/template/master_web.html','--toc-depth=6','--tab-stop=4']
@@ -223,53 +224,81 @@ gulp.task('deploy',function () {
 
 
 gulp.task('pdf',function () {
+    console.log(args.lang);
+    if ((args.lang !=='ko' && args.lang !== 'en' && args.lang !== 'zh') || !args.alertnow) {
+        console.log(`
+PDF는 언어셋 별로 만들어집니다.
+아래처럼 명령어를 입력해주세요.
+
+> gulp pdf --서비스명 --언어=ko|zh|en
+
+예)
+> gulp pdf --alertnow --lang=ko
+
+help를 참조하셔서 명령어를 잘 넣어 주세요 :)
+
+            `);
+        return;
+    
+    }
     if (!!args.alertnow) {
         source_path = 'alertnow';
         dist_path = path.pdf;
-    } else {
-        console.log('\n\nhelp를 참조하셔서 명령어를 잘 넣어 주세요 :)\n\n');
-        return;
+        lang_path = args.lang
+    } 
+
+	runSequence(['clean:devserver','clean:pdf'],'convert:scss:pdf','convert:md2pdf');
+});
+
+gulp.task('pdf:dev',function () {
+    console.log('pdf볼때 편의상 보기 편하라고 만들어 놨습니다.');
+
+    if ((args.lang !=='ko' && args.lang !== 'en' && args.lang !== 'zh') || !args.alertnow) {
+        return console.log('arguments 없는거 아니냐?');
     }
 
-	runSequence(['clean:pdf'],'copy:image:pdf','convert:md2pdf');
+    if (!!args.alertnow) {
+        source_path = 'alertnow';
+        dist_path = path.pdf;
+        lang_path = args.lang;
+    } 
+
+	runSequence(['clean:devserver','clean:pdf'],'convert:scss:pdf','convert:md2pdf',['watch:pdf']);
 });
+
 
 
 // --------------------------------------------------------------------------------
-// 이미지 복사
-gulp.task('copy:image:pdf',function () {
 
-    return gulp.src([
-            path.source.root + '/' +  source_path + '/**/*.{jpg,png}',
-            '!**/_resource/**'
-        ])
-        .pipe(gulp.dest(dist_path + '/'))
+//pdf 빌드 전 watch형식으로 보려고..
+gulp.task('watch:pdf', function(callback) {
+    livereload.listen();
+    gulp.watch(path.source.style+'/*.{scss,sass,css}',['convert:scss:pdf','convert:md2pdf'],callback);
+    gulp.watch(path.source.root+'/**/*.{png|jpg|gif}', ['convert:md2pdf'],callback);
+    gulp.watch(path.source.root+'/**/*.md', ['convert:md2pdf']);
 });
+
+//
+
 
 gulp.task('clean:pdf',function () {
 	return clean(path.pdf);
 });
 
-gulp.task('clean:imageAfterMakePdf',function () {
-    return clean(path.pdf + '/image');
+// print.css
+gulp.task('convert:scss:pdf', function () {
+    return gulp.src(path.source.style + '/pdf.scss')
+        .pipe(sass())
+        .pipe(gulp.dest(path.devserver))
+        .pipe(livereload());
 });
 
-gulp.task('copy:image',function () {
-    return gulp.src([
-            path.source.root + '/' +  source_path + '/**/*.{jpg,png}',
-            '!**/_resource/**'
-        ])
-        .pipe(gulp.dest(dist_path + '/' + source_path))
-        .pipe(livereload());
-}); 
-
-//make pdf
+// make pdf
 gulp.task('convert:md2pdf', function() {
-    return gulp.src(path.source.root + '/' + source_path + '/**/*.md')
+    return gulp.src(path.source.root + '/' + source_path + '/' + lang_path + '/*.md')
     // 테이블 처리
-        .pipe(replace(/\[[^\]].+?\][^\[].+/gi,function (matchString) {
-
-            return;
+        .pipe(replace(/!*(\[.+?\]|\[\])\s*(:|\().+/gi,function (matchString) {
+            var result = '';
             var image = {};
 
             //이미지는 항상 상대경로로 시작한다.
@@ -280,10 +309,10 @@ gulp.task('convert:md2pdf', function() {
                 }
             })();
 
-            if (image.origin === undefined) { return }
+            if (image.origin === undefined) { return ''; }
 
             if (image.origin) {
-                image.location = this.file.base + '/' +this.file.relative.match(/(ko|en|zh)/)[0] + '/' + image.origin.replace('./','')
+                image.location = this.file.base + '/' +  image.origin.replace('./','')
                 image.sizes = !!matchString.match(/sizes="*normal"*/gi)
             }
 
@@ -296,45 +325,29 @@ gulp.task('convert:md2pdf', function() {
                 }
             })(matchString);
 
-            return '[bnr_integration_default_2_ko]: /Users/mycoolade/workspace/bsp-user-manual/source/alertnow//ko/resource/bnr_integration_default_2_ko.png '
-
-            return (function () {
-                if (image.sizes) {
-                    return matchString.replace(/\{.+?\}/,'{width='+image.width+'px}');
-                } else {
-                    return matchString + ' ' + '{width='+image.width+'px}';
-                }
-            })();
+            if (image.sizes) {
+                return matchString.replace(/\{.+?\}/,'{width='+image.width+'px}');
+            } else {
+                return matchString + ' ' + '{width='+image.width+'px}';
+            }
 
         }))
         .pipe(pandoc({
-            from:'markdown+hard_line_breaks+grid_tables-pipe_tables-simple_tables-multiline_tables+link_attributes',           // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
-            to : 'markdown_strict',
-            ext : '.pdf'
+            from:'markdown+hard_line_breaks+grid_tables+link_attributes',           // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
+            to : 'html5',
+            ext : '.html',
+            args : ['--standalone','--toc','--template=./source/_resource/template/master_pdf.html','--toc-depth=1']
         }))
-        .pipe(markdownPdf())
-        .pipe(gulp.dest('./pdf'));
-        // .pipe(pdf({
-        //     pdfDir: 'build/pdf',
-        //     args : ['--pdf-engine=xelatex','--toc']
-        // }))
-        // .pipe(gulp.dest('build/html'));
+        .pipe(replace(/<img src=".+".+?>/gi,function (matchString) {
+            var string = '';
+            string += matchString.replace('./','file://'+this.file.base);
+            return string;
+        }))
+        .pipe(styleInject())    //스타일을 별개로 빼내기 어려우므로...
+        .pipe(makePdf(pdfConfig))
+        .pipe(gulp.dest(path.pdf));
 });
 
-
-
-gulp.task('test', function() {
-    gulp.src('./source/alertnow/en/*.md')
-        // .pipe(replace('./resource',function (matchString) {
-        //     return '/Users/mycoolade/workspace/bsp-user-manual/source/alertnow/ko/' + matchString.replace('./','');
-        // }))
-        .pipe(pdf({
-            pdfDir: './pdf',
-            args : ['--pdf-engine=xelatex']
-        }))
-        // 아웃풋이 path.pdf로 출력되어야 한다.
-        .pipe(gulp.dest('./'));
-});
 
 
 gulp.task('help', function() {
@@ -373,3 +386,54 @@ http://61.100.13.19:7990/projects/UX/repos/bsp-user-manual/browse
 });
 
 gulp.task('default', ['help']);
+
+
+
+// pdf output만들 때 필요한 내용
+
+var pdfConfig = {
+    // Export options
+    directory: path.devserver,       // The directory the file gets written into if not using .toFile(filename, callback). default: '/tmp'
+
+    // Papersize Options: http://phantomjs.org/api/webpage/property/paper-size.html
+    format: 'A4',        // allowed units: A3, A4, A5, Legal, Letter, Tabloid
+    orientation: 'portrait', // portrait or landscape
+
+    // Page options
+    border: {
+        top: '10mm',            // default is 0, units: mm, cm, in, px
+        right: '15mm',
+        bottom: '15mm',
+        left: '15mm'
+    },
+
+    paginationOffset: 1,       // Override the initial pagination number
+    header: {
+        height: '10mm',
+        contents: `
+            <header>USER GUIDE</header>
+        `
+    },
+    footer: {
+        height: '10mm',
+        contents: {
+            first: '   ',
+            default: `
+                <footer class="layout-footer">{{page}}/{{pages}}</footer>
+            `, // fallback value
+        }
+    },
+
+
+    // Rendering options
+    // "base": 'file:///Users/mycoolade/workspace/bsp-user-manual/'+path.devserver, // Base path that's used to load files (images, css, js) when they aren't referenced using a host
+
+    // Zooming option, can be used to scale images if `options.type` is not pdf
+    zoomFactor: '1', // default is 1
+
+    // File options
+    type: 'pdf',             // allowed file types: png, jpeg, pdf
+    quality: '75'           // only used for types png & jpeg
+
+    // Script options
+}

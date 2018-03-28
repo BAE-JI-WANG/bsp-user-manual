@@ -27,4 +27,8 @@
 @import './content.scss';
 
 // 인쇄용 스타일시트
-@import './print.scss';
+@media print {
+	* {
+		display:none
+	}
+}

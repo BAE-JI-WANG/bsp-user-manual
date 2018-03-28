@@ -1,0 +1,118 @@
+// google font api. 상업 사용 가능 (http://fonts.gstatic.com/ea/notosanskr/v2/OFL.txt)
+@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+// ````````````````````````````````````````````````````````````````````````````변수
+$font: 'Montserrat', 'Noto Sans KR', 'Apple SD Gothic', sans-serif;
+
+body {
+    font-size:7pt;
+    line-height:1.6;
+    font-family:$font;
+    color:#333;
+}
+
+header,
+footer {
+    text-align:center;
+    font-size:5pt;
+}
+
+img {
+    max-width:100%;
+}
+
+
+/* font-size,font-family */
+p,td,th,table,button,main,header,footer,article {
+    font-size:inherit;
+    font-family:inherit;
+}
+
+figcaption {
+    text-align:center;
+}
+
+
+h1 {
+    font-size:10pt;
+    color:#000;
+}
+
+h2 {
+    font-weight: 700;
+    line-height: rem(24);
+
+    counter-reset: _h3;
+}
+
+h3 {
+    font-weight: 700;
+    line-height: 1.5em;
+    counter-increment: _h3;
+    counter-reset: _h4;
+    // margin-left:-1.2em;
+
+    &:before {
+        content: counter(_h3) ". ";
+    }
+}
+
+h4 {
+    font-weight: 700;
+    line-height: 1.5em;
+    // padding-top: 20px;
+    padding-bottom:10px;
+
+    counter-increment: _h4;
+    // margin-left:-1.2em;
+
+    &:before {
+        content: counter(_h3) ". " counter(_h4) ". ";
+    }
+}
+
+
+table {
+    margin-top: 15px;
+    margin-bottom:30px;
+    color: #000;
+    width: 100% !important;
+    border-bottom: 1px solid #EAEAEA;
+
+    td,th {
+        border-top: 1px solid #EAEAEA;
+        text-align: left;
+        padding:2pt;
+        vertical-align: top;
+    }
+
+    thead th {
+        font-weight:normal;
+        text-align:left;
+    }
+
+    tr > *:first-child {
+        padding: 2pt 4pt !important;
+        white-space:nowrap;
+    }
+
+    tbody tr > *:first-child {
+        font-weight:700;
+    }
+
+    td ul,
+    td ol {
+        margin-top:0.3em;
+        margin-bottom:0.3em;
+    }
+
+    td > ol > li:first-child,
+    td > ul > li:first-child {
+        padding-top:0;
+    }
+
+    td p {
+        padding-bottom:0.6em;
+    }
+}
+
