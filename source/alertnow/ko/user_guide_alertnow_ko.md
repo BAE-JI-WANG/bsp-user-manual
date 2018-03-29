@@ -1065,7 +1065,7 @@ AlertNow초기 접속 시, “인시던트” 화면이 기본으로 보여집�
 
 현재 Slack을 지원 하고 있으며, Slack에 대한 익스텐션 설정은 다음과 같습니다.
 
-###	AlertNow Extension Slack 설정 {#set-slack}
+###	익스텐션 메뉴에서 slack 설정 설정 {#set-alertnow-extension-slack}
 
 1.  1단계 : 익스텐션  메뉴 선택
     익스텐션  메뉴를 클릭 합니다.
