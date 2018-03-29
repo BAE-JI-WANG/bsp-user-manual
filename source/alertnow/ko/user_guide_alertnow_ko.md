@@ -1072,18 +1072,17 @@ AlertNow초기 접속 시, “인시던트” 화면이 기본으로 보여집�
     ![][extension_slack_01]
 
 2.  2단계 : 익스텐션 설정 선택
-    “익스텐션 설정” 버튼을 클릭합니다.
+    \[익스텐션 설정\] 버튼을 클릭합니다.
     ![][extension_slack_02]
 
 3.  3단계 : 새로운 연락처 등록
-    “+ 연락처 등록” 버튼을 클릭합니다.
+    \[+ 연락처 등록\] 버튼을 클릭합니다.
     ![][extension_slack_03]
 
 4.  4단계 : Slack 설정
     “Slack”을 선택합니다.
-    ![][extension_slack_04]
-
     “적용” 버튼을 틀릭하여 Slack 도메인을 생성합니다.
+    ![][extension_slack_04]
 
 ###  Slack 설정 : Slack 화면으로 이동 {#slack-move-to-slack-setting}
 
@@ -1093,7 +1092,7 @@ Slack에 가입이 안되어 있는 경우, Slack에 우선 가입해야 합니�
 ![][extension_slack_05]
 
 1.  1단계 : AlertNow에 대한 Slack 승인
-    아래의 내용을 확인 후, \[Authorize\]를 선택 합니다.
+    아래의 내용을 확인 후, \[Authorize\]를 선택합니다.
     ![][extension_slack_06]
     ![][extension_slack_07]
     위와 같은 메시지가 나옵니다. 
