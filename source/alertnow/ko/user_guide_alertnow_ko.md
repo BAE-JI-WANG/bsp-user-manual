@@ -1081,7 +1081,7 @@ AlertNow초기 접속 시, “인시던트” 화면이 기본으로 보여집�
 
 4.  4단계 : Slack 설정
     “Slack”을 선택합니다.
-    “적용” 버튼을 틀릭하여 Slack 도메인을 생성합니다.
+    “적용” 버튼을 클릭하여 Slack 도메인을 생성합니다.
     ![][extension_slack_04]
 
 ###  Slack 설정 : Slack 화면으로 이동 {#slack-move-to-slack-setting}
