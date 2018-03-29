@@ -1063,44 +1063,44 @@ AlertNow초기 접속 시, “인시던트” 화면이 기본으로 보여집�
 
 익스텐션은 AlertNow 내에서 생성된 인시던트 생성 푸시를 외부 툴이나 서비스로 내보낼 수 있도록 하는 기능입니다.
 
-현재 Slack을 지원 하고 있으며, Slack에 대한 익스텐션 설정은 다음과 같습니다.
+현재 Slack을 지원하고 있으며, Slack에 대한 익스텐션 설정은 다음과 같습니다.
 
 ###	익스텐션 메뉴에서 Slack 설정 {#set-alertnow-extension-slack}
 
 1.  1단계 : 익스텐션  메뉴 선택
-    익스텐션  메뉴를 클릭 합니다.
+    익스텐션 메뉴를 클릭합니다.
     ![][extension_slack_01]
 
 2.  2단계 : 익스텐션 설정 선택
-    “익스텐션 설정” 버튼을 클릭 합니다.
+    “익스텐션 설정” 버튼을 클릭합니다.
     ![][extension_slack_02]
 
 3.  3단계 : 새로운 연락처 등록
-    “+ 연락처 등록” 버튼을 클릭 합니다.
+    “+ 연락처 등록” 버튼을 클릭합니다.
     ![][extension_slack_03]
 
-4.  4단계 : Slack을 설정
-    “Slack”을 선택 합니다.
+4.  4단계 : Slack 설정
+    “Slack”을 선택합니다.
     ![][extension_slack_04]
 
-    “적용” 버튼을 틀릭하여, Slack 도메인을 생성 합니다.
+    “적용” 버튼을 틀릭하여 Slack 도메인을 생성합니다.
 
 ###  Slack 설정 : Slack 화면으로 이동 {#slack-move-to-slack-setting}
 
-Slack에 Sign-In 합니다.
-Slack에 가입이 안되어 있는 경우, Slack 가입이 우선 되어야 합니다.
+Slack에 로그인합니다.
+Slack에 가입이 안되어 있는 경우, Slack에 우선 가입해야 합니다.
 
 ![][extension_slack_05]
 
 1.  1단계 : AlertNow에 대한 Slack 승인
-    아래의 내용을 확인 한 후, “Authorize”를 선택 합니다.
+    아래의 내용을 확인 후, \[Authorize\]를 선택 합니다.
     ![][extension_slack_06]
     ![][extension_slack_07]
     위와 같은 메시지가 나옵니다. 
-    “확인”을 선택 합니다.
+    \[확인\]을 선택합니다.
 
 2.	2단계 : AlertNow에서 확인
-    AlertNow “개인 설정” 메뉴에서 연락처에 생성한 Slack 도메인이 추가 된 것을 확인 합니다.
+    AlertNow의 “개인 설정” 메뉴에서 연락처에 생성한 Slack 도메인이 추가되었는지 확인합니다.
     ![][extension_slack_08]
 
 
