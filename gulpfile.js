@@ -272,6 +272,7 @@ gulp.task('clean:pdf',function () {
 gulp.task('convert:scss:pdf', function () {
     return gulp.src(path.source.style + '/pdf.scss')
         .pipe(sass())
+        .pipe(base64())         // 이미지를 인라인화 하자
         .pipe(gulp.dest(path.devserver))
         .pipe(livereload());
 });
@@ -300,12 +301,12 @@ gulp.task('convert:md2pdf', function() {
 
 
             var _path = p1.replace('./',this.file.base+lang);
-            var _width = !!is2x ? Math.round(imageSize(_path).width/4) : Math.round(imageSize(_path).width/2); 
-            var _height = !!is2x ? Math.round(imageSize(_path).height/4) : Math.round(imageSize(_path).height/2);
+            var _width = !!is2x ? Math.round(imageSize(_path).width/5) : Math.round(imageSize(_path).width/2.5); 
+            var _height = !!is2x ? Math.round(imageSize(_path).height/5) : Math.round(imageSize(_path).height/2.5);
 
             var alt = matchString.match(/alt=["'].+?["']/gi);
 
-            console.log(_path,is2x);
+            // console.log(_path,is2x);
             // 이제 이미지의 넓이와 크기를 구해올 시간입니다.
             return '<img src="file://' + _path + '" style="width:' + _width + 'px; height:' + _height + 'px;" />';
         })) 
@@ -367,10 +368,10 @@ var pdfConfig = {
 
     // Page options
     border: {
-        top: '10mm',            // default is 0, units: mm, cm, in, px
-        right: '15mm',
-        bottom: '15mm',
-        left: '15mm'
+        top: '8mm',            // default is 0, units: mm, cm, in, px
+        right: '12mm',
+        bottom: '8mm',
+        left: '12mm'
     },
 
     paginationOffset: 1,       // Override the initial pagination number
@@ -399,7 +400,7 @@ var pdfConfig = {
 
     // File options
     type: 'pdf',             // allowed file types: png, jpeg, pdf
-    quality: '75'           // only used for types png & jpeg
+    quality: '90'           // only used for types png & jpeg
 
     // Script options
 }
