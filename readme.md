@@ -217,13 +217,42 @@ alertnow : **/doc/**
 ```
 
 **3의 링크가 될 문장은 반드시 영문/국문/중문 동일하게 작성해주셔야 합니다**.
-언어셋이 변경되도 같은 링크로 태울 수 있게 하기 위함입니다.
+언어셋이 변경되도 같은 링크로 보낼 수 있게 해 줍니다.
+서비스마다 링크는 동일하게 유지하고, 언어별 도움말이 위치해있는 디렉토리만 변경해서 링크르 걸어두는 경우가 많습니다.
 
-예시를 들면 이렇습니다.
+예시로 markdown 원문과 html로 빌드된 코드를 비교해 보겠습니다.
+
+#### 도움말
 
 ``` markdown
+// markdown
+
 ### 개요 {#summary}
 ### summary {#summary}
+
+
+// 이렇게 작성된 코드가 html에서는 이렿게 변화됩니다.
+
+// lnb 
+<li class="active"><a href="#incident" class="active">인시던트</a><ul>      //// 귝뮨
+<li class="active"><a href="#incident" class="active">Incidents</a><ul>     ////  영문
+
+// 본문
+<h2 id="incident">인시던트</h2>     //// 국문
+<h2 id="incident">Incidents</h2>    //// 영문
+```
+
+#### 서비스
+
+``` html
+// 국문 링크
+https://alertnow.opsnow.com/docs/ko/user_guide_alertnow_ko.html#incident
+                                 ^^
+// 영문 링크
+https://alertnow.opsnow.com/docs/en/user_guide_alertnow_en.html#incident
+                                 ^^
+
+서비스 언어 설정에 따라서 중간 디렉토리 이름만 변경됨.
 ```
 
 
