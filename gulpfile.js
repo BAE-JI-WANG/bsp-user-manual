@@ -22,8 +22,8 @@ var gulp              = require('gulp')
     vinyl             = require('vinyl'),                      // 디버그 용도
     pipecallback      = require('gulp-callback')               // 디버그 용도
 ;
-var pdf = require('gulp-pandoc-pdf');
 
+var pdf = require('gulp-pandoc-pdf');
 
 // 경로 설정
 var path = {
@@ -33,6 +33,9 @@ var path = {
         js : './source/_resource/js',
         template : './source/_resource/template'
     },
+    
+    // arg로 받아서 실행해야되는 경로를 일컫는다.
+    exec : {},
     devserver : './.devserver',
     deploy : './deploy',
     pdf : './pdf'
@@ -44,7 +47,12 @@ var path = {
 };
 
 // 서비스명에 따라서 종착 디렉토리를 지정해줌
-var source_path,dist_path,lang_path,locations;
+// !!!! 이게 변경되면 되겠구나.
+var source_path,
+    dist_path,
+    lang_path,
+    locations
+;
 
 // 개발용 서버 설정
 gulp.task('connect', function() {
@@ -66,6 +74,7 @@ gulp.task('watch', function(callback) {
     gulp.watch(path.source.root+'/**/*.png', ['copy:image'],callback);
     gulp.watch(path.source.root+'/**/*.md', ['convert:md2html']);
 });
+
 
 // 빌드전 청소
 gulp.task('clean:devserver',function () {
@@ -179,13 +188,17 @@ gulp.task('copy:image:min', function() {
 gulp.task('local',function (){
 
     if (!!args.alertnow) {
-        source_path = 'alertnow';
+        // arg 받아서 주소처리할때는 주소를 완성해서 던져야 되는구나...
         dist_path = path.devserver;
+        source_path = 'alertnow';
+    } else if (!!args.its) {
+        // source_path = [']
     } else {
         console.log('\n\nhelp를 참조하셔서 명령어를 잘 넣어 주세요 :)\n\n');
         return;
     }
 
+    // !!!! 이렇게 되면... arg를 받아 처리했을때 특정 instance 하나만 true로 바꾸면 되는거 같은데...
     runSequence('clean:devserver','copy:image','convert:sass:sourcemap','convert:md2html','copy:js',['connect','watch']);
     console.log('간간히 브랜치에 있는 이미지들 수동으로 minify 돌려서 푸시해 주세요. 배포시간이 줄어듭니다. :)');
 });
@@ -338,7 +351,7 @@ arg의 종류
     자신의 컴퓨터에서 확인하거나 혹은 배포용 파일들을 얻기 위한 서비스명을 적어주시면 됩니다.
     현재 가능한 서비스 목록은 아래와 같습니다.
 
-    --aleetnow
+    --alertnow
 
 사용예)
 $ gulp local --alertnow    // 로컬에서 alertnow의 사용자 도움말을 확인합니다. http://localhost:7080에서 기동됩니다.
