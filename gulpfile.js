@@ -147,12 +147,14 @@ gulp.task('convert:md2html',function () {
 
             var _path = p1.replace('./',this.file.base+lang);
             var _width = !!is2x ? Math.round(imageSize(_path).width/2) : imageSize(_path).width;
-            var _height = !!is2x ? Math.round(imageSize(_path).height/2) : imageSize(_path).height;
+            // var _height = !!is2x ? Math.round(imageSize(_path).height/2) : imageSize(_path).height;
 
             var alt = matchString.match(/alt=["'].+?["']/gi);
 
             // 이제 이미지의 넓이와 크기를 구해올 시간입니다.
-            return '<img src="' + p1 + '" width="' + _width + '" height="' + _height + '" ' + (!!alt ? alt : ' ') + ' />';
+            // !!!! 이미지의 높이는 당분간 배제하고 넓이만 가지고 처리하는 방법으로 처리(ratio 때문에 ㅜㅜ)
+            // return '<img src="' + p1 + '" width="' + _width + '" height="' + _height + '" ' + (!!alt ? alt : ' ') + ' />';
+            return '<img src="' + p1 + '" width="' + _width + '" '+ (!!alt ? alt : ' ') + ' />';
         })) 
         .pipe(removeHtmlComment())      //코멘트 제거
         .pipe(gulp.dest(dist_path + '/' +  source_path))

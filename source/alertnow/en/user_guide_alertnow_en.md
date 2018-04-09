@@ -1238,7 +1238,7 @@ You can set whether to send notifications and delivery method by the following s
 [incident_flow]: ./resource/bnr_map_alert_en@2x.png
 [incident_1]:  ./resource/bnr_incident_01_en.png
 [incident_2]:  ./resource/bnr_incident_02_en.png
-[incident_3]:  ./resource/bnr_incident_03_en.png
+[incident_3]:  ./resource/bnr_incident_03_en@2x.png
 
 [incident_status_01]: ./resource/bnr_incident_status_01_en@2x.png
 [incident_status_02]: ./resource/bnr_incident_status_02_en@2x.png  
