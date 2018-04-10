@@ -63,7 +63,7 @@ gulp.task('watch', function(callback) {
     gulp.watch(path.source.js+'/*.js',['copy:js'],callback);
     gulp.watch(path.source.style+'/*.{scss,sass,css}',['convert:sass:sourcemap'],callback);
     gulp.watch(path.source.template+'/**/*.html', ['convert:md2html'],callback);
-    gulp.watch(path.source.root+'/**/*.png', ['copy:image'],callback);
+    gulp.watch(path.source.root+'/**/*.png', ['copy:image','convert:md2html'],callback);
     gulp.watch(path.source.root+'/**/*.md', ['convert:md2html']);
 });
 

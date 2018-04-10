@@ -542,6 +542,7 @@ You can perform the following tasks on Alert in the list.
     a.	Click [Message] > [View] button on the Alert Detail screen.
         ![][alert_search_02]
     b.	Detailed message is displayed in the new tab.
+        ![][alert_search_03]
 
 2.	Enter Description
     You can enter a detailed description about the alert that occurred.
@@ -681,6 +682,7 @@ Use Case for Service creation is shown below.
     | Integration Name        | Customer can set Integration Name.                                            | Required
     +-------------------------+-------------------------------------------------------------------------------+-----------------------------+
     | Integration Type        | The logo of the selected target is shown.                                     | Cannot enter or edit
+    |                         | ![][integration_04_AWS]                                                       |
     +-------------------------+-------------------------------------------------------------------------------+-----------------------------+
     | Service                 | -	Create New Service                                                        | Selection required.
     |                         |     When creating Integration, Service is also created at the same time.      | No duplicate selection.
@@ -740,7 +742,7 @@ Use Case for Escalation Policy creation is shown below.
 | Create from “Escalations” menu             | Create the Escalation Policy.
 +--------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 | Use Case 2)                                | For creating “Service”, "Default Escalation Rule" is created if there are no existing escalation rules.
-| Generate Default Escalation Rule           |
+| Generate Default Escalation Rule           | <button class="demo black">Create Escalation</button>
 | at “Service” creation                      |
 +--------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 | Use Case 3)                                | When creating “Service” and “Integration” simultaneously,
@@ -876,7 +878,8 @@ Integration settings guide is as follows.
     +========================+============================================================================+=========================+
     | Integration Name       | Customer can set Integration Name.                                         | Required
     +------------------------+----------------------------------------------------------------------------+-------------------------+
-    | Integration Type       | The logo of the selected target is shown.   ![][integration_04_AWS]        | Cannot enter or edit
+    | Integration Type       | The logo of the selected target is shown.                                  | Cannot enter or edit
+    |                        | ![][integration_04_AWS]                                                    | 
     +------------------------+----------------------------------------------------------------------------+-------------------------+
     | Service                | -   Create New Service                                                     | Selection required.
     |                        |     When creating integration, service is also created at the same time.   | No duplicate selection.
@@ -1318,7 +1321,7 @@ You can set whether to send notifications and delivery method by the following s
 [integration_aws_01]: ./resource/bnr_integration_aws_01@2x.jpg
 [integration_aws_02]: ./resource/bnr_integration_aws_02@2x.jpg
 [integration_aws_03]: ./resource/bnr_integration_aws_03@2x.jpg
-[integration_aws_04]: ./resource/bnr_integration_aws_04_en.png
+[integration_aws_04]: ./resource/bnr_integration_aws_04_en@2x.png
 [integration_aws_05]: ./resource/bnr_integration_aws_05@2x.jpg
 [integration_aws_06]: ./resource/bnr_integration_aws_06@2x.jpg
 
