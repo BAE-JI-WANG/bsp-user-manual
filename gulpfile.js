@@ -14,6 +14,7 @@ var gulp              = require('gulp')
     base64            = require('gulp-base64'),
 	sourcemaps        = require('gulp-sourcemaps'),            // 개발용 소스맵 처리
     args              = require('yargs').argv,
+    fs                = require('fs'),
 
     makePdf           = require('gulp-html-pdf'),
     styleInject       = require("gulp-style-inject"),
@@ -71,6 +72,7 @@ gulp.task('watch', function(callback) {
 gulp.task('clean:devserver',function () {
 	return clean(path.devserver);
 });
+
 
 gulp.task('clean:deploy',function () {
 	return clean(path.deploy);
@@ -156,6 +158,31 @@ gulp.task('convert:md2html',function () {
             // return '<img src="' + p1 + '" width="' + _width + '" height="' + _height + '" ' + (!!alt ? alt : ' ') + ' />';
             return '<img src="' + p1 + '" width="' + _width + '" '+ (!!alt ? alt : ' ') + ' />';
         })) 
+        .pipe(replace(/<!-- @@insert :: multi language link -->/gi,function () {
+
+            // 어짜피 
+            var lang = (function (string) {
+                if (/(ko|en|zh)/gi.test(string)) {
+                    return string.replace(/[\w]+.(html|md)/gi,'');
+                }
+            })(this.file.relative);
+
+            console.log(this.file.base,lang);
+
+            // 언어는 늘 3개국어입니다.
+            // ko en zh :: 규칙이죠?
+            fs.stat(this.file.base + 'ko/user_guide_' + source_path + '_ko.md',function (err,stat) {
+                if(err == null) {
+                    console.log('File exists');
+                } else if(err.code == 'ENOENT') {
+                    console.log('파일 없음');
+                    // file does not exist
+                } else {
+                    console.log('다른 에러가 있네요. 에러코드는? ', err.code);
+                } 
+            });
+
+        }))
         .pipe(removeHtmlComment())      //코멘트 제거
         .pipe(gulp.dest(dist_path + '/' +  source_path))
         .pipe(livereload());
@@ -180,9 +207,20 @@ gulp.task('copy:image:min', function() {
 
 gulp.task('local',function (){
 
+    dist_path = path.devserver;
+
     if (!!args.alertnow) {
         source_path = 'alertnow';
-        dist_path = path.devserver;
+    } else if (!!args.alarm) {
+        source_path = 'alarm';
+    } else if (!!args.approval) {
+        source_path = 'approval';
+    } else if (!!args.dbqcs) {
+        source_path = 'dbqcs';
+    } else if (!!args.devops) {
+        source_path = 'devops';
+    } else if (!!args.project) {
+        source_path = 'project';
     } else {
         console.log('\n\nhelp를 참조하셔서 명령어를 잘 넣어 주세요 :)\n\n');
         return;
