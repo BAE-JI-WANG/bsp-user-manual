@@ -36,12 +36,12 @@ var path = {
     },
     devserver : './.devserver',
     deploy : './deploy',
-    pdf : './pdf'
+    pdf : './pdf',
     
     // arg로 받아서 실행해야되는 경로를 일컫는다.
     exec : null,
     error : function (isTrue) {
-        if (!!isTrue && typeof isTrue === boolean) {
+        if (!!isTrue && typeof isTrue === 'boolean') {
             return console.log('arguments로 서비스명을 넣어주세요. 자세한 안내는 gulp help를 참조바랍니다.');
         }
     }
@@ -60,26 +60,34 @@ var source_path,
     locations
 ;
 
-
-
-
 // argument를 선처리한다.
 // 아규먼트를 받아서 선처리 해야될 정보.
 // source와 path
-// path.exec.source
-// path.exec.dist
-// path.exec.lang
+// path.exec.lang       // 이건 왜 붙여놨지?
+// path.exec.resource
 
 path.exec = (function (arg) {
-    console.log('hello world');
     // arg의 종류는 각 서비스명이 된다.
-    var result = {};
+    var dist, service;
 
-    // 여기까지 처리를 했습니다.
-    result.path
+    console.log(dist);
+    if (!dist) {
+        dist = path.devserver;
+    }
 
-    return null;
-    return result;
+    if (!!args.alertnow) {
+        service = '/alertnow';
+    } else if (!!args.its) {
+        return [
+            './.devserver/project/resource/',
+            './.devserver/alarm/resource/',
+            './.devserver/approval/resource/',
+            './.devserver/devops/resource/'
+        ];
+    }
+
+
+    return dist+service;
 })(args);
 
 
@@ -146,7 +154,8 @@ gulp.task('convert:sass:sourcemap', function () {
         .pipe(base64())         // 이미지를 인라인화 하자
         .pipe(sourcemaps.write('./'))
         // .pipe(gulp.dest(dist_path + '/' + source_path + '/resource'))
-        .pipe(gulp.dest(dist_path + '/' + source_path + '/resource'))
+        // .pipe(gulp.dest(path.exec + '/resource'))
+        .pipe(gulp.dest(path.exec))
         .pipe(livereload());
 });
 
@@ -235,6 +244,8 @@ gulp.task('copy:image:min', function() {
 });
 
 gulp.task('local',function (){
+
+    args.dist = path.devserver;
 
     if (path.exec) {
         return path.error;
