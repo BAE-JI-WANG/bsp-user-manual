@@ -136,6 +136,15 @@ article {
 
 }
 
+@mixin order_list($return) {
+    &:before {
+        content:$return;
+        margin-left:-1.4em;
+        margin-right:0.3em;
+    }
+}
+
+
 // list type ordered,unordered
 article {
     ol,ul {
@@ -162,7 +171,40 @@ article {
         //     color:#000;
         // }
     }
+
+    // 3단계 hireachy에서는 괄호문자(circled)로 보여달란 요청이 있었음(technical writer)
+    // 이걸 함수로 만들어 놓고 써야되나.. nesting으로 대강 지정해서 써도 무리가 없는건가..
+    // 3단계 순서가 있는 리스트
+    * > li > * > li > ol > li {
+        list-style-type:none;
+        &:nth-of-type(1) { @include order_list('①'); }
+        &:nth-of-type(2) { @include order_list('②'); }
+        &:nth-of-type(3) { @include order_list('③'); }
+        &:nth-of-type(4) { @include order_list('④'); }
+        &:nth-of-type(5) { @include order_list('⑤'); }
+        &:nth-of-type(6) { @include order_list('⑥'); }
+        &:nth-of-type(7) { @include order_list('⑦'); }
+        &:nth-of-type(8) { @include order_list('⑧'); }
+        &:nth-of-type(9) { @include order_list('⑨'); }
+        &:nth-of-type(10) { @include order_list('⑩'); }
+    }
+
+    // 4단계 순서가 있는 리스트
+    * > li > * > li > * > li > ol > li {
+        list-style-type:none;
+        &:nth-of-type(1) { @include order_list('⒜'); }
+        &:nth-of-type(2) { @include order_list('⒝'); }
+        &:nth-of-type(3) { @include order_list('⒞'); }
+        &:nth-of-type(4) { @include order_list('⒟'); }
+        &:nth-of-type(5) { @include order_list('⒠'); }
+        &:nth-of-type(6) { @include order_list('⒡'); }
+        &:nth-of-type(7) { @include order_list('⒢'); }
+        &:nth-of-type(8) { @include order_list('⒣'); }
+        &:nth-of-type(9) { @include order_list('⒤'); }
+        &:nth-of-type(10) { @include order_list('⒥'); }
+    }
 }
+
 
 //
 article {
