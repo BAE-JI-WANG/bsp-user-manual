@@ -142,10 +142,10 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
     +------------------+--------------------------------------------------------------------------------------------------------+---------------+
 
 4.  SNS 대시보드에서 *구독 생성*을 선택합니다.
-    ![][aws_new_subscripe]
+    ![][aws_new_subscribe]
 
 5.  주제 ARN, 프로토콜, 엔드포인트를 입력 후 [구독 생성] 버튼을 클릭하여 구독을 생성합니다.
-    ![][bnr_integration_aws_04]
+    ![][aws_make_subscribe]
 
     구독 생성 입력 항목
 
@@ -162,8 +162,8 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 
 6.  아래 화면에서 새로 고침 아이콘을 클릭하면 구독 ID에 대한 승인 확인이 이루어집니다.
-    ![][aws_subscribe_confirm_before]
-    ![][aws_subscribe_confirm_after]
+    ![새로고침 클릭][aws_subscribe_confirm_before]
+    ![구독자 번호 생성][aws_subscribe_confirm_after]
 
 
 
@@ -171,14 +171,20 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 #####	EC2 Console
 
 1.  AWS 화면에서 검색창에 ‘EC2’를 입력한 후 Enter를 눌러 EC2 Console로 이동합니다.
+    ![][aws_select_ec2_service]
 
 2.  화면 왼쪽의 ‘인스턴스’를 클릭하여 인스턴스 목록으로 이동합니다.
+    ![][aws_instance_list]
 
 3.  아래 화면에서 인스턴스 하나를 선택 후 마우스 오른쪽 버튼을 클릭하여 Cloudwatch 모니터링 > 경보 추가/편집을 선택합니다.
+    ![][aws_select_instance]
 
 4.  [경보 생성] 버튼을 클릭합니다.
+    ![][aws_make_alert_click]
 
 5.  경보 생성 화면에서 결과 값을 입력 후 [경보 생성] 버튼을 클릭합니다.
+    ![][aws_alert_make_screen]
+
     +-----------------+---------------------------------+--------------+
     | 항목            | 설명                            | 비고
     +=================+=================================+==============+
@@ -191,9 +197,9 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 생성된 인티그레이션을 AWS Cloudwatch와 연결하고 나면 AlertNow에 경고와 인시던트가 생성됩니다.
 
-![경고 화면][]
+![경고 화면][alertnow_alert_screen]
 
-![인시던트 화면][]
+![인시던트 화면][alertnow_incident_screen]
 
 ※	경고가 정상적으로 들어오는지 확인하기 위해서는 임계치를 수정해야 합니다.
 
@@ -207,8 +213,13 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 상황별로 AlertNow에서 설정하는 방법을 제공합니다.
 
 ### 인시던트의 알림 대상자를 설정할 때: 알림 전송하기
-1.  [에스컬레이션] 메뉴를 클릭합니다.
-2.  [에스컬레이션 생성] 버튼을 클릭합니다. 
+
+1.  \[에스컬레이션\] 메뉴를 클릭합니다.
+    ![][escalation_case1_01]
+
+2.  \[에스컬레이션 생성\] 버튼을 클릭합니다. 
+    ![][escalation_case1_02]
+
 
 
 #### 담당자 로테이션 설정하기
@@ -1841,11 +1852,21 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 
 [create_integration]: ./resource/create_integration.png
 [aws_dashboard]: ./resource/aws_dashboard.png
-[aws_make_topic]: ./resouce/aws_make_topic.png
+[aws_make_topic]: ./resource/aws_make_topic.png
 [aws_create_topic]: ./resource/aws_create_topic.png
-[aws_new_subscripe]: ./resource/aws_new_subscripe.png
+[aws_new_subscribe]: ./resource/aws_new_subscribe.png
 [aws_subscribe_confirm_before]: ./resource/aws_subscribe_confirm_before.png
 [aws_subscribe_confirm_after]: ./resource/aws_subscribe_confirm_after.png
-
+[aws_make_subscribe]: ./resource/aws_make_subscribe.png
 
 [alertnow_map_hexagon]: ./resource/alertnow_map_hexagon.png
+
+[aws_select_ec2_service]: ./resource/aws_select_ec2_service.png
+[aws_instance_list]: ./resource/aws_instance_list.png
+[aws_select_instance]: ./resource/aws_select_instance.png
+[aws_make_alert_click]: ./resource/aws_make_alert_click.png
+[aws_alert_make_screen]: ./resource/aws_alert_make_screen.png
+
+[alertnow_incident_screen]: ./resource/alertnow_incident_screen@2x.png
+[alertnow_alert_screen]: ./resource/alertnow_alert_screen@2x.png
+
