@@ -192,8 +192,7 @@ main nav {
                  margin: 15px 0 0 0;
                  line-height: 20px;
                  position: relative;
-                 padding-left: 17px;     // 넘버링을 할 경우
-                 padding-left:2px;
+                 padding-left: 2px;
                  line-height: 20px;
                  counter-increment: chapter;
 
@@ -212,6 +211,50 @@ main nav {
 
                      &:before {
                          content: "ㄴ" counter(section) "." counter(chapter) ".";
+                         margin: 0 5px 0 0;
+                         font-size: 0.875rem;
+                         font-weight: 400;
+                         color: #666;
+                         line-height: 20px;
+                         top: 0;
+                         left: 0px;
+                     }
+                 }
+             }
+
+             > li:first-child {
+                margin-top:10px;
+             }
+         }
+         
+         // depth 5
+         > ul > li > ul > li > ul > li > ul > li > ul {
+             display: block;
+             counter-reset: sub_chapter;
+
+             > li {
+                 box-sizing: border-box;
+                 margin: 15px 0 0 0;
+                 line-height: 20px;
+                 position: relative;
+                 padding-left: 10px;     // 넘버링을 할 경우
+                 line-height: 20px;
+                 counter-increment: sub_chapter;
+
+                 > a {
+                     display: inline-block;
+                     height: 20px;
+                     font-size:rem(14);
+                     font-weight: 400;
+                     color: #666;
+                     line-height: 20px;
+                     position: relative;
+
+                     padding: 0 0 0 22px;       // 넘버링을 할 경우
+                     display: inline-block;
+
+                     &:before {
+                         content: "⎯ " counter(section) "." counter(chapter) "." counter(sub_chapter) ".";
                          margin: 0 5px 0 0;
                          font-size: 0.875rem;
                          font-weight: 400;

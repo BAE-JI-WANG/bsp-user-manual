@@ -94,9 +94,9 @@ AlertNow는 SaaS 기반의 서비스 인시던트 주기 관리 플랫폼이며,
 
 #### 인티그레이션 생성하기          {#create-incident}
 
-인티그레이션 목록 중 사용 중인 툴 또는 서비스를 선택한 후 인티그레이션을 설정하여 알림을 전달하고 관리할 수 있습니다. 여기에서는 인티그레이션 생성 절차만 제공하며, 생성에 대한 자세한 내용은 [다른 외부 모니터링 서비스를 연동할 때: 인티그레이션 추가하기][]를 참고하십시오.
+인티그레이션 목록 중 사용 중인 툴 또는 서비스를 선택한 후 인티그레이션을 설정하여 알림을 전달하고 관리할 수 있습니다. 여기에서는 인티그레이션 생성 절차만 제공하며, 생성에 대한 자세한 내용은 [다른 외부 모니터링 서비스를 연동할 때: 인티그레이션 추가하기](#add-integration-for-third-party-link)를 참고하십시오.
 
-1.  [인티그레이션] 메뉴를 클릭합니다. 
+1.  \[인티그레이션\] 메뉴를 클릭합니다. 
     ![][service_case2_01]
 
 2.  <button class="demo black">인티그레이션 생성</button>버튼을 클릭합니다.
@@ -111,6 +111,7 @@ AlertNow는 SaaS 기반의 서비스 인시던트 주기 관리 플랫폼이며,
 #### AWS Cloudwatch에서 인티그레이션 연결하기 {#aws-alertnow-connect}
 
 AWS Cloudwatch에서 생성한 인티그레이션을 연결하려면 AWS Console에 접속해 주제 및 구독을 생성해야 합니다.
+
 AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_kr/sns/latest/dg/welcome.html>
 
 
@@ -209,23 +210,40 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 상황별로 AlertNow에서 설정하는 방법을 제공합니다.
 
+### 인시던트의 알림 대상자를 설정할떄: 알림 전송하기
+
+1.  \[에스컬레이션\] 메뉴를 클릭합니다.
+    ![][escalation_case1_01]
+
+2.  \[에스컬레이션 생성\] 버튼을 클릭합니다.
+    ![][escalation_case1_02]
+
 
 #### 담당자 로테이션 설정하기       {#set-rotation}
 
 알림을 팀원 간에 전송하고자 할 때 각 팀원을 응답자로 지정하여 순서대로 알림을 수신할 수 있습니다.
 
 1.  에스컬레이션 정책 이름 및 해당 에스컬레이션에 대한 설명을 입력합니다.
+    ![][escalation_set_rotation]
+
 2.  응답자 입력 필드에 지정할 에스컬레이션 응답자를 입력합니다. 응답자는  여러 명을 선택할 수 있습니다.
+    ![][escalation_responder]
+
 3.  에스컬레이션 정책에 대한 규칙을 설정합니다. 확인 또는 종료되지 않으면 다음 단계로 에스컬레이션 됩니다.
+    ![][escalation_set_policy]
+
 4.  알림을 전달할 시간 주기는 분 단위로 설정할 수 있으며, 설정한 시간에 알림을 받은 이후 조치는 다음 중 하나를 선택할 수 있습니다.
     -   다음 단계로 에스컬레이션: 다음 에스컬레이션 단계로 수행합니다.
     -   이 단계 반복: 현재 단계를 반복하며, 반복 횟수를 설정할 수 있습니다. (최대 3번까지 가능)
+    
+    ![][escalation_set_repeat]
 
 #### 이전 모든 단계 응답자 포함하기     {#set-include-previous-responder}
 
 알림 전송 시 응답자를 상위 관리자로 확대하여 전송할 때 사용하는 기능입니다. 수신할 때마다 최초 응답자 및 이전 단계의 응답자가 모두 포함됩니다.
 
 ‘+ 규칙 추가하기’를 눌러 규칙을 추가한 다음 전 단계 응답자 포함 체크 박스를 활성화합니다.
+![][escalation_set_previous_responder]
 
 #### 최종 알림 설정하기     {#set-final-notice}
 
@@ -236,6 +254,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
     -   아무도 확인하지 않을 경우 모든 응답자에게 설정한 시간 간격 및 횟수대로 통지: 분 단위로 시간 설정이 가능하며 최대 9번까지 통지가 가능합니다.
 2.  [저장] 버튼을 클릭하여 에스컬레이션 정책을 생성 후 알림을 전송합니다.
 
+![][escalation_set_final_notice]
 
 
 
@@ -247,8 +266,9 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 알림을 이메일, 휴대폰, Slack 등으로 수신할 수 있습니다.
 
 1.  연락처 설정
-    1.  [개인 설정] 메뉴를 클릭합니다.
+    1.  \[개인 설정\] 메뉴를 클릭합니다.
     2.  기본 정보에서 프로필 및 연락처를 설정할 수 있습니다.
+        ![][personal_setting_screen]
     3.  프로필은 아래의 정보로 구성되어 있습니다.
 
     +-----------------+----------------------------------------------------------------+--------+
@@ -263,19 +283,23 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
     | 에스컬레이션    | 사용자가 속해 있거나 생성한 에스컬레이션                       |
     +-----------------+----------------------------------------------------------------+--------+
 
-    4.  표준 시간대는 사용자가 직접 설정이 가능합니다. [!!!!수정버튼 아이콘 그림 필요함][] 아이콘을 클릭합니다.
+    4.  표준 시간대는 사용자가 직접 설정이 가능합니다. 
+        ![][btn_edit] 아이콘을 클릭합니다.
+        ![][personal_setting_edit_timezone]
     5.  표준 시간대 설정 팝업이 아래와 같이 나타납니다. ‘사용자 정의 설정’ 라디오 버튼을 선택하면 표준 시간대를 변경할 수 있습니다.
-    6.  설정을 완료 후 [적용] 버튼을 눌러 표준 시간대 설정을 완료합니다.
-    7.  버튼을 클릭하여 연락처를 등록합니다. 이메일, 휴대폰, Slack 설정이 가능하며 최대 5개까지 등록이 가능합니다. 5개 이상을 등록 시 아래와 같은 메시지가 나타납니다.
-    8.  [적용] 버튼을 눌러 연락처 등록을 완료합니다.
+        ![][personal_setting_select_timezone]
+    6.  설정을 완료 후 \[적용\] 버튼을 눌러 표준 시간대 설정을 완료합니다.
+    7.  <button class="demo black"> + 연락처 등록</button> 버튼을 클릭하여 연락처를 등록합니다. 이메일, 휴대폰, Slack 설정이 가능하며 최대 5개까지 등록이 가능합니다. 5개 이상을 등록 시 아래와 같은 메시지가 나타납니다.
+        ![][personal_setting_max_contact]
+    8.  \[적용\] 버튼을 눌러 연락처 등록을 완료합니다.
 
-※ 휴대폰 설정 시 특정 통신사의 경우, 경보 이름을 입력할 때 통신사 정책에 따라 스팸으로 분류될 수 있습니다.
+※ 휴대폰personal_setting_max_contact.png 설정 시 특정 통신사의 경우, 경보 이름을 입력할 때 통신사 정책에 따라 스팸으로 분류될 수 있습니다.
 
 
 
 
 
-###	관리 부하를 최소화하고자 할 때: 인시던트 생성 규칙 설정하기  {#make-rule-incident}
+###	관리 부하를 최소화하고자 할 때: 인시던트 생성 규칙 설정하기  {#make-rule-incident-for-minimize-administrative-overhead}
 
 장애 발생 시 사용자의 판단 하에 불필요한 경고 수신을 제한하고, 긴급도별로 분류하여 인시던트를 효율적으로 관리할 수 있습니다.
 
@@ -283,16 +307,16 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 장애가 복구될때까지 경고가 계속해서 발생합니다. 이때 사용자가 최초로 발생하는 경고에 대해 인시던트를 생성하면, 그 이후 경고 발생 시 동일한 경고에 대해서는 인시던트가 생성되지 않습니다.
 
-1.  [서비스] 메뉴를 클릭합니다.
+1.  \[서비스\] 메뉴를 클릭합니다.
     ![][escalation_case2_01]
 
 2.  생성된 서비스 하나를 클릭 후 ‘인시던트 생성 규칙’ 탭을 클릭합니다.
     ![][service_rule_make]
 
-3.  인시던트 생성 제한 규칙의 [편집] 버튼을 클릭한 후 왼쪽에 있는 체크박스 를 클릭합니다.
+3.  인시던트 생성 제한 규칙의 \[편집\] 버튼을 클릭한 후 왼쪽에 있는 체크박스 를 클릭합니다.
     ![][service_incident_publish_rule]
 
-4.  조건 및 기간을 선택한 후 [적용] 버튼을 클릭하여 규칙을 생성합니다. (기간의 경우 초/분/시간/일로 설정 가능)
+4.  조건 및 기간을 선택한 후 \[적용\] 버튼을 클릭하여 규칙을 생성합니다. (기간의 경우 초/분/시간/일로 설정 가능)
     ![][service_incident_publish_rule_make]
 
 5.  규칙은 하나만 생성이 가능하며, 체크박스를 선택 해제 후 [적용] 버튼을 누르고 [확인]을 선택하면 규칙이 비활성화됩니다.
@@ -301,13 +325,13 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 경고에 대해 긴급도를 설정하여, 생성되는 인시던트에 대해 긴급도별로 분류하여 확인할 수 있습니다.
 
-1.  [서비스] 메뉴를 클릭합니다.
+1.  \[서비스\] 메뉴를 클릭합니다.
     ![][escalation_case2_01]
 
 2.  생성된 서비스 하나를 클릭 후 ‘인시던트 생성 규칙’ 탭을 클릭합니다.
     ![][service_incident_tab_click]
 
-3.  인시던트 긴급도 규칙의 [편집] 버튼을 클릭한 후 왼쪽에 있는 체크박 스를 클릭합니다.
+3.  인시던트 긴급도 규칙의 \[편집\] 버튼을 클릭한 후 왼쪽에 있는 체크박 스를 클릭합니다.
     ![][service_urgency]
 
 4.  인시던트 긴급도의 기본 규칙을 선택합니다. (매우 높음/높음/보통/낮음/매우 낮음 중 선택)
@@ -355,7 +379,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 ##### 서비스 이름 입력      {#enter-service-name}
 
-1.  [서비스] 메뉴를 클릭합니다.
+1.  \[서비스\] 메뉴를 클릭합니다.
     ![][escalation_case2_01]
 
 2.  <button class="demo black">서비스 생성</button> 버튼을 클릭합니다.
@@ -376,12 +400,14 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 4.  조건을 선택하고, 비교값을 입력하고, 그에 따른 에스컬레이션 규칙을 선택합니다.
 
-5.  인시던트 생성 규칙(인시던트 생성 제한 규칙, 인시던트 긴급도 규칙)을 설정합니다. (방법은 [5. 관리 부하를 최소화하고자 할 때: 인시던트 생성 규칙 설정하기][]와 동일합니다.)
+5.  인시던트 생성 규칙(인시던트 생성 제한 규칙, 인시던트 긴급도 규칙)을 설정합니다. 
+    (방법은 [관리 부하를 최소화하고자 할 때: 인시던트 생성 규칙 설정하기](#make-rule-incident-for-minimize-administrative-overhead) 와 동일합니다.)
+    ![][service_incident_rule_make_list]
 
 6.  \[저장\] 버튼을 클릭하여 서비스를 생성합니다.
 
 7.  생성된 서비스가 다음과 같이 표시됩니다.
-    ![][service_screen]
+    ![][service_screen_under_tab]
 
     +-------------------------------+-----------------------------------------------------------------------+-----------+
     | 항목                          | 설명                                                                  | 비고
@@ -398,12 +424,13 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 
 
-### 다른 외부 모니터링 서비스를 연동할 때: 인티그레이션 추가하기
-    시작하기 부분의 인티그레이션 생성에 대한 자세한 설명을 다룹니다. 
+### 다른 외부 모니터링 서비스를 연동할 때: 인티그레이션 추가하기 {#add-integration-for-third-party-link}
 
-#### 인티그레이션 생성하기
+시작하기 부분의 인티그레이션 생성에 대한 자세한 설명을 다룹니다. 
 
-1.  [인티그레이션] 메뉴를 클릭합니다.
+#### 인티그레이션 생성하기 {#create-integration-for-link}
+
+1.  \[인티그레이션\] 메뉴를 클릭합니다.
     ![][integration_01]
 
 2.  <button class="demo black">서비스 생성</button> 버튼을 클릭합니다.
@@ -424,20 +451,20 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
     | 인티그레이션 유형       선택한 대상의 로고가 표시됩니다.                필수
     +-----------------------+-----------------------------------------------+-------+
 
-#### 신규 서비스 생성의 경우
+#### 신규 서비스 생성의 경우 {#case-create-integration}
 
 인티그레이션 생성 시 서비스도 동시에 생성됩니다.
 신규 서비스 생성 화면에서 인티그레이션을 생성할 수 있습니다. 
-설정 방법은 [6. 알림을 받을 서비스를 새로 등록할 때: 서비스 추가하기][]에서 서비스 생성 방법과 동일합니다.
+설정 방법은 [알림을 받을 서비스를 새로 등록할 때: 서비스 추가하기](#add-service-for-notice)에서 서비스 생성 방법과 동일합니다.
 
-#### 서비스 선택의 경우
+#### 서비스 선택의 경우 {#case-create-integration-for-select}
 
 인티그레이션 생성 시 기존 서비스가 매핑됩니다.
 ![][integration_make_select_service]
 
 1.  기본 서비스 규칙을 선택합니다.
 2.  *사용자 설정 조건 추가 체크* 박스를 활성화하여 조건 항목(Alert Summary, Alert Metric Name)을 설정합니다. 설정 시 기본 규칙보다 우선적으로 적용됩니다.
-3.  이름을 입력하고 서비스 생성 또는 선택 후 [저장] 버튼을 클릭하면 아래와 같이 표시됩니다.
+3.  이름을 입력하고 서비스 생성 또는 선택 후 \[저장\] 버튼을 클릭하면 아래와 같이 표시됩니다.
     ![][integration_make_done]
 4.  URL의 경우 SNS (Simple Notification Service)와 AlertNow를 연결하기 위한 SNS Webhook URL 정보를 복사하십시오.
 
@@ -449,11 +476,11 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 
 
-###	담당 업무별로 응답자를 분류하고자 할 때: 에스컬레이션 라우팅 설정하기
+###	담당 업무별로 응답자를 분류하고자 할 때: 에스컬레이션 라우팅 설정하기 {#set-responder-by-rule}
 
 서비스 생성 시 조건을 설정하여 수신 대상을 분류할 수 있습니다.
 
-1.  [서비스] 메뉴를 클릭하여 서비스 화면으로 이동합니다.
+1.  \[서비스\] 메뉴를 클릭하여 서비스 화면으로 이동합니다.
     ![][service_screen]
 
 2.  생성된 서비스를 클릭하여 해당 서비스 화면으로 이동합니다.
@@ -467,22 +494,22 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 
 
-#### 지역 단위로 응답자 설정하기
+#### 지역 단위로 응답자 설정하기 {#set-responder-by-location}
 
 *사용자 설정 조건 추가* 체크박스를 활성화하여 `Alert Summary`, `Contains`를 선택한 후 비교값에 지역명을 아래와 같이 입력합니다.
 에스컬레이션 선택 시 해당 설정에 맞는 에스컬레이션을 생성한 뒤 선택해야 합니다.
-에스컬레이션 생성에 대한 자세한 내용은 도움말의 [Use Case 1: 에스컬레이션 메뉴에서 생성][]을 참조하십시오.
+에스컬레이션 생성에 대한 자세한 내용은 도움말의 [Use Case 1. 에스컬레이션 메뉴에서 생성](#escalation-use-case-1)을 참조하십시오.
 ![][escalation_rule_setted_local]
 
 
-#### 메트릭별로 응답자 설정하기
+#### 메트릭별로 응답자 설정하기 {#set-responder-by-metric}
 
 사용자 설정 조건 추가 체크박스를 활성화하여 Alert Metric Name, Contains를 선택한 후 비교값에 메트릭 이름(예: CPUUtilization)을 아래와 같이 입력합니다.
 마찬가지로 해당 설정에 맞는 에스컬레이션을 생성한 후 선택합니다.
 ![][escalation_rule_setted]
 
 
-### 서버 역할(CPU, DB, Network)별로 응답자 설정하기
+### 서버 역할(CPU, DB, Network)별로 응답자 설정하기 {#set-responder-by-server-role}
 
 사용자 설정 조건 추가 체크박스를 활성화하여 Alert Summary, Contains를 선택한 후 비교값에 서버 역할을 아래와 같이 입력합니다. 마찬가지로 해당 설정에 맞는 에스컬레이션을 생성한 후 선택합니다.
 ![][escalation_rule_setted_metric]
@@ -491,15 +518,52 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 
 
-에스컬레이션 규칙 설정을 완료하면 [적용] 버튼을 클릭합니다.
+에스컬레이션 규칙 설정을 완료하면 \[적용\] 버튼을 클릭합니다.
 
 
 
 --------------------------------------------------------------------------------
 
 
-##  AlertNow 도움말
+##  AlertNow 도움말 {#alertnow-guide}
 
+### AlertNow란?
+
+AlertNow는 국내 최초 SaaS 기반의 서비스 인시던트 주기 관리 플랫폼이며, 각 서비스의 상태를 확인하고 서비스에서 발생한 알람의 장애 현황 및 이력을 관리하여 인시던트를 쉽고 빠르게 해결할 수 있습니다.
+
+
+#### AlertNow 서비스 접속
+
+OpsNow 가입 후 AlertNow 서비스를 신청하면 화면 상단에 OpsNow 서비스 목록이 표시됩니다. 
+서비스 목록에서 “AlertNow”를 선택하여 해당 서비스에 접속합니다.
+
+![][summary_1] 
+
+#### 메뉴 구성
+
+AlertNow 각 서비스 메뉴 구성은 다음과 같습니다.
+
++------------------+----------------------------------------------------------------------------------------------------------------------+
+| 항목             |  설명
++==================+======================================================================================================================+
+| 인시던트         | 경고 수집 시 인시던트 정책에 의해 발급된 티켓의 상태를 관리합니다.
++------------------+----------------------------------------------------------------------------------------------------------------------+
+| 서비스           | 인티그레이션에서 발생하는 인시던트를 관리하기 위한 단위로, 실제로 사용자가 관리하는 서비스나 애플리케이션이 될 수 있고 그 외에도 사용자의 편의에 따라 자유롭게 활용할 수 있습니다
++------------------+----------------------------------------------------------------------------------------------------------------------+
+| 에스컬레이션     | 인시던트 발생 시 단계별로 이를 처리할 담당자 및 담당자가 처리해야 할 작업과 시간(Timeout)을 설정하여 관리합니다.  
++------------------+----------------------------------------------------------------------------------------------------------------------+
+| 인티그레이션     | 3rd Party(외부) 모니터링 툴에서 발생하는 알림을 AlertNow에 연결하는 엔드포인트입니다. 
++------------------+----------------------------------------------------------------------------------------------------------------------+
+| 익스텐션         | AlertNow 내에서 생성된 특정 데이터를 외부 툴이나 서비스로 내보낼 수 있도록 하는 기능입니다.
++------------------+----------------------------------------------------------------------------------------------------------------------+
+| 개인 설정        | 개인 정보 및 인시던트의 알림 규칙에 대한 개인화 기능을 제공합니다.
++------------------+----------------------------------------------------------------------------------------------------------------------+
+
+
+
+
+
+--------------------------------------------------------------------------------
 
 
 ### 인시던트 {#incident}
@@ -508,7 +572,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 인시던트 메뉴를 통해 각 서비스에서 발생한 경고 및 인시던트 목록을 확인할 수 있습니다. 사용자는 인시던트 메뉴를 통해 처리해야 할 문제를 확인하고, 각 이슈의 처리 상태를 기록할 수 있습니다.
 
-![Figure 1. 경고,인시던트의 흐름도][incident_flow]
+![Figure 1. 경고,인시던트의 흐름도][alertnow_flow]
 
 ##### 경고 {#summary-incident-alert}
 
@@ -516,7 +580,7 @@ CloudWatch, Azure, UIM 등의 모니터링 툴이나 기타 서비스에서 발�
 
 
 -   경고는 Raw Data이며, 사용자가 임의로 데이터를 변경하거나 생성된 경고를 삭제할 수 없습니다.
--   경고를 기준으로 인시던트를 생성합니다. 모든 경고를 인시던트로 생성하지는 않으며, 인시던트 생성규칙에 부합하는 경고에 한해 인시던트로 생성합니다.
+-   경고를 기준으로 인시던트를 생성합니다. 모든 경고를 인시던트로 생성하지는 않으며, 인시던트 생성 규칙에 부합하는 경고에 한해 인시던트로 생성합니다.
 -	경고는 사용자에게 알림을 전달하지 않으며, 해당 경고를 통해 인시던트가 생성되어야 사용자에게 알림을 전달합니다.
 
 
@@ -542,11 +606,12 @@ CloudWatch, Azure, UIM 등의 모니터링 툴이나 기타 서비스에서 발�
     ※ 참고 : Cloudwatch에서 제공하는 차원 정보
     `InstanceId`, `ApiName`, `Fleet`, `ServiceName`, `DistributionId`, `ClientId`, `RuleName`, `LogGroupName`, `ConnectionId`, `DBInstanceIdentifier`, `VolumeId`, `FileSystemId`, `LoadBalancerName`, `AutoScalingGroupName`, `ActionType`, `ClientId`, `PipelineId`, `JobId`, `Flow`, `StreamName`, `KeyId`, `FunctionName`, `BotName`, `MLModelId`, `Broker`, `HealthCheckId`, `Host`, `TopicName`, `QueueName`, `BucketName`, `AttackVector`, `LambdaFunctionArn`, `Domain`, `GatewayId`, `ServiceName`, `NatGatewayId`, `VpnId`, `Rule`, `WorkspaceId`
 
--   인시던트 생성 제한 규칙  
+
+-   생성 제한 규칙  
     “미종료 인시던트 생성 제한”에서 걸러지지 않은 경고에 대해 서비스에서 설정한 규칙을 적용하여 생성을 제한합니다.
     단, 종료되지 않은 인시던트가 존재해야 합니다.
 
- 또한 사용자는 사용자의 판단에 따라 경고가 생성되지 않은 상태에서도 수동으로 인시던트를 생성해 장애 대응을 진행할 수 있습니다. (추후예정)
+    또한 사용자는 사용자의 판단에 따라 경고가 생성되지 않은 상태에서도 수동으로 인시던트를 생성해 장애 대응을 진행할 수 있습니다. (추후예정)
 
     -	사용자는 경고 규칙에 의해 인시던트가 생성되지 않은 경고를 선택해 인시던트로 생성할 수 있습니다. (추후예정)
     -	사용자는 경고가 생성되지 않은 상태에서도 수동으로 인시던트를 생성할 수 있습니다. (추후예정)
@@ -798,9 +863,9 @@ CloudWatch, Azure, UIM 등의 모니터링 툴이나 기타 서비스에서 발�
             ![][incident_handling_06]
         4.  제목 변경
             사용자의 필요에 따라 각 인시던트의 제목을 변경할 수 있습니다.
-            a.  전체 화면의 제목 영역에서 [수정] 버튼 클릭 
+            a.  전체 화면의 제목 영역에서 \[수정\] 버튼 클릭 
                 ![][incident_handling_07]
-            b.  제목 수정 후, [확인] 버튼 클릭
+            b.  제목 수정 후, \[확인\] 버튼 클릭
                 ![][incident_handling_08]
             c.  변경된 제목 확인
                 ![][incident_handling_09]
@@ -872,15 +937,15 @@ CloudWatch, Azure, UIM 등의 모니터링 툴이나 기타 서비스에서 발�
     +-------------------+-----------------------------------------------------------------------+
     | 지역              | 경고가 발생한 지역을 표시합니다.
     +-------------------+-----------------------------------------------------------------------+
-    | 집계유형          | 경보의 집계 유형을 표시합니다.
+    | 통계 유형         | 경보의 집계 유형을 표시합니다.
     +-------------------+-----------------------------------------------------------------------+
     | 통계              | 경보의 통계 설정 값을 표시합니다.
     +-------------------+-----------------------------------------------------------------------+
-    | 비교연산자        | 경보의 임계치 설정 비교 연산자를 표시합니다.
+    | 비교 연산자       | 경보의 임계치 설정 비교 연산자를 표시합니다.
     +-------------------+-----------------------------------------------------------------------+
-    | 수집 기간         | Metric에 설정된 경보 수집 기준 기간을 표시합니다.
+    | 평가 기간         | 메트릭 정보 측정 기간을 표시합니다.
     +-------------------+-----------------------------------------------------------------------+
-    | 측정 기간         | Metric에 설정된 경보 측정을 표시합니다.
+    | 평개 갯수         | 메트릭 정보 측정 개수를 표시합니다.
     +-------------------+-----------------------------------------------------------------------+
     | 메시지            | 경고의 상세 메시지를 확인할 수 있습니다.
     +-------------------+-----------------------------------------------------------------------+
@@ -938,15 +1003,15 @@ CloudWatch, Azure, UIM 등의 모니터링 툴이나 기타 서비스에서 발�
 
 1.  메시지 확인
     발생한 경고에 대한 상세 메시지를 확인할 수 있습니다.
-    a.  경고 상세 화면에서 [메시지]>[보기] 버튼을 클릭합니다.
+    a.  경고 상세 화면에서 \[메시지\] > \[보기\] 버튼을 클릭합니다.
         ![][alert_search_02]
     b.  새 탭으로 상세 메시지가 표시됩니다.
         ![][alert_search_03]
 2.  설명 입력
     발생한 경고에 대해 상세 설명을 입력할 수 있습니다.
-    a.  경고 상세 화면에서 [수정] 버튼을 클릭합니다.
+    a.  경고 상세 화면에서 \[수정\] 버튼을 클릭합니다.
         ![][alert_search_04]
-    b.  설명 입력 후 [저장] 버튼을 클릭합니다.
+    b.  설명 입력 후 \[저장\] 버튼을 클릭합니다.
         ![][alert_search_05]
     c.  입력된 설명을 확인합니다.
         ![][alert_search_06]
@@ -992,10 +1057,10 @@ CloudWatch, Azure, UIM 등의 모니터링 툴이나 기타 서비스에서 발�
 +---------------------------+------------------------------------------------------------------------------------------------+
 
 
-#### Use Case 1)서비스 메뉴에서 생성 {#service-use-case-1}
+#### Use Case 1. 서비스 메뉴에서 생성 {#service-use-case-1}
 
 1.  1단계 : 서비스 메뉴 선택
-    서비스 메뉴를 클릭합니다.
+    \[서비스\] 메뉴를 클릭합니다.
     ![][service_case1_01]
 2.  2단계 : 신규 서비스 생성
     \[서비스 생성\] 버튼을 클릭합니다.
@@ -1015,17 +1080,17 @@ CloudWatch, Azure, UIM 등의 모니터링 툴이나 기타 서비스에서 발�
     |                           |   사용자가 우선순위를 결정하여 조건에 따라 에스컬레이션을 선택할 수 있습니다.                         |
     |                           |   (선택 시 사용자가 설정한 조건의 규칙을 기본 규칙보다 우선적으로 적용됩니다.)                        |
     +---------------------------+-------------------------------------------------------------------------------------------------------+-----------------------+
-    | 인시던트 생성 규칙        | -	인시던트 생성 제한 규칙                                                                             | 옵션 입력 사항
+    | 인시던트 생성 규칙        | -	생성 제한 규칙                                                                                      | 옵션 입력 사항
     |                           |   조건 항목(Alert Summary, Alert Metric Name)이                                                       |
     |                           |   연속해서 발생 할 경우, 초/분/시/일을 설정하여 인시던트 중복 생성을 방지할 수 있습니다.              |
-    |                           | -	인시던트 긴급도 규칙                                                                                |
+    |                           | -	긴급도 규칙                                                                                         |
     |                           |   인시던트의 긴급도를 설정할 수 있습니다.                                                             |
     +---------------------------+-------------------------------------------------------------------------------------------------------+-----------------------+
 
     에스컬레이션 규칙이 없는 경우 자동으로 "에스컬레이션 기본 규칙"이 생성됩니다. (서비스 생성자가 기본 수신자로 설정됩니다)
 
     ![][service_case1_03]
-    에스컬레이션이 있는 경우 \[저장\]을 클릭합니다.
+    에스컬레이션이 있는 경우 \[저장\] 버튼을 클릭합니다.
 
 4.  4단계 : 생성된 서비스 선택
     생성된 서비스를 클릭하면 다음과 같은 화면으로 이동합니다.
@@ -1052,7 +1117,7 @@ CloudWatch, Azure, UIM 등의 모니터링 툴이나 기타 서비스에서 발�
 
 
 
-#### Use Case 2) 인티그레이션 생성 시에 생성 {#service-use-case-2}
+#### Use Case 2. 인티그레이션 생성 시에 생성 {#service-use-case-2}
 1.  1단계 : 인티그레이션 메뉴 선택
     인티그레이션 메뉴를 클릭합니다.
     ![][service_case2_01]
@@ -1097,10 +1162,10 @@ CloudWatch, Azure, UIM 등의 모니터링 툴이나 기타 서비스에서 발�
     |                    |      사용자가 우선순위를 결정하여 조건에 따라 에스컬레이션을 선택할 수 있습니다.   |
     |                    |      (선택 시 사용자가 설정한 조건의 규칙을 기본 규칙보다 우선적으로 적용됩니다.)  |
     +--------------------+------------------------------------------------------------------------------------+------------------+
-    | 인시던트 생성 규칙 | -    인시던트 생성 제한 규칙                                                       | 옵션 입력 사항
+    | 인시던트 생성 규칙 | -    생성 제한 규칙                                                                | 옵션 입력 사항
     |                    |      조건 항목( Alert Summary, Alert Metric Name)이 연속해서 발생 할 경우,         |
     |                    |      초/분/시/일을 설정하여, 인시던트 중복 생성을 방지할 수 있습니다.              |
-    |                    | -	인시던트 긴급도 규칙                                                          |
+    |                    | -	긴급도 규칙                                                                   |
     |                    |      인시던트의 긴급도를 설정할 수 있습니다.                                       |
     +--------------------+------------------------------------------------------------------------------------+------------------+
 
@@ -1295,10 +1360,10 @@ CloudWatch, Azure, UIM 등의 모니터링 툴이나 기타 서비스에서 발�
     |                           |   사용자가 우선순위를 결정하여 조건에 따라 에스컬레이션을 선택할 수 있습니다.              |
     |                           |   (선택 시 사용자가 설정한 조건의 규칙을 기본 규칙보다 우선적으로 적용됩니다)              |
     +---------------------------+--------------------------------------------------------------------------------------------+-----------------------+
-    | 인시던트 생성 규칙        | -	인시던트 생성 제한 규칙                                                                  | 옵션 입력 사항
+    | 인시던트 생성 규칙        | -	생성 제한 규칙                                                                           | 옵션 입력 사항
     |                           |   조건 항목( Alert Summary, Alert Metric Name)이 연속해서 발생할 경우,                     |
     |                           |   초/분/시/일을 설정하여, 인시던트 중복 생성을 방지할 수 있습니다.                         |
-    |                           | -	인시던트 긴급도 규칙                                                                     |
+    |                           | -	긴급도 규칙                                                                              |
     |                           |   인시던트의 긴급도를 설정할 수 있습니다.                                                  |
     +---------------------------+--------------------------------------------------------------------------------------------+-----------------------+
 
@@ -1351,7 +1416,7 @@ SNS 대시보드 에서 주제 생성을 선택합니다.
 
 2.  2단계 : 구독 생성
 
-    \[구독 생성\]을 클릭합니다.
+    "구독 생성"을 클릭합니다.
 
     ![][integration_aws_03]
 
@@ -1372,7 +1437,7 @@ SNS 대시보드 에서 주제 생성을 선택합니다.
     | 엔드포인트    | 기존 AlertNow에서 저장해둔 URL을 붙여넣기 합니다.              | 입력 항목
     +---------------+----------------------------------------------------------------+--------------------------------------------------------------------------+
 
-    \[구독 생성\]을 선택 합니다.
+    \[구독 생성\] 버튼을 선택 합니다.
 
 3.  3단계 : 구독 
     아래와 같은 구독이 생성됩니다.
@@ -1388,13 +1453,13 @@ SNS 대시보드 에서 주제 생성을 선택합니다.
 AlertNow로 연결할 경고를 생성하기 위해 EC2 Console로 이동합니다.
 
 1.  1단계 : 경보 추가/편집 선택
-    해당 EC2 선택 후, 아래와 같이 작업 \> CloudWatch 모니터링 \> 경보 추가/편집을 선택 합니다.
+    해당 EC2 선택 후, 아래와 같이 *작업 \> CloudWatch 모니터링 \> 경보 추가/편집*을 선택 합니다.
     ![][integration_ec2_01]
 	
 2.  2단계 : 경보 생성
 
     ![][integration_ec2_02]
-    \[경보 생성\]을 선택합니다.
+    \[경보 생성\] 버튼을 선택합니다.
 
     ![][integration_ec2_03]
     입력 항목은 다음과 같습니다.
@@ -1472,13 +1537,13 @@ AlertNow초기 접속 시, “인시던트” 화면이 기본으로 표시됩�
 
 
 
-## 익스텐션 {#extensions}
+### 익스텐션 {#extensions}
 
 익스텐션은 AlertNow 내에서 생성된 인시던트 생성 푸시를 외부 툴이나 서비스로 내보낼 수 있도록 하는 기능입니다.
 
 현재 Slack을 지원하고 있으며, Slack에 대한 익스텐션 설정은 다음과 같습니다.
 
-###	익스텐션 메뉴에서 Slack 설정 {#set-alertnow-extension-slack}
+#### 익스텐션 메뉴에서 Slack 설정 {#set-alertnow-extension-slack}
 
 1.  1단계 : 익스텐션  메뉴 선택
     익스텐션 메뉴를 클릭합니다.
@@ -1489,7 +1554,7 @@ AlertNow초기 접속 시, “인시던트” 화면이 기본으로 표시됩�
     ![][extension_slack_02]
 
 3.  3단계 : 새로운 연락처 등록
-    \[+ 연락처 등록\] 버튼을 클릭합니다.
+    <button type="button" class="demo black">+ 연락처 등록</button> 버튼을 클릭합니다.
     ![][extension_slack_03]
 
 4.  4단계 : Slack 설정
@@ -1497,7 +1562,7 @@ AlertNow초기 접속 시, “인시던트” 화면이 기본으로 표시됩�
     “적용” 버튼을 클릭하여 Slack 도메인을 생성합니다.
     ![][extension_slack_04]
 
-###  Slack 설정 : Slack 화면으로 이동 {#slack-move-to-slack-setting}
+#### Slack 설정 : Slack 화면으로 이동 {#slack-move-to-slack-setting}
 
 Slack에 로그인합니다.
 Slack에 가입이 안되어 있는 경우, Slack에 우선 가입해야 합니다.
@@ -1521,7 +1586,7 @@ Slack에 가입이 안되어 있는 경우, Slack에 우선 가입해야 합니�
 --------------------------------------------------------------------------------
 
 
-##  개인 설정   {#personal-settings}
+###  개인 설정   {#personal-settings}
 
 사용자의 기본 정보와 알림을 받기 위한 알림 규칙을 관리하는 서비스입니다.
 
@@ -1546,7 +1611,7 @@ Slack에 가입이 안되어 있는 경우, Slack에 우선 가입해야 합니�
 +----------------+-----------------------------------------------------------------+
 	
 
-### 기본 정보 {#basic-infomation}
+#### 기본 정보 {#basic-infomation}
 
 개인 프로필과 연락처 정보를 노출 및 설정할 수 있습니다.
 ![][personal_setting_02]
@@ -1586,7 +1651,9 @@ Slack에 가입이 안되어 있는 경우, Slack에 우선 가입해야 합니�
     | Slack  | 알림을 받기 위한 Slack 정보                                                                     | 	
     +--------+-------------------------------------------------------------------------------------------------+--------------+
 
-### 알림 규칙 {#notification-rule}
+
+
+#### 알림 규칙 {#notification-rule}
 
 알림 규칙을 설정하거나 설정된 알림 규칙을 확인할 수 있습니다. 사용자 별로 상황에 따른 알림 발송 여부와 발송 방법을 설정할 수 있습니다.
 
@@ -1619,12 +1686,12 @@ Slack에 가입이 안되어 있는 경우, Slack에 우선 가입해야 합니�
 
 
 
-## AlertNow 사용자
+## AlertNow 사용자 {#alertnow-user}
 
-### AlertNow 역할
+### AlertNow 역할 {#alertnow-user-role}
 AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위해 4가지 역할로 정의합니다.
 
-#### 관리자
+#### 관리자 {#user-administrator}
 
 기업이 보유한 AlertNow 서비스를 전체적으로 관리합니다. 모든 카테고리의 생성, 삭제, 조회 권한이 있으며 인티그레이션을 생성하고 서비스 라우팅을 설정할 수 있는 유일한 사용자입니다.
 ![][alertnow_diagram_user]
@@ -1633,16 +1700,16 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 -   설정이 완료되면 인티그레이션에 연결된 정보를 통해 경고와 인시던트가 생성되며, 인시던트 생성 및 상태 변경에 대한 알림을 수신하고 인시던트를 수정할 수 있습니다.
 
 
-#### 서비스 담당자
+#### 서비스 담당자 {#user-service-manager}
 
 서비스에 대해 책임 권한을 가지고 있으며, 장애 처리 및 처리 담당자(응답자)를 지정할 수 있습니다. 인티그레이션을 제외한 모든 카테고리의 생성, 삭제, 조회 권한이 있습니다. (인티그레이션은 조회만 가능)
-![][alertnow_diagram_manager]
+![][alertnow_diagram_service_manager]
 
 -   서비스 담당자의 경우 서비스 생성 → 에스컬레이션 정책 생성 → 익스텐션 설정(선택 사항) 순서로 진행합니다.
 -   설정이 완료되면 인티그레이션에 연결된 정보를 통해 경고와 인시던트가 생성되며, 인시던트 생성 및 상태 변경에 대한 알림을 수신하고 인시던트를 수정할 수 있습니다.
 
 
-#### 응답자
+#### 응답자 {#user-service-responder}
 
 인시던트 알림을 받는 주 담당자로서 장애를 처리하는 실질적인 담당자입니다. 인시던트, 경고의 생성, 삭제, 조회 권한이 있으며 서비스 조회, 에스컬레이션 조회, 수신자 설정이 가능합니다. (인티그레이션 접근 권한 없음)
 ![][alertnow_diagram_service_responser]
@@ -1651,23 +1718,24 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 -   응답자의 경우 에스컬레이션 정책 생성은 불가하지만, 에스컬레이션 응답자로 설정될 수 있습니다.
 -   설정이 완료되면 인티그레이션에 연결된 정보를 통해 경고와 인시던트가 생성되며, 인시던트 생성 및 상태 변경에 대한 알림을 수신하고 인시던트를 수정할 수 있습니다.
 
-#### 참조자
+#### 참조자 {#reference-user}
 
 직접적인 관련이 없어도 필요에 따라 장애 처리 상태를 확인하는 사용자입니다. 인티그레이션 접근 권한이 없으며, 인티그레이션을 제외한 모든 카테고리에 대해 조회 권한만 있습니다.
 ![][alertnow_diagram_service_reference]
 
 -   인시던트 생성 및 상태 변경에 대한 알림을 받을 수 없습니다.
 
-### 각 역할에 대한 권한
+### 각 역할에 대한 권한 {#permission-each-role}
 
-#### 권한 – 도식화
+#### 권한 – 도식화  {#permission-diagram}
 ![][permission_gram_legend]
 ![][permission_gram]
 
-#### 권한 – 표 View
+#### 권한 – 표 View {#permission-matrix}
 
 
 <!--  원래 이런 모양의 표입니다.
+셀병합이 안되서 아래 테이블 엘리먼트로 풀어둠
 
 역할            기능    인티그레이션    서비스  인시던트    경고    에스컬레이션
 --------------- ------- --------------- ------- ----------- ------- ------------
@@ -1689,18 +1757,18 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
     <thead>
         <tr class="header">
             <th>역할</th>
-            <th>기능</th>
-            <th>인티그레이션</th>
-            <th>서비스</th>
-            <th>인시던트</th>
-            <th>경고</th>
-            <th>에스컬레이션</th>
+            <th class="center">기능</th>
+            <th class="center">인티그레이션</th>
+            <th class="center">서비스</th>
+            <th class="center">인시던트</th>
+            <th class="center">경고</th>
+            <th class="center">에스컬레이션</th>
         </tr>
     </thead>
     <tbody>
         <tr class="odd">
             <td rowspan="3" style="text-align: left;">관리자</td>
-            <td style="text-align: left;">생성</td>
+            <td class="center">생성</td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;">√</td>
@@ -1708,7 +1776,7 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
             <td style="text-align: center;">√</td>
         </tr>
         <tr class="even">
-            <td style="text-align: left;">삭제</td>
+            <td class="center">삭제</td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;">√</td>
@@ -1716,7 +1784,7 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
             <td style="text-align: center;">√</td>
         </tr>
         <tr class="odd">
-            <td style="text-align: left;">조회</td>
+            <td class="center">조회</td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;">√</td>
@@ -1725,7 +1793,7 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
         </tr>
         <tr class="even">
             <td rowspan="3" style="text-align: left;">서비스 담당자</td>
-            <td style="text-align: left;">생성</td>
+            <td class="center">생성</td>
             <td style="text-align: center;"></td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;">√</td>
@@ -1733,7 +1801,7 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
             <td style="text-align: center;">√</td>
         </tr>
         <tr class="odd">
-            <td style="text-align: left;">삭제</td>
+            <td class="center">삭제</td>
             <td style="text-align: center;"></td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;">√</td>
@@ -1741,7 +1809,7 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
             <td style="text-align: center;">√</td>
         </tr>
         <tr class="even">
-            <td style="text-align: left;">조회</td>
+            <td class="center">조회</td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;">√</td>
@@ -1750,22 +1818,22 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
         </tr>
         <tr class="odd">
             <td rowspan="3" style="text-align: left;">응답자</td>
-            <td style="text-align: left;">생성</td>
-            <td rowspan="3"  style="background-color:#f8a7a8; text-align: left;">접근 권한 X</td>
+            <td class="center">생성</td>
+            <td rowspan="3"  style="background-color:#f8a7a8; text-align: center; vertical-align:middle;">접근 권한 없음</td>
             <td style="text-align: center;"></td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;"></td>
         </tr>
         <tr class="even">
-            <td style="text-align: left;">삭제</td>
+            <td class="center">삭제</td>
             <td style="text-align: center;"></td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;"></td>
         </tr>
         <tr class="odd">
-            <td style="text-align: left;">조회</td>
+            <td class="center">조회</td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;">√</td>
@@ -1773,22 +1841,22 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
         </tr>
         <tr class="even">
             <td rowspan="3" style="text-align: left;">참조자</td>
-            <td style="text-align: left;">생성</td>
-            <td rowspan="3" style="background-color:#f8a7a8; text-align: left;">접근 권한 X</td>
+            <td class="center">생성</td>
+            <td rowspan="3"  style="background-color:#f8a7a8; text-align: center; vertical-align:middle;">접근 권한 없음</td>
             <td style="text-align: center;"></td>
             <td style="text-align: center;"></td>
             <td style="text-align: center;"></td>
             <td style="text-align: center;"></td>
         </tr>
         <tr class="odd">
-            <td style="text-align: left;">삭제</td>
+            <td class="center">삭제</td>
             <td style="text-align: center;"></td>
             <td style="text-align: center;"></td>
             <td style="text-align: center;"></td>
             <td style="text-align: center;"></td>
         </tr>
         <tr class="even">
-            <td style="text-align: left;">조회</td>
+            <td class="center">조회</td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;">√</td>
             <td style="text-align: center;">√</td>
@@ -1796,11 +1864,6 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
         </tr>
     </tbody>
 </table>
-
-
-
-
-
 
 
 
@@ -1842,8 +1905,7 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 
 [summary_1]: ./resource/bnr_alertnow_summary_01_ko@2x.png
 
-[incident_1]:  ./resource/bnr_incident_01_ko.png
-[incident_2]:  ./resource/bnr_incident_02_ko.png
+[incident_1]:  ./resource/bnr_incident_01_ko.png [incident_2]:  ./resource/bnr_incident_02_ko.png
 [incident_3]:  ./resource/bnr_incident_03_ko.png
 
 [incident_status_01]: ./resource/bnr_incident_status_01_ko@2x.png
@@ -1866,7 +1928,6 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 [incident_handling_10]:   ./resource/bnr_incident_handing_10_ko@2x.png
 [incident_handling_11]:   ./resource/bnr_incident_handing_11_ko@2x.png
 
-
 <!-- alert -->
 [alert_01]:  ./resource/bnr_alert_01_ko.png
 [alert_search_01]: ./resource/bnr_incident_search_01_ko.png
@@ -1877,7 +1938,6 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 [alert_search_06]: ./resource/bnr_alert_search_06_ko.png
 [alert_search_07]: ./resource/bnr_alert_search_07_ko@2x.png
 [alert_search_08]: ./resource/bnr_alert_search_08_ko@2x.png
-
 
 <!-- service -->
 [service_case1_01]: ./resource/bnr_service_case1_01_ko@2x.png
@@ -1891,7 +1951,6 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 [service_case2_04]: ./resource/bnr_service_case2_04_ko@2x.png
 [service_case2_05]: ./resource/bnr_service_case2_05_ko@2x.png
 [service_case2_04_AWS]: ./resource/bnr_service_case2_aws_demo_ko@2x.png
-
 
 
 <!-- escalation -->
@@ -1908,7 +1967,6 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 [escalation_case3_02]: ./resource/bnr_service_case2_02_ko@2x.png
 [escalation_case3_03]: ./resource/bnr_service_case2_03_ko@2x.png
 [escalation_case3_04]: ./resource/bnr_escalation_case3_04_ko@2x.png
-
 
 
 <!-- integration -->
@@ -1954,30 +2012,13 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 [extension_slack_07]: ./resource/bnr_extension_07_ko.png
 [extension_slack_08]: ./resource/bnr_extension_08_ko@2x.png
 
-
 <!-- personal setting -->
 [personal_setting_01]: ./resource/bnr_personal_setting_01_ko@2x.png
 [personal_setting_02]: ./resource/bnr_personal_setting_02_ko@2x.png
 [personal_setting_03]: ./resource/bnr_personal_setting_03_ko@2x.png
 
 
-
-
-
-
-
-
-
-
-
-
-
 [alertnow_summary_image]: ./resource/alertnow_summary_image.png
-[alertnow_map_hexagon]: ./resource/
-
-
-
-
 
 [create_integration]: ./resource/create_integration.png
 [aws_dashboard]: ./resource/aws_dashboard.png
@@ -2002,6 +2043,7 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 [service_rule_make]: ./resource/service_rule_make@2x.png
 [service_incident_publish_rule]: ./resource/service_incident_publish_rule@2x.png
 [service_incident_publish_rule_make]: ./resource/service_incident_publish_rule_make.png
+[service_incident_rule_make_list]: ./resource/service_incident_rule_make_list.png
 
 [service_incident_tab_click]: ./resource/service_incident_tab_click@2x.png
 [service_urgency]: ./resource/service_urgency@2x.png
@@ -2009,6 +2051,8 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 
 [service_screen]: ./resource/service_screen@2x.png
 [service_create_screen]: ./resource/service_create_screen@2x.png
+[service_screen_under_tab]: ./resource/service_screen_under_tab.png
+
 [integration_make]: ./resource/integration_make@2x.png
 [integration_make_select_service]: ./resource/integration_make_select_service@2x.png
 
@@ -2020,8 +2064,22 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 [escalation_rule_setted_metric]: ./resource/escalation_rule_setted_metric@2x.png
 
 [alertnow_diagram_user]: ./resource/alertnow_diagram_user.png
-[alertnow_diagram_service_manage]: ./resource/alertnow_diagram_service_manager.png
+[alertnow_diagram_service_manager]: ./resource/alertnow_diagram_service_manager.png
 [alertnow_diagram_service_responser]: ./resource/alertnow_diagram_service_responser.png
 [alertnow_diagram_service_reference]: ./resource/alertnow_diagram_service_reference.png
 [permission_gram_legend]: ./resource/permission_gram_legend.png
 [permission_gram]: ./resource/permission_gram.png
+
+[btn_edit]: ./resource/btn_edit@2x.png
+
+[escalation_set_rotation]: ./resource/escalation_set_rotation_01.png
+[escalation_responder]: ./resource/escalation_responder.png
+[escalation_set_policy]: ./resource/escalation_set_policy.png
+[escalation_set_repeat]: ./resource/escalation_set_repeat.png
+[escalation_set_previous_responder]: ./resource/escalation_set_previous_responder.png
+[escalation_set_final_notice]: ./resource/escalation_set_final_notice.png
+
+[personal_setting_screen]: ./resource/personal_setting_screen.png
+[personal_setting_edit_timezone]: ./resource/personal_setting_edit_timezone.png
+[personal_setting_select_timezone]: ./resource/personal_setting_select_timezone.png
+[personal_setting_max_contact]: ./resource/personal_setting_max_contact.png

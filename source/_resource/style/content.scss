@@ -5,6 +5,7 @@ article {
     padding-left:40px;
     padding-bottom:40px;
     box-sizing:border-box;
+    overflow:hidden;
 
     font-size: rem(14);
     line-height: rem(25);
@@ -81,8 +82,8 @@ article table {
     margin-top: 15px;
     margin-bottom:30px;
     color: #000;
-    width: 100% !important;
     border-bottom: 1px solid #EAEAEA;
+    width:100%;
 
     td,th {
         border-top: 1px solid #EAEAEA;
@@ -98,14 +99,20 @@ article table {
         font-size:rem(14);
     }
 
+    tbody tr > *:first-child[rowspan] + td,
     tr > *:first-child {
         padding: 10px 20px !important;
         white-space:nowrap;
     }
 
+    tbody tr > *:first-child[rowspan] + td,
     tbody tr > *:first-child {
         font-weight:700;
     }
+
+    .left   { text-align:left; }
+    .center { text-align:center; }
+    .rigth  { text-align:right; }
 }
 
 
@@ -300,8 +307,24 @@ article {
         counter-increment: _h4;
         // margin-left:-1.2em;
 
+        counter-reset: _h5;
         &:before {
             content: counter(_h3) ". " counter(_h4) ". ";
+        }
+    }
+
+    > h5 {
+        font-size: rem(14);
+        font-weight: 700;
+        line-height: 1.5em;
+        // padding-top: 20px;
+        padding-bottom:10px;
+
+        counter-increment: _h5;
+        // margin-left:-1.2em;
+
+        &:before {
+            content: counter(_h3) ". " counter(_h4) ". " counter(_h5) ". ";
         }
     }
 

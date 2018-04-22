@@ -113,7 +113,7 @@ When alerts are collected, an incident is created through preset Incident Creati
 If necessary, the user can set the maintenance schedule per service.
 
 
--	Stable Alarm Receive
+-	Stable Alert Receive
     ![][incident_1]
 	Incident is generated according to the threshold setting, and if the instance status gets back to normal, it automatically closes the existing incidents.
 -	Limit unclosed incident creation
@@ -126,15 +126,15 @@ If necessary, the user can set the maintenance schedule per service.
 `VpnId`, `Rule`, `WorkspaceId`
 
 
--   Incident creation limit rules
+-   Supression rules
     For alerts that are not filtered from “Unclosed incident creation limit”, incident creation is limited by applying the rules set from the service.
     However, there must be unclosed incidents.
 
     Also, the user can handle the problems according to the user’s judgment by creating the incidents manually even if the alerts have not been created. (To be scheduled)
 
--	The user can create as incidents by selecting alerts that are not created because of the alert rules. (To be scheduled)
--	The user can manually create incidents even if no alerts have been created. (To be scheduled)
--	The user can connect to other incidents by selecting alerts that incident have already been created. (To be scheduled)
+    -	The user can create as incidents by selecting alerts that are not created because of the alert rules. (To be scheduled)
+    -	The user can manually create incidents even if no alerts have been created. (To be scheduled)
+    -	The user can connect to other incidents by selecting alerts that incident have already been created. (To be scheduled)
   
 
 
@@ -170,12 +170,10 @@ From what’s above, Alert and Incident can have the following relationships:
 
 Alerts can have the following Incident creation results:
 
-1.	Incident creation
-2.	Suppressed (by creation suppression rule)
-3.	Suppressed (by maintenance schedule)
-4.	Suppressed (by unclosed incidents)
-  
-
+1.	Incident created
+2.	Suppressed (by suppression rule)
+3.	Suppressed (by maintenance)
+4.	Suppressed (not closed)
 
 
 
@@ -218,15 +216,15 @@ The Incident menu is divided into two areas as the below image.
     |                 |  -	Acknowledge
     |                 |  -	Close
     +-----------------+-----------------------------------------------------------------------------+
-    | Date Created    |  Displays the created date and time of the incident.
+    | Created         |  Displays the created date and time of the incident.
     +-----------------+-----------------------------------------------------------------------------+
-    | Date Changed    |  Displays the last updated date and time of the incident.
+    | Changed         |  Displays the last updated date and time of the incident.
     +-----------------+-----------------------------------------------------------------------------+
     | Urgency         |  Displays the urgency of the incident.
     +-----------------+-----------------------------------------------------------------------------+
     | Service         |  Displays the name of the service where incident occurred.
     +-----------------+-----------------------------------------------------------------------------+
-    | Manager         |  Displays the name of the user designated as the manager of the incident.
+    | Assignee        |  Displays the name of the user designated as the manager of the incident.
     +-----------------+-----------------------------------------------------------------------------+
 
 
@@ -243,11 +241,11 @@ The Incident menu is divided into two areas as the below image.
         +================+================================================================+
         | Service        | Displays the name of the service where incident occurred.
         +----------------+----------------------------------------------------------------+
-        | Date Created   | Displays the created date and time of the incident.
+        | Created        | Displays the created date and time of the incident.
         +----------------+----------------------------------------------------------------+
         | Urgency        | Displays the urgency of the incident.
         +----------------+----------------------------------------------------------------+
-        | Manager        | Displays the manager of the incident.
+        | Assignee       | Displays the manager of the incident.
         +----------------+----------------------------------------------------------------+
 
     -   Detail
@@ -267,7 +265,7 @@ The Incident menu is divided into two areas as the below image.
         +--------------------+---------------------------------------------------------------------------------------+
         | Integration Type   | Displays the Integration Type that caused the incident.
         +--------------------+---------------------------------------------------------------------------------------+
-        | Reference alerts   | Displays the alert that caused the incident.
+        | Reference alert    | Displays the alert that caused the incident.
         +--------------------+---------------------------------------------------------------------------------------+
         | Message            | Displays an attached message when an alert occurs.
         +--------------------+---------------------------------------------------------------------------------------+
@@ -370,7 +368,7 @@ You can perform the following tasks on Incidents in the list.
         ![][incident_handling_02]
         After selecting multiple incidents, you can change the status by clicking the [Acknowledge] [Close] button on the upper left of the Incident List
 
-2.	Assign and Change Manager
+2.	Assign and Change Assignee
     You can assign or change managers per incident. If you click the \[Assign manager\] button on the Incident Detail page, a popup that allows you to assign the manager will be displayed.
     a.	Select Incident to assign manager
         The Manager field displays the name of the currently assigned manager. If you click the [Manager] button, a popup that allows you to change the manager will be displayed.
@@ -436,9 +434,9 @@ The Alert menu is divided into two areas as the below image.
     +----------------------------+------------------------------------------------------------------------------------+
     | Title                      | Displays the title of the alert.
     +----------------------------+------------------------------------------------------------------------------------+
-    | Incident Creation status   | Displays whether the incident for corresponding alert has been created.
+    | Incident Creation          | Displays whether the incident for corresponding alert has been created.
     +----------------------------+------------------------------------------------------------------------------------+
-    | Date Created               | Displays the created date and time of the alert.
+    | Created                    | Displays the created date and time of the alert.
     +----------------------------+------------------------------------------------------------------------------------+
     | Service                    | Displays the name of the service where the alert occurred.
     +----------------------------+------------------------------------------------------------------------------------+
@@ -454,9 +452,9 @@ The Alert menu is divided into two areas as the below image.
     +================================+=============================================================================+
     | Incident Creation status       | Displays Incident creation results according to Incident creation rule.
     +--------------------------------+-----------------------------------------------------------------------------+
-    | Date Created                   | Displays the created date and time of the alert.
+    | Created                        | Displays the created date and time of the alert.
     +--------------------------------+-----------------------------------------------------------------------------+
-    | Date Occurred                  | Displays the occurred date and time of the alert.
+    | Occurred                       | Displays the occurred date and time of the alert.
     +--------------------------------+-----------------------------------------------------------------------------+
     | Service                        | Displays the name of the service where alert occurred.
     +--------------------------------+-----------------------------------------------------------------------------+
@@ -466,15 +464,15 @@ The Alert menu is divided into two areas as the below image.
     +--------------------------------+-----------------------------------------------------------------------------+
     | Region                         | Displays the region where the alert occurred.
     +--------------------------------+-----------------------------------------------------------------------------+
-    | Aggregation Type               | Displays the aggregation type of the alert.
+    | Statistic Type                 | Displays the aggregation type of the alert.
     +--------------------------------+-----------------------------------------------------------------------------+
     | Statistic                      | Displays statistics set value of the alert.
     +--------------------------------+-----------------------------------------------------------------------------+
     | Comparison operator            | Displays the threshold setting comparison operator of the alert.
     +--------------------------------+-----------------------------------------------------------------------------+
-    | Collection Period              | Displays the period of alert collection criteria set in the metric.
+    | Period                         | Displays the period of alert collection criteria set in the metric.
     +--------------------------------+-----------------------------------------------------------------------------+
-    | Measurement Period             | Displays the alert measurement set in the metric.
+    | Datapoint                      | Displays the alert measurement set in the metric.
     +--------------------------------+-----------------------------------------------------------------------------+
     | Message                        | You can check the alert details as a message.
     +--------------------------------+-----------------------------------------------------------------------------+
@@ -539,16 +537,16 @@ You can perform the following tasks on Alert in the list.
 
 1.	Check Message
     You can check the detailed message about the alert that occurred.
-    a.	Click [Message] > [View] button on the Alert Detail screen.
+    a.	Click \[Message\] > \[View\] button on the Alert Detail screen.
         ![][alert_search_02]
     b.	Detailed message is displayed in the new tab.
         ![][alert_search_03]
 
 2.	Enter Description
     You can enter a detailed description about the alert that occurred.
-    a.	Click {icon} icon on the Alert Detail screen
+    a.	Click \[Modify\] button icon on the Alert Detail screen
         ![][alert_search_04]
-    b.	Enter the description and click {icon} icon
+    b.	Enter the description and click \[save\] button 
         ![][alert_search_05]
     c.	Check the entered description
         ![][alert_search_06]
@@ -602,6 +600,7 @@ Use Case for Service creation is shown below.
 1.  Step 1: Select Services Menu
     Click Services menu.
     ![][service_case1_01]
+
 2.  Step 2: Create New Service
     Click [Create Service] button.
     ![][service_case1_02]
@@ -614,22 +613,22 @@ Use Case for Service creation is shown below.
     +====================================+========================================================================================================================+==============+
     | Service name                       | Randomly enter a service name that the customer wants to create.                                                       | Required
     +------------------------------------+------------------------------------------------------------------------------------------------------------------------+--------------+
-    | Escalation rules                   | Escalation basic rules: If there are no created escalation rules, “Escalation basic rule” is created.                  | Required
+    | Escalation rules                   | Escalation basic rules: If there are no created escalation rules, “Default escalation rule” is created.                | Required
     |                                    | -	Add custom criteria: The user can determine the priority and select Escalation according to the conditions.       |
     |                                    | -	(If selected, the rule of the condition set by the user takes precedence over the default rule.)                  |
     |                                    |                                                                                                                        |
     +------------------------------------+------------------------------------------------------------------------------------------------------------------------+--------------+
-    | Incident generation rules          | -	Incident suppression rules                                                                                        | Optional
-    |                                    |     If the condition items (Alert Summary, Alert Metric Name) occur consecutively,                                     |
-    |                                    |     you can set the period (seconds, minutes, hours, days) to prevent the occurrence of duplicate incidents.           |
-    |                                    | -	Incident urgency rules                                                                                            |
-    |                                    |     You can set the urgency of incident.                                                                               |
+    | Incident creation rules            | -    Suppression rules                                                                                                 | Optional
+    |                                    |      If the condition items (Alert Summary, Alert Metric Name) occur consecutively,                                    |
+    |                                    |      you can set the period (seconds, minutes, hours, days) to prevent the occurrence of duplicate incidents.          |
+    |                                    | -	Urgency rules                                                                                                     |
+    |                                    |      You can set the urgency of incident.                                                                              |
     +------------------------------------+------------------------------------------------------------------------------------------------------------------------+--------------+
 
     If there are no escalation rules, a Default Escalation Rule is automatically created.
     (The Service creator is set as the default recipient.)
 
-    If there are escalations, click [Save].
+    If there are escalations, click \[Save\] button.
     ![][service_case1_03]
 
 4.  Step 4: Select Created Service
@@ -663,12 +662,15 @@ Use Case for Service creation is shown below.
 1.  Step 1: Select Integration Menu
     Click Integration menu.
     ![][service_case2_01]
+
 2.  Step 2: Create New Integration
     Click [Create Integration] button.
     ![][service_case2_02]
+
 3.  Step 3: Select AWS Cloud Watch
-    Click [Add New Integration] button.
+    Click \[Add New Integration\] button.
     ![][service_case2_03]
+
 4.  Step 4: Set Integration
     ![][service_case2_04]
 
@@ -698,14 +700,14 @@ Use Case for Service creation is shown below.
     +================================+=========================================================================================================================+==================+
     | Service name                   | Randomly enter a service name that the customer wants to create.                                                        | Required
     +--------------------------------+-------------------------------------------------------------------------------------------------------------------------+------------------+
-    | Escalation rules               | -   Escalation basic rules: If there are no created escalation rules, “Escalation basic rule” is created.               | Required
+    | Escalation rules               | -   Escalation basic rules: If there are no created escalation rules, “Default escalation rule” is created.             | Required
     |                                | -   Add custom criteria: The user can determine the priority and select Escalation according to the conditions.         |
     |                                |     (If selected, the rule of the condition set by the user takes precedence over the default rule.)                    |
     +--------------------------------+-------------------------------------------------------------------------------------------------------------------------+------------------+
-    | Incident creation rules        | -   Incident suppression rules                                                                                          | Optional
+    | Incident creation rules        | -   Suppression rules                                                                                                   | Optional
     |                                |     If the condition items (Alert Summary, Alert Metric Name) occur consecutively,                                      |
     |                                |     you can set the period (seconds, minutes, hours, days) to prevent the occurrence of duplicate incidents.            |
-    |                                | -   Incident urgency rules                                                                                              |
+    |                                | -   Urgency rule                                                                                                        |
     |                                |     You can set the urgency of Incident.                                                                                |
     +--------------------------------+-------------------------------------------------------------------------------------------------------------------------+------------------+
 
@@ -758,9 +760,11 @@ Use Case for Escalation Policy creation is shown below.
 1.  Step 1: Select Escalation menu
     Click Escalation menu. 
     ![][escalation_case1_01]
+
 2.  Step 2: Create New Escalation
     Click [Create New Escalation] button.
     ![][escalation_case1_02]
+
 3.  Step 3: Establish Escalation Policy
     ![][escalation_case1_03]
     The input items for the Escalation settings are shown below.
@@ -809,9 +813,11 @@ Use Case for Escalation Policy creation is shown below.
 1.	Step 1: Select Services menu
     Click Services menu.
     ![][escalation_case2_01]
+
 2.	Step 2: Create New service
     Click [Create service] button.
     ![][escalation_case2_02]
+
 3.	Step 3: Create Default Escalation Rule
     ![][escalation_case2_03]
     If there is no escalation rule, “Default Escalation Rule” is automatically created.
@@ -825,12 +831,15 @@ Use Case for Escalation Policy creation is shown below.
 1.	Step 1: Select Integration menu
     Click Integrations menu.
     ![][escalation_case3_01]
+
 2.	Step 2: Create New integration
     Click [Create Integration] button.
     ![][escalation_case3_02]
+
 3.	Step 3: Select AWS Cloud Watch
     ![][escalation_case3_03]
-    Click [Create New Integration] button.
+    Click \[Add a new Integration\] button.
+
 4.	Step 4: Set Integration
     ![][escalation_case3_04]
 
@@ -864,7 +873,7 @@ Integration settings guide is as follows.
     Click [Create Integration] button.
     ![][integration_02]
 3.  Step 3: Select AWS Cloud Watch
-    Click [Add Integration] button.
+    Click [Add a new integration] button.
     ![][integration_03]
 4.  Step 4: Set Integration
     ![][integration_04]
@@ -896,14 +905,14 @@ Integration settings guide is as follows.
     +=================================+=====================================================================================================================+==============+
     | Service name                    | Randomly enter a service name that the customer wants to create.                                                    | Required
     +---------------------------------+---------------------------------------------------------------------------------------------------------------------+--------------+
-    | Escalation rules                | -	Escalation basic rules: If there are no created escalation rules, “Escalation basic rule” is created.           | Required
+    | Escalation rules                | -	Default escalation rule: If there are no created escalation rules, “Escalation basic rule” is created.           | Required
     |                                 | -	Add custom criteria: The user can determine the priority and select escalation according to the conditions.     | Optional
     |                                 |     (If selected, the rule of the condition set by the user takes precedence over the default rule.)                |
     +---------------------------------+---------------------------------------------------------------------------------------------------------------------+--------------+
-    | Incident creation rules         | -	Incident suppression rules                                                                                      |
+    | Incident creation rules         | -	Suppression rules                                                                                               |
     |                                 |     If the condition items (Alert Summary, Alert Metric Name) occur consecutively,                                  |
     |                                 |     you can set the period (seconds, minutes, hours, days) to prevent the creation of duplicate incidents.          |
-    |                                 | -	Incident urgency rules                                                                                          |
+    |                                 | -	Urgency rule                                                                                                    |
     |                                 |     You can set the urgency of Incident.                                                                            |
     +---------------------------------+---------------------------------------------------------------------------------------------------------------------+--------------+
 
@@ -962,7 +971,7 @@ Select Create topic on SNS Dashboard.
 
 2.  Step 2: Create Subscription
 
-    Click [Create Subscription].
+    Click "Create Subscription".
     ![][integration_aws_03]
 
     The following input window appears.
@@ -982,7 +991,7 @@ Select Create topic on SNS Dashboard.
     | Endpoint           | Paste the saved URL from the existing AlertNow.                        | Input field
     +--------------------+------------------------------------------------------------------------+-------------------------------------------+
 
-    Select [Create Subscription].
+    Select \[Create Subscription\] button.
 
 3.  Step 3: Subscription
 
@@ -1004,7 +1013,7 @@ Go to the EC2 Console to create an alert to connect to the AlertNow.
 
 2.  Step 2: Create Alarm
     ![][integration_ec2_02]
-    Select [Create Alarm].
+    Select \[Create Alarm\] button.
 
     The input items are shown below
     ![][integration_ec2_03]
@@ -1126,6 +1135,19 @@ If you have not signed up for Slack, please sign up for Slack first.
 --------------------------------------------------------------------------------
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Personal Setting   {#personal-settings}
 
 This is a service that manages notification rules for receiving user’s basic information and notifications.
@@ -1180,7 +1202,7 @@ You can display and set personal profile and contact information.
 
 2.	Contacts
 
-    The Contact Method consists of the following.
+    The Contacts Method consists of the following.
 
     +----------------+---------------------------------------------------------------------------------------------+-------------+
     | Type           | Description                                                                                 | Remark
@@ -1284,7 +1306,7 @@ You can set whether to send notifications and delivery method by the following s
 
 [service_case2_01]: ./resource/bnr_service_case2_01_en@2x.png
 [service_case2_02]: ./resource/bnr_service_case2_02_en@2x.png
-[service_case2_03]: ./resource/bnr_service_case2_03_en@2x.png
+[service_case2_03]: ./resource/bnr_service_case2_03_en.png
 [service_case2_04]: ./resource/bnr_service_case2_04_en@2x.png
 [service_case2_05]: ./resource/bnr_service_case2_05_en@2x.png
 [service_case2_04_AWS]: ./resource/bnr_service_case2_aws_demo_en@2x.png
@@ -1303,7 +1325,7 @@ You can set whether to send notifications and delivery method by the following s
 
 [escalation_case3_01]: ./resource/bnr_service_case2_01_en@2x.png
 [escalation_case3_02]: ./resource/bnr_service_case2_02_en@2x.png
-[escalation_case3_03]: ./resource/bnr_service_case2_03_en@2x.png
+[escalation_case3_03]: ./resource/bnr_service_case2_03_en.png
 [escalation_case3_04]: ./resource/bnr_escalation_case3_04_en@2x.png
 
 
@@ -1311,7 +1333,7 @@ You can set whether to send notifications and delivery method by the following s
 <!-- integration -->
 [integration_01]: ./resource/bnr_service_case2_01_en@2x.png
 [integration_02]: ./resource/bnr_service_case2_02_en@2x.png
-[integration_03]: ./resource/bnr_service_case2_03_en@2x.png
+[integration_03]: ./resource/bnr_service_case2_03_en.png
 [integration_04]: ./resource/bnr_service_case2_04_en@2x.png
 [integration_04_AWS]: ./resource/bnr_service_case2_aws_demo_en@2x.png
 [integration_05]: ./resource/bnr_service_case2_05_en@2x.png
