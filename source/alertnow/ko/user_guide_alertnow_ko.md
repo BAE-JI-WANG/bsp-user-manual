@@ -1905,7 +1905,8 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 
 [summary_1]: ./resource/bnr_alertnow_summary_01_ko@2x.png
 
-[incident_1]:  ./resource/bnr_incident_01_ko.png [incident_2]:  ./resource/bnr_incident_02_ko.png
+[incident_1]:  ./resource/bnr_incident_01_ko.png 
+[incident_2]:  ./resource/bnr_incident_02_ko.png
 [incident_3]:  ./resource/bnr_incident_03_ko.png
 
 [incident_status_01]: ./resource/bnr_incident_status_01_ko@2x.png
