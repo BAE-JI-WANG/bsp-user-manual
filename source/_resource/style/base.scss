@@ -93,6 +93,10 @@ button {
     font-family: $Font-base-stack;
 }
 
+em {
+    font-weight: 500;
+}
+
 strong {
     font-weight: 700;
 }
@@ -173,6 +177,7 @@ button.demo {
     font-family: inherit;
     border-radius: 0;
     transition: color 0.3s ease-in-out;
+    margin-left:-0.3em;
     
     min-width:50px;
 

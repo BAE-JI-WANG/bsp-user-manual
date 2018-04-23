@@ -73,7 +73,7 @@ AlertNow는 SaaS 기반의 서비스 인시던트 주기 관리 플랫폼이며,
 ###	AlertNow 전체 흐름 {#alertnow-flow}
 ![][alertnow_flow]
 
-#### AlertNow 주요 용어 (가나다순)   {#alertnow-key-term}
+### AlertNow 주요 용어 (가나다순)   {#alertnow-key-term}
 
 1.  개인 설정: 개인 정보 및 인시던트의 알림 규칙에 대한 개인화 기능을 제공합니다.
 2.  경고: Raw data이며 사용자가 임의로 데이터를 변경하거나 삭제할 수 없습니다.
@@ -99,7 +99,7 @@ AlertNow는 SaaS 기반의 서비스 인시던트 주기 관리 플랫폼이며,
 1.  \[인티그레이션\] 메뉴를 클릭합니다. 
     ![][service_case2_01]
 
-2.  <button class="demo black">인티그레이션 생성</button>버튼을 클릭합니다.
+2.  .<button class="demo black">인티그레이션 생성</button> 버튼을 클릭합니다.
 
 3.  [새 인티그레이션 추가] 버튼을 클릭하여 인티그레이션을 생성합니다.
     ![][escalation_case3_03]
@@ -120,7 +120,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 1.  AWS에 로그인하면 아래와 같은 화면이 나옵니다. 검색창에 ‘SNS’를 입력한 후 SNS 대시보드로 이동합니다.
     ![][aws_dashboard]
 
-2.  SNS 대시보드에서 주제 생성을 선택합니다.
+2.  SNS 대시보드에서 *주제 생성*을 선택합니다.
     ![][aws_make_topic]
 
 3.  주제 이름 및 표시 이름을 입력 후 [주제 생성] 버튼을 클릭하여 주제를 생성합니다.
@@ -159,11 +159,11 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
     +---------------+----------------------------------------------------------------+--------------------------------------------------------------------------+
 
 
-6.  아래 화면에서 새로 고침 아이콘을 클릭하면 구독 ID에 대한 승인 확인이 이루어집니다.
+6.  아래 화면에서 *새로 고침* 아이콘을 클릭하면 구독 ID에 대한 승인 확인이 이루어집니다.
     ![새로고침 클릭][aws_subscribe_confirm_before]
     ![구독자 번호 생성][aws_subscribe_confirm_after]
 
-
+*
 
 
 #####	EC2 Console {#ec2-console}
@@ -210,7 +210,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 상황별로 AlertNow에서 설정하는 방법을 제공합니다.
 
-### 인시던트의 알림 대상자를 설정할떄: 알림 전송하기
+### 인시던트의 알림 대상자를 설정할 때: 알림 전송하기
 
 1.  \[에스컬레이션\] 메뉴를 클릭합니다.
     ![][escalation_case1_01]
@@ -223,16 +223,16 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 알림을 팀원 간에 전송하고자 할 때 각 팀원을 응답자로 지정하여 순서대로 알림을 수신할 수 있습니다.
 
-1.  에스컬레이션 정책 이름 및 해당 에스컬레이션에 대한 설명을 입력합니다.
+3.  에스컬레이션 정책 이름 및 해당 에스컬레이션에 대한 설명을 입력합니다.
     ![][escalation_set_rotation]
 
-2.  응답자 입력 필드에 지정할 에스컬레이션 응답자를 입력합니다. 응답자는  여러 명을 선택할 수 있습니다.
+4.  응답자 입력 필드에 지정할 에스컬레이션 응답자를 입력합니다. 응답자는  여러 명을 선택할 수 있습니다.
     ![][escalation_responder]
 
-3.  에스컬레이션 정책에 대한 규칙을 설정합니다. 확인 또는 종료되지 않으면 다음 단계로 에스컬레이션 됩니다.
+5.  에스컬레이션 정책에 대한 규칙을 설정합니다. 확인 또는 종료되지 않으면 다음 단계로 에스컬레이션 됩니다.
     ![][escalation_set_policy]
 
-4.  알림을 전달할 시간 주기는 분 단위로 설정할 수 있으며, 설정한 시간에 알림을 받은 이후 조치는 다음 중 하나를 선택할 수 있습니다.
+6.  알림을 전달할 시간 주기는 분 단위로 설정할 수 있으며, 설정한 시간에 알림을 받은 이후 조치는 다음 중 하나를 선택할 수 있습니다.
     -   다음 단계로 에스컬레이션: 다음 에스컬레이션 단계로 수행합니다.
     -   이 단계 반복: 현재 단계를 반복하며, 반복 횟수를 설정할 수 있습니다. (최대 3번까지 가능)
     
@@ -265,11 +265,12 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 알림을 이메일, 휴대폰, Slack 등으로 수신할 수 있습니다.
 
-1.  연락처 설정
-    1.  \[개인 설정\] 메뉴를 클릭합니다.
-    2.  기본 정보에서 프로필 및 연락처를 설정할 수 있습니다.
-        ![][personal_setting_screen]
-    3.  프로필은 아래의 정보로 구성되어 있습니다.
+#####  연락처 설정
+
+1.  \[개인 설정\] 메뉴를 클릭합니다.
+2.  기본 정보에서 프로필 및 연락처를 설정할 수 있습니다.
+    ![][personal_setting_screen]
+3.  프로필은 아래의 정보로 구성되어 있습니다.
 
     +-----------------+----------------------------------------------------------------+--------+
     | 항목            | 설명                                                           | 비고 
@@ -283,17 +284,19 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
     | 에스컬레이션    | 사용자가 속해 있거나 생성한 에스컬레이션                       |
     +-----------------+----------------------------------------------------------------+--------+
 
-    4.  표준 시간대는 사용자가 직접 설정이 가능합니다. 
-        ![][btn_edit] 아이콘을 클릭합니다.
-        ![][personal_setting_edit_timezone]
-    5.  표준 시간대 설정 팝업이 아래와 같이 나타납니다. ‘사용자 정의 설정’ 라디오 버튼을 선택하면 표준 시간대를 변경할 수 있습니다.
-        ![][personal_setting_select_timezone]
-    6.  설정을 완료 후 \[적용\] 버튼을 눌러 표준 시간대 설정을 완료합니다.
-    7.  <button class="demo black"> + 연락처 등록</button> 버튼을 클릭하여 연락처를 등록합니다. 이메일, 휴대폰, Slack 설정이 가능하며 최대 5개까지 등록이 가능합니다. 5개 이상을 등록 시 아래와 같은 메시지가 나타납니다.
-        ![][personal_setting_max_contact]
-    8.  \[적용\] 버튼을 눌러 연락처 등록을 완료합니다.
+4.  표준 시간대는 사용자가 직접 설정이 가능합니다. 
+    ![][btn_edit] 아이콘을 클릭합니다.
+    ![][personal_setting_edit_timezone]
+5.  표준 시간대 설정 팝업이 아래와 같이 나타납니다. ‘사용자 정의 설정’ 라디오 버튼을 선택하면 표준 시간대를 변경할 수 있습니다.
+    ![][personal_setting_select_timezone]
+6.  설정을 완료 후 \[적용\] 버튼을 눌러 표준 시간대 설정을 완료합니다.
 
-※ 휴대폰personal_setting_max_contact.png 설정 시 특정 통신사의 경우, 경보 이름을 입력할 때 통신사 정책에 따라 스팸으로 분류될 수 있습니다.
+7.  .<button class="demo black"> + 연락처 등록</button> 버튼을 클릭하여 연락처를 등록합니다. 이메일, 휴대폰, Slack 설정이 가능하며 최대 5개까지 등록이 가능합니다. 5개 이상을 등록 시 아래와 같은 메시지가 나타납니다.
+    ![][personal_setting_max_contact]
+
+8.  \[적용\] 버튼을 눌러 연락처 등록을 완료합니다.
+
+※ 휴대폰 설정 시 특정 통신사의 경우, 경보 이름을 입력할 때 통신사 정책에 따라 스팸으로 분류될 수 있습니다.
 
 
 
@@ -344,15 +347,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
     | Alert Summary (경고 요약)                 | 인시던트 목록에서 ‘이름’으로 표시되는 부분입니다.
     +-------------------------------------------+------------------------------------------------------------------------------------------------------------------+
     | Alert Metric Name (경고 메트릭 이름)      | 경고 상세화면에서 [보기] 버튼을 클릭하여 경고를 자세히 확인할 때 나오는 항목입니다. (경고 요약에 표시되기도 함)
-    |                                           | 
-    |                                           | ~~~ json
-    |                                           | "region" : "...",
-    |                                           | "oldStateValue" : "...",
-    |                                           | "trigger" : {
-    |                                           |     "metricName" : "CPUUtilization",
-    |                                           |     "namespace" : "..."
-    |                                           |      ....
-    |                                           | ~~~
+    |                                           | ![][metric_json]
     +-------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 
 6.  조건을 선택하고, 비교값을 입력하고, 긴급도를 설정한 후 [적용] 버튼을 누르면 긴급도 규칙이 추가됩니다.
@@ -382,7 +377,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 1.  \[서비스\] 메뉴를 클릭합니다.
     ![][escalation_case2_01]
 
-2.  <button class="demo black">서비스 생성</button> 버튼을 클릭합니다.
+2.  .<button class="demo black">서비스 생성</button> 버튼을 클릭합니다.
 
 3.  서비스 생성 화면에서 서비스 이름을 입력합니다.
 
@@ -433,7 +428,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 1.  \[인티그레이션\] 메뉴를 클릭합니다.
     ![][integration_01]
 
-2.  <button class="demo black">서비스 생성</button> 버튼을 클릭합니다.
+2.  .<button class="demo black">서비스 생성</button> 버튼을 클릭합니다.
 
 3.  \[새 인티그레이션 추가\] 버튼을 클릭하여 인티그레이션을 생성합니다. (현재는 AWS Cloudwatch만 지원하며 추후에 다른 인티그레이션도 추가 예정) 
     ![][escalation_case3_03]
@@ -449,24 +444,26 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
     | 인티그레이션 이름       사용자가 인티그레이션 이름을 설정합니다.        필수
     +-----------------------+-----------------------------------------------+-------+
     | 인티그레이션 유형       선택한 대상의 로고가 표시됩니다.                필수
+    |                         ![][service_case2_04_AWS]                     
     +-----------------------+-----------------------------------------------+-------+
 
-#### 신규 서비스 생성의 경우 {#case-create-integration}
+##### 신규 서비스 생성의 경우 {#case-create-integration}
 
 인티그레이션 생성 시 서비스도 동시에 생성됩니다.
-신규 서비스 생성 화면에서 인티그레이션을 생성할 수 있습니다. 
-설정 방법은 [알림을 받을 서비스를 새로 등록할 때: 서비스 추가하기](#add-service-for-notice)에서 서비스 생성 방법과 동일합니다.
 
-#### 서비스 선택의 경우 {#case-create-integration-for-select}
+5.  신규 서비스 생성 화면에서 인티그레이션을 생성할 수 있습니다. 
+    설정 방법은 [알림을 받을 서비스를 새로 등록할 때: 서비스 추가하기](#add-service-for-notice)에서 서비스 생성 방법과 동일합니다.
+
+##### 서비스 선택의 경우 {#case-create-integration-for-select}
 
 인티그레이션 생성 시 기존 서비스가 매핑됩니다.
 ![][integration_make_select_service]
 
-1.  기본 서비스 규칙을 선택합니다.
-2.  *사용자 설정 조건 추가 체크* 박스를 활성화하여 조건 항목(Alert Summary, Alert Metric Name)을 설정합니다. 설정 시 기본 규칙보다 우선적으로 적용됩니다.
-3.  이름을 입력하고 서비스 생성 또는 선택 후 \[저장\] 버튼을 클릭하면 아래와 같이 표시됩니다.
+6.  기본 서비스 규칙을 선택합니다.
+7.  *사용자 설정 조건 추가 체크* 박스를 활성화하여 조건 항목(Alert Summary, Alert Metric Name)을 설정합니다. 설정 시 기본 규칙보다 우선적으로 적용됩니다.
+8.  이름을 입력하고 서비스 생성 또는 선택 후 \[저장\] 버튼을 클릭하면 아래와 같이 표시됩니다.
     ![][integration_make_done]
-4.  URL의 경우 SNS (Simple Notification Service)와 AlertNow를 연결하기 위한 SNS Webhook URL 정보를 복사하십시오.
+9.  URL의 경우 SNS (Simple Notification Service)와 AlertNow를 연결하기 위한 SNS Webhook URL 정보를 복사하십시오.
 
 
 
@@ -496,29 +493,26 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 #### 지역 단위로 응답자 설정하기 {#set-responder-by-location}
 
-*사용자 설정 조건 추가* 체크박스를 활성화하여 `Alert Summary`, `Contains`를 선택한 후 비교값에 지역명을 아래와 같이 입력합니다.
-에스컬레이션 선택 시 해당 설정에 맞는 에스컬레이션을 생성한 뒤 선택해야 합니다.
-에스컬레이션 생성에 대한 자세한 내용은 도움말의 [Use Case 1. 에스컬레이션 메뉴에서 생성](#escalation-use-case-1)을 참조하십시오.
-![][escalation_rule_setted_local]
+5.  *사용자 설정 조건 추가* 체크박스를 활성화하여 `Alert Summary`, `Contains`를 선택한 후 비교값에 지역명을 아래와 같이 입력합니다.
+    에스컬레이션 선택 시 해당 설정에 맞는 에스컬레이션을 생성한 뒤 선택해야 합니다.
+    에스컬레이션 생성에 대한 자세한 내용은 도움말의 [Use Case 1. 에스컬레이션 메뉴에서 생성](#escalation-use-case-1)을 참조하십시오.
+    ![][escalation_rule_setted_local]
 
 
 #### 메트릭별로 응답자 설정하기 {#set-responder-by-metric}
 
-사용자 설정 조건 추가 체크박스를 활성화하여 Alert Metric Name, Contains를 선택한 후 비교값에 메트릭 이름(예: CPUUtilization)을 아래와 같이 입력합니다.
-마찬가지로 해당 설정에 맞는 에스컬레이션을 생성한 후 선택합니다.
-![][escalation_rule_setted]
+6.  사용자 설정 조건 추가 체크박스를 활성화하여 Alert Metric Name, Contains를 선택한 후 비교값에 메트릭 이름(예: CPUUtilization)을 아래와 같이 입력합니다.
+    마찬가지로 해당 설정에 맞는 에스컬레이션을 생성한 후 선택합니다.
+    ![][escalation_rule_setted]
 
 
 ### 서버 역할(CPU, DB, Network)별로 응답자 설정하기 {#set-responder-by-server-role}
 
-사용자 설정 조건 추가 체크박스를 활성화하여 Alert Summary, Contains를 선택한 후 비교값에 서버 역할을 아래와 같이 입력합니다. 마찬가지로 해당 설정에 맞는 에스컬레이션을 생성한 후 선택합니다.
-![][escalation_rule_setted_metric]
+7.  사용자 설정 조건 추가 체크박스를 활성화하여 Alert Summary, Contains를 선택한 후 비교값에 서버 역할을 아래와 같이 입력합니다. 마찬가지로 해당 설정에 맞는 에스컬레이션을 생성한 후 선택합니다.
+    ![][escalation_rule_setted_metric] 
 
 
-
-
-
-에스컬레이션 규칙 설정을 완료하면 \[적용\] 버튼을 클릭합니다.
+8.  에스컬레이션 규칙 설정을 완료하면 \[적용\] 버튼을 클릭합니다.
 
 
 
@@ -2028,7 +2022,7 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 [aws_new_subscribe]: ./resource/aws_new_subscribe.png
 [aws_subscribe_confirm_before]: ./resource/aws_subscribe_confirm_before.png
 [aws_subscribe_confirm_after]: ./resource/aws_subscribe_confirm_after.png
-[aws_make_subscribe]: ./resource/aws_make_subscribe.png
+[aws_make_subscribe]: ./resource/aws_create_subscription.png
 
 [alertnow_map_hexagon]: ./resource/alertnow_map_hexagon.png
 
@@ -2050,7 +2044,7 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 [service_urgency]: ./resource/service_urgency@2x.png
 [service_user_condifion_add]: ./resource/service_user_condition_add@2x.png
 
-[service_screen]: ./resource/service_screen@2x.png
+[service_screen]: ./resource/service_screen.png
 [service_create_screen]: ./resource/service_create_screen@2x.png
 [service_screen_under_tab]: ./resource/service_screen_under_tab.png
 
@@ -2084,3 +2078,5 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 [personal_setting_edit_timezone]: ./resource/personal_setting_edit_timezone.png
 [personal_setting_select_timezone]: ./resource/personal_setting_select_timezone.png
 [personal_setting_max_contact]: ./resource/personal_setting_max_contact.png
+
+[metric_json]: ./resource/metric_json.png

@@ -24,6 +24,7 @@ article {
         max-width: calc(100% - 4px);
         box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.05);
         outline:1px solid #ccc;
+        vertical-align:middle;
 
         &[sizez="normal"] {
             width:50%;
@@ -41,6 +42,10 @@ article {
 
     strong > em {
         color:#FF4058;
+        font-weight:900;
+    }
+
+    em {
         font-weight:700;
     }
 }
@@ -136,9 +141,6 @@ article {
             padding:0;
         }
 
-        em {
-            font-weight:bold;
-        }
     }
 
 }
@@ -387,4 +389,5 @@ article td > ul > li:first-child {
 article td p {
     padding-bottom:0.6em;
 }
+
 
