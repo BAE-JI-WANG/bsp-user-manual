@@ -1984,8 +1984,8 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 [integration_aws_02]: ./resource/bnr_integration_aws_02@2x.jpg
 [integration_aws_03]: ./resource/bnr_integration_aws_03@2x.jpg
 [integration_aws_04]: ./resource/bnr_integration_aws_04@2x.jpg
-[integration_aws_05]: ./resource/bnr_integration_aws_05@2x.jpg
-[integration_aws_06]: ./resource/bnr_integration_aws_06@2x.jpg
+[integration_aws_05]: ./resource/bnr_integration_aws_05@2x.png
+[integration_aws_06]: ./resource/bnr_integration_aws_06@2x.png
 
 [integration_ec2_01]: ./resource/bnr_integration_ec2_01@2x.jpg
 [integration_ec2_02]: ./resource/bnr_integration_ec2_02@2x.jpg

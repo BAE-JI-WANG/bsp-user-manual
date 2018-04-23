@@ -1344,8 +1344,8 @@ You can set whether to send notifications and delivery method by the following s
 [integration_aws_02]: ./resource/bnr_integration_aws_02@2x.jpg
 [integration_aws_03]: ./resource/bnr_integration_aws_03@2x.jpg
 [integration_aws_04]: ./resource/bnr_integration_aws_04_en@2x.png
-[integration_aws_05]: ./resource/bnr_integration_aws_05@2x.jpg
-[integration_aws_06]: ./resource/bnr_integration_aws_06@2x.jpg
+[integration_aws_05]: ./resource/bnr_integration_aws_05@2x.png
+[integration_aws_06]: ./resource/bnr_integration_aws_06@2x.png
 
 [integration_ec2_01]: ./resource/bnr_integration_ec2_01@2x.jpg
 [integration_ec2_02]: ./resource/bnr_integration_ec2_02@2x.jpg
