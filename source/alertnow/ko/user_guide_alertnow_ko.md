@@ -163,7 +163,6 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
     ![새로고침 클릭][aws_subscribe_confirm_before]
     ![구독자 번호 생성][aws_subscribe_confirm_after]
 
-*
 
 
 #####	EC2 Console {#ec2-console}
@@ -674,7 +673,8 @@ CloudWatch, Azure, UIM 등의 모니터링 툴이나 기타 서비스에서 발�
 ##### 화면 구성 {#incident-user-layout}
 
 인시던트 메뉴는 아래 이미지와 같이 크게 두 영역으로 구분됩니다.
-![인시던트 메뉴 구성][incident_3]
+
+![Figure 2. 인시던트 메뉴 구성][incident_3]
 
 1.  인시던트 목록
     기 발생한 인시던트의 목록으로 확인 및 검색할 수 있습니다. 목록 화면에서 인시던트 선택 시, 선택한 항목의 정보가 상세 영역에 표시됩니다. 목록 화면에서는 아래의 정보를 확인할 수 있습니다.
@@ -1382,7 +1382,7 @@ CloudWatch, Azure, UIM 등의 모니터링 툴이나 기타 서비스에서 발�
 
 
 #### AWS SNS Dashboard
-AWS Cloud Watch를 AlertNow에서 생성한 인티그레이션과 연결시키기 위해서는 AWS Console에 접속하여 주제를 생성하여야 합니다.
+AWS Cloud Watch를 AlertNow에서 생성한 인티그레이션과 연결시키기 위해서는 AWS Console에 접속하여 주제를 생성해야 합니다.
 
 ##### AWS Console 접속  {#aws-connect}
 SNS 대시보드로 이동합니다.
@@ -1431,14 +1431,14 @@ SNS 대시보드 에서 주제 생성을 선택합니다.
     | 엔드포인트    | 기존 AlertNow에서 저장해둔 URL을 붙여넣기 합니다.              | 입력 항목
     +---------------+----------------------------------------------------------------+--------------------------------------------------------------------------+
 
-    \[구독 생성\] 버튼을 선택 합니다.
+    \[구독 생성\] 버튼을 클릭합니다.
 
 3.  3단계 : 구독 
     아래와 같은 구독이 생성됩니다.
-    ![][integration_aws_05]
+    ![][aws_subscribe_confirm_before]
 
     오른쪽 상위의 새로 고침 아이콘을 클릭합니다. 구독 ID에 대한 승인 확인이 이루어집니다.
-    ![][integration_aws_06]
+    ![][aws_subscribe_confirm_after]
 
 
 
@@ -1447,15 +1447,15 @@ SNS 대시보드 에서 주제 생성을 선택합니다.
 AlertNow로 연결할 경고를 생성하기 위해 EC2 Console로 이동합니다.
 
 1.  1단계 : 경보 추가/편집 선택
-    해당 EC2 선택 후, 아래와 같이 *작업 \> CloudWatch 모니터링 \> 경보 추가/편집*을 선택 합니다.
+    해당 EC2 선택 후, 아래와 같이 *작업 \> CloudWatch 모니터링 \> 경보 추가/편집*을 선택합니다.
     ![][integration_ec2_01]
 	
 2.  2단계 : 경보 생성
 
-    ![][integration_ec2_02]
+    ![][aws_make_alert_click]
     \[경보 생성\] 버튼을 선택합니다.
 
-    ![][integration_ec2_03]
+    ![][aws_alert_make_screen]
     입력 항목은 다음과 같습니다.
 
     +----------------+------------------------------------+-----------+
@@ -1688,34 +1688,33 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 #### 관리자 {#user-administrator}
 
 기업이 보유한 AlertNow 서비스를 전체적으로 관리합니다. 모든 카테고리의 생성, 삭제, 조회 권한이 있으며 인티그레이션을 생성하고 서비스 라우팅을 설정할 수 있는 유일한 사용자입니다.
-![][alertnow_diagram_user]
+![][diagram_service_admin]
 
--   관리자의 경우 인티그레이션 생성 → 서비스 생성 → 에스컬레이션 정책 생성 → 익스텐션 설정(선택 사항) 순서로 진행합니다.
+-   관리자의 경우 **인티그레이션 생성 → 서비스 생성 → 에스컬레이션 정책 생성 → 익스텐션 설정(선택 사항)** 순서로 진행합니다.
 -   설정이 완료되면 인티그레이션에 연결된 정보를 통해 경고와 인시던트가 생성되며, 인시던트 생성 및 상태 변경에 대한 알림을 수신하고 인시던트를 수정할 수 있습니다.
 
 
 #### 서비스 담당자 {#user-service-manager}
 
 서비스에 대해 책임 권한을 가지고 있으며, 장애 처리 및 처리 담당자(응답자)를 지정할 수 있습니다. 인티그레이션을 제외한 모든 카테고리의 생성, 삭제, 조회 권한이 있습니다. (인티그레이션은 조회만 가능)
-![][alertnow_diagram_service_manager]
+![][diagram_service_manager]
 
--   서비스 담당자의 경우 서비스 생성 → 에스컬레이션 정책 생성 → 익스텐션 설정(선택 사항) 순서로 진행합니다.
+-   서비스 담당자의 경우 **서비스 생성 → 에스컬레이션 정책 생성 → 익스텐션 설정(선택 사항)** 순서로 진행합니다.
 -   설정이 완료되면 인티그레이션에 연결된 정보를 통해 경고와 인시던트가 생성되며, 인시던트 생성 및 상태 변경에 대한 알림을 수신하고 인시던트를 수정할 수 있습니다.
 
 
 #### 응답자 {#user-service-responder}
 
 인시던트 알림을 받는 주 담당자로서 장애를 처리하는 실질적인 담당자입니다. 인시던트, 경고의 생성, 삭제, 조회 권한이 있으며 서비스 조회, 에스컬레이션 조회, 수신자 설정이 가능합니다. (인티그레이션 접근 권한 없음)
-![][alertnow_diagram_service_responser]
+![][diagram_service_responser]
 
-		
--   응답자의 경우 에스컬레이션 정책 생성은 불가하지만, 에스컬레이션 응답자로 설정될 수 있습니다.
+-   응답자의 경우 **에스컬레이션 정책 생성은 불가하지만, 에스컬레이션 응답자로 설정될 수 있습니다**.
 -   설정이 완료되면 인티그레이션에 연결된 정보를 통해 경고와 인시던트가 생성되며, 인시던트 생성 및 상태 변경에 대한 알림을 수신하고 인시던트를 수정할 수 있습니다.
 
 #### 참조자 {#reference-user}
 
 직접적인 관련이 없어도 필요에 따라 장애 처리 상태를 확인하는 사용자입니다. 인티그레이션 접근 권한이 없으며, 인티그레이션을 제외한 모든 카테고리에 대해 조회 권한만 있습니다.
-![][alertnow_diagram_service_reference]
+![][diagram_service_reference]
 
 -   인시던트 생성 및 상태 변경에 대한 알림을 받을 수 없습니다.
 
@@ -1974,14 +1973,12 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 [integration_06]: ./resource/bnr_integration_06_ko@2x.png
 [integration_07]: ./resource/bnr_integration_07_ko@2x.png
 
-[integration_aws_01]: ./resource/bnr_integration_aws_01@2x.jpg
-[integration_aws_02]: ./resource/bnr_integration_aws_02@2x.jpg
-[integration_aws_03]: ./resource/bnr_integration_aws_03@2x.jpg
-[integration_aws_04]: ./resource/bnr_integration_aws_04@2x.jpg
-[integration_aws_05]: ./resource/bnr_integration_aws_05@2x.png
-[integration_aws_06]: ./resource/bnr_integration_aws_06@2x.png
+[integration_aws_01]: ./resource/bnr_integration_aws_01.png
+[integration_aws_02]: ./resource/bnr_integration_aws_02.png
+[integration_aws_03]: ./resource/bnr_integration_aws_03.png
+[integration_aws_04]: ./resource/bnr_integration_aws_04.jpg
 
-[integration_ec2_01]: ./resource/bnr_integration_ec2_01@2x.jpg
+[integration_ec2_01]: ./resource/bnr_integration_ec2_01.png
 [integration_ec2_02]: ./resource/bnr_integration_ec2_02@2x.jpg
 [integration_ec2_03]: ./resource/bnr_integration_ec2_03@2x.jpg
 [integration_ec2_04]: ./resource/bnr_integration_ec2_04_ko.png
@@ -2058,10 +2055,11 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 [escalation_rule_setted]: ./resource/escalation_rule_setted@2x.png
 [escalation_rule_setted_metric]: ./resource/escalation_rule_setted_metric@2x.png
 
-[alertnow_diagram_user]: ./resource/alertnow_diagram_user.png
-[alertnow_diagram_service_manager]: ./resource/alertnow_diagram_service_manager.png
-[alertnow_diagram_service_responser]: ./resource/alertnow_diagram_service_responser.png
-[alertnow_diagram_service_reference]: ./resource/alertnow_diagram_service_reference.png
+[diagram_service_admin]:     ./resource/diagram_service_admin.png
+[diagram_service_manager]:   ./resource/diagram_service_manager.png
+[diagram_service_responser]: ./resource/diagram_service_responder.png
+[diagram_service_reference]: ./resource/diagram_service_reference.png
+
 [permission_gram_legend]: ./resource/permission_gram_legend.png
 [permission_gram]: ./resource/permission_gram.png
 

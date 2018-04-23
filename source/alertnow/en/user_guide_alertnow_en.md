@@ -470,9 +470,9 @@ The Alert menu is divided into two areas as the below image.
     +--------------------------------+-----------------------------------------------------------------------------+
     | Comparison operator            | Displays the threshold setting comparison operator of the alert.
     +--------------------------------+-----------------------------------------------------------------------------+
-    | Period                         | Displays the period of alert collection criteria set in the metric.
+    | Period                         | Displays the metric information measurement period. 
     +--------------------------------+-----------------------------------------------------------------------------+
-    | Datapoint                      | Displays the alert measurement set in the metric.
+    | Datapoint                      | Displays the metric information measurement count. 
     +--------------------------------+-----------------------------------------------------------------------------+
     | Message                        | You can check the alert details as a message.
     +--------------------------------+-----------------------------------------------------------------------------+
@@ -618,10 +618,10 @@ Use Case for Service creation is shown below.
     |                                    | -	(If selected, the rule of the condition set by the user takes precedence over the default rule.)                  |
     |                                    |                                                                                                                        |
     +------------------------------------+------------------------------------------------------------------------------------------------------------------------+--------------+
-    | Incident creation rules            | -    Suppression rules                                                                                                 | Optional
+    | Incident creation rules            | -    Suppression rule                                                                                                  | Optional
     |                                    |      If the condition items (Alert Summary, Alert Metric Name) occur consecutively,                                    |
     |                                    |      you can set the period (seconds, minutes, hours, days) to prevent the occurrence of duplicate incidents.          |
-    |                                    | -	Urgency rules                                                                                                     |
+    |                                    | -	Urgency rule                                                                                                      |
     |                                    |      You can set the urgency of incident.                                                                              |
     +------------------------------------+------------------------------------------------------------------------------------------------------------------------+--------------+
 
@@ -704,7 +704,7 @@ Use Case for Service creation is shown below.
     |                                | -   Add custom criteria: The user can determine the priority and select Escalation according to the conditions.         |
     |                                |     (If selected, the rule of the condition set by the user takes precedence over the default rule.)                    |
     +--------------------------------+-------------------------------------------------------------------------------------------------------------------------+------------------+
-    | Incident creation rules        | -   Suppression rules                                                                                                   | Optional
+    | Incident creation rules        | -   Suppression rule                                                                                                   | Optional
     |                                |     If the condition items (Alert Summary, Alert Metric Name) occur consecutively,                                      |
     |                                |     you can set the period (seconds, minutes, hours, days) to prevent the occurrence of duplicate incidents.            |
     |                                | -   Urgency rule                                                                                                        |
@@ -769,38 +769,43 @@ Use Case for Escalation Policy creation is shown below.
     ![][escalation_case1_03]
     The input items for the Escalation settings are shown below.
 
-    +--------------------------------+-----------------------------------------------------------------------------------------------------------+-----------------------------------+
-    | Case                           | Description                                                                                               | Remark  
-    +================================+===========================================================================================================+===================================+
-    | Name                           | Customer can set Escalation Policy Name.                                                                  | Required
-    +--------------------------------+-----------------------------------------------------------------------------------------------------------+-----------------------------------+
-    | Description                    | Adds a description for the escalation.                                                                    | Optional
-    +--------------------------------+-----------------------------------------------------------------------------------------------------------+-----------------------------------+
-    | Rule Settings                  | If the Incident is not “acknowledged / closed” It will escalate to next step.                             |
-    |                                | -	If not in the “Acknowledged” status,                                                                 |
-    |                                | -	If not in the “Closed” status,                                                                       |
-    |                                |                                                                                                           |
-    |                                | Sets the Escalation Policy to be applied.                                                                 |
-    +--------------------------------+-----------------------------------------------------------------------------------------------------------+-----------------------------------+
-    | Time (Minutes)                 | For sending notifications, you can set the time period in minutes.                                        | Required when selecting policy
-    | Action                         | After receiving notifications from recipients by setting the time period (in minutes),                    | 
-    |                                | you can select either “Escalation to the next step” or “repeat this step”.                                |
-    |                                | -	Escalation to the next step: Performs the next escalation steps.                                     |
-    |                                | -	Repeat this step: Repeats the current step. Repeat cycle can be set in hours.                        |
-    +--------------------------------+-----------------------------------------------------------------------------------------------------------+-----------------------------------+
-    | Additional item settings       | If no action is taken even when Escalation is escalated to action and additional escalation,              |  Option setting item
-    |                                | you can set the following options.                                                                        |
-    |                                |                                                                                                           |
-    |                                | If no one is acknowledged, repeat this policy (n) times.                                                  |
-    |                                | \>	From step 1 to the last step, it is restarted (n) times.                                             |
-    |                                | \>	The maximum number of (n) attempts is 9.                                                             |
-    |                                |                                                                                                           |
-    |                                | If no one is acknowledged, there will be (n) notifications every (n) minutes for all responders.          |
-    |                                | \>	The maximum number of (n) attempts is 9.                                                             |
-    |                                | \>	You can set the time interval of (n) minutes.                                                        |
-    +--------------------------------+-----------------------------------------------------------------------------------------------------------+-----------------------------------+
++------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
+|Item	                 | Description	                                                                                       |Remark
++========================+=====================================================================================================+===============================+
+|Name	                 | Customer can set Escalation Policy Name.	                                                           |Required
+|                        | Description	Adds a description for the escalation.	                                               |Optional
++------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
+|Rule Settings           | If the Incident is not “acknowledged / closed” It will escalate to next step.                       |
+|                        |                                                                                                     |
+|                        | -	If not in the “Acknowledged” status,                                                           |
+|                        | -	If not in the “Closed” status,                                                                 |
+|                        |                                                                                                     |
+|                        | Sets the Escalation Policy to be applied.	                                                       |
++------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
+|Recipient Settings 	 | You can choose among your colleagues and select multiple recipients.	                               |Required when selecting policy
++------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
+|Time (Minutes)	         | For sending notifications, you can set the time period in minutes.                  	               |Required when selecting policy
++------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
+|Action	                 | After receiving notifications from recipients by setting the time period (in minutes),              |Required when selecting policy
+|                        | you can select either “Escalation to the next step” or “repeat this step”.                          |
+|                        | -	Escalation to the next step: Performs the next escalation steps.                               |
+|                        | -	Repeat this step: Repeats the current step. Repeat cycle can be set in hours.                  |
++------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
+|Additional item settings| If no action is taken even when Escalation is escalated to action and additional escalation,        | Option setting item
+|                        | you can set the following options.                                                                  |
+|                        |                                                                                                     |
+|                        | If no one is acknowledged, repeat this policy (n) times.                                            |
+|                        | \>    From step 1 to the last step, it is restarted (n) times.                                      |
+|                        | \>    The maximum number of (n) attempts is 9.                                                      |
+|                        |                                                                                                     |
+|                        | -	If no one is acknowledged, there will be (n) notifications every (n) minutes for all responders|
+|                        | \>    The maximum number of (n) attempts is 9.                                                      |
+|                        | \>    You can set the time interval of (n) minutes.	                                               |
++------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
 
-
+    
+    
+    
 4.  Step 4: Save created escalation
     Save the Escalation setting as follows:
     ![][escalation_case1_04]
@@ -905,11 +910,11 @@ Integration settings guide is as follows.
     +=================================+=====================================================================================================================+==============+
     | Service name                    | Randomly enter a service name that the customer wants to create.                                                    | Required
     +---------------------------------+---------------------------------------------------------------------------------------------------------------------+--------------+
-    | Escalation rules                | -	Default escalation rule: If there are no created escalation rules, “Escalation basic rule” is created.           | Required
-    |                                 | -	Add custom criteria: The user can determine the priority and select escalation according to the conditions.     | Optional
+    | Escalation rules                | -	Default escalation rule: If there are no created escalation rules, “Escalation basic rule” is created.          | Required
+    |                                 | -	Add custom criteria: The user can determine the priority and select escalation according to the conditions.     |
     |                                 |     (If selected, the rule of the condition set by the user takes precedence over the default rule.)                |
     +---------------------------------+---------------------------------------------------------------------------------------------------------------------+--------------+
-    | Incident creation rules         | -	Suppression rules                                                                                               |
+    | Incident creation rules         | -	Suppression rule                                                                                                | Optional
     |                                 |     If the condition items (Alert Summary, Alert Metric Name) occur consecutively,                                  |
     |                                 |     you can set the period (seconds, minutes, hours, days) to prevent the creation of duplicate incidents.          |
     |                                 | -	Urgency rule                                                                                                    |
@@ -991,7 +996,7 @@ Select Create topic on SNS Dashboard.
     | Endpoint           | Paste the saved URL from the existing AlertNow.                        | Input field
     +--------------------+------------------------------------------------------------------------+-------------------------------------------+
 
-    Select \[Create Subscription\] button.
+    Click \[Create Subscription\] button.
 
 3.  Step 3: Subscription
 
@@ -1013,7 +1018,7 @@ Go to the EC2 Console to create an alert to connect to the AlertNow.
 
 2.  Step 2: Create Alarm
     ![][integration_ec2_02]
-    Select \[Create Alarm\] button.
+    Click \[Create Alarm\] button.
 
     The input items are shown below
     ![][integration_ec2_03]
@@ -1202,7 +1207,7 @@ You can display and set personal profile and contact information.
 
 2.	Contacts
 
-    The Contacts Method consists of the following.
+    The Contacts consists of the following.
 
     +----------------+---------------------------------------------------------------------------------------------+-------------+
     | Type           | Description                                                                                 | Remark
@@ -1342,8 +1347,8 @@ You can set whether to send notifications and delivery method by the following s
 
 [integration_aws_01]: ./resource/bnr_integration_aws_01@2x.jpg
 [integration_aws_02]: ./resource/bnr_integration_aws_02@2x.jpg
-[integration_aws_03]: ./resource/bnr_integration_aws_03@2x.jpg
-[integration_aws_04]: ./resource/bnr_integration_aws_04_en@2x.png
+[integration_aws_03]: ./resource/bnr_integration_aws_03.png
+[integration_aws_04]: ./resource/bnr_integration_aws_04_en.png
 [integration_aws_05]: ./resource/bnr_integration_aws_05@2x.png
 [integration_aws_06]: ./resource/bnr_integration_aws_06@2x.png
 
