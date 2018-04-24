@@ -704,7 +704,7 @@ Use Case for Service creation is shown below.
     |                                | -   Add custom criteria: The user can determine the priority and select Escalation according to the conditions.         |
     |                                |     (If selected, the rule of the condition set by the user takes precedence over the default rule.)                    |
     +--------------------------------+-------------------------------------------------------------------------------------------------------------------------+------------------+
-    | Incident creation rules        | -   Suppression rule                                                                                                   | Optional
+    | Incident creation rules        | -   Suppression rule                                                                                                    | Optional
     |                                |     If the condition items (Alert Summary, Alert Metric Name) occur consecutively,                                      |
     |                                |     you can set the period (seconds, minutes, hours, days) to prevent the occurrence of duplicate incidents.            |
     |                                | -   Urgency rule                                                                                                        |
@@ -794,7 +794,7 @@ Use Case for Escalation Policy creation is shown below.
 |Additional item settings| If no action is taken even when Escalation is escalated to action and additional escalation,        | Option setting item
 |                        | you can set the following options.                                                                  |
 |                        |                                                                                                     |
-|                        | If no one is acknowledged, repeat this policy (n) times.                                            |
+|                        | -    If no one is acknowledged, repeat this policy (n) times.                                            |
 |                        | \>    From step 1 to the last step, it is restarted (n) times.                                      |
 |                        | \>    The maximum number of (n) attempts is 9.                                                      |
 |                        |                                                                                                     |
@@ -817,12 +817,10 @@ Use Case for Escalation Policy creation is shown below.
 
 1.	Step 1: Select Services menu
     Click Services menu.
-    ![][escalation_case2_01]
-
+    ![][escalation_case2_01] 
 2.	Step 2: Create New service
     Click [Create service] button.
-    ![][escalation_case2_02]
-
+    ![][escalation_case2_02] 
 3.	Step 3: Create Default Escalation Rule
     ![][escalation_case2_03]
     If there is no escalation rule, “Default Escalation Rule” is automatically created.
@@ -836,15 +834,12 @@ Use Case for Escalation Policy creation is shown below.
 1.	Step 1: Select Integration menu
     Click Integrations menu.
     ![][escalation_case3_01]
-
 2.	Step 2: Create New integration
     Click [Create Integration] button.
     ![][escalation_case3_02]
-
 3.	Step 3: Select AWS Cloud Watch
     ![][escalation_case3_03]
     Click \[Add a new Integration\] button.
-
 4.	Step 4: Set Integration
     ![][escalation_case3_04]
 

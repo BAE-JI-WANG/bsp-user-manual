@@ -161,7 +161,7 @@ input {
 }
 
 
-button.demo {
+span.demo.button {
     margin:0;
     font-family:inherit;
 
@@ -177,7 +177,6 @@ button.demo {
     font-family: inherit;
     border-radius: 0;
     transition: color 0.3s ease-in-out;
-    margin-left:-0.3em;
     
     min-width:50px;
 
