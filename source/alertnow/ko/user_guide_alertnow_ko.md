@@ -1707,7 +1707,7 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 #### 응답자 {#user-service-responder}
 
 인시던트 알림을 받는 주 담당자로서 장애를 처리하는 실질적인 담당자입니다. 인시던트, 경고의 생성, 삭제, 조회 권한이 있으며 서비스 조회, 에스컬레이션 조회, 수신자 설정이 가능합니다. (인티그레이션 접근 권한 없음)
-![][diagram_service_responser]
+![][diagram_service_responder]
 
 -   응답자의 경우 **에스컬레이션 정책 생성은 불가하지만, 에스컬레이션 응답자로 설정될 수 있습니다**.
 -   설정이 완료되면 인티그레이션에 연결된 정보를 통해 경고와 인시던트가 생성되며, 인시던트 생성 및 상태 변경에 대한 알림을 수신하고 인시던트를 수정할 수 있습니다.
@@ -1722,7 +1722,6 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 ### 각 역할에 대한 권한 {#permission-each-role}
 
 #### 권한 – 도식화  {#permission-diagram}
-![][permission_gram_legend]
 ![][permission_gram]
 
 #### 권한 – 표 View {#permission-matrix}
@@ -2056,13 +2055,12 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 [escalation_rule_setted]: ./resource/escalation_rule_setted@2x.png
 [escalation_rule_setted_metric]: ./resource/escalation_rule_setted_metric@2x.png
 
-[diagram_service_admin]:     ./resource/diagram_service_admin.png
-[diagram_service_manager]:   ./resource/diagram_service_manager.png
-[diagram_service_responser]: ./resource/diagram_service_responder.png
-[diagram_service_reference]: ./resource/diagram_service_reference.png
+[diagram_service_admin]:     ./resource/diagram_service_admin@2x.png
+[diagram_service_manager]:   ./resource/diagram_service_manager@2x.png
+[diagram_service_responder]: ./resource/diagram_service_responder@2x.png
+[diagram_service_reference]: ./resource/diagram_service_reference@2x.png
 
-[permission_gram_legend]: ./resource/permission_gram_legend.png
-[permission_gram]: ./resource/permission_gram.png
+[permission_gram]: ./resource/permission_gram@2x.png
 
 [btn_edit]: ./resource/btn_edit@2x.png
 
