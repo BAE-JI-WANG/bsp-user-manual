@@ -126,10 +126,10 @@ gulp.task('copy:image',function () {
 gulp.task('convert:md2html',function () {
     return gulp.src(path.source.root + '/' + source_path + '/**/*.md')
         .pipe(pandoc({
-            // from:'markdown+hard_line_breaks+grid_tables-pipe_tables-simple_tables-multiline_tables+link_attributes',           // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
+            // from:'markdown+hard_line_breaks+grid_tables-pipe_tables-simple_tables-multiline_tables+link_attributes+table_captions',           // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
 
             // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
-            from:'markdown+hard_line_breaks+link_attributes+raw_html',
+            from:'markdown+hard_line_breaks+link_attributes+raw_html'table,
             to : 'html5',
             ext : '.html',
             args : ['--standalone','--toc','--template=./source/_resource/template/master_web.html','--toc-depth=6','--tab-stop=4']
