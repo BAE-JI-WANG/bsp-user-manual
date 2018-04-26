@@ -244,7 +244,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 알림 전송 시 응답자를 상위 관리자로 확대하여 전송할 때 사용하는 기능입니다. 수신할 때마다 최초 응답자 및 이전 단계의 응답자가 모두 포함됩니다.
 
-7.  ‘+ 규칙 추가하기’를 눌러 규칙을 추가한 다음 *전 단계 응답자 포함* 체크 박스를 활성화합니다.
+7.  ‘+ 규칙 추가하기’를 눌러 규칙을 추가한 다음 *전 단계 응답자 포함* 체크박스를 활성화합니다.
 ![][escalation_set_previous_responder]
 
 #### 최종 알림 설정하기     {#set-final-notice}
@@ -340,7 +340,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
     ![][service_urgency]
 
 4.  인시던트 긴급도의 기본 규칙을 선택합니다. (매우 높음/높음/보통/낮음/매우 낮음 중 선택)
-5.  **사용자 설정 조건 추가** 체크 박스를 활성화하면 설정 시 기본 규칙보다 우선적으로 적용됩니다.
+5.  **사용자 설정 조건 추가** 체크박스를 활성화하면 설정 시 기본 규칙보다 우선적으로 적용됩니다.
     ![][service_user_condifion_add]
                         
     +-------------------------------------------+------------------------------------------------------------------------------------------------------------------+
@@ -394,7 +394,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 5.  *에스컬레이션 기본 규칙*에서는 에스컬레이션 메뉴에서 생성한 에스컬레이션을 선택할 수 있습니다.
 
-6.  *사용자 설정 조건 추가* 체크 박스를 활성화하면 설정 시 기본 규칙보다 우선적으로 적용됩니다.
+6.  *사용자 설정 조건 추가* 체크박스를 활성화하면 설정 시 기본 규칙보다 우선적으로 적용됩니다.
 
 7.  조건을 선택하고, 비교값을 입력하고, 그에 따른 에스컬레이션 규칙을 선택합니다.
 
@@ -463,7 +463,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 ![][integration_make_select_service]
 
 6.  기본 서비스 규칙을 선택합니다.
-7.  *사용자 설정 조건 추가* 체크 박스를 활성화하여 조건 항목(Alert Summary, Alert Metric Name)을 설정합니다. 설정 시 기본 규칙보다 우선적으로 적용됩니다.
+7.  *사용자 설정 조건 추가* 체크박스를 활성화하여 조건 항목(Alert Summary, Alert Metric Name)을 설정합니다. 설정 시 기본 규칙보다 우선적으로 적용됩니다.
 8.  이름을 입력하고 서비스 생성 또는 선택 후 \[저장\] 버튼을 클릭하면 아래와 같이 표시됩니다.
     ![][integration_make_done]
 9.  URL의 경우 SNS (Simple Notification Service)와 AlertNow를 연결하기 위한 SNS Webhook URL 정보를 복사하십시오.
