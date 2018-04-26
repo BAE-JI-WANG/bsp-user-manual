@@ -7,14 +7,16 @@ multiLang:
     - en : true 
     - zh : true 
 ...
-<!-- 이 윗줄은 문서 파싱에 꼭 필요하므로 삭제하지 말아주세요! -->
 
 <!-- TOC -->
 
 
 
+
 # Asset Management
 현재 운영 중인 Multi Cloud, Hybrid Infra 환경에 대한 자원 현황과 이력을 확인할 수 있습니다. Asset Management 서비스는 5개의 메뉴를 제공합니다.
+
+--------------------------------------------------------------------------------
 
 
 
@@ -45,6 +47,7 @@ On-demand 항목과 Auto Scalling Instance의 숫자를 구분해 확인할 수 
 
 
 ### Server
+
 사용 중인 Server 들의 Usage, Performance 정보를 트렌드 차트로 확인할 수 있습니다.
 
 1.  Server/Usage - Total Instance : 최근 7일간의 Server 사용 수량과 이전 주의 Server 사용 수량을 트렌드 차트로 제공합니다.
@@ -74,6 +77,8 @@ On-demand 항목과 Auto Scalling Instance의 숫자를 구분해 확인할 수 
 2.  Network/Usage : 최근 7일간의 Network 자원들의 사용 수량과 이전 주의 Network 자원들의 사용 수량을 트렌드 차트로 제공합니다. 트렌드 차트 하단에 세부 자원들의 목록과 수량이 표시되며, 각 자원을 선택해 트렌드 차트를 확인할 수 있습니다.
 
 
+
+--------------------------------------------------------------------------------
 
 
 
@@ -116,7 +121,7 @@ Vendor 별 자원 사용 현황과 사용 이력을 확인할 수 있습니다.
 >	Asset Management > *Usage*
 
 
-### Current
+### 현재 보기 
 
 >	Asset Management > Usage > *현재 보기*
 
@@ -142,7 +147,7 @@ Azure의 아래 자원들에 대한 자원 사용 현황을 확인할 수 있습
 
 
 
-### History
+### 이력보기 
 
 >	Asset Management > Usage > *이력 보기*
 
@@ -295,7 +300,7 @@ Azure의 아래 자원들에 대한 Performance 현황을 확인할 수 있습�
 
 
 
-### 2. History
+### History
 
 >	Asset Management > Performance > *이력 보기*
 
@@ -338,6 +343,9 @@ Intelligent Search 기능은 Usage 메뉴와 Performance 메뉴에서 사용할 
 
 Duration과 검색 조건을 선택 후 [Apply] 버튼을 클릭하면 선택한 기간, 조건의 검색 결과가 표시됩니다.
 
+
+
+--------------------------------------------------------------------------------
 
 
 
@@ -464,7 +472,7 @@ Report subscription에서는 리포트 구독을 생성하거나 수정 또는 �
 
 
 
-#### 구독내역
+### 구독내역
 
 >	Asset Management > *Report Subscription > <em>구독내역*
 
@@ -483,7 +491,7 @@ Report subscription에서는 리포트 구독을 생성하거나 수정 또는 �
     ![][asset_subscribe_history_list]
 
 
-#### 등록된 수신인
+### 등록된 수신인
 
 >	Asset Management > *Report Subscription > <em>등록된 수신인*
 
@@ -546,4 +554,3 @@ Report subscription에서는 리포트 구독을 생성하거나 수정 또는 �
 [asset_subscribe_recipient_list]: ./resource/asset_subscribe_recipient_list.png
 [asset_subscribe_recipient_list_add_popup]: ./resource/asset_subscribe_recipient_list_add_popup.png
 [asset_subscribe_recipient_list_edit_popup]: ./resource/asset_subscribe_recipient_list_edit_popup.png 
-
