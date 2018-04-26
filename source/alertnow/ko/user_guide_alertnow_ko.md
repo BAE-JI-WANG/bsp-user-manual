@@ -1758,7 +1758,7 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
             <th class="center">인티그레이션</th>
             <th class="center">서비스</th>
             <th class="center">인시던트</th>
-            <th class="center">경고</th>
+            <th class="center">익스텐션</th>
             <th class="center">에스컬레이션</th>
         </tr>
     </thead>
