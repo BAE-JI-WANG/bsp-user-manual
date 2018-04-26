@@ -577,12 +577,12 @@ Use Case for Service creation is shown below.
 | Case                            |  Description
 +=================================+================================================================================================+
 | Use Case 1)                     |  Click [Create Service] button at the top right of the Service menu.
-| Create from “Service” menu      |  <button class="demo black">Create service</button>
+| Create from “Service” menu      |  <span class="demo black button">Create service</span>
 |                                 |  Create the service.
 |                                 |  In this case, you can create it with the Service Name and Escalation rules settings
 +---------------------------------+------------------------------------------------------------------------------------------------+
 | Use Case 2)                     | Click [Create Integration] button at the top right of the Integration menu
-| Create at Integration Creation  | <button class="demo black">Create integration</button>
+| Create at Integration Creation  | <span class="demo black button">Create integration</span>
 | on "Integration" menu           |
 |                                 | Select the service. 
 |                                 | 
@@ -668,7 +668,7 @@ Use Case for Service creation is shown below.
     ![][service_case2_02]
 
 3.  Step 3: Select AWS Cloud Watch
-    Click \[Add New Integration\] button.
+    Click \[Add a New Integration\] button.
     ![][service_case2_03]
 
 4.  Step 4: Set Integration
@@ -744,7 +744,7 @@ Use Case for Escalation Policy creation is shown below.
 | Create from “Escalations” menu             | Create the Escalation Policy.
 +--------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 | Use Case 2)                                | For creating “Service”, "Default Escalation Rule" is created if there are no existing escalation rules.
-| Generate Default Escalation Rule           | <button class="demo black">Create Escalation</button>
+| Generate Default Escalation Rule           | <span class="demo black button">Create Escalation</span>
 | at “Service” creation                      |
 +--------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 | Use Case 3)                                | When creating “Service” and “Integration” simultaneously,
@@ -767,13 +767,15 @@ Use Case for Escalation Policy creation is shown below.
 
 3.  Step 3: Establish Escalation Policy
     ![][escalation_case1_03]
+
     The input items for the Escalation settings are shown below.
 
 +------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
 |Item	                 | Description	                                                                                       |Remark
 +========================+=====================================================================================================+===============================+
 |Name	                 | Customer can set Escalation Policy Name.	                                                           |Required
-|                        | Description	Adds a description for the escalation.	                                               |Optional
++------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
+|Description             | Adds a description for the escalation.            	                                               |Optional
 +------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
 |Rule Settings           | If the Incident is not “acknowledged / closed” It will escalate to next step.                       |
 |                        |                                                                                                     |
@@ -794,7 +796,7 @@ Use Case for Escalation Policy creation is shown below.
 |Additional item settings| If no action is taken even when Escalation is escalated to action and additional escalation,        | Option setting item
 |                        | you can set the following options.                                                                  |
 |                        |                                                                                                     |
-|                        | -    If no one is acknowledged, repeat this policy (n) times.                                            |
+|                        | -    If no one is acknowledged, repeat this policy (n) times.                                       |
 |                        | \>    From step 1 to the last step, it is restarted (n) times.                                      |
 |                        | \>    The maximum number of (n) attempts is 9.                                                      |
 |                        |                                                                                                     |
