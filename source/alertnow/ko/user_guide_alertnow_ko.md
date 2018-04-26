@@ -84,7 +84,10 @@ AlertNow는 SaaS 기반의 서비스 인시던트 주기 관리 플랫폼이며,
 7.  인티그레이션: 3rd party(외부) 모니터링 툴에서 발생하는 알림을 AlertNow에 연결하는 엔드포인트입니다.
 
 
-![][alertnow_map_hexagon]
+
+--------------------------------------------------------------------------------
+
+
 
 ##	AlertNow 빠른 시작 가이드       {#alertnow-quick-starter-guide}
 
@@ -1676,6 +1679,8 @@ Slack에 가입이 안되어 있는 경우, Slack에 우선 가입해야 합니�
 
 
 
+--------------------------------------------------------------------------------
+
 
 
 
@@ -1814,14 +1819,14 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
             <td rowspan="3"  style="background-color:#f8a7a8; text-align: center; vertical-align:middle;">접근 권한 없음</td>
             <td style="text-align: center;"></td>
             <td style="text-align: center;">√</td>
-            <td style="text-align: center;">√</td>
+            <td style="text-align: center;"></td>
             <td style="text-align: center;"></td>
         </tr>
         <tr class="even">
             <td class="center">삭제</td>
             <td style="text-align: center;"></td>
             <td style="text-align: center;">√</td>
-            <td style="text-align: center;">√</td>
+            <td style="text-align: center;"></td>
             <td style="text-align: center;"></td>
         </tr>
         <tr class="odd">
@@ -2020,7 +2025,6 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 [aws_subscribe_confirm_after]: ./resource/aws_subscribe_confirm_after.png
 [aws_make_subscribe]: ./resource/aws_create_subscription.png
 
-[alertnow_map_hexagon]: ./resource/alertnow_map_hexagon.png
 
 [aws_select_ec2_service]: ./resource/aws_select_ec2_service.png
 [aws_instance_list]: ./resource/aws_instance_list.png
