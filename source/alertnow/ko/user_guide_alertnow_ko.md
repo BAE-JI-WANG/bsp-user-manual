@@ -193,7 +193,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
     | 다음 경우 항상  | 임계치를 설정합니다.            | 입력 항목
     +-----------------+---------------------------------+--------------+
 
-###	생성된 인시던트 확인하기    {#check-created-incident}
+####	생성된 인시던트 확인하기    {#check-created-incident}
 
 생성된 인티그레이션을 AWS Cloudwatch와 연결하고 나면 AlertNow에 경고와 인시던트가 생성됩니다.
 
