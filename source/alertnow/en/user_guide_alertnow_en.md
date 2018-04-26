@@ -36,6 +36,7 @@ multiLang:
     - zh : false
 ...
 <!-- 이 윗줄은 문서 파싱에 꼭 필요하므로 삭제하지 말아주세요! -->
+<!-- TOC -->
 
 
 #   AlertNow
@@ -404,6 +405,55 @@ You can perform the following tasks on Incidents in the list.
         ![][incident_handling_11]
 
 
+
+#### Create an incident manually
+
+You can create an incident manually as below.
+
+1.  In Incident screen, click the [Create incident] button.
+2.  After clicking the button, incident creation popup will be shown as below.
+    ![][incident_manual_popup]
+
+    The input items for creating an incident are as below.
+        
+
+    +-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | Item        | Description                                              
+    +=============+======================================================================================================================================================================+
+    | Service     | Select a service created in the Service screen.              
+    +-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | Title       | Enter the incident title.                                    
+    +-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | Assignee    | If you point the mouse over the input field, a list  of assignees will be shown as a dropdown.
+    |             | You can select the assignee from  that list.  
+    |             | ※ If you designate yourself for an assignee  
+    |             |
+    |             | -   After creation, the incident status is  automatically set as “Acknowledge”, so escalation may not be made. 
+    |             |     (When  setting an escalation rule, if the incident status to close escalation in  Close condition is “Acknowledge”, escalation will not be made,  but if the  status is “Close”, escalation will be continued.)  
+    |             | -   In Personal Setting > Notification rules, the  notification will still not be sent even if the notification in **When an incident is assigned to me** is  set. 
+    +-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | Escalation  | **Default  escalation rule** 
+    |             |  When selecting, the default escalation rules set in  the service will be applied.  
+    |             |
+    |             |  **Select an  escalation rule** 
+    |             |  The user can select an escalation rule that has been  manually created. 
+    +-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | Urgency     | **Default  urgency rule** 
+    |             |  When selecting, the default urgency rule set in the  service will be applied.
+    |             |
+    |             |  **Select an  urgency** 
+    |             |  The user can manually select the urgency. (None/Highest/High/Medium/Low/Lowest) 
+    +-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | Description | Enter the description about an incident to be  created.      
+    +-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+3.  If you click [OK] button, incident will be created.
+4.  The created incident will be shown as below.
+    ![][incident_manual_screen]
+
+
+※ You cannot create an incident when there is no created service. You must create a service first in order to create an incident.
+![][incident_manual_alert]
 
 
 
@@ -1380,3 +1430,7 @@ You can set whether to send notifications and delivery method by the following s
 [personal_setting_01]: ./resource/bnr_personal_setting_01_en@2x.png
 [personal_setting_02]: ./resource/bnr_personal_setting_02_en@2x.png
 [personal_setting_03]: ./resource/bnr_personal_setting_03_en@2x.png
+
+[incident_manual_popup]: ./resource/incident_manual_popup.png
+[incident_manual_screen]: ./resource/incident_manual_screen.png
+[incident_manual_alert]: ./resource/incident_manual_alert.png
