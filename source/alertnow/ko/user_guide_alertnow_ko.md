@@ -2014,7 +2014,7 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 [personal_setting_03]: ./resource/bnr_personal_setting_03_ko@2x.png
 
 
-[alertnow_summary_image]: ./resource/alertnow_summary_image.png
+[alertnow_summary_image]: ./resource/alertnow_summary_image@2x.png
 
 [create_integration]: ./resource/create_integration.png
 [aws_dashboard]: ./resource/aws_dashboard.png
