@@ -247,9 +247,22 @@ article {
 
 
 // 서비스 CI 출력
-article.AlertNow > h1:first-child {
+article.alarm > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_alarm_black_40_40.png')
+}
+
+article.alertnow > h1:first-child {
     background-image:url('../image/ci_opsnow_service_alertnow_orange_40_40.png')
 }
+
+article.approval > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_approval_black_40_40.png')
+}
+
+article.asset > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_asset_black_40_40.png')
+}
+
 
 // 매뉴얼 아티클 타이틀
 article {

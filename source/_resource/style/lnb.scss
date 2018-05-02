@@ -102,8 +102,20 @@ main nav {
         }
 
         // 서비스별로 embed 할 이미지 추가함
+        &.alarm > ul > li > a:before {
+            background-image:url('../image/ci_opsnow_service_alarm_black_20_20.png');
+        }
+
         &.alertnow > ul > li > a:before {
             background-image:url('../image/ci_opsnow_service_alertnow_orange_20_20.png');
+        }
+
+        &.approval > ul > li > a:before {
+            background-image:url('../image/ci_opsnow_service_approval_black_20_20.png');
+        }
+
+        &.asset > ul > li > a:before {
+            background-image:url('../image/ci_opsnow_service_asset_black_20_20.png');
         }
 
         // depth 2
