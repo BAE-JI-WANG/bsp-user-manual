@@ -21,8 +21,6 @@ You can check the information about companies using the service platform.
 
 --------------------------------------------------------------------------------
 
-<!--
-
 
 ## CUSTOMER
 
