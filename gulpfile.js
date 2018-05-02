@@ -54,6 +54,7 @@ var path = {
 
 // 서비스명에 따라서 종착 디렉토리를 지정해줌
 // !!!! 이게 변경되면 되겠구나.
+// !!!! 삭제해야 될 애들입니다.
 var source_path,
     dist_path,
     lang_path,
@@ -68,28 +69,33 @@ var source_path,
 
 path.exec = (function (arg) {
     // arg의 종류는 각 서비스명이 된다.
-    var dist, service;
+    var dist, channel;
 
     if (!dist) {
         dist = path.devserver;
     }
 
     if (!!args.alertnow) {
-        service = '/alertnow';
-    } else if (!!args.its) {
-        return [
-            './.devserver/project/resource/',
-            './.devserver/alarm/resource/',
-            './.devserver/approval/resource/',
-            './.devserver/devops/resource/'
-        ];
+        channel = 'alertnow';
+    } else if (!!args.alarm) {
+        channel = 'alarm'
+    // } else if (!!args.its) {
+    //     [
+    //         './.devserver/project/resource/',
+    //         './.devserver/alarm/resource/',
+    //         './.devserver/approval/resource/',
+    //         './.devserver/devops/resource/'
+    //     ];
     }  
 
-    if (!service) {
+    if (!channel) {
         return null;
     }
    
-    return dist+service;
+    return {
+            dist: dist + '/' + channel
+        ,   channel : channel
+    }
 
 })(args);
 
@@ -143,7 +149,7 @@ gulp.task('clean:deploy',function () {
 gulp.task('convert:sass:sourcemap', function () {
 
     if (!path.exec) {
-        return path.error(true);
+        return path.error(true); 
     }
 
     return gulp.src(path.source.style + '/**/manual.scss')
@@ -158,7 +164,7 @@ gulp.task('convert:sass:sourcemap', function () {
         .pipe(sourcemaps.write('./'))
         // .pipe(gulp.dest(dist_path + '/' + source_path + '/resource'))
         // .pipe(gulp.dest(path.exec + '/resource'))
-        .pipe(gulp.dest(path.exec))
+        .pipe(gulp.dest(path.exec.dist + '/resource'))
         .pipe(livereload());
 });
 
@@ -177,24 +183,37 @@ gulp.task('convert:sass', function () {
 
 // js 파일 복사
 gulp.task('copy:js',function () {
+    if (!path.exec) {
+        return path.error(true); 
+    }
+
     return gulp.src(path.source.js + '/*.js')
-        .pipe(gulp.dest(dist_path + '/' +  source_path + '/resource'))
+        .pipe(gulp.dest(path.exec.dist + '/resource'))
         .pipe(livereload());
 });
 
 // 이미지 복사 :: 각 서비스 폴더
 gulp.task('copy:image',function () {
+
+    if (!path.exec) {
+        return path.error(true); 
+    }
+
     return gulp.src([
-            path.source.root + '/' +  source_path + '/**/*.{jpg,png}',
+            path.source.root + '/' +  path.exec.channel + '/**/*.{jpg,png}',
             '!**/_resource/**'
         ])
-        .pipe(gulp.dest(dist_path + '/' + source_path))
+        .pipe(gulp.dest(path.exec.dist))
         .pipe(livereload());
 });
 
 //markdown 파일 변환, 이미지 정보를 가공하는 곳이 있으므로 반드시 이미지 복사가 끝난 후에 처리가 되어야 한다.
 gulp.task('convert:md2html',function () {
-    return gulp.src(path.source.root + '/' + source_path + '/**/*.md')
+    if (!path.exec) { 
+        return path.error(true); 
+    }
+
+    return gulp.src(path.source.root + '/' + path.exec.channel  + '/**/*.md')
         .pipe(pandoc({
             // from:'markdown+hard_line_breaks+grid_tables-pipe_tables-simple_tables-multiline_tables+link_attributes+table_captions',           // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
 
@@ -227,7 +246,7 @@ gulp.task('convert:md2html',function () {
             return '<img src="' + p1 + '" width="' + _width + '" '+ (!!alt ? alt : ' ') + ' />';
         })) 
         .pipe(removeHtmlComment())      //코멘트 제거
-        .pipe(gulp.dest(dist_path + '/' +  source_path))
+        .pipe(gulp.dest(path.exec.dist))
         .pipe(livereload());
 });
 
@@ -250,21 +269,23 @@ gulp.task('copy:image:min', function() {
 
 gulp.task('local',function (){
 
-    args.dist = path.devserver;
-    
-    console.log(path.exec)
-
     if (!path.exec) {
-        return path.error(true);
-    } else {
-        // !!!! 이렇게 되면... arg를 받아 처리했을때 특정 instance 하나만 true로 바꾸면 되는거 같은데...
-        runSequence('clean:devserver','copy:image','convert:sass:sourcemap','convert:md2html','copy:js',['connect','watch']);
-        console.log('간간히 브랜치에 있는 이미지들 수동으로 minify 돌려서 푸시해 주세요. 배포시간이 줄어듭니다. :)');
+        path.error(true);
+        return;
     }
+
+    // !!!! 이렇게 되면... arg를 받아 처리했을때 특정 instance 하나만 true로 바꾸면 되는거 같은데...
+    console.log('간간히 브랜치에 있는 이미지들 수동으로 minify 돌려서 푸시해 주세요. 배포시간이 줄어듭니다. :)');
+    runSequence('clean:devserver','copy:image','convert:sass:sourcemap','convert:md2html','copy:js',['connect','watch']);
 });
 
 // 배포모드 구동
 gulp.task('deploy',function () {
+
+    if (!path.exec) {
+        path.error(true);
+        return;
+    }
 
     if (!!args.alertnow) {
         source_path = 'alertnow';
