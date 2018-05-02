@@ -22,11 +22,12 @@ var gulp              = require('gulp')
     vinyl             = require('vinyl'),                      // 디버그 용도
     pipecallback      = require('gulp-callback')               // 디버그 용도
 ;
-var pdf = require('gulp-pandoc-pdf');
 
+var pdf = require('gulp-pandoc-pdf');
 
 // 경로 설정
 var path = {
+    // 고정 경로들
     source : {
         root : './source',
         style : './source/_resource/style',
@@ -35,7 +36,15 @@ var path = {
     },
     devserver : './.devserver',
     deploy : './deploy',
-    pdf : './pdf'
+    pdf : './pdf',
+    
+    // arg로 받아서 실행해야되는 경로를 일컫는다.
+    exec : null,
+    error : function (isTrue) {
+        if (!!isTrue && typeof isTrue === 'boolean') {
+            return console.log('arguments로 서비스명을 넣어주세요. 자세한 안내는 gulp help를 참조바랍니다.');
+        }
+    }
 
     //  디렉토리 예약어
     // .devserver
@@ -44,7 +53,55 @@ var path = {
 };
 
 // 서비스명에 따라서 종착 디렉토리를 지정해줌
-var source_path,dist_path,lang_path,locations;
+// !!!! 이게 변경되면 되겠구나.
+var source_path,
+    dist_path,
+    lang_path,
+    locations
+;
+
+// argument를 선처리한다.
+// 아규먼트를 받아서 선처리 해야될 정보.
+// source와 path
+// path.exec.lang       // 이건 왜 붙여놨지?
+// path.exec.resource
+
+path.exec = (function (arg) {
+    // arg의 종류는 각 서비스명이 된다.
+    var dist, service;
+
+    console.log(dist);
+    if (!dist) {
+        dist = path.devserver;
+    }
+
+    if (!!args.alertnow) {
+        service = '/alertnow';
+    } else if (!!args.its) {
+        return [
+            './.devserver/project/resource/',
+            './.devserver/alarm/resource/',
+            './.devserver/approval/resource/',
+            './.devserver/devops/resource/'
+        ];
+    }
+
+
+    return dist+service;
+})(args);
+
+
+
+// 이렇게 처리를 하면 각각 태스크에서는 path.exec가 있는지 여부만 체크해서 서빙하면 된다.
+
+
+
+
+
+// --------------------------------------------------------------------------------
+// taskrunning 설정
+// --------------------------------------------------------------------------------
+
 
 // 개발용 서버 설정
 gulp.task('connect', function() {
@@ -58,6 +115,7 @@ gulp.task('connect', function() {
 
 
 // 파일 변경 감지 :: 로컬 개발 전용
+// 여기는 별도로 손댈거는 없어 보이고...
 gulp.task('watch', function(callback) {
     livereload.listen();
     gulp.watch(path.source.js+'/*.js',['copy:js'],callback);
@@ -66,6 +124,7 @@ gulp.task('watch', function(callback) {
     gulp.watch(path.source.root+'/**/*.png', ['copy:image','convert:md2html'],callback);
     gulp.watch(path.source.root+'/**/*.md', ['convert:md2html']);
 });
+
 
 // 빌드전 청소
 gulp.task('clean:devserver',function () {
@@ -78,6 +137,12 @@ gulp.task('clean:deploy',function () {
 
 // 스타일시트 변환
 gulp.task('convert:sass:sourcemap', function () {
+    console.log (!!path.exec);
+
+    if (!path.exec) {
+        return path.error(true);
+    }
+
     return gulp.src(path.source.style + '/**/manual.scss')
         .pipe(sourcemaps.init()) 					//sass-sourcemap 추가
         .pipe(sass())
@@ -88,7 +153,9 @@ gulp.task('convert:sass:sourcemap', function () {
         }))
         .pipe(base64())         // 이미지를 인라인화 하자
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(dist_path + '/' + source_path + '/resource'))
+        // .pipe(gulp.dest(dist_path + '/' + source_path + '/resource'))
+        // .pipe(gulp.dest(path.exec + '/resource'))
+        .pipe(gulp.dest(path.exec))
         .pipe(livereload());
 });
 
@@ -180,14 +247,23 @@ gulp.task('copy:image:min', function() {
 
 gulp.task('local',function (){
 
-    if (!!args.alertnow) {
-        source_path = 'alertnow';
-        dist_path = path.devserver;
-    } else {
-        console.log('\n\nhelp를 참조하셔서 명령어를 잘 넣어 주세요 :)\n\n');
-        return;
-    }
+    args.dist = path.devserver;
 
+    if (path.exec) {
+        return path.error;
+    }
+    // if (!!args.alertnow) {
+    //     // arg 받아서 주소처리할때는 주소를 완성해서 던져야 되는구나...
+    //     dist_path = path.devserver;
+    //     source_path = 'alertnow';
+    // } else if (!!args.its) {
+    //     // source_path = [']
+    // } else {
+    //     console.log('\n\nhelp를 참조하셔서 명령어를 잘 넣어 주세요 :)\n\n');
+    //     return;
+    // }
+
+    // !!!! 이렇게 되면... arg를 받아 처리했을때 특정 instance 하나만 true로 바꾸면 되는거 같은데...
     runSequence('clean:devserver','copy:image','convert:sass:sourcemap','convert:md2html','copy:js',['connect','watch']);
     console.log('간간히 브랜치에 있는 이미지들 수동으로 minify 돌려서 푸시해 주세요. 배포시간이 줄어듭니다. :)');
 });
@@ -327,6 +403,9 @@ opsnow 서비스의 도움말을 자동으로 빌드하는 flow입니다.
 아래와 같은 명령어를 가집니다.
 
 $ gulp [task] --arg
+       pdf    --서비스명
+       local
+       deploy
 
 예시)
 $ gulp local  --alertnow
@@ -334,17 +413,18 @@ $ gulp local  --alertnow
 task의 종류
     local:자신의 PC에서 처리된 사용자 도움말을 확인할때 사용합니다.
     deploy:서비스하고 있는 서버에 반영할 파일을 얻습니다.
-    pdf(예정): pdf로 아웃풋을 내보낼 수 있습니다.(기능 준비중)
+    pdf: pdf로 아웃풋을 내보낼 수 있습니다.
 
 arg의 종류
     자신의 컴퓨터에서 확인하거나 혹은 배포용 파일들을 얻기 위한 서비스명을 적어주시면 됩니다.
     현재 가능한 서비스 목록은 아래와 같습니다.
 
-    --aleetnow
+    --alertnow
 
 사용예)
 $ gulp local --alertnow    // 로컬에서 alertnow의 사용자 도움말을 확인합니다. http://localhost:7080에서 기동됩니다.
 $ gulp deploy --alertnow   // 개발/검증/운영서버에 반영될 alertnow 도움말 파일 산출물을 얻을 수 있습니다.
+$ gulp pdf --alertnow      // alertnow의 도움말을 pdf로 만듭니다.
 
 
 보다 자세한 설명은 아래 주소의 문서를 읽어주세요.
