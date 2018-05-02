@@ -77,10 +77,14 @@ path.exec = (function (arg) {
         dist = path.devserver;
     }
 
-    if (!!args.alertnow) {
-        channel = 'alertnow';
-    } else if (!!args.alarm) {
+    if (!!args.alarm) {
         channel = 'alarm';
+    } else if (!!args.alertnow) {
+        channel = 'alertnow';
+    } else if (!!args.approval) {
+        channel = 'approval';
+    } else if (!!args.asset) {
+        channel = 'asset';
     } else if (!!args.project) {
         channel = 'project';
     // } else if (!!args.its) {
@@ -340,65 +344,65 @@ gulp.task('local',function (){
 // 배포모드 구동
 gulp.task('deploy',function () {
 
-    if (!path.exec) {
-        path.error(true);
-        return;
-    }
+//     if (!path.exec) {
+//         path.error(true);
+//         return;
+//     }
 
-    if (!!args.alertnow) {
-        source_path = 'alertnow';
-        dist_path = path.deploy;
-    } else {
-        console.log('\n\nhelp를 참조하셔서 명령어를 잘 넣어 주세요 :)\n\n');
-        return;
-    }
+//     if (!!args.alertnow) {
+//         source_path = 'alertnow';
+//         dist_path = path.deploy;
+//     } else {
+//         console.log('\n\nhelp를 참조하셔서 명령어를 잘 넣어 주세요 :)\n\n');
+//         return;
+//     }
 
 
-	runSequence(['clean:devserver','clean:deploy'],'copy:image:min','convert:sass','convert:md2html','copy:js');
+// 	runSequence(['clean:devserver','clean:deploy'],'copy:image:min','convert:sass','convert:md2html','copy:js');
 })
 
 
 gulp.task('pdf',function () {
-    console.log(args.lang);
-    if ((args.lang !=='ko' && args.lang !== 'en' && args.lang !== 'zh') || !args.alertnow) {
-        console.log(`
-PDF는 언어셋 별로 만들어집니다.
-아래처럼 명령어를 입력해주세요.
+    // console.log(args.lang);
+    // if ((args.lang !=='ko' && args.lang !== 'en' && args.lang !== 'zh') || !args.alertnow) {
+    //     console.log(`
+// PDF는 언어셋 별로 만들어집니다.
+// 아래처럼 명령어를 입력해주세요.
 
-> gulp pdf --서비스명 --언어=ko|zh|en
+// > gulp pdf --서비스명 --언어=ko|zh|en
 
-예)
-> gulp pdf --alertnow --lang=ko
+// 예)
+// > gulp pdf --alertnow --lang=ko
 
-help를 참조하셔서 명령어를 잘 넣어 주세요 :)
+// help를 참조하셔서 명령어를 잘 넣어 주세요 :)
 
-            `);
-        return;
+    //         `);
+    //     return;
 
-    }
-    if (!!args.alertnow) {
-        source_path = 'alertnow';
-        dist_path = path.pdf;
-        lang_path = args.lang
-    } 
+    // }
+    // if (!!args.alertnow) {
+    //     source_path = 'alertnow';
+    //     dist_path = path.pdf;
+    //     lang_path = args.lang
+    // } 
 
-	runSequence(['clean:devserver','clean:pdf'],'convert:scss:pdf','convert:md2pdf');
+	// runSequence(['clean:devserver','clean:pdf'],'convert:scss:pdf','convert:md2pdf');
 });
 
 gulp.task('pdf:dev',function () {
-    console.log('pdf 미리보기 시간 걸리니까 편의상 빨리빨리 프리뷰 하라고 만들어 놨습니다.');
+    // console.log('pdf 미리보기 시간 걸리니까 편의상 빨리빨리 프리뷰 하라고 만들어 놨습니다.');
 
-    if ((args.lang !=='ko' && args.lang !== 'en' && args.lang !== 'zh') || !args.alertnow) {
-        return console.log('arguments 없는거 아니냐?');
-    }
+    // if ((args.lang !=='ko' && args.lang !== 'en' && args.lang !== 'zh') || !args.alertnow) {
+    //     return console.log('arguments 없는거 아니냐?');
+    // }
 
-    if (!!args.alertnow) {
-        source_path = 'alertnow';
-        dist_path = path.pdf;
-        lang_path = args.lang;
-    } 
+    // if (!!args.alertnow) {
+    //     source_path = 'alertnow';
+    //     dist_path = path.pdf;
+    //     lang_path = args.lang;
+    // } 
 
-	runSequence(['clean:devserver','clean:pdf'],'convert:scss:pdf','convert:md2pdf',['watch:pdf']);
+	// runSequence(['clean:devserver','clean:pdf'],'convert:scss:pdf','convert:md2pdf',['watch:pdf']);
 });
 
 
