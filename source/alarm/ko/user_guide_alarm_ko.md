@@ -1,4 +1,15 @@
-<!-- TOC --> 
+---
+title   : Alarm
+service : alarm
+ko : true
+...
+
+
+
+
+<!-- TOC -->
+
+
 
 
 #	Alarm
@@ -255,3 +266,4 @@ Alarm App을 통해 서비스 운영 중 발생한 장애에 대응하는 방법
 [alarm_1_30]: ./resource/bnr_guide_alarm_1_30.png
 [alarm_1_31]: ./resource/bnr_guide_alarm_1_31.png
 [alarm_1_32]: ./resource/bnr_guide_alarm_1_32.png
+

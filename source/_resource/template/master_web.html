@@ -26,31 +26,6 @@ $if(toc)$
 
             <div class="utils select language">
             <!-- @@insert :: multi language link -->
-            $if(en)$
-                <span>English</span>
-            $endif$
-            $for(multiLang)$
-                $if(multiLang.en)$
-                    <a href="../en/user_guide_$service$_en.html">English</a>
-                $endif$
-            $endfor$
-            $if(ko)$
-                <span>한국어</span>
-            $endif$
-            $for(multiLang)$
-                $if(multiLang.ko)$
-                    <a href="../ko/user_guide_$service$_ko.html">한국어</a>
-                $endif$
-            $endfor$
-            $if(zh)$
-                <span>简体中文</span>
-            $endif$
-
-            $for(multiLang)$
-                $if(multiLang.zh)$
-                    <a href="../zh/user_guide_$service$_zh.html">简体中文</a>
-                $endif$
-            $endfor$
             </div>
         </header>
 

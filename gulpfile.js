@@ -14,6 +14,8 @@ var gulp              = require('gulp')
     base64            = require('gulp-base64'),
 	sourcemaps        = require('gulp-sourcemaps'),            // 개발용 소스맵 처리
     args              = require('yargs').argv,
+    fs                = require('fs'),
+    filelist          = require('stats-filelist'),
 
     makePdf           = require('gulp-html-pdf'),
     styleInject       = require("gulp-style-inject"),
@@ -78,7 +80,9 @@ path.exec = (function (arg) {
     if (!!args.alertnow) {
         channel = 'alertnow';
     } else if (!!args.alarm) {
-        channel = 'alarm'
+        channel = 'alarm';
+    } else if (!!args.project) {
+        channel = 'project';
     // } else if (!!args.its) {
     //     [
     //         './.devserver/project/resource/',
@@ -215,8 +219,6 @@ gulp.task('convert:md2html',function () {
 
     return gulp.src(path.source.root + '/' + path.exec.channel  + '/**/*.md')
         .pipe(pandoc({
-            // from:'markdown+hard_line_breaks+grid_tables-pipe_tables-simple_tables-multiline_tables+link_attributes+table_captions',           // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
-
             // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
             from:'markdown+hard_line_breaks+link_attributes+raw_html+table_captions',
             to : 'html5',
@@ -227,8 +229,6 @@ gulp.task('convert:md2html',function () {
         .pipe(replace(/<img src="(.+?)".+?>/gi,function (matchString,p1) {
             var is2x = Boolean(p1.match(/@2x/gi));
             var lang = (function (string) {
-                // 여기에서 string은 gulp-vinyl에서 얻어온 이름입니다. 대개 태스크에서 prototype.src로 넘어오는 경로입죠.
-                // 항상 다국어 폴더를 끼고 오도록 되어있으니 다국어 폴더 자체를 반환한다. cross os전략.
                 if (/(ko|en|zh)/gi.test(string)) {
                     return string.replace(/[\w]+.(html|md)/gi,'');
                 }
@@ -240,11 +240,69 @@ gulp.task('convert:md2html',function () {
 
             var alt = matchString.match(/alt=["'].+?["']/gi);
 
-            // 이제 이미지의 넓이와 크기를 구해올 시간입니다.
-            // !!!! 이미지의 높이는 당분간 배제하고 넓이만 가지고 처리하는 방법으로 처리(ratio 때문에 ㅜㅜ)
-            // return '<img src="' + p1 + '" width="' + _width + '" height="' + _height + '" ' + (!!alt ? alt : ' ') + ' />';
+            // 이제 이미지의 넓이를 구해올 시간입니다.
             return '<img src="' + p1 + '" width="' + _width + '" '+ (!!alt ? alt : ' ') + ' />';
         })) 
+        // 다국어 도움말 링크
+        .pipe(replace(/<!-- @@insert :: multi language link -->/gi,function () {
+
+
+            var lang = (function (string) {
+                if (/(ko|en|zh)/gi.test(string)) {
+                    return string.replace(/[\w]+\.(html|md)/gi,'');
+                }
+            })(this.file.relative);
+
+
+            // 언어는 늘 3개국어입니다.
+            // ko en zh :: 규칙이죠?
+            // 파일이 있고, 현재 파일과 같을 경우?
+
+            var markdownFileList = {
+                origin : this.file.history[0],
+                lang : (function (fileBase) {
+                    var _list = filelist.getSync(fileBase, /\.md$/i);
+                    var _array = [];
+                    var result = {};
+                    
+                    for (var i = 0; i < _list.length; i++) {
+                        _array.push(_list[i].fullPath);
+                    } 
+
+                    for (var i = 0; i < _array.length; i++) {
+                        if (/ko/.test(_array[i])) {
+                            result.ko = _array[i];
+                        } else if (/en/.test(_array[i])) {
+                            result.en = _array[i];
+                        } else if (/zh/.test(_array[i])) {
+                            result.zh = _array[i];
+                        }
+                    }
+                    return result;
+
+                })(this.file.base)
+            }
+
+            // 이제 dom을 만들어서 작성해야 된다.
+            // 파일 리스트 형식은 영문/국문/중문 차례다.
+
+            var dom = '';
+
+            if (!!markdownFileList.lang.en) {
+                dom += (markdownFileList.origin === markdownFileList.lang.en) ? '<span>English</span>' : '<a href="../en/user_guide_' + path.exec.channel + '_en.html">English</a>';
+            } 
+
+            if (!!markdownFileList.lang.ko) {
+                dom += (markdownFileList.origin === markdownFileList.lang.ko) ? '<span>한국어</span>' : '<a href="../ko/user_guide_' + path.exec.channel + '_ko.html">한국어</a>';
+            } 
+
+            if (!!markdownFileList.lang.zh) {
+                dom += (markdownFileList.origin === markdownFileList.lang.zh) ? '<span>简体中文</span>' : '<a href="../zh/user_guide_' + path.exec.channel + '_zh.html">简体中文</a>';
+            } 
+
+            return dom;
+
+        }))
         .pipe(removeHtmlComment())      //코멘트 제거
         .pipe(gulp.dest(path.exec.dist))
         .pipe(livereload());

@@ -1,39 +1,7 @@
-<!--
-    YAML template for 도움말
-
-    service : 
-    서비스명을 적어줍니다. 파일명 등에 쓰입니다. 전부 소문자로 작성합니다.
-
-    title   : 
-    페이지 제목을 적어줍니다. h1 등의 타이틀 엘리먼트에 사용됩니다.
-
-    en : true
-    작성하는 문서가 영문 문서일 경우 `en:true`로 기술합니다.
-
-    ko : true 
-    작성하는 문서가 한글 문서일 경우 `ko:true`로 기술합니다.
-
-    zh : true
-    작성하는 문서가 중문 문서일 경우 `zh:true`로 기술합니다.
-
-    multiLang:
-    다국어 문서의 링크 생성을 위해 기술합니다.
-    기본적으로 ko/en/zh의 세가지 유형을 가집니다.
-
-    참고사항으로 현재 기술하고 있는 문서는 반드시 반대로 설정하시거나 삭제하셔야 합니다.
-    예) en : true
-        multiLang:
-            - en : false
--->
-
 ---
-service : alertnow
 title   : AlertNow
-ko : true
-multiLang: 
-    - ko : false
-    - en : true 
-    - zh : false
+service : alertnow
+en : true
 ...
 
 <!-- TOC -->

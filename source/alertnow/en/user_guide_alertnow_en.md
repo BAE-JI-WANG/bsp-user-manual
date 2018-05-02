@@ -16,26 +16,15 @@
     zh : true
     작성하는 문서가 중문 문서일 경우 `zh:true`로 기술합니다.
 
-    multiLang:
-    다국어 문서의 링크 생성을 위해 기술합니다.
-    기본적으로 ko/en/zh의 세가지 유형을 가집니다.
-
-    참고사항으로 현재 기술하고 있는 문서는 반드시 반대로 설정하시거나 삭제하셔야 합니다.
-    예) en : true
-        multiLang:
-            - en : false
 -->
 
 ---
-service : alertnow
 title   : AlertNow
+service : alertnow
 en : true
-multiLang: 
-    - ko : true
-    - en : false
-    - zh : false
 ...
-<!-- 이 윗줄은 문서 파싱에 꼭 필요하므로 삭제하지 말아주세요! -->
+
+
 <!-- TOC -->
 
 
