@@ -1,10 +1,17 @@
+---
+title   : Approval
+service : approval
+en : true
+...
+
 <!-- TOC -->
+
 
 #	Approval
 
-Provides features to deal with approvals required in various issues.You can not only make a draft of a document but also make report to and conduct approval process. Also, you can check approval history and make an announcement related to an approval in the past.
-
-**Managing Approval and Approval History***
+Provides features to deal with approvals required in various issues.
+You can not only make a draft of a document but also make report to and conduct approval process.
+Also, you can check approval history and make an announcement related to an approval in the past.
 Following is how to manage approval and approval history with Approval Service.
 
 --------------------------------------------------------------------------------
