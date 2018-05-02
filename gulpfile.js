@@ -70,7 +70,6 @@ path.exec = (function (arg) {
     // arg의 종류는 각 서비스명이 된다.
     var dist, service;
 
-    console.log(dist);
     if (!dist) {
         dist = path.devserver;
     }
@@ -84,11 +83,16 @@ path.exec = (function (arg) {
             './.devserver/approval/resource/',
             './.devserver/devops/resource/'
         ];
+    }  
+
+    if (!service) {
+        return null;
     }
-
-
+   
     return dist+service;
+
 })(args);
+
 
 
 
@@ -137,7 +141,6 @@ gulp.task('clean:deploy',function () {
 
 // 스타일시트 변환
 gulp.task('convert:sass:sourcemap', function () {
-    console.log (!!path.exec);
 
     if (!path.exec) {
         return path.error(true);
@@ -246,24 +249,16 @@ gulp.task('copy:image:min', function() {
 gulp.task('local',function (){
 
     args.dist = path.devserver;
+    
+    console.log(path.exec)
 
-    if (path.exec) {
-        return path.error;
+    if (!path.exec) {
+        return path.error(true);
+    } else {
+        // !!!! 이렇게 되면... arg를 받아 처리했을때 특정 instance 하나만 true로 바꾸면 되는거 같은데...
+        runSequence('clean:devserver','copy:image','convert:sass:sourcemap','convert:md2html','copy:js',['connect','watch']);
+        console.log('간간히 브랜치에 있는 이미지들 수동으로 minify 돌려서 푸시해 주세요. 배포시간이 줄어듭니다. :)');
     }
-    // if (!!args.alertnow) {
-    //     // arg 받아서 주소처리할때는 주소를 완성해서 던져야 되는구나...
-    //     dist_path = path.devserver;
-    //     source_path = 'alertnow';
-    // } else if (!!args.its) {
-    //     // source_path = [']
-    // } else {
-    //     console.log('\n\nhelp를 참조하셔서 명령어를 잘 넣어 주세요 :)\n\n');
-    //     return;
-    // }
-
-    // !!!! 이렇게 되면... arg를 받아 처리했을때 특정 instance 하나만 true로 바꾸면 되는거 같은데...
-    runSequence('clean:devserver','copy:image','convert:sass:sourcemap','convert:md2html','copy:js',['connect','watch']);
-    console.log('간간히 브랜치에 있는 이미지들 수동으로 minify 돌려서 푸시해 주세요. 배포시간이 줄어듭니다. :)');
 });
 
 // 배포모드 구동
