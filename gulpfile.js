@@ -243,11 +243,13 @@ gulp.task('convert:md2html',function () {
             var is2x = Boolean(p1.match(/@2x/gi));
             var lang = (function (string) {
                 if (/(ko|en|zh)/gi.test(string)) {
-                    return string.replace(/[\w]+.(html|md)/gi,'');
+                    return string.replace(/[\w-]+.(html|md)/gi,'');
                 }
             })(this.file.relative);
 
+            console.log(this.file.base,lang);
             var _path = p1.replace('./',this.file.base+lang);
+            console.log(_path);
             var _width = !!is2x ? Math.round(imageSize(_path).width/2) : imageSize(_path).width;
             // var _height = !!is2x ? Math.round(imageSize(_path).height/2) : imageSize(_path).height;
 
