@@ -1,5 +1,5 @@
 ---
-service : sr
+service : service-request
 title   : Service Request
 ko : true
 multiLang:

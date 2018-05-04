@@ -2,12 +2,7 @@
 service : metering 
 title   : Metering 
 ko : true
-multiLang: 
-    - ko : false
-    - en : true 
-    - zh : true 
 ...
-<!-- 이 윗줄은 문서 파싱에 꼭 필요하므로 삭제하지 말아주세요! -->
 
 <!-- TOC -->
 
@@ -676,7 +671,6 @@ Metering 서비스를 사용하며 Report subscription 메뉴에 대한 수정 �
         -	Metering Report는 Excel 형태의 리포트를 제공하며, Billing 메뉴에서 내보내기 한 청구서 리포트의 경우에는 Excel, PDF 형식을 지원합니다.
         -	언어 선택 시 발송되는 이메일 Template의 언어를 지정하며, 중국어와 한국어 그리고 영어를 제공합니다.
         -	구독은 리포트 유형에 따라서 최대 5개를 생성 할 수 있습니다.
-            <!-- ![][metering_subscribe_ko_1_2] -->
 
     2.  새로운 구독 생성 2단계
         -	구독 주기와 발송 시간을 선택합니다.
@@ -685,33 +679,27 @@ Metering 서비스를 사용하며 Report subscription 메뉴에 대한 수정 �
         -	매일 구독 리포트를 받기를 원하는 경우 일간 탭에서 시간을 선택합니다.
         -	매주 리포트를 받기를 원하는 경우 주간 탭에서 시간과 요일을 선택합니다.
         -	매월 리포트를 받기를 원하는 경우 월간 탭에서 일자와 시간을 선택합니다.
-            <!-- ![][metering_subscribe_ko_1_3] -->
 
 
     3.  새로운 구독 생성3단계
         -   3단계에서는 수신인을 지정 할 수 있습니다.
             수신인 리스트는 두가지가 존재하는데 Service Portal에 권한이 있는 회사에 소속된 유저 목록과 수동으로 등록한 ‘등록된 수신인’  유저 목록으로 나뉘어 있습니다.
         -   수신인은 최대 10명까지 지정됩니다.
-            <!-- ![][metering_subscribe_ko_1_4] -->
 
     4.  새로운 구독 생성 4단계
         -	마지막 단계에서는 기본 구독명이 생성되며 구독명을 수정 할 수 있습니다.
         -	설정한 정보를 확인하고 수정하고자 하는 정보가 있는 경우 이전 버튼을 이용하여 수정합니다.
-            <!-- ![][metering_subscribe_ko_1_5] -->
 
 2.  구독 수정
     생성된 구독을 수정이 필요 한 경우 구독리스트에서 아래 그림의 수정 버튼을 클릭하면 수정 팝업을 이용합니다.
     수정 팝업에서는 현재 선택된 구독의 정보를 표시하며 원하는 구독 정보를 선택한 뒤 수정 버튼을 통해 수정을 완료하거나 취소하여 수정 사항을 되돌릴 수 있습니다.
 
-    ![][metering_subscribe_ko_1_6]
-    ![][metering_subscribe_ko_1_7]
 
 
 3.  구독 삭제
     더 이상 구독을 원하지 않는 경우 \[X\] 버튼을 클릭하여 구독 삭제를 진행합니다.
     -	구독 삭제 전에 한번더 삭제 여부를 확인하며 ‘삭제’ 버튼을 클릭하면 삭제가 완료됩니다.
     -	삭제 된 구독의 발송 이력은 발송 된 건이 존재하면 구독 내역에서 확인 할 수 있습니다.
-        ![][metering_subscribe_ko_1_8]
 
 
 
@@ -809,70 +797,10 @@ Metering 서비스를 사용하며 Report subscription 메뉴에 대한 수정 �
 [metering_subscribe_ko_1_3]: ./resource/metering_subscribe_ko_1_3.png
 [metering_subscribe_ko_1_4]: ./resource/metering_subscribe_ko_1_4.png
 [metering_subscribe_ko_1_5]: ./resource/metering_subscribe_ko_1_5.png
-[metering_subscribe_ko_1_6]: ./resource/metering_subscribe_ko_1_6.png
-[metering_subscribe_ko_1_7]: ./resource/metering_subscribe_ko_1_7.png
 [metering_subscribe_delete]: ./resource/metering_subscribe_delete.png
-[metering_subscribe_ko_1_8]: ./resource/metering_subscribe_ko_1_8.png
 [metering_subscribe_ko_2_1]: ./resource/metering_subscribe_ko_2_1.png
 [metering_subscribe_ko_2_2]: ./resource/metering_subscribe_ko_2_2.png
 [metering_subscribe_ko_3_1]: ./resource/metering_subscribe_ko_3_1.png
 [metering_subscribe_ko_3_2]: ./resource/metering_subscribe_ko_3_2.png
 [metering_subscribe_delete_black]: ./resource/metering_subscribe_delete_black.png
 [metering_subscribe_ko_3_3]: ./resource/metering_subscribe_ko_3_3.png
-[metering_dashboard_1]: ./resource/metering_dashboard_1.png
-[metering_dashboard_1_1]: ./resource/metering_dashboard_1_1.png
-[metering_dashboard_1_2]: ./resource/metering_dashboard_1_2.png
-[metering_dashboard_1_3]: ./resource/metering_dashboard_1_3.png
-[metering_dashboard_1_4_1]: ./resource/metering_dashboard_1_4_1.png
-[metering_dashboard_1_4_2]: ./resource/metering_dashboard_1_4_2.png
-[metering_dashboard_1_5]: ./resource/metering_dashboard_1_5.png
-[metering_dashboard_1_6]: ./resource/metering_dashboard_1_6.png
-[metering_dashboard_1_7]: ./resource/metering_dashboard_1_7.png
-[metering_billing_analytics_1]: ./resource/metering_billing_analytics_1.png 
-[metering_billing_analytics_2]: ./resource/metering_billing_analytics_2.png
-[metering_billing_analytics_1_1]: ./resource/metering_billing_analytics_1_1.png
-[metering_billing_analytics_1_2]: ./resource/metering_billing_analytics_1_2.png
-[metering_billing_analytics_1_3]: ./resource/metering_billing_analytics_1_3.png
-[metering_billing_analytics_1_4]: ./resource/metering_billing_analytics_1_4.png
-[metering_billing_analytics_2_1]: ./resource/metering_billing_analytics_2_1.png
-[metering_billing_analytics_2_2]: ./resource/metering_billing_analytics_2_2.png
-[metering_billing_1]: ./resource/metering_billing_1.png
-[metering_billing_1_1]: ./resource/metering_billing_1_1.png
-[metering_billing_1_2]: ./resource/metering_billing_1_2.png
-[metering_billing_2_1]: ./resource/metering_billing_2_1.png
-[metering_billing_2_2]: ./resource/metering_billing_2_2.png
-[metering_cdn_1_1]: ./resource/metering_cdn_1_1.png
-[metering_cdn_1_2]: ./resource/metering_cdn_1_2.png
-[metering_cdn_1_3]: ./resource/metering_cdn_1_3.png
-[metering_budgeting_1]: ./resource/metering_budgeting_1.png
-[metering_budgeting_3]: ./resource/metering_budgeting_3.png
-[metering_budgeting_1]: ./resource/metering_budgeting_1.png
-[metering_budgeting_2]: ./resource/metering_budgeting_2.png
-[metering_budgeting_3]: ./resource/metering_budgeting_3.png
-[metering_budgeting_4]: ./resource/metering_budgeting_4.png
-[metering_cost_2]: ./resource/metering_cost_2.png
-[metering_cost_3]: ./resource/metering_cost_3.png
-[metering_cost_4]: ./resource/metering_cost_4.png
-[metering_ri_status]: ./resource/metering_ri_status.png
-[metering_Payment_1]: ./resource/metering_Payment_1.png
-[metering_Payment_2]: ./resource/metering_Payment_2.png
-[metering_Payment_3]: ./resource/metering_Payment_3.png
-[metering_report_subscribe_ko_0_1]: ./resource/metering_report_subscribe_ko_0_1.png
-[metering_report_subscribe_ko_1_1]: ./resource/metering_report_subscribe_ko_1_1.png
-[metering_report_subscribe_en_1_2]: ./resource/metering_report_subscribe_en_1_2.png
-[metering_report_subscribe_en_1_3]: ./resource/metering_report_subscribe_en_1_3.png
-[metering_subscribe_ko_1_1]: ./resource/metering_subscribe_ko_1_1.png
-[metering_subscribe_ko_1_2]: ./resource/metering_subscribe_ko_1_2.png
-[metering_subscribe_ko_1_3]: ./resource/metering_subscribe_ko_1_3.png
-[metering_subscribe_ko_1_4]: ./resource/metering_subscribe_ko_1_4.png
-[metering_subscribe_ko_1_5]: ./resource/metering_subscribe_ko_1_5.png
-[metering_subscribe_ko_1_6]: ./resource/metering_subscribe_ko_1_6.png
-[metering_subscribe_ko_1_7]: ./resource/metering_subscribe_ko_1_7.png
-[metering_subscribe_delete]: ./resource/metering_subscribe_delete.png
-[metering_subscribe_ko_1_8]: ./resource/metering_subscribe_ko_1_8.png
-[metering_subscribe_ko_2_1]: ./resource/metering_subscribe_ko_2_1.png
-[metering_subscribe_ko_2_2]: ./resource/metering_subscribe_ko_2_2.png
-[metering_subscribe_ko_3_1]: ./resource/metering_subscribe_ko_3_1.png
-[metering_subscribe_ko_3_2]: ./resource/metering_subscribe_ko_3_2.png
-[metering_subscribe_ko_3_3]: ./resource/metering_subscribe_ko_3_3.png
-

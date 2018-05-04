@@ -2,17 +2,9 @@
 service : metering 
 title   : Metering 
 zh : true
-multiLang: 
-    - ko : true 
-    - en : true 
-    - zh : false 
 ...
-<!-- 이 윗줄은 문서 파싱에 꼭 필요하므로 삭제하지 말아주세요! -->
 
 <!-- TOC -->
-
-
-
 
 
 # Metering
@@ -326,32 +318,26 @@ multiLang:
         -	如果您想每日收到订阅报告，请在每日选项上选择时间。
         -	如果您想每周收到订阅报告，请在每周选项上选择日期和时间。
         -	如果您想每月收到订阅报告，请在每月选项上选择日期和时间。
-            ![][metering_subscribe_zh_1_3]
 
     3.  新建订阅步骤3
         -	在步骤3中，您可以指定收件人。共有两种类型的收件人列表，分为拥有服务门户访问权限的企业用户列表，和手动注册的“注册收件人”用户列表。
         -	您最多可以设置10个收件人。
-            ![][metering_subscribe_zh_1_4]
 
     4.  新建订阅步骤4
         -	在最后一步中，您可以编辑已创建的默认订阅名称。
         -	检查信息设置，如果您需要重新编辑信息，点击上一步按钮进行编辑。
-            ![][metering_subscribe_zh_1_5]
 
 2.  编辑订阅
     如果您需要编辑已创建的订阅，点击订阅列表图标下方的编辑按钮使用编辑弹窗进行编辑。
-    编辑弹窗显示当前选中的订阅信息。您可以选择需要的订阅信息并点击编辑按钮完成编辑，或取消编辑撤回修改。<img src="./resource/metering_subscribe_edit.png" alt="">)
+    编辑弹窗显示当前选中的订阅信息。您可以选择需要的订阅信息并点击编辑按钮完成编辑，或取消编辑撤回修改。
 
-    ![][metering_subscribe_zh_1_6] 
-    ![][metering_subscribe_zh_1_7]
 
 3. 删除订阅
-    -	如果您不再需要订阅，请点击下图中的“X”(<img src="./resource/metering_subscribe_delete.png" alt="">)按钮删除订阅。
+    -	如果您不再需要订阅，请点击下图中的“X”按钮删除订阅。
     -	在删除订阅之前，请检查您是否要再次删除它。 点击“删除”按钮完成删除。
     -	如果已经发送，您可以从历史记录选项卡中检查已删除订阅的发送历史记录
     -	在您删除订阅之前，再次确认是否删除订阅。点击“删除”按钮完成删除。
     -	您可以在历史选项中查看已删除的订阅发送记录。
-        ![][metering_subscribe_zh_1_8]
 
 
 
@@ -384,7 +370,6 @@ multiLang:
 
 您可以直接注册电子邮件指定该用户为订阅收件人。注册时需要输入[电子邮箱]、 [名称]和[详细说明] 项目。
 
-![][metering_subscribe_zh_3_1]
 
 
 -	名称: 显示已注册的收件人名称。
@@ -437,18 +422,8 @@ multiLang:
 [metering_report_subscribe_zh_1_2]: ./resource/metering_report_subscribe_zh_1_2.png
 [metering_report_subscribe_zh_1_3]: ./resource/metering_report_subscribe_zh_1_3.png
 [metering_subscribe_zh_1_1]: ./resource/metering_subscribe_zh_1_1.png
-[metering_subscribe_zh_1_2]: ./resource/metering_subscribe_zh_1_2.png
-[metering_subscribe_zh_1_3]: ./resource/metering_subscribe_zh_1_3.png
-[metering_subscribe_zh_1_4]: ./resource/metering_subscribe_zh_1_4.png
-[metering_subscribe_zh_1_5]: ./resource/metering_subscribe_zh_1_5.png
-[metering_subscribe_edit]: ./resource/metering_subscribe_edit.png
-[metering_subscribe_zh_1_6]: ./resource/metering_subscribe_zh_1_6.png
-[metering_subscribe_zh_1_7]: ./resource/metering_subscribe_zh_1_7.png
-[metering_subscribe_delete]: ./resource/metering_subscribe_delete.png
-[metering_subscribe_zh_1_8]: ./resource/metering_subscribe_zh_1_8.png
 [metering_subscribe_zh_2_1]: ./resource/metering_subscribe_zh_2_1.png
 [metering_subscribe_zh_2_2]: ./resource/metering_subscribe_zh_2_2.png
-[metering_subscribe_zh_3_1]: ./resource/metering_subscribe_zh_3_1.png
 [metering_subscribe_zh_3_2]: ./resource/metering_subscribe_zh_3_2.png
 [metering_subscribe_zh_3_3]: ./resource/metering_subscribe_zh_3_3.png 
 

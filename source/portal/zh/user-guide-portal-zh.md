@@ -2,10 +2,6 @@
 service : portal
 title   : Service Portal
 zh : true
-multiLang:
-    - ko : true 
-    - en : true
-    - zh : false
 ...
 
 <!-- TOC -->

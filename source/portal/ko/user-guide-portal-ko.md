@@ -1,11 +1,7 @@
 ---
-service : alertnow
-title   : AlertNow
+service : portal 
+title   : Service Portal
 ko : true
-multiLang:
-    - ko : false
-    - en : true
-    - zh : false
 ...
 
 <!-- TOC -->

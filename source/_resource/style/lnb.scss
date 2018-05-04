@@ -95,7 +95,7 @@ main nav {
                     height: 20px;
                     background-position:center center;
                     background-repeat:no-repeat;
-                    background-size: 20px;
+                    background-size: cover;
                     transform:scale(1.2);
                 }
             }
@@ -103,32 +103,49 @@ main nav {
 
         // 서비스별로 embed 할 이미지 추가함
         &.alarm > ul > li > a:before {
-            background-image:url('../image/ci_opsnow_service_alarm_black_20_20.png');
+            background-image:url('../image/ci_opsnow_service_alarm.png');
         }
 
         &.alertnow > ul > li > a:before {
-            background-image:url('../image/ci_opsnow_service_alertnow_orange_20_20.png');
+            background-image:url('../image/ci_opsnow_service_alertnow.png');
         }
 
         &.approval > ul > li > a:before {
-            background-image:url('../image/ci_opsnow_service_approval_black_20_20.png');
+            background-image:url('../image/ci_opsnow_service_approval.png');
         }
 
         &.asset > ul > li > a:before {
-            background-image:url('../image/ci_opsnow_service_asset_black_20_20.png');
+            background-image:url('../image/ci_opsnow_service_asset.png');
         }
 
         &.dbqcs > ul > li > a:before {
-            background-image:url('../image/ci_opsnow_service_dbqcs_black_20_20.png');
+            background-image:url('../image/ci_opsnow_service_dbqcs.png');
         }
 
         &.devops > ul > li > a:before {
-            background-image:url('../image/ci_opsnow_service_devops_black_20_20.png');
+            background-image:url('../image/ci_opsnow_service_devops.png');
         }
 
         &.metering > ul > li > a:before,
         &.meteringadmin > ul > li > a:before {
-            background-image:url('../image/ci_opsnow_service_metering_black_20_20.png');
+            background-image:url('../image/ci_opsnow_service_metering.png');
+        }
+
+        &.monitoring-dashboard > ul > li > a:before {
+            background-image:url('../image/ci_opsnow_service_monitoring_dashboard.png');
+        }
+
+        &.portal > ul > li > a:before,
+        &.portal-admin > ul > li > a:before {
+            background-image:url('../image/ci_opsnow_service_portal.png');
+        }
+
+        &.project > ul > li > a:before {
+            background-image:url('../image/ci_opsnow_service_project.png');
+        }
+
+        &.service-request > ul > li > a:before {
+            background-image:url('../image/ci_opsnow_service_request.png');
         }
 
         // depth 2

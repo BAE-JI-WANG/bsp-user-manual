@@ -2,10 +2,6 @@
 service : project 
 title   : Project
 ko : true
-multiLang: 
-    - ko : false
-    - en : true 
-    - zh : false
 ...
 
 
@@ -34,7 +30,7 @@ Project Service를 통한 프로젝트/팀 별 업무 관리 방법을 설명합
 
 2.  "Create Project" 화면에서 프로젝트, 팀 정보를 입력합니다.  
 
-    ![sdfsdfsdf](./resource/bnr_guide_project_1_2.png)
+    ![](./resource/bnr_guide_project_1_2.png)
 
     | No   | Name           | Required | Description                                                  |
     | ---- | -------------- | -------- | ------------------------------------------------------------ |

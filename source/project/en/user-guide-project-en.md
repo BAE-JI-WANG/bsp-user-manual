@@ -1,3 +1,9 @@
+---
+service : project 
+title   : Project
+en : true
+...
+
 <!-- TOC -->
 
 
@@ -5,8 +11,6 @@
 # Project
 
 You can register an issue for each project or team, and manage history of registered issues.
-
-**Managing Issue for Project/Team**
 Following is how to manage issues of each project or team with Project Service.
 
 --------------------------------------------------------------------------------

@@ -1,12 +1,7 @@
-
 ---
-service : admin
+service : portal-admin
 title   : Admin Service Portal
 en : true
-multiLang:
-    - ko : true
-    - en : false
-    - zh : true
 ...
 
 <!-- TOC -->

@@ -1,11 +1,7 @@
 ---
-service : md 
-title   : Monitering Dashboard 
+service : monitoring-dashboard 
+title   : Monitoring Dashboard 
 en : true
-multiLang: 
-    - ko : true 
-    - en : false 
-    - zh : false
 ...
 
 <!-- TOC -->

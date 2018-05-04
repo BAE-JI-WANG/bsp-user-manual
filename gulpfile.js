@@ -94,15 +94,20 @@ path.exec = (function (arg) {
         channel = 'project';
     } else if (!!args.devops) {
         channel = 'devops';
-    } else if (!!args.metering_admin) {
-        channel = 'metering_admin';
-    // } else if (!!args.its) {
-    //     [
-    //         './.devserver/project/resource/',
-    //         './.devserver/alarm/resource/',
-    //         './.devserver/approval/resource/',
-    //         './.devserver/devops/resource/'
-    //     ];
+    } else if (!!args['metering-admin']) {
+        channel = 'metering-admin';
+    } else if (!!args.metering) {
+        channel = 'metering';
+    } else if (!!args['monitoring-dashboard']) {
+        channel = 'monitoring-dashboard';
+    } else if (!!args['portal-admin']) {
+        channel = 'portal-admin';
+    } else if (!!args['portal']) {
+        channel = 'portal';
+    } else if (!!args['project']) {
+        channel = 'project';
+    } else if (!!args['service-request']) {
+        channel = 'service-request';
     }  
 
     if (!channel) {
@@ -145,11 +150,13 @@ gulp.task('connect', function() {
 // 여기는 별도로 손댈거는 없어 보이고...
 gulp.task('watch', function(callback) {
     livereload.listen();
-    gulp.watch(path.source.js+'/*.js',['copy:js'],callback);
-    gulp.watch(path.source.style+'/*.{scss,sass,css}',['convert:sass:sourcemap'],callback);
-    gulp.watch(path.source.template+'/**/*.html', ['convert:md2html'],callback);
-    gulp.watch(path.source.root+'/**/*.png', ['copy:image','convert:md2html'],callback);
-    gulp.watch(path.source.root+'/**/*.md', ['convert:md2html']);
+    return (function () {
+        gulp.watch(path.source.js+'/*.js',['copy:js'],callback);
+        gulp.watch(path.source.style+'/*.{scss,sass,css}',['convert:sass:sourcemap'],callback);
+        gulp.watch(path.source.template+'/**/*.html', ['convert:md2html'],callback);
+        gulp.watch(path.source.root+'/**/*.png', ['copy:image','convert:md2html'],callback);
+        gulp.watch(path.source.root+'/**/*.md', ['convert:md2html']);
+    })()
 });
 
 
@@ -247,9 +254,7 @@ gulp.task('convert:md2html',function () {
                 }
             })(this.file.relative);
 
-            console.log(this.file.base,lang);
             var _path = p1.replace('./',this.file.base+lang);
-            console.log(_path);
             var _width = !!is2x ? Math.round(imageSize(_path).width/2) : imageSize(_path).width;
             // var _height = !!is2x ? Math.round(imageSize(_path).height/2) : imageSize(_path).height;
 
@@ -304,15 +309,15 @@ gulp.task('convert:md2html',function () {
             var dom = '';
 
             if (!!markdownFileList.lang.en) {
-                dom += (markdownFileList.origin === markdownFileList.lang.en) ? '<span>English</span>' : '<a href="../en/user_guide_' + path.exec.channel + '_en.html">English</a>';
+                dom += (markdownFileList.origin === markdownFileList.lang.en) ? '<span>English</span>' : '<a href="../en/user-guide-' + path.exec.channel + '-en.html">English</a>';
             } 
 
             if (!!markdownFileList.lang.ko) {
-                dom += (markdownFileList.origin === markdownFileList.lang.ko) ? '<span>한국어</span>' : '<a href="../ko/user_guide_' + path.exec.channel + '_ko.html">한국어</a>';
+                dom += (markdownFileList.origin === markdownFileList.lang.ko) ? '<span>한국어</span>' : '<a href="../ko/user-guide-' + path.exec.channel + '-ko.html">한국어</a>';
             } 
 
             if (!!markdownFileList.lang.zh) {
-                dom += (markdownFileList.origin === markdownFileList.lang.zh) ? '<span>简体中文</span>' : '<a href="../zh/user_guide_' + path.exec.channel + '_zh.html">简体中文</a>';
+                dom += (markdownFileList.origin === markdownFileList.lang.zh) ? '<span>简体中文</span>' : '<a href="../zh/user-guide-' + path.exec.channel + '-zh.html">简体中文</a>';
             } 
 
             return dom;

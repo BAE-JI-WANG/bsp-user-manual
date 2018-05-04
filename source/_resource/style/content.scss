@@ -248,32 +248,49 @@ article {
 
 // 서비스 CI 출력
 article.alarm > h1:first-child {
-    background-image:url('../image/ci_opsnow_service_alarm_black_40_40.png')
+    background-image:url('../image/ci_opsnow_service_alarm.png')
 }
 
 article.alertnow > h1:first-child {
-    background-image:url('../image/ci_opsnow_service_alertnow_orange_40_40.png')
+    background-image:url('../image/ci_opsnow_service_alertnow.png')
 }
 
 article.approval > h1:first-child {
-    background-image:url('../image/ci_opsnow_service_approval_black_40_40.png')
+    background-image:url('../image/ci_opsnow_service_approval.png')
 }
 
 article.asset > h1:first-child {
-    background-image:url('../image/ci_opsnow_service_asset_black_40_40.png')
+    background-image:url('../image/ci_opsnow_service_asset.png')
 }
 
 article.dbqcs > h1:first-child {
-    background-image:url('../image/ci_opsnow_service_dbqcs_black_40_40.png')
+    background-image:url('../image/ci_opsnow_service_dbqcs.png')
 }
 
 article.devops > h1:first-child {
-    background-image:url('../image/ci_opsnow_service_devops_black_40_40.png')
+    background-image:url('../image/ci_opsnow_service_devops.png')
 }
 
 article.metering > h1:first-child,
 article.meteringadmin > h1:first-child {
-    background-image:url('../image/ci_opsnow_service_metering_black_40_40.png')
+    background-image:url('../image/ci_opsnow_service_metering.png')
+}
+
+article.monitoring-dashboard > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_monitoring_dashboard.png')
+}
+
+article.portal > h1:first-child,
+article.portal-admin > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_portal.png')
+}
+
+article.project > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_project.png')
+}
+
+article.service-request > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_request.png')
 }
 
 
@@ -299,7 +316,7 @@ article {
             font-size: rem(16);
             font-weight: 400;
             color: #999;
-            line-height: 1.25em;
+            line-height: 1.6em;
             padding-left:5px;
             margin-top:-40px;
         }

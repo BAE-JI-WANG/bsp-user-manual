@@ -1,7 +1,7 @@
 ---
 title   : AlertNow
 service : alertnow
-en : true
+ko : true
 ...
 
 <!-- TOC -->

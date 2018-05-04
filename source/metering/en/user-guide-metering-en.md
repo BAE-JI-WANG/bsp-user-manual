@@ -2,12 +2,7 @@
 service : metering 
 title   : Metering 
 en : true
-multiLang: 
-    - ko : true 
-    - en : false 
-    - zh : true 
 ...
-<!-- 이 윗줄은 문서 파싱에 꼭 필요하므로 삭제하지 말아주세요! -->
 
 <!-- TOC -->
 
@@ -579,7 +574,6 @@ In the subscription list, you can view subscription name, cycle, recipient infor
         -	Metering Report is provided in Excel format only, but exported Billing Report from Billing menu is provided in Excel and PDF Format and you can select the desired file format. 
         -	You can specify the language of the Email Template to be sent by selecting the language. Chinese, Korean, and English are provided. 
         -	Up to five subscriptions can be created depending on the report type. 
-            ![][metering_subscribe_en_1_2]
 
     2.  Create New Subscription Step 2
         -	Select the subscription cycle and send time.
@@ -588,31 +582,25 @@ In the subscription list, you can view subscription name, cycle, recipient infor
         -	If you want to receive daily subscription reports, select the time on the Daily tab.
         -	If you want to receive weekly reports, select the hour and day on the Weekly tab.
         -	If you want to receive monthly reports, select the date and time on the Monthly tab.
-            ![][metering_subscribe_en_1_3]
 
     3.  Create New Subscription Step 3
     -   In step 3, you can specify a recipient. There are two types of Recipient list.
         It is divided into the list of users belonging to the company that have permission to access Service Portal and the “Registered Recipient” user list registered manually.
     -   You can set up to 10 recipients.
-        ![][metering_subscribe_en_1_4]
 
     4.  Create New Subscription Step 4
         -	In the final step, the default Subscription name is created and you can edit it.
         -	Check the configured information and if there is information to edit, use the previous button to edit it.
-            ![][metering_subscribe_en_1_5]
 
 
 2. Edit Subscription
     If you need to edit the created subscription, click Edit button(![][metering_subscribe_edit]) in the image below from Subscription list to use the Edit popup.
     The Edit popup shows the information for the currently selected subscription. You can select the desired subscription information and click Edit button to complete or cancel the edit to undo the changes.
-    ![][metering_subscribe_en_1_6]
-    ![][metering_subscribe_en_1_7]
 
 3. Delete Subscription
-    -	If you no longer want to subscribe, click the “X” button(![][metering_subscribe_delete]) in the image below to proceed with the subscription deletion.
+    -	If you no longer want to subscribe, click the “X” button in the image below to proceed with the subscription deletion.
     -	Before you delete a subscription, check whether you want to delete it again. Click "Delete" button to complete the deletion.
     -	You can check the send history of deleted subscriptions from the History Tab if they have been sent.
-        ![][metering_subscribe_en_1_8]
 
 
 
@@ -665,7 +653,7 @@ You can manage the users who can be designated as a subscription recipient by re
 2.  Edit Recipient 
     Click ![][metering_subscribe_edit] icon in the list to edit the recipient information.
     You can edit [Name] and [Description], but [Email] cannot be modified.
-    If you need to edit [Email], delete the recipient information using ![][metering_subscribe_delete_black]button and register a new one.
+    If you need to edit [Email], delete the recipient information using button and register a new one.
     ![][metering_subscribe_en_3_3] 
 
 
@@ -718,19 +706,8 @@ You can manage the users who can be designated as a subscription recipient by re
 [metering_report_subscribe_en_1_2]:  ./resource/metering_report_subscribe_en_1_2.png
 [metering_report_subscribe_en_1_3]:  ./resource/metering_report_subscribe_en_1_3.png
 [metering_subscribe_en_1_1]:         ./resource/metering_subscribe_en_1_1.png
-[metering_subscribe_en_1_2]:         ./resource/metering_subscribe_en_1_2.png
-[metering_subscribe_en_1_3]:         ./resource/metering_subscribe_en_1_3.png
-[metering_subscribe_en_1_4]:         ./resource/metering_subscribe_en_1_4.png
-[metering_subscribe_en_1_5]:         ./resource/metering_subscribe_en_1_5.png
-[metering_subscribe_edit]:           ./resource/metering_subscribe_edit.png
-[metering_subscribe_en_1_6]:         ./resource/metering_subscribe_en_1_6.png
-[metering_subscribe_en_1_7]:         ./resource/metering_subscribe_en_1_7.png
-[metering_subscribe_delete]:         ./resource/metering_subscribe_delete.png
-[metering_subscribe_en_1_8]:         ./resource/metering_subscribe_en_1_8.png
 [metering_subscribe_en_2_1]:         ./resource/metering_subscribe_en_2_1.png
 [metering_subscribe_en_2_2]:         ./resource/metering_subscribe_en_2_2.png
 [metering_subscribe_en_3_1]:         ./resource/metering_subscribe_en_3_1.png
 [metering_subscribe_en_3_2]:         ./resource/metering_subscribe_en_3_2.png
-[metering_subscribe_edit]:           ./resource/metering_subscribe_edit.png
-[metering_subscribe_delete_black]:   ./resource/metering_subscribe_delete_black.png
 [metering_subscribe_en_3_3]:         ./resource/metering_subscribe_en_3_3.png 
