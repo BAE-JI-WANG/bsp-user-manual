@@ -2,10 +2,6 @@
 service : meteringadmin 
 title   : Metering Admin
 en : true
-multiLang: 
-    - ko : true 
-    - en : false 
-    - zh : true 
 ...
 
 

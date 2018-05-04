@@ -2,12 +2,9 @@
 service : meteringadmin 
 title   : Metering Admin
 ko : true
-multiLang: 
-    - ko : false 
-    - en : true 
-    - zh : true 
 ...
 
+<!-- TOC -->
 
 
 
@@ -528,10 +525,10 @@ Payer Account 정보를 관리합니다.
 [mtAdmin_customerbill_detail_2_6]: ./resource/mtAdmin_customerbill_detail_2_6.png
 
 [mtAdmin_exchangeRate_1]: ./resource/mtAdmin_exchangeRate_1.png
-[mtAdmin_exchangeRate_2_1]: ./resource/mtAdmin_exchangeRate_2_1] 
+[mtAdmin_exchangeRate_2_1]: ./resource/mtAdmin_exchangeRate_2_1.png
 [mtAdmin_exchangeRate_2_2]: ./resource/mtAdmin_exchangeRate_2_2.png
 [mtAdmin_exchangeRate_2_3]: ./resource/mtAdmin_exchangeRate_2_3.png
-[mtAdmin_exchangeRate_2_4]: ./resource/mtAdmin_exchangeRate_2_4] 
+[mtAdmin_exchangeRate_2_4]: ./resource/mtAdmin_exchangeRate_2_4.png
 [mtAdmin_exchangeRate_2_5]: ./resource/mtAdmin_exchangeRate_2_5.png
 
 [mtAdmin_customerInfo_1]: ./resource/mtAdmin_customerInfo_1.png

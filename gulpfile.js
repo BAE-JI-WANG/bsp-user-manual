@@ -72,6 +72,9 @@ var source_path,
 path.exec = (function (arg) {
     // arg의 종류는 각 서비스명이 된다.
     var dist, channel;
+    
+
+    console.log(arg)
 
     if (!dist) {
         dist = path.devserver;
@@ -85,8 +88,14 @@ path.exec = (function (arg) {
         channel = 'approval';
     } else if (!!args.asset) {
         channel = 'asset';
+    } else if (!!args.dbqcs) {
+        channel = 'dbqcs';
     } else if (!!args.project) {
         channel = 'project';
+    } else if (!!args.devops) {
+        channel = 'devops';
+    } else if (!!args.metering_admin) {
+        channel = 'metering_admin';
     // } else if (!!args.its) {
     //     [
     //         './.devserver/project/resource/',

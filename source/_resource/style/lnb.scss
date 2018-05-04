@@ -118,6 +118,19 @@ main nav {
             background-image:url('../image/ci_opsnow_service_asset_black_20_20.png');
         }
 
+        &.dbqcs > ul > li > a:before {
+            background-image:url('../image/ci_opsnow_service_dbqcs_black_20_20.png');
+        }
+
+        &.devops > ul > li > a:before {
+            background-image:url('../image/ci_opsnow_service_devops_black_20_20.png');
+        }
+
+        &.metering > ul > li > a:before,
+        &.meteringadmin > ul > li > a:before {
+            background-image:url('../image/ci_opsnow_service_metering_black_20_20.png');
+        }
+
         // depth 2
          > ul > li > ul {
 

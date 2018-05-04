@@ -1,11 +1,7 @@
 ---
 service : asset 
-title   : Asset 
+title   : Asset Management
 ko : true
-multiLang: 
-    - ko : false 
-    - en : true 
-    - zh : true 
 ...
 
 <!-- TOC -->
@@ -14,7 +10,8 @@ multiLang:
 
 
 # Asset Management
-현재 운영 중인 Multi Cloud, Hybrid Infra 환경에 대한 자원 현황과 이력을 확인할 수 있습니다. Asset Management 서비스는 5개의 메뉴를 제공합니다.
+
+현재 운영 중인 Multi Cloud, Hybrid Infra 환경에 대한 자원 현황과 이력을 확인할 수 있습니다.
 
 --------------------------------------------------------------------------------
 

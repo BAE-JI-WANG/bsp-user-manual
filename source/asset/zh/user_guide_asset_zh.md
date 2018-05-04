@@ -1,11 +1,7 @@
 ---
-service : alertnow
-title   : AlertNow
+service : asset 
+title   : Asset Management
 zh : true
-multiLang: 
-    - ko : true 
-    - en : true 
-    - zh : false
 ...
 
 <!-- TOC -->

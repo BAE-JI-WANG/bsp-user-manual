@@ -1,11 +1,7 @@
 ---
 service : asset 
-title   : Asset 
+title   : Asset Management
 en : true
-multiLang: 
-    - ko : true 
-    - en : false 
-    - zh : true 
 ...
 
 <!-- TOC -->
@@ -15,7 +11,7 @@ multiLang:
 
 # Asset Management
 
-You can check resource status and its history of operating Multi Cloud and Hybrid Infrastructure.Asset Management provides you five types of service.
+You can check resource status and its history of operating Multi Cloud and Hybrid Infrastructure.
 
 
 --------------------------------------------------------------------------------

@@ -1,3 +1,9 @@
+---
+service : dbqcs
+title   : DBQCS
+ko : true
+...
+
 <!-- TOC -->
 
 #	DBQCS
