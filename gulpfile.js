@@ -43,88 +43,100 @@ var path = {
     // arg로 받아서 실행해야되는 경로를 일컫는다.
     exec : null,
     error : function (isTrue) {
-        if (!!isTrue && typeof isTrue === 'boolean') {
+        if (!!isTrue && typeof isTrue === 'boolean' && !args.pdf) {
             return console.log('arguments로 서비스명을 넣어주세요. 자세한 안내는 gulp help를 참조바랍니다.');
+        } else {
+            return console.log(`
+
+PDF는 언어셋 별로 만들어집니다.
+아래처럼 명령어를 입력해주세요.
+
+> gulp pdf --서비스명 --언어=ko|zh|en
+
+예)
+> gulp pdf --alertnow --lang=ko
+
+help를 참조하셔서 명령어를 잘 넣어 주세요 :)
+
+            `);
         }
     }
 
     //  디렉토리 예약어
-    // .devserver
-    // deploy
-    // pdf
+    // .devserver :: 로컬 확인
+    // deploy :: 빌드 결과물
+    // pdf :: pdf 결과물
 };
-
-// 서비스명에 따라서 종착 디렉토리를 지정해줌
-// !!!! 이게 변경되면 되겠구나.
-// !!!! 삭제해야 될 애들입니다.
-var source_path,
-    dist_path,
-    lang_path,
-    locations
-;
-
-// argument를 선처리한다.
-// 아규먼트를 받아서 선처리 해야될 정보.
-// source와 path
-// path.exec.lang       // 이건 왜 붙여놨지?
-// path.exec.resource
 
 path.exec = (function (arg) {
     // arg의 종류는 각 서비스명이 된다.
-    var dist, channel;
-    
+    var dist, channel, lang;
 
-    console.log(arg)
-
-    if (!dist) {
+    if (arg._[0] === 'local') {
         dist = path.devserver;
+    } else if (arg._[0] === 'deploy') {
+        dist = path.deploy;
+    } else if (arg._[0] === 'pdf' || args._[0] === 'pdf:dev') {
+        if (!!arg.ko) {
+            lang = 'ko';
+        } else if (!!arg.en) {
+            lang = 'en';
+        } else if (!!arg.zh) {
+            lang = 'zh';
+        }
+        dist = path.pdf;
+    } else {
+        return console.log('local / deploy / pdf 세가지 명령만 받을 수 있습니다. gulp --help를 참조해주세요!');
     }
 
-    if (!!args.alarm) {
+    if (!!arg.alarm) {
         channel = 'alarm';
-    } else if (!!args.alertnow) {
+    } else if (!!arg.alertnow) {
         channel = 'alertnow';
-    } else if (!!args.approval) {
+    } else if (!!arg.approval) {
         channel = 'approval';
-    } else if (!!args.asset) {
+    } else if (!!arg.asset) {
         channel = 'asset';
-    } else if (!!args.dbqcs) {
+    } else if (!!arg.dbqcs) {
         channel = 'dbqcs';
-    } else if (!!args.project) {
+    } else if (!!arg.project) {
         channel = 'project';
-    } else if (!!args.devops) {
+    } else if (!!arg.devops) {
         channel = 'devops';
-    } else if (!!args['metering-admin']) {
+    } else if (!!arg['metering-admin']) {
         channel = 'metering-admin';
-    } else if (!!args.metering) {
+    } else if (!!arg.metering) {
         channel = 'metering';
-    } else if (!!args['monitoring-dashboard']) {
+    } else if (!!arg['monitoring-dashboard']) {
         channel = 'monitoring-dashboard';
-    } else if (!!args['portal-admin']) {
+    } else if (!!arg['portal-admin']) {
         channel = 'portal-admin';
-    } else if (!!args['portal']) {
+    } else if (!!arg['portal']) {
         channel = 'portal';
-    } else if (!!args['project']) {
+    } else if (!!arg['project']) {
         channel = 'project';
-    } else if (!!args['service-request']) {
+    } else if (!!arg['service-request']) {
         channel = 'service-request';
-    }  
+    } else if (!!arg.all) {
+        channel = '**'
+    }
 
     if (!channel) {
         return null;
     }
    
-    return {
+    var result = {
             dist: dist + '/' + channel
         ,   channel : channel
     }
 
+    if (!!arg.ko || !!arg.en || !!arg.zh) {
+        result.lang = lang;
+    } 
+
+    return result;
+
 })(args);
-
-
-
-
-// 이렇게 처리를 하면 각각 태스크에서는 path.exec가 있는지 여부만 체크해서 서빙하면 된다.
 
 
 
@@ -186,13 +198,15 @@ gulp.task('convert:sass:sourcemap', function () {
         }))
         .pipe(base64())         // 이미지를 인라인화 하자
         .pipe(sourcemaps.write('./'))
-        // .pipe(gulp.dest(dist_path + '/' + source_path + '/resource'))
-        // .pipe(gulp.dest(path.exec + '/resource'))
         .pipe(gulp.dest(path.exec.dist + '/resource'))
         .pipe(livereload());
 });
 
 gulp.task('convert:sass', function () {
+    if (!path.exec) {
+        return path.error(true);
+    }
+
     return gulp.src(path.source.style + '/**/manual.scss')
         .pipe(sass())
         .pipe(autoprefixer({
@@ -201,7 +215,7 @@ gulp.task('convert:sass', function () {
             flatten: false
         }))
         .pipe(base64())         // 이미지를 인라인화 하자
-        .pipe(gulp.dest(dist_path + '/' + source_path + '/resource'))
+        .pipe(gulp.dest(path.exec.dist + '/resource'))
         .pipe(livereload());
 });
 
@@ -224,7 +238,7 @@ gulp.task('copy:image',function () {
     }
 
     return gulp.src([
-            path.source.root + '/' +  path.exec.channel + '/**/*.{jpg,png}',
+            path.source.root + '/' +  path.exec.channel + '/**/*.{jpg,png,gif}',
             '!**/_resource/**'
         ])
         .pipe(gulp.dest(path.exec.dist))
@@ -340,9 +354,16 @@ gulp.task('copy:image:min', function() {
     console.log('/**                                                          **/');
     console.log('/**************************************************************/');
 
-    return gulp.src([path.source.root + '/' + source_path + '/**/*.{png,jpg,gif}','!**/_resource/**'])
+    if (!path.exec) {
+        return path.error(true);
+    }
+
+    return gulp.src([
+        path.source.root + '/' + path.exec.channel + '/**/*.{png,jpg,gif}',
+        '!**/_resource/**']
+    )
         .pipe(imagemin({verbose:true}))
-        .pipe(gulp.dest(dist_path + '/' + source_path));
+        .pipe(gulp.dest(path.exec.dist));
 });
 
 gulp.task('local',function (){
@@ -352,7 +373,6 @@ gulp.task('local',function (){
         return;
     }
 
-    // !!!! 이렇게 되면... arg를 받아 처리했을때 특정 instance 하나만 true로 바꾸면 되는거 같은데...
     console.log('간간히 브랜치에 있는 이미지들 수동으로 minify 돌려서 푸시해 주세요. 배포시간이 줄어듭니다. :)');
     runSequence('clean:devserver','copy:image','convert:sass:sourcemap','convert:md2html','copy:js',['connect','watch']);
 });
@@ -360,65 +380,34 @@ gulp.task('local',function (){
 // 배포모드 구동
 gulp.task('deploy',function () {
 
-//     if (!path.exec) {
-//         path.error(true);
-//         return;
-//     }
+    if (!path.exec) {
+        path.error(true);
+        return;
+    }
 
-//     if (!!args.alertnow) {
-//         source_path = 'alertnow';
-//         dist_path = path.deploy;
-//     } else {
-//         console.log('\n\nhelp를 참조하셔서 명령어를 잘 넣어 주세요 :)\n\n');
-//         return;
-//     }
-
-
-// 	runSequence(['clean:devserver','clean:deploy'],'copy:image:min','convert:sass','convert:md2html','copy:js');
+    console.log(`배포시간이 오래 걸린다면 imagemin으로 이미지 압축을 안 돌린거에요.
+        간간히 브랜치에 있는 이미지들 수동으로 imagemin 돌려서 푸시해 주세요. 배포시간이 줄어듭니다. :)`);
+	runSequence(['clean:devserver','clean:deploy'],'copy:image:min','convert:sass','convert:md2html','copy:js');
 })
 
 
 gulp.task('pdf',function () {
-    // console.log(args.lang);
-    // if ((args.lang !=='ko' && args.lang !== 'en' && args.lang !== 'zh') || !args.alertnow) {
-    //     console.log(`
-// PDF는 언어셋 별로 만들어집니다.
-// 아래처럼 명령어를 입력해주세요.
+    if (!path.exec) {
+        path.error(true);
+        return;
+    }
 
-// > gulp pdf --서비스명 --언어=ko|zh|en
-
-// 예)
-// > gulp pdf --alertnow --lang=ko
-
-// help를 참조하셔서 명령어를 잘 넣어 주세요 :)
-
-    //         `);
-    //     return;
-
-    // }
-    // if (!!args.alertnow) {
-    //     source_path = 'alertnow';
-    //     dist_path = path.pdf;
-    //     lang_path = args.lang
-    // } 
-
-	// runSequence(['clean:devserver','clean:pdf'],'convert:scss:pdf','convert:md2pdf');
+	runSequence(['clean:devserver','clean:pdf'],'convert:scss:pdf','convert:md2pdf');
 });
 
 gulp.task('pdf:dev',function () {
-    // console.log('pdf 미리보기 시간 걸리니까 편의상 빨리빨리 프리뷰 하라고 만들어 놨습니다.');
+    if (!path.exec) {
+        path.error(true);
+        return;
+    }
 
-    // if ((args.lang !=='ko' && args.lang !== 'en' && args.lang !== 'zh') || !args.alertnow) {
-    //     return console.log('arguments 없는거 아니냐?');
-    // }
-
-    // if (!!args.alertnow) {
-    //     source_path = 'alertnow';
-    //     dist_path = path.pdf;
-    //     lang_path = args.lang;
-    // } 
-
-	// runSequence(['clean:devserver','clean:pdf'],'convert:scss:pdf','convert:md2pdf',['watch:pdf']);
+    console.log('pdf 미리보기 시간 걸리니까 편의상 빨리빨리 프리뷰 하라고 만들어 놨습니다.');
+	runSequence(['clean:devserver','clean:pdf'],'convert:scss:pdf','convert:md2pdf',['watch:pdf']);
 });
 
 
@@ -442,19 +431,29 @@ gulp.task('clean:pdf',function () {
 
 // print.css
 gulp.task('convert:scss:pdf', function () {
+    if (!path.exec) {
+        return path.error(true);
+    }
+
     return gulp.src(path.source.style + '/pdf.scss')
         .pipe(sass())
-        .pipe(base64())         // 이미지를 인라인화 하자
-        .pipe(gulp.dest(path.devserver))
+        .pipe(base64())
+        .pipe(gulp.dest(path.devserver))    // 무조건 로컬 디렉토리 거쳐서 가야함. 팬텀에서 참조할 수 있도록
         .pipe(livereload());
 });
 
 // make pdf
 gulp.task('convert:md2pdf', function() {
-    return gulp.src(path.source.root + '/' + source_path + '/' + lang_path + '/*.md')
+    if (!path.exec) {
+        return path.error(true);
+    }
+
+    console.log(path.source.root,path.exec.channel,path.exec.lang);
+
+    return gulp.src(path.source.root + '/' + path.exec.channel + '/' + path.exec.lang + '/*.md')
     // 테이블 처리
         .pipe(pandoc({
-            from:'markdown+hard_line_breaks+grid_tables+link_attributes',           // 개행에서 실수할수도 있으니 CR마다 강제 개행을 처리한다.
+            from:'markdown+hard_line_breaks+link_attributes+raw_html+table_captions',
             to : 'html5',
             ext : '.html',
             args : ['--standalone','--toc','--template=./source/_resource/template/master_pdf.html','--toc-depth=1']
@@ -467,10 +466,9 @@ gulp.task('convert:md2pdf', function() {
                 // 여기에서 string은 gulp-vinyl에서 얻어온 이름입니다. 대개 태스크에서 prototype.src로 넘어오는 경로입죠.
                 // 항상 다국어 폴더를 끼고 오도록 되어있으니 다국어 폴더 자체를 반환한다. cross os전략.
                 if (/(ko|en|zh)/gi.test(string)) {
-                    return string.replace(/[\w]+.(html|md)/gi,'');
+                    return string.replace(/[\w-]+.(html|md)/gi,'');
                 }
             })(this.file.relative);
-
 
             var _path = p1.replace('./',this.file.base+lang);
             var _width = !!is2x ? Math.round(imageSize(_path).width/5) : Math.round(imageSize(_path).width/2.5); 
@@ -482,8 +480,11 @@ gulp.task('convert:md2pdf', function() {
             // 이제 이미지의 넓이와 크기를 구해올 시간입니다.
             return '<img src="file://' + _path + '" style="width:' + _width + 'px; height:' + _height + 'px;" />';
         })) 
-        .pipe(styleInject())    //스타일을 별개로 빼내기 어려우므로...
+        .pipe(styleInject())    // 스타일을 별개로 빼내기 어려우므로, html 파일에 뭉쳐둔다.
         .pipe(makePdf(pdfConfig))
+        .pipe(rename({          // pdf 파일의 아웃풋을 하나로 뭉쳐둔다.
+            dirname:'./'
+        }))
         .pipe(gulp.dest(path.pdf));
 });
 
@@ -516,9 +517,9 @@ arg의 종류
     --alertnow
 
 사용예)
-$ gulp local --alertnow    // 로컬에서 alertnow의 사용자 도움말을 확인합니다. http://localhost:7080에서 기동됩니다.
-$ gulp deploy --alertnow   // 개발/검증/운영서버에 반영될 alertnow 도움말 파일 산출물을 얻을 수 있습니다.
-$ gulp pdf --alertnow      // alertnow의 도움말을 pdf로 만듭니다.
+$ gulp local --alertnow      // 로컬에서 alertnow의 사용자 도움말을 확인합니다. http://localhost:7080에서 기동됩니다.
+$ gulp deploy --alertnow     // 개발/검증/운영서버에 반영될 alertnow 도움말 파일 산출물을 얻을 수 있습니다.
+$ gulp pdf --alertnow  --ko  // alertnow의 도움말을 pdf로 만듭니다. 언어 설정이 추가되어야 옵션에 맞는 언어로 pdf를 생성할 수 있습니다.
 
 
 보다 자세한 설명은 아래 주소의 문서를 읽어주세요.
