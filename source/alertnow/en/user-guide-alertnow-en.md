@@ -1,23 +1,3 @@
-<!--
-    YAML template for 도움말
-
-    service : 
-    서비스명을 적어줍니다. 파일명 등에 쓰입니다. 전부 소문자로 작성합니다.
-
-    title   : 
-    페이지 제목을 적어줍니다. h1 등의 타이틀 엘리먼트에 사용됩니다.
-
-    en : true
-    작성하는 문서가 영문 문서일 경우 `en:true`로 기술합니다.
-
-    ko : true 
-    작성하는 문서가 한글 문서일 경우 `ko:true`로 기술합니다.
-
-    zh : true
-    작성하는 문서가 중문 문서일 경우 `zh:true`로 기술합니다.
-
--->
-
 ---
 title   : AlertNow
 service : alertnow
@@ -25,31 +5,507 @@ en : true
 ...
 
 
-<!-- TOC -->
 
-
-#   AlertNow
+# AlertNow {#alertnow}
 
 You can check the service status, and manage the problem status and history of the alarm occurred in the service.
 
 --------------------------------------------------------------------------------
 
 
-## What is AlertNow?
+
+##	AlertNow Introduction {#alertnow-introduce}
+
+###	What is AlertNow? {#whats-alertnow}
+
+AlertNow is SaaS-based service incident lifecycle management platform. You can check each service status and manage the problem status and history of the alarm occurred in the service.
+
+The key features of AlertNow are as follows.
+
+![][alertnow_summary_image]
+
+1.  Unified Incident Management
+    -	Receives various alert information occurring in 3rd party monitoring tools.
+    -	Removes unnecessary duplicates according to customized rules and creates necessary incidents.
+2.  Effective Team Communication
+    -	Sends the alert information as incidents to the most right person at the right time.
+    -	Quickly spreads information via channels designated by user (SMS, phone, Slack etc).
+3.  Resolution Focused Escalation
+    -	Sets action and timeout as a rule and assigns a manager to handle the incidents step-by-step.
+    -	When an incident is not acknowledged or closed, it automatically escalates to the manager of the next step, which reduces MTTD (Mean-Time-To-Detect) and MTTR (Mean-Time-To-Restore).
+
+
+
+### AlertNow - Flow
+![][incident_flow]
+
+###	 AlertNow Key Terms (A-Z)
+
+1.  Alert: It is a raw data and the user cannot change or delete the data.
+2.  Escalation: Manages incidents by setting managers to handle step-by-step and action and timeout to be handled.
+3.  Extension: It is a feature to export specific data created in AlertNow via external tools or services.
+4.  Incident: When collecting alerts, it manages the status of the ticket created by incident policy.
+5.  Integration: It is an endpoint that connects notifications occurred in 3rd party monitoring tools to AlertNow.
+6.  Personal Setting: Provides personalized features about personal information and notification rules.
+7.  Service: It is a unit to manage incidents occurring in integration. It can be actual services or applications, and can be used freely for user’s convenience.
+
+
+
+--------------------------------------------------------------------------------
+
+
+
+##	AlertNow Quick Start Guide {#alertnow-quick-starter-guide}
+
+###	Getting Started {#start}
+
+Provides the brief information about mandatory steps when you first use AlertNow  service.
+
+#### Creating an integration {#create-incident}
+
+You can deliver and manage notifications by selecting tools or services in an integration list that are in use and setting an integration. This Start Guide only provides steps for creating an integration. For detailed information, please refer to [When syncing with other 3rd party monitoring services: Adding an integration](#add-integration-for-third-party-link).
+
+1.  Click \[Integrations\] menu. 
+    ![][service_case2_01]
+
+2.  Click  <span class="demo black button">Create integration</span> button.
+
+3.  Click \[Add a New Integration\] button to create an integration.
+    ![][escalation_case3_03]
+
+4.  Create integration screen will be displayed as below. If you enter the required information and press the [Save] button, integration will be created.
+    ![][create_integration]
+
+#### Connecting Integration in AWS Cloudwatch {#aws-alertnow-connect}
+
+To connect created integration in AWS Cloudwatch, you must first go to AWS  Console and create topic and subscription.
+
+AWS Simple Notification Service Reference link: <https://docs.aws.amazon.com/ko_kr/sns/latest/dg/welcome.html>
+
+
+##### SNS Dashboard {#sns-dashboard}
+
+1.  When logging into AWS, you will see the following screen. Enter ‘SNS’ in the search field to go to SNS Dashboard.
+    ![][aws_dashboard]
+
+2.  In SNS Dashboard, click *Create topic*.
+    ![][aws_make_topic]
+
+3.  Enter the topic and display names and click [Create topic] button to create new topic.
+    ![][aws_create_topic]
+ 
+    Topic input items
+ 
+    +--------------+------------------------------------------------------------------------------------------+----------+
+    | Item         | Description                                                                              | Remark
+    +==============+==========================================================================================+==========+
+    | Topic name   | It is a communication channel for sending  messages and subscribing notifications.       | Required
+    |              | It is used to create an Amazon  Resource Name (ARN) for a topic.                         |
+    |              |                                                                                          | 
+    |              | - Topic name ARN example  **arn:aws:sns:us-west-2:111122223333:MyTopic**                 | 
+    +--------------+------------------------------------------------------------------------------------------+----------+
+    | Display name | It is a display name for topics with SMS  subscriptions.                                 | Optional
+    +--------------+------------------------------------------------------------------------------------------+----------+
+
+4.  Click *Create subscription* in SNS Dashboard.
+    ![][aws_new_subscribe]
+
+5.  Enter the Topic ARN, Protocol, and Endpoint and click [Create subscription] button to create a subscription.
+    ![][aws_make_subscribe]
+
+    Create subscription input item
+
+    +-----------+-----------------------------------------------------------+----------------------------------------------------------------------------+
+    | Item      | Description                                               | Remark
+    +===========+===========================================================+============================================================================+
+    | Topic ARN | Automatically reflected based on the topic  name created. | Editable
+    +-----------+-----------------------------------------------------------+----------------------------------------------------------------------------+
+    | Protocol  | Select “HTTPS”.                                           | Optional  
+    |           |                                                           | HTTP / HTTPS / Email / Email-JSON / Amazon  SQS / Application / AWS Lambda 
+    +-----------+-----------------------------------------------------------+----------------------------------------------------------------------------+
+    | Endpoint  | Paste the URL saved in AlertNow.                          | Input required
+    +-----------+-----------------------------------------------------------+----------------------------------------------------------------------------+
+
+6.  Click *Refresh* icon on the topic details screen and approvals for Subscription ID will be made.
+    ![새로고침 클릭][aws_subscribe_confirm_before]
+    ![구독자 번호 생성][aws_subscribe_confirm_after]
+
+
+##### EC2 Console {#ec2-console}
+
+1.  In AWS screen, enter ‘EC2’ in the search field to go to EC2 Console.
+    ![][aws_select_ec2_service]
+
+2.  Click ‘Instances’ at the left of the screen to go to a list of instances.
+    ![][aws_instance_list]
+
+3.  In Instances screen, select an instance, right-click the instance and select Actions > CloudWatch Monitoring > Add/Edit Alarms.
+    ![][aws_select_instance]
+
+4.  Click [Create Alarm] button.
+    ![][aws_make_alert_click]
+
+5.  In Create Alarm screen, enter the result value and click [Create Alarm] button.
+    ![][aws_alert_make_screen]
+
+    +-------------------------+---------------------------+-----------------+
+    | Item                    | Description               | Remark
+    +=========================+===========================+=================+
+    | Send  a notification to | Select the created topic. | Optional
+    +-------------------------+---------------------------+-----------------+
+    | Whenever                | Set the threshold value.  | Input required 
+    +-------------------------+---------------------------+-----------------+
+
+#### Checking created incidents {#check-created-incident}
+ 
+If you connect a created integration with AWS Cloudwatch, alert and incident are  created in AlertNow.
+
+![Alerts screen][alertnow_alert_screen]
+
+![Incidents screen][alertnow_incident_screen]
+
+※	In order to check whether the alert is created properly, you must edit the threshold value.
+
+
+
+
+--------------------------------------------------------------------------------
+
+
+
+##	AlertNow User Setting Guide: by cases {#alertnow-situaltial-setting-guide}
+
+Provides AlertNow setting guides by cases.
+
+### When setting responders for incident notifications: Sending notifications
+
+1.  Click [Escalation] menu.
+    ![][escalation_case1_01]
+
+2. 	Click [Create escalation] button. 
+    ![][escalation_case1_02]
+
+
+#### Setting rotations {#set-rotation}
+
+If you want to send notifications between your team members, you can specify  each team member as a responder to receive notifications step-by-step.
+
+3.  Enter escalation policy name and the description.
+    ![][escalation_set_rotation]
+
+4.  In a responder input field, enter the escalation responder name. You can select multiple responders.
+    ![][escalation_responder]
+
+5.  Set the escalation policy rule. If the incident is not acknowledged or closed, it will escalate to the next step.
+    ![][escalation_set_policy]
+
+6.  You can set the period in minutes and after you receive a notification at a set time, you can select one of the following actions.
+    -   Escalate to next step: It will go to the next escalation step.
+    -   Repeat this step: It will repeat the current step, and you can set the repetition times. (Up to 3 times)
+
+
+
+  
+#### Including responders of all the previous stages {#set-incide-previous-responder}
+ 
+It is used to extend the responders to previous stages when sending  notifications. The initial responder and all the responders of previous stages will all receive the notifications.
+
+7.  Press ‘+ Add a new stage’ to add the escalation step and *click Include responders of all the previous stages* checkbox.
+    ![][escalation_set_previous_responder]
+
+
+
+
+#### Setting a reminder {#set-final-notice}
+
+If no one recognizes the notifications even when the notification step is finished, it sends the final reminder to remind the responders once again.
+
+8.  You can set at the bottom of create escalation policy screen.
+    -   If no one is acknowledged, *repeat the corresponding policy*: If you set the repetition times, it will restart from step 1 to the last step. (The maximum number of attempts is 9.)
+    -   If no one is acknowledged, *there will be notifications for all responders for the set time period*: You can set the time in minutes and the maximum number of attempts is 9.
+    ![][escalation_set_final_notice]
+
+9.  Click [OK] button to create an escalation policy and send notifications.
+
+
+
+
+###	To receive notifications in various ways: Setting Contacts {#set-contact-for-notice}
+ 
+#### Registering Contacts   {#registration-contact}
+
+You can receive notifications via Email, Phone, Slack etc.
+
+##### Contacts Setting
+
+1.  Click \[Personal Settings\] menu.
+2.  In Basic Information, you can set the profile and contacts information.
+    ![][personal_setting_screen]
+3.  The Profile consists of the following information.
+
+    +-------------+--------------------------------------------------------------+-----------+
+    | Item        | Description                                                  | Remark 
+    +=============+==============================================================+===========+
+    | Name        | User name                                                    |
+    +-------------+--------------------------------------------------------------+-----------+
+    | Login email | Login email information                                      |
+    +-------------+--------------------------------------------------------------+-----------+
+    | Time zones  | Set as the initial browser time. Editable                    | Can set
+    +-------------+--------------------------------------------------------------+-----------+
+    | Escalations | Escalation that the user belongs to or the  user has created |
+    +-------------+--------------------------------------------------------------+-----------+
+
+4.  The user can manually set the time zones.
+    ![][btn_edit] Click  icon.
+    ![][personal_setting_edit_timezone]
+5. Time zone setting pop-up will be displayed as below. If you select ‘Custom settings’ radio button, you can change the standard time zone.
+    ![][personal_setting_select_timezone]
+6.  Click \[OK\] button to finish the time zone setting.
+
+7.  Click <span class="demo black button">Add contact</span> button to register contacts. You can register email, mobile, and Slack up to 5. If you try to register more than 5, you will see the below pop-up message.
+    ![][personal_setting_max_contact]
+
+8.  Click \[OK\] button to complete the registration.
+
+※ For specific mobile provider, the alert message can be regarded as spam according to the provider policy when entering an alert name.
+
+
+
+
+
+
+
+### To minimize management overheads: Setting Incident creation rules  {#make-rule-incident-for-minimize-administrative-overhead}
+
+When a problem occurs, you can manage incidents efficiently by limiting unnecessary alerts and classifying by incident urgency.
+
+
+#### Setting Suppression rules {#make-incident-limit-rule}
+
+The alerts will continue to occur until the problem is recovered. If the user creates an incident for an initial alert, the incidents for the following alerts that are the same type will not be created.
+
+1.  Click [Services] menu.
+    ![][escalation_case2_01]
+2.  Click one of the created services and click ‘Incident creation rules’ tab.
+    ![][service_rule_make]
+3.  Click [Edit] button of the suppression rules and click the checkbox at the left.
+    ![][service_incident_publish_rule]
+4.  After selecting the condition and duration, click [OK] button to create a rule. (You can set the duration in seconds/minutes/hours/days.)
+    ![][service_incident_publish_rule_make]
+5.  You can create only one rule at a time. After deactivating the checkbox, clicking [OK] button and select [OK], the rule will not be proceeded.
+
+
+
+
+#### Setting Incident Urgency {#set-rule-incident-urgency}
+
+You can set the urgency for an alert, and check it by classifying created incidents by incident urgency.
+
+1.  Click \[Services\] menu.
+    ![][escalation_case2_01]
+2.  Click one of the created services and click ‘Incident creation rules’ tab.
+    ![][service_incident_tab_click]
+3.  Click \[Edit\] button of the urgency rules and click the checkbox at the left.
+    ![][service_urgency]
+
+4.  Select the default rule of incident urgency. (Highest/High/Medium/Low/Lowest)
+5.  If you click *Add custom criteria checkbox*, custom rule will be applied over the default rule.
+    ![][service_user_condifion_add]
+
+    +-------------------+---------------------------------------------------------------------------------------+
+    | Item              | Description
+    +===================+=======================================================================================+
+    | Alert Summary     | Refers to ‘Title’ in an incident list.
+    +-------------------+---------------------------------------------------------------------------------------+
+    | Alert Metric Name | In an alert detail screen, you will see the following when clicking \[View\] button.
+    |                   | (It will also be displayed on alert  summary) 
+    |                   | ![][metric_json]
+    +-------------------+---------------------------------------------------------------------------------------+
+
+6.  Select the condition, enter the comparison value, set the urgency and click [OK].
+    Then, the urgency rule will be added accordingly.
+
+7.  You can add a rule. After deactivating the checkbox, clicking [OK] button and select [OK], the rule will not be proceeded.
+
+
+
+
+
+
+
+
+
+### When registering a service to be notified: Adding a service  {#add-service-for-notice}
+
+Service is a unit to manage incidents occurred in integration and can be managed by routing rules set in an integration.
+
+#### Screen configuration: Service {#composit-service-screen}
+![][service_screen]
+
+
+#### Creating in Service menu {#create-service-menu}
+
+##### Enter a service name {#enter-service-menu}
+
+1.  Click \[Services\] menu.
+    ![][escalation_case2_01]
+
+2.  Click <span class="demo black button">Create Service</span> button.
+
+3.  In a Create service screen, enter a service name.
+
+
+##### Setting escalation rules {#set-escalation-rule}
+
+You can receive notifications by classifying incident according to escalation rules.
+![][service_create_screen]
+
+4.  In Create service screen, set the escalation rule.
+
+5.  In *Default escalation rule*, you can select the created escalation in Escalations menu.
+
+6.  If you click *Add custom criteria* checkbox, custom rule will be applied over the default rule.
+
+7.	Select the condition, enter the comparison value, and select the escalation rule.
+
+8.  Set the incident creation rules (Suppression rule, Urgency rule). (It is same as To [minimize management overheads: Setting Incident creation rules](#make-rule-incident-for-minimize-administrative-overhead).)
+    ![][service_incident_rule_make_list]
+
+9.  Click \[OK\] button to create a service.
+
+10. The created service will be displayed as below.
+    ![][service_screen_under_tab]
+
+    +-------------------------+-----------------------------------------------------------------------+------------+
+    | Item                    | Description                                                           | Remark 
+    +=========================+=======================================================================+============+
+    | Incident                | You  can check the Incident status by period and search condition.    |
+    +-------------------------+-----------------------------------------------------------------------+------------+
+    | Integration             | You  can check the integration information of the service.            |
+    +-------------------------+-----------------------------------------------------------------------+------------+
+    | Escalation rules in use | You  can check the escalation information of the service.             | Editable 
+    +-------------------------+-----------------------------------------------------------------------+------------+
+    | Incident creation rules | You  can check the incident creation rule of the service.             | Editable
+    +-------------------------+-----------------------------------------------------------------------+------------+
+
+
+
+
+### When syncing with other 3rd party monitoring services: Adding an integration {#add-integration-for-third-party-link}
+
+It provides the detailed information about creating an integration of Getting Started section. 
+
+#### Creating an integration  {#create-integration-for-link}
+
+1.  Click \[Integrations\] menu.
+    ![][integration_01]
+
+2.  Click <span class="demo black buttom">Create integration</span> button.
+
+3.  Click \[Add a new integration\] button to create an integration. (Currently, it only supports AWS Cloudwatch and more integrations will be supported in the near future.)
+    ![][escalation_case3_03]
+
+4.  Create integration screen will be displayed as below.
+    ![][integration_make]
+
+    +-------------------+--------------------------------------------------------------+-------------+
+    | Item              | Description                                                  | Remark 
+    +===================+==============================================================+=============+
+    | Integration  Name | Customer  can set Integration Name.                          | Required
+    +-------------------+--------------------------------------------------------------+-------------+
+    | Integration Type  | The  logo of the selected target is shown.                   | Required
+    |                   | ![][service_case2_04_AWS]                                    |
+    +-------------------+--------------------------------------------------------------+-------------+
+
+
+#### For creating a new service {#case-create-integration}
+
+When creating an integration, the service will also be created.
+
+5.  You can create an integration in Create a new service screen. It is same as [When registering a service to be notified: Adding a service](#add-service-for-notice).
+
+
+#### For selecting a service {#case-create-integration-for-select}
+
+When creating an integration, existing service will be mapped.
+![][integration_make_select_service]
+
+6.  Select the default service rule.
+7.  If you click *Add custom criteria* checkbox and set the conditions (Alert Summary, Alert Metric Name), custom rule will be applied over the default rule.
+8.  Enter the name, create or select a service and click [OK] button. Then, an integration will be created as below.
+    ![][integration_make_done]
+9.  For URL, please copy SNS Webhook URL information for connecting SNS (Simple Notification Service) and AlertNow.
+
+
+
+
+
+
+
+
+
+
+###  To classify responders by tasks: Setting escalation routing {#set-responder-by-rule}
+
+You can classify responders by setting conditions in creating a service.
+
+1.  Click \[Services\] menu to go to Services screen.
+    ![][service_screen_normal]
+
+2.  Click the created service to go to the corresponding service.
+
+3.  In a service screen, click Escalation rules in use tab.
+    ![][service_tab_created_escalation]
+
+4.  Click \[Edit\] button to set the escalation rules.
+
+
+
+
+
+#### Setting responders by region {#set-responder-by-location}
+
+5.  Click Add custom criteria checkbox, select `Alert Summary`, `Contains` and enter the region names in comparison value field as below.
+    When selecting an escalation, you have to create the right escalation first.
+    For detailed information about creating an escalation, please refer to [Use Case 1: Create from Escalations menu](#escalation-use-case-1) in AlertNow Help.
+    ![][escalation_rule_setted_local]
+
+
+#### Setting responders by metric {#set-responder-by-metric}
+
+6.  Click *Add custom criteria checkbox*, select “Alert Metric Name, Contains” and enter the metric names (ex: CPUUtilization) in comparison value field as below. When selecting an escalation, you have to create the right escalation first.
+    ![][escalation_rule_setted]
+
+
+#### Setting responders by server roles (CPU, DB, Network)
+7.  Click *Add custom criteria checkbox*, select “Alert Summary, Contains” and enter the server roles in comparison value field as below. When selecting an escalation, you have to create the right escalation first.
+    ![][escalation_rule_setted_metric] 
+
+8.  After completing the escalation rule setting, click \[OK\] button.
+
+
+
+
+
+--------------------------------------------------------------------------------
+
+
+## AlertNow Help
+
+### What is AlertNow?
 
 AlertNow is Korea’s first SaaS-based service incident lifecycle management platform. 
 You can solve incidents quickly by checking the service status and managing the problem status and history of the alarm occurred in the service.
 
-
-
-###	Connect to AlertNow service
+#### Connect to AlertNow service
 
 If you request for AlertNow service after signing in OpsNow, a list of OpsNow services is displayed at the top of the screen.
 Among those services, select “AlertNow” to connect to the service.
 
 ![][summary_1] 
 
-### Menu Configuration
+#### Menu Configuration
+
 The menu configuration of each AlertNow service is shown below.
 
 +-------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -72,19 +528,18 @@ The menu configuration of each AlertNow service is shown below.
 
 
 
---------------------------------------------------------------------------------
 
 
 
-## Incidents {#incident}
+### Incidents {#incident}
 
-### Overview {#summary}
+#### Overview {#summary}
 
 The Incidents menu provides a list of alerts and incidents that occurred in each service. Using the Incidents menu, the user can identify problems that need to be handled and record the processing status of each issue.
 
 ![Figure 1. Flow chart of Alerts and Incidents][incident_flow]
 
-#### Alert {#summary-incident-alert}
+##### Alert {#summary-incident-alert}
 
 If you receive a notification event occurred from monitoring tools or other services such as CloudWatch, Azure, or UIM through the Integration setting, it is created as an Alert.
 
@@ -95,7 +550,7 @@ If you receive a notification event occurred from monitoring tools or other serv
 
 
 
-#### Incident {#summary-incident-incident}
+##### Incident {#summary-incident-incident}
 
 
 When alerts are collected, an incident is created through preset Incident Creation Rule. After the incident is created, the user can record the processing status of the incident or receive notifications through Escalation. 
@@ -132,7 +587,7 @@ If necessary, the user can set the maintenance schedule per service.
 
 
 
-####    Alert and Incident relation    {#alert-incident-relationship}
+#####    Alert and Incident relation    {#alert-incident-relationship}
 
 From what’s above, Alert and Incident can have the following relationships:
 
@@ -171,13 +626,12 @@ Alerts can have the following Incident creation results:
 
 
 
---------------------------------------------------------------------------------
 
 
 
 
 
-### Incident {#incident-incident}
+#### Incident {#incident-incident}
 
 >   Connection path: Incidents > *Incidents*
 
@@ -185,7 +639,7 @@ The Incidents menu provides a list of created incidents, so you can check the de
 You can also search for specific incidents by setting the period and keywords.
 
 
-#### Screen Layout {#incident-user-layout}
+##### Screen Layout {#incident-user-layout}
 
 The Incident menu is divided into two areas as the below image.
 ![Incident Menu Configuration][incident_3]
@@ -266,7 +720,7 @@ The Incident menu is divided into two areas as the below image.
 
 
 
-####    Incident Status     {#incident-status}
+#####    Incident Status     {#incident-status}
 
 Incident has three types of status values and depending on the status, the title area is displayed with different colors.
 
@@ -289,7 +743,7 @@ Incident has three types of status values and depending on the status, the title
 
 
 
-#### Incident Search {#incident_search}
+##### Incident Search {#incident_search}
 
 The user can search incidents by setting period/keyword conditions in the Incident List. The search results are displayed immediately in the Incident List.
 
@@ -340,7 +794,7 @@ The user can search incidents by setting period/keyword conditions in the Incide
         Displays all incidents
   
 
-#### Incident Manipulation {#incident-handling}
+##### Incident Manipulation {#incident-handling}
 You can perform the following tasks on Incidents in the list.
 
 1.  Change status
@@ -395,7 +849,7 @@ You can perform the following tasks on Incidents in the list.
 
 
 
-#### Create an incident manually
+##### Create an incident manually
 
 You can create an incident manually as below.
 
@@ -446,14 +900,14 @@ You can create an incident manually as below.
 
 
 
-### Alert {#incident-alert}
+#### Alert {#incident-alert}
 
 > Connection path: Incidents > *Alerts*
 
 The Alerts menu provides a list of alerts, so you can check the details. 
 You can also search for specific alerts by setting the period and keywords.  
 
-####  Screen Layout         {#alert-user-interface}
+#####  Screen Layout         {#alert-user-interface}
 
 The Alert menu is divided into two areas as the below image.
 
@@ -525,7 +979,7 @@ The Alert menu is divided into two areas as the below image.
 
 
 
-####  Alert Search {#alert-search}
+#####  Alert Search {#alert-search}
 
 The user can search alerts by setting period/keyword conditions in the Alert List.
 The search results are displayed immediately in the Alert List.
@@ -570,7 +1024,7 @@ The search results are displayed immediately in the Alert List.
 
 
 
-#### Alert Manipulation      {#alert-handling}
+##### Alert Manipulation      {#alert-handling}
 
 You can perform the following tasks on Alert in the list.
 
@@ -599,11 +1053,10 @@ You can perform the following tasks on Alert in the list.
 
 
 
---------------------------------------------------------------------------------
 
 
 
-## Services {#service}
+### Services {#service}
 
 You can manage incidents and status by service.
 
@@ -634,7 +1087,7 @@ Use Case for Service creation is shown below.
 
 
 
-### Use Case 1. Create from Service menu   {#service-use-case-1}
+#### Use Case 1. Create from Service menu   {#service-use-case-1}
 
 1.  Step 1: Select Services Menu
     Click Services menu.
@@ -696,7 +1149,7 @@ Use Case for Service creation is shown below.
 
 
 
-### Use Case 2. Create at Integration Creation {#service-use-case-2}
+#### Use Case 2. Create at Integration Creation {#service-use-case-2}
 
 1.  Step 1: Select Integration Menu
     Click Integration menu.
@@ -767,9 +1220,8 @@ Use Case for Service creation is shown below.
 
 
 
---------------------------------------------------------------------------------
 
-## Escalations {#escalations}
+### Escalations {#escalations}
 
 
 When incident occurs, you can manage as a rule by appointing manager to handle it step by step and setting the action and time (timeout) to be processed.
@@ -794,7 +1246,7 @@ Use Case for Escalation Policy creation is shown below.
 +--------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 
 
-### Use Case 1. Create from Escalations menu {#escalation-use-case-1}
+#### Use Case 1. Create from Escalations menu {#escalation-use-case-1}
 
 1.  Step 1: Select Escalation menu
     Click Escalation menu. 
@@ -854,7 +1306,7 @@ Use Case for Escalation Policy creation is shown below.
 
 
 
-### Use Case 2. Generate Default Escalation Rule at “Service” creation {#escalation-use-case-2}
+#### Use Case 2. Generate Default Escalation Rule at “Service” creation {#escalation-use-case-2}
 
 1.	Step 1: Select Services menu
     Click Services menu.
@@ -870,7 +1322,7 @@ Use Case for Escalation Policy creation is shown below.
 ※ For more information about service creation, please refer to the Service Guide.
 
 
-### Use Case 3. In case of creating “Integration” and “Service” at the same time  {#escalation-use-case-3}
+#### Use Case 3. In case of creating “Integration” and “Service” at the same time  {#escalation-use-case-3}
 
 1.	Step 1: Select Integration menu
     Click Integrations menu.
@@ -892,9 +1344,8 @@ Use Case for Escalation Policy creation is shown below.
 
 
 
---------------------------------------------------------------------------------
 
-##  Integrations {#integration}
+###  Integrations {#integration}
 
 You can forward and manage notifications occurring in the tool with AlertNow by selecting the tools or services you are using from the list of integrations provided by AlertNow.
 
@@ -903,7 +1354,7 @@ You can forward and manage notifications occurring in the tool with AlertNow by 
 > AWS CLOUD WATCH: EC2, RDS, EBS, Redshift, ELB, S3 (To be updated when an item is added)***
 
 
-###  Integration settings
+####  Integration settings
 
 Integration settings guide is as follows.
 
@@ -980,16 +1431,16 @@ Integration settings guide is as follows.
 
 
 
-### AWS SNS Dashboard
+#### AWS SNS Dashboard
 
 To connect AWS Cloud Watch with the integration created in AlertNow, you need to create a topic by connecting to the AWS Console.
 
-####    AWS Console Connect  {#aws-connect}
+#####    AWS Console Connect  {#aws-connect}
 
 Go to the SNS Dashboard
 ![][integration_aws_01]
 
-#### Moving SNS Dashboard  {#move-to-sns}
+##### Moving SNS Dashboard  {#move-to-sns}
 
 Select Create topic on SNS Dashboard.
 
@@ -1044,7 +1495,7 @@ Select Create topic on SNS Dashboard.
 
 
 
-####    Moving EC2 Console {#move-to-ec2}
+#####    Moving EC2 Console {#move-to-ec2}
 
 Go to the EC2 Console to create an alert to connect to the AlertNow.
 
@@ -1072,7 +1523,7 @@ Go to the EC2 Console to create an alert to connect to the AlertNow.
 
 
 
-#### Adding Stable Alert Receive {#add-close-notice}
+##### Adding Stable Alert Receive {#add-close-notice}
 
 **What is “Stable Alert Receive”?**
 If incidents are created based on the threshold settings and the instance status gets back to normal, you can automatically complete the existing incidents.
@@ -1095,7 +1546,7 @@ If incidents are created based on the threshold settings and the instance status
  
 
 
-####    AlertNow > Incidents  {#set-aws-watch}
+#####    AlertNow > Incidents  {#set-aws-watch}
 
 When you first connect to AlertNow, "Incidents" screen is displayed as default.
 
@@ -1119,7 +1570,6 @@ When you first connect to AlertNow, "Incidents" screen is displayed as default.
 
 
 
---------------------------------------------------------------------------------
 
 
 
@@ -1127,7 +1577,7 @@ When you first connect to AlertNow, "Incidents" screen is displayed as default.
 
 
 
-## Extensions {#extensions}
+### Extensions {#extensions}
 
 Extension is a feature that allows incident creation push created in AlertNow to export to external tools or services.
 
@@ -1135,7 +1585,7 @@ Currently, Slack is supported, and the extension settings for Slack are shown be
 
 
 
-###	AlertNow Extension Slack Settings {#set-slack}
+####	AlertNow Extension Slack Settings {#set-slack}
 
 1.  Step 1: Select Extensions Menu
     Click Extensions menu.
@@ -1155,7 +1605,7 @@ Currently, Slack is supported, and the extension settings for Slack are shown be
 
 
 
-###  Slack Settings: Go to Slack page {#slack-move-to-slack-setting}
+####  Slack Settings: Go to Slack page {#slack-move-to-slack-setting}
 
 Sign in to Slack.
 If you have not signed up for Slack, please sign up for Slack first.
@@ -1173,23 +1623,10 @@ If you have not signed up for Slack, please sign up for Slack first.
 
 
 
---------------------------------------------------------------------------------
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-## Personal Setting   {#personal-settings}
+### Personal Setting   {#personal-settings}
 
 This is a service that manages notification rules for receiving user’s basic information and notifications.
 
@@ -1216,7 +1653,7 @@ The “Personal Settings” configuration is shown below.
 
 
 
-### Basic Information {#basic-infomation}
+#### Basic Information {#basic-infomation}
 
 You can display and set personal profile and contact information.
 ![][personal_setting_02]
@@ -1260,7 +1697,7 @@ You can display and set personal profile and contact information.
 
 
 
-### Notification Rule {#notification-rule}
+#### Notification Rule {#notification-rule}
 
 You can set the notification rules or check the configured notification rules.
 You can set whether to send notifications and delivery method by each user.
@@ -1278,6 +1715,190 @@ You can set whether to send notifications and delivery method by the following s
 +---------------------------------------------+---------------------------------------------------------------------------------+------------+
 | When an incident is escalated               | Set how to receive when incident is escalated.                                  | Changeable
 +---------------------------------------------+---------------------------------------------------------------------------------+------------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------
+
+
+
+
+##	AlertNow User  {#alertnow-user}
+
+###	AlertNow Role {#alertnow-user-role}
+ 
+For effective user management and service usage, AlertNow users are defined in 4 types.
+
+### Admin {#user-administrator}
+
+Manages overall AlertNow service. Admin has all the rights (create, delete, view) for every category. Also, admin is the only user who can create an integration and set service routing.
+![][diagram_service_admin]
+
+-   For Admin user, the setting steps are as follows: *Create Integration → Create Service → Create Escalation policy → Set Extension (Optional)*
+-   After completing the setting, alerts and incidents will be created according to information connected to integration. You can receive notifications about creating incidents and changing status, and edit incidents accordingly.
+
+
+#### Manager {#user-service-manager}
+
+Manager has the responsibility for the service, and can set the responders for solving problems. Has all the rights (create/delete/view) for all except integrations. (Can only view integrations)
+![][diagram_service_manager]
+
+-   For Manager user, the setting steps are as follows: *Create Service → Create Escalation policy → Set Extension (Optional)*
+-   After completing the setting, alerts and incidents will be created according to information connected to integration. You can receive notifications about creating incidents and changing status, and edit incidents accordingly.
+
+#### Responder {#user-service-responder}
+
+Responder is the main assignee who receives incident notifications and solving problems accordingly. Has create, delete, view rights for incident and alerts; and only view rights for service and escalations. Responder can also set recipients. (No permission for integrations)
+![][diagram_service_responder]
+
+-   For Responder user, *it is impossible to create escalation policy, but can be set as a responder for an escalation*.
+-   After completing the setting, alerts and incidents will be created according to information connected to integration. You can receive notifications about creating incidents and changing status, and edit incidents accordingly.
+
+#### Observer {#user-service-observer}
+
+Observer can check the problem-solving status if necessary. Has no permission for integration, and only has view rights for all the other categories.
+![][diagram_service_reference]
+
+-   Observer cannot receive notifications for creating incidents and changing status.
+
+
+
+
+### Rights for each role  {#permission-each-role}
+
+#### Rights – Diagram {#permission-diagram}
+![][permission_gram]
+
+#### Rights – Table View  {#permission-matrix}
+
+<table>
+    <thead>
+        <tr class="header">
+            <th>Role</th>
+            <th class="center">Feature</th>
+            <th class="center">Integration</th>
+            <th class="center">Service</th>
+            <th class="center">Incident</th>
+            <th class="center">Extension</th>
+            <th class="center">Escalation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td rowspan="3" style="text-align: left;">Admin</td>
+            <td class="center">Create</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+        </tr>
+        <tr class="even">
+            <td class="center">Delete</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+        </tr>
+        <tr class="odd">
+            <td class="center">view</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+        </tr>
+        <tr class="even">
+            <td rowspan="3" style="text-align: left;">Manager</td>
+            <td class="center">Create</td>
+            <td style="text-align: center;"></td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+        </tr>
+        <tr class="odd">
+            <td class="center">Delete</td>
+            <td style="text-align: center;"></td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+        </tr>
+        <tr class="even">
+            <td class="center">view</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+        </tr>
+        <tr class="odd">
+            <td rowspan="3" style="text-align: left;">Responder</td>
+            <td class="center">Create</td>
+            <td rowspan="3"  style="background-color:#f8a7a8; text-align: center; vertical-align:middle;">No permission</td>
+            <td style="text-align: center;"></td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;"></td>
+            <td style="text-align: center;"></td>
+        </tr>
+        <tr class="even">
+            <td class="center">Delete</td>
+            <td style="text-align: center;"></td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;"></td>
+            <td style="text-align: center;"></td>
+        </tr>
+        <tr class="odd">
+            <td class="center">view</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+        </tr>
+        <tr class="even">
+            <td rowspan="3" style="text-align: left;">Observer</td>
+            <td class="center">Create</td>
+            <td rowspan="3"  style="background-color:#f8a7a8; text-align: center; vertical-align:middle;">No permission</td>
+            <td style="text-align: center;"></td>
+            <td style="text-align: center;"></td>
+            <td style="text-align: center;"></td>
+            <td style="text-align: center;"></td>
+        </tr>
+        <tr class="odd">
+            <td class="center">Delete</td>
+            <td style="text-align: center;"></td>
+            <td style="text-align: center;"></td>
+            <td style="text-align: center;"></td>
+            <td style="text-align: center;"></td>
+        </tr>
+        <tr class="even">
+            <td class="center">view</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+            <td style="text-align: center;">√</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
 
 
 
@@ -1420,6 +2041,80 @@ You can set whether to send notifications and delivery method by the following s
 [personal_setting_02]: ./resource/bnr_personal_setting_02_en@2x.png
 [personal_setting_03]: ./resource/bnr_personal_setting_03_en@2x.png
 
+
+
+
+
+[alertnow_summary_image]: ./resource/alertnow_summary_image_en@2x.png
+
+[create_integration]: ./resource/create_integration_en.png
+[aws_dashboard]: ./resource/aws_dashboard_en.png
+[aws_make_topic]: ./resource/aws_make_topic_en.png
+[aws_create_topic]: ./resource/aws_create_topic_en.png
+[aws_new_subscribe]: ./resource/aws_new_subscribe_en.png
+[aws_subscribe_confirm_before]: ./resource/aws_subscribe_confirm_before_en.png
+[aws_subscribe_confirm_after]: ./resource/aws_subscribe_confirm_after_en.png
+[aws_make_subscribe]: ./resource/aws_create_subscription_en.png
+
+
+[aws_select_ec2_service]: ./resource/aws_select_ec2_service_en.png
+[aws_instance_list]: ./resource/aws_instance_list_en.png
+[aws_select_instance]: ./resource/aws_select_instance_en.png
+[aws_make_alert_click]: ./resource/aws_make_alert_click_en.png
+[aws_alert_make_screen]: ./resource/aws_alert_make_screen_en.png
+
+[alertnow_incident_screen]: ./resource/alertnow_incident_screen_en@2x.png
+[alertnow_alert_screen]: ./resource/alertnow_alert_screen_en@2x.png
+
+[service_rule_make]: ./resource/service_rule_make_en@2x.png
+[service_incident_publish_rule]: ./resource/service_incident_publish_rule_en@2x.png
+[service_incident_publish_rule_make]: ./resource/service_incident_publish_rule_make_en@2x.png
+[service_incident_rule_make_list]: ./resource/service_incident_rule_make_list_en@2x.png
+
+[service_incident_tab_click]: ./resource/service_rule_make_en@2x.png
+[service_urgency]: ./resource/service_urgency_en@2x.png
+[service_user_condifion_add]: ./resource/service_user_condition_add_en@2x.png
+
+[service_screen]: ./resource/service_screen_en@2x.png
+[service_screen_normal]: ./resource/service_screen_normal_en.png
+[service_create_screen]: ./resource/service_create_screen_en@2x.png
+[service_screen_under_tab]: ./resource/service_screen_under_tab_en@2x.png
+
+[integration_make]: ./resource/integration_make_en@2x.png
+[integration_make_select_service]: ./resource/integration_make_select_service_en@2x.png
+
+[integration_make_done]: ./resource/integration_make_done_en@2x.png
+[service_tab_created_escalation]: ./resource/service_tab_created_escalation_en@2x.png
+
+[escalation_rule_setted_local]: ./resource/escalation_rule_setted_local_en@2x.png
+[escalation_rule_setted]: ./resource/escalation_rule_setted_en@2x.png
+[escalation_rule_setted_metric]: ./resource/escalation_rule_setted_metric_en@2x.png
+
+[diagram_service_admin]:     ./resource/diagram_service_admin_en@2x.png
+[diagram_service_manager]:   ./resource/diagram_service_manager_en@2x.png
+[diagram_service_responder]: ./resource/diagram_service_responder_en@2x.png
+[diagram_service_reference]: ./resource/diagram_service_reference_en@2x.png
+
+[permission_gram]: ./resource/permission_gram_en@2x.png
+
+[btn_edit]: ./resource/btn_edit@2x.png
+
+[escalation_set_rotation]: ./resource/escalation_set_rotation_01_en@2x.png
+[escalation_responder]: ./resource/escalation_responder_en@2x.png
+[escalation_set_policy]: ./resource/escalation_set_policy_en@2x.png
+[escalation_set_repeat]: ./resource/escalation_set_repeat_en@2x.png
+[escalation_set_previous_responder]: ./resource/escalation_set_previous_responder_en@2x.png
+[escalation_set_final_notice]: ./resource/escalation_set_final_notice_en@2x.png
+
+[personal_setting_screen]: ./resource/personal_setting_screen_en@2x.png
+[personal_setting_edit_timezone]: ./resource/personal_setting_edit_timezone_en@2x.png
+[personal_setting_select_timezone]: ./resource/personal_setting_select_timezone_en@2x.png
+[personal_setting_max_contact]: ./resource/personal_setting_max_contact_en@2x.png
+
+[metric_json]: ./resource/metric_json.png
+
+[incident_manual]: ./resource/incident_manual_en.png
+[incident_manual_screen]: ./resource/incident_manual_screen_en.png
+[incident_manual_alert]: ./resource/incident_manual_alert_en.png
+
 [incident_manual_popup]: ./resource/incident_manual_popup.png
-[incident_manual_screen]: ./resource/incident_manual_screen.png
-[incident_manual_alert]: ./resource/incident_manual_alert.png
