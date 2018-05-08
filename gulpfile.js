@@ -387,7 +387,7 @@ gulp.task('deploy',function () {
 
     console.log(`배포시간이 오래 걸린다면 imagemin으로 이미지 압축을 안 돌린거에요.
         간간히 브랜치에 있는 이미지들 수동으로 imagemin 돌려서 푸시해 주세요. 배포시간이 줄어듭니다. :)`);
-	runSequence(['clean:devserver','clean:deploy'],'copy:image:min','convert:sass','convert:md2html','copy:js');
+	runSequence(['clean:devserver','clean:deploy'],'copy:image','convert:sass','convert:md2html','copy:js');
 })
 
 
