@@ -300,16 +300,19 @@ gulp.task('convert:md2html',function () {
                     var result = {};
                     
                     for (var i = 0; i < _list.length; i++) {
-                        _array.push(_list[i].fullPath);
+                        _array.push({
+                            path : _list[i].fullPath,
+                            size : _list[i].size
+                        });
                     } 
 
                     for (var i = 0; i < _array.length; i++) {
-                        if (/ko/.test(_array[i])) {
-                            result.ko = _array[i];
-                        } else if (/en/.test(_array[i])) {
-                            result.en = _array[i];
-                        } else if (/zh/.test(_array[i])) {
-                            result.zh = _array[i];
+                        if (/ko/.test(_array[i].path) && _array[i].size > 1000) {
+                            result.ko = _array[i].path;
+                        } else if (/en/.test(_array[i].path) && _array[i].size > 1000) {
+                            result.en = _array[i].path;
+                        } else if (/zh/.test(_array[i].path) && _array[i].size > 1000) {
+                            result.zh = _array[i].path;
                         }
                     }
                     return result;
