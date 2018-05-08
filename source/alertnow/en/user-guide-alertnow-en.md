@@ -1,23 +1,3 @@
-<!--
-    YAML template for 도움말
-
-    service : 
-    서비스명을 적어줍니다. 파일명 등에 쓰입니다. 전부 소문자로 작성합니다.
-
-    title   : 
-    페이지 제목을 적어줍니다. h1 등의 타이틀 엘리먼트에 사용됩니다.
-
-    en : true
-    작성하는 문서가 영문 문서일 경우 `en:true`로 기술합니다.
-
-    ko : true 
-    작성하는 문서가 한글 문서일 경우 `ko:true`로 기술합니다.
-
-    zh : true
-    작성하는 문서가 중문 문서일 경우 `zh:true`로 기술합니다.
-
--->
-
 ---
 title   : AlertNow
 service : alertnow
@@ -781,9 +761,10 @@ Use Case for Escalation Policy creation is shown below.
 +============================================+==================================================================================================================+
 | Use Case 1)                                | Click “Create New Escalations” button at the top right of the Escalations menu.
 | Create from “Escalations” menu             | Create the Escalation Policy.
+|                                            | <span class="demo black button">Create Escalation</span>
 +--------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 | Use Case 2)                                | For creating “Service”, "Default Escalation Rule" is created if there are no existing escalation rules.
-| Generate Default Escalation Rule           | <span class="demo black button">Create Escalation</span>
+| Generate Default Escalation Rule           | 
 | at “Service” creation                      |
 +--------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 | Use Case 3)                                | When creating “Service” and “Integration” simultaneously,
@@ -807,48 +788,34 @@ Use Case for Escalation Policy creation is shown below.
 3.  Step 3: Establish Escalation Policy
     ![][escalation_case1_03]
 
+    **Escalation rules screen**
+    ![][escalation_case1_03_1]
+
     The input items for the Escalation settings are shown below.
 
-+------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
-|Item	                 | Description	                                                                                       |Remark
-+========================+=====================================================================================================+===============================+
-|Name	                 | Customer can set Escalation Policy Name.	                                                           |Required
-+------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
-|Description             | Adds a description for the escalation.            	                                               |Optional
-+------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
-|Rule Settings           | If the Incident is not “acknowledged / closed” It will escalate to next step.                       |
-|                        |                                                                                                     |
-|                        | -	If not in the “Acknowledged” status,                                                           |
-|                        | -	If not in the “Closed” status,                                                                 |
-|                        |                                                                                                     |
-|                        | Sets the Escalation Policy to be applied.	                                                       |
-+------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
-|Recipient Settings 	 | You can choose among your colleagues and select multiple recipients.	                               |Required when selecting policy
-+------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
-|Time (Minutes)	         | For sending notifications, you can set the time period in minutes.                  	               |Required when selecting policy
-+------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
-|Action	                 | After receiving notifications from recipients by setting the time period (in minutes),              |Required when selecting policy
-|                        | you can select either “Escalation to the next step” or “repeat this step”.                          |
-|                        | -	Escalation to the next step: Performs the next escalation steps.                               |
-|                        | -	Repeat this step: Repeats the current step. Repeat cycle can be set in hours.                  |
-+------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
-|Additional item settings| If no action is taken even when Escalation is escalated to action and additional escalation,        | Option setting item
-|                        | you can set the following options.                                                                  |
-|                        |                                                                                                     |
-|                        | -    If no one is acknowledged, repeat this policy (n) times.                                       |
-|                        | \>    From step 1 to the last step, it is restarted (n) times.                                      |
-|                        | \>    The maximum number of (n) attempts is 9.                                                      |
-|                        |                                                                                                     |
-|                        | -	If no one is acknowledged, there will be (n) notifications every (n) minutes for all responders|
-|                        | \>    The maximum number of (n) attempts is 9.                                                      |
-|                        | \>    You can set the time interval of (n) minutes.	                                               |
-+------------------------+-----------------------------------------------------------------------------------------------------+-------------------------------+
+    +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
+    | Item                    | Description                                                                                                                         | Remark
+    +=========================+=====================================================================================================================================+===================================+
+    | Name                    | Customer  can set Escalation Policy Name.                                                                                           | Required
+    +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
+    | Description             | Adds a description for the escalation.                                                                                              | Optional
+    +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
+    | Close  condition        | Sets the incident status to close escalation.  (Acknowledge, Close)                                                                 | Required  when selecting policy 
+    +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
+    | Notification  per stage | -   When sending notifications,  you can specify each team member as a responder and receive notifications  step by step.           | Required  when selecting policy 
+    |                         | -   You can create up to 20  escalation stages. 
+    |                         | -   Escalation execution: Set the  number of escalations.
+    |                         | -   Responder: Set the responder  to receive notifications.  
+    |                         | -   Interval: If the first  responder does not acknowledge the notification, 
+    |                         |     you can set the next  responder and the time period for escalating to the next step. (in minutes)
+    +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
+    | Reminder                | -   You can send the final  reminder if the responder does not acknowledge even if the notification step  is finished.
+    |                         | -   If you select ‘Use’ radio  button, you can set the period and count of reminder repetition. | Required  when selecting policy 
+    +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
 
-    
-    
-    
+
 4.  Step 4: Save created escalation
-    Save the Escalation setting as follows:
+    Click [OK] button to create an escalation policy.
     ![][escalation_case1_04]
 
 
@@ -1358,6 +1325,7 @@ You can set whether to send notifications and delivery method by the following s
 [escalation_case1_01]: ./resource/bnr_escalation_case1_01_en@2x.png
 [escalation_case1_02]: ./resource/bnr_escalation_case1_02_en@2x.png
 [escalation_case1_03]: ./resource/bnr_escalation_case1_03_en@2x.png
+[escalation_case1_03_1]: ./resource/bnr_escalation_case1_03_1_en@2x.png
 [escalation_case1_04]: ./resource/bnr_escalation_case1_04_en@2x.png
 
 [escalation_case2_01]: ./resource/bnr_service_case1_01_en@2x.png
@@ -1421,5 +1389,5 @@ You can set whether to send notifications and delivery method by the following s
 [personal_setting_03]: ./resource/bnr_personal_setting_03_en@2x.png
 
 [incident_manual_popup]: ./resource/incident_manual_popup.png
-[incident_manual_screen]: ./resource/incident_manual_screen.png
+incident_manual_screen]: ./resource/incident_manual_screen.png
 [incident_manual_alert]: ./resource/incident_manual_alert.png
