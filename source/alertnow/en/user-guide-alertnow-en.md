@@ -400,7 +400,7 @@ It provides the detailed information about creating an integration of Getting St
 1.  Click \[Integrations\] menu.
     ![][integration_01]
 
-2.  Click <span class="demo black buttom">Create integration</span> button.
+2.  Click <span class="demo black button">Create integration</span> button.
 
 3.  Click \[Add a new integration\] button to create an integration. (Currently, it only supports AWS Cloudwatch and more integrations will be supported in the near future.)
     ![][escalation_case3_03]
@@ -473,7 +473,7 @@ You can classify responders by setting conditions in creating a service.
 
 #### Setting responders by metric {#set-responder-by-metric}
 
-6.  Click *Add custom criteria checkbox*, select “Alert Metric Name, Contains” and enter the metric names (ex: CPUUtilization) in comparison value field as below. When selecting an escalation, you have to create the right escalation first.
+6.  Click *Add custom criteria* checkbox, select “Alert Metric Name, Contains” and enter the metric names (ex: CPUUtilization) in comparison value field as below. When selecting an escalation, you have to create the right escalation first.
     ![][escalation_rule_setted]
 
 
@@ -1743,7 +1743,7 @@ You can set whether to send notifications and delivery method by the following s
  
 For effective user management and service usage, AlertNow users are defined in 4 types.
 
-### Admin {#user-administrator}
+#### Admin {#user-administrator}
 
 Manages overall AlertNow service. Admin has all the rights (create, delete, view) for every category. Also, admin is the only user who can create an integration and set service routing.
 ![][diagram_service_admin]
@@ -1773,7 +1773,7 @@ Responder is the main assignee who receives incident notifications and solving p
 Observer can check the problem-solving status if necessary. Has no permission for integration, and only has view rights for all the other categories.
 ![][diagram_service_reference]
 
--   Observer cannot receive notifications for creating incidents and changing status.
+Observer cannot receive notifications for creating incidents and changing status.
 
 
 
@@ -2080,15 +2080,15 @@ Observer can check the problem-solving status if necessary. Has no permission fo
 [service_create_screen]: ./resource/service_create_screen_en@2x.png
 [service_screen_under_tab]: ./resource/service_screen_under_tab_en@2x.png
 
-[integration_make]: ./resource/integration_make_en@2x.png
-[integration_make_select_service]: ./resource/integration_make_select_service_en@2x.png
+[integration_make]: ./resource/integration_make_en.png
+[integration_make_select_service]: ./resource/integration_make_select_service_en.png
 
-[integration_make_done]: ./resource/integration_make_done_en@2x.png
-[service_tab_created_escalation]: ./resource/service_tab_created_escalation_en@2x.png
+[integration_make_done]: ./resource/integration_make_done_en.png
+[service_tab_created_escalation]: ./resource/service_tab_created_escalation_en.png
 
-[escalation_rule_setted_local]: ./resource/escalation_rule_setted_local_en@2x.png
-[escalation_rule_setted]: ./resource/escalation_rule_setted_en@2x.png
-[escalation_rule_setted_metric]: ./resource/escalation_rule_setted_metric_en@2x.png
+[escalation_rule_setted_local]: ./resource/escalation_rule_setted_local_en.png
+[escalation_rule_setted]: ./resource/escalation_rule_setted_en.png
+[escalation_rule_setted_metric]: ./resource/escalation_rule_setted_metric_en.png
 
 [diagram_service_admin]:     ./resource/diagram_service_admin_en@2x.png
 [diagram_service_manager]:   ./resource/diagram_service_manager_en@2x.png
@@ -2117,4 +2117,4 @@ Observer can check the problem-solving status if necessary. Has no permission fo
 [incident_manual_screen]: ./resource/incident_manual_screen_en.png
 [incident_manual_alert]: ./resource/incident_manual_alert_en.png
 
-[incident_manual_popup]: ./resource/incident_manual_popup.png
+[incident_manual_popup]: ./resource/incident_manual_popup_en.png
