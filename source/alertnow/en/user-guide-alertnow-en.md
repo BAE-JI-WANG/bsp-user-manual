@@ -4,6 +4,9 @@ service : alertnow
 en : true
 ...
 
+<!-- TOC -->
+
+
 
 
 # AlertNow {#alertnow}
@@ -11,7 +14,6 @@ en : true
 You can check the service status, and manage the problem status and history of the alarm occurred in the service.
 
 --------------------------------------------------------------------------------
-
 
 
 ##	AlertNow Introduction {#alertnow-introduce}
@@ -191,7 +193,7 @@ Provides AlertNow setting guides by cases.
 If you want to send notifications between your team members, you can specify  each team member as a responder to receive notifications step-by-step.
 
 3.  Enter escalation policy name and the description.
-    ![][escalation_set_rotation]
+    ![][escalation_case1_03]
 
 4.  In a responder input field, enter the escalation responder name. You can select multiple responders.
     ![][escalation_responder]
@@ -2058,7 +2060,7 @@ Observer cannot receive notifications for creating incidents and changing status
 
 
 [aws_select_ec2_service]: ./resource/aws_select_ec2_service_en.png
-[aws_instance_list]: ./resource/aws_instance_list_en.png
+[aws_instance_list]: ./resource/aws_instance_list_en@2x.png
 [aws_select_instance]: ./resource/aws_select_instance_en.png
 [aws_make_alert_click]: ./resource/aws_make_alert_click_en.png
 [aws_alert_make_screen]: ./resource/aws_alert_make_screen_en.png
@@ -2099,12 +2101,11 @@ Observer cannot receive notifications for creating incidents and changing status
 
 [btn_edit]: ./resource/btn_edit@2x.png
 
-[escalation_set_rotation]: ./resource/escalation_set_rotation_01_en@2x.png
-[escalation_responder]: ./resource/escalation_responder_en@2x.png
-[escalation_set_policy]: ./resource/escalation_set_policy_en@2x.png
+[escalation_responder]: ./resource/escalation_responder_en.png
+[escalation_set_policy]: ./resource/escalation_set_policy_en.png
 [escalation_set_repeat]: ./resource/escalation_set_repeat_en@2x.png
-[escalation_set_previous_responder]: ./resource/escalation_set_previous_responder_en@2x.png
-[escalation_set_final_notice]: ./resource/escalation_set_final_notice_en@2x.png
+[escalation_set_previous_responder]: ./resource/escalation_set_previous_responder_en.png
+[escalation_set_final_notice]: ./resource/escalation_set_final_notice_en.png
 
 [personal_setting_screen]: ./resource/personal_setting_screen_en@2x.png
 [personal_setting_edit_timezone]: ./resource/personal_setting_edit_timezone_en@2x.png

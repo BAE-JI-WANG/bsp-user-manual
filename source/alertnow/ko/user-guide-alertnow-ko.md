@@ -9,8 +9,8 @@ ko : true
 
 
 
-
 #   AlertNow {#alertnow}
+
 각 서비스의 상태를 확인할 수 있고 서비스에서 발생한 알람의 장애 현황 및 이력 관리를 할 수 있습니다.
 
 --------------------------------------------------------------------------------
@@ -196,7 +196,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 알림을 팀원 간에 전송하고자 할 때 각 팀원을 응답자로 지정하여 순서대로 알림을 수신할 수 있습니다.
 
 3.  에스컬레이션 정책 이름 및 해당 에스컬레이션에 대한 설명을 입력합니다.
-    ![][escalation_set_rotation]
+    ![][escalation_case1_03]
 
 4.  응답자 입력 필드에 지정할 에스컬레이션 응답자를 입력합니다. 응답자는  여러 명을 선택할 수 있습니다.
     ![][escalation_responder]
@@ -208,7 +208,6 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
     -   다음 단계로 에스컬레이션: 다음 에스컬레이션 단계로 수행합니다.
     -   이 단계 반복: 현재 단계를 반복하며, 반복 횟수를 설정할 수 있습니다. (최대 3번까지 가능)
     
-    ![][escalation_set_repeat]
 
 #### 이전 모든 단계 응답자 포함하기     {#set-include-previous-responder}
 
@@ -2099,7 +2098,6 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 
 [btn_edit]: ./resource/btn_edit@2x.png
 
-[escalation_set_rotation]: ./resource/escalation_set_rotation_01.png
 [escalation_responder]: ./resource/escalation_responder.png
 [escalation_set_policy]: ./resource/escalation_set_policy.png
 [escalation_set_repeat]: ./resource/escalation_set_repeat.png
