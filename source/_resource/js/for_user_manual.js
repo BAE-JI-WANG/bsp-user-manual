@@ -7,6 +7,7 @@ var TOCMenu = (function ($) {
             $container = $('#toc-menu');
             $anchorToggle = $container.find('div.toc > ul > li > ul > li > a');
             $anchor = $container.find('.toc a');
+            $linkGroup = $('#toc-menu .toc');
 
             initLayout();
             initEvent();
@@ -23,6 +24,12 @@ var TOCMenu = (function ($) {
             this.scrollTop += ( d < 0 ? 1 : -1 ) * 30;
             e.preventDefault();
         });
+
+       $linkGroup.css({
+            'top' : (function () {
+                return parseInt($('#toc-menu > span').outerHeight(true) + $('#toc-menu > p').outerHeight(true) + 33);
+            })() + 'px'
+       });
 
         $container.find('a').on('click', function(e) {
             var $this = $(this);
