@@ -25,11 +25,11 @@ var TOCMenu = (function ($) {
             e.preventDefault();
         });
 
-       $linkGroup.css({
+        $linkGroup.css({
             'top' : (function () {
                 return parseInt($('#toc-menu > span').outerHeight(true) + $('#toc-menu > p').outerHeight(true) + 33);
             })() + 'px'
-       });
+        });
 
         $container.find('a').on('click', function(e) {
             var $this = $(this);
