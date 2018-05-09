@@ -462,8 +462,6 @@ gulp.task('convert:md2pdf', function() {
         return path.error(true);
     }
 
-    console.log(path.source.root,path.exec.channel,path.exec.lang);
-
     return gulp.src(path.source.root + '/' + path.exec.channel + '/' + path.exec.lang + '/*.md')
     // 테이블 처리
         .pipe(pandoc({
@@ -492,7 +490,7 @@ gulp.task('convert:md2pdf', function() {
 
             // console.log(_path,is2x);
             // 이제 이미지의 넓이와 크기를 구해올 시간입니다.
-            return '<img src="file://' + _path + '" style="width:' + _width + 'px; height:' + _height + 'px;" />';
+            return '<img src="file:///' + _path + '" style="width:' + _width + 'px; height:' + _height + 'px;" />';
         })) 
         .pipe(styleInject())    // 스타일을 별개로 빼내기 어려우므로, html 파일에 뭉쳐둔다.
         .pipe(makePdf(pdfConfig))
@@ -591,7 +589,7 @@ var pdfConfig = {
 
     // File options
     type: 'pdf',             // allowed file types: png, jpeg, pdf
-    quality: '90'           // only used for types png & jpeg
-
+    quality: '90',           // only used for types png & jpeg
+    renderDelay: 1000
     // Script options
 }
