@@ -85,6 +85,17 @@ path.exec = (function (arg) {
             lang = 'zh';
         }
         dist = path.pdf;
+
+        if (!arg.ko && !arg.en && !arg.zh ) {
+            console.log(`
+                pdf를 빌드하실때는 반드시 언어 설정을 해주셔야 합니다!
+                아래처럼 언어를 꼭 입력해주세요.
+
+                > gulp pdf --all --lang=ko
+                > gulp pdf --all --lang=en
+                > gulp pdf --all --lang=zh
+            `)
+        }
     } else {
         return console.log('local / deploy / pdf 세가지 명령만 받을 수 있습니다. gulp --help를 참조해주세요!');
     }
