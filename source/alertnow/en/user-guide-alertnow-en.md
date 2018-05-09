@@ -191,20 +191,18 @@ Provides AlertNow setting guides by cases.
 #### Setting rotations {#set-rotation}
 
 If you want to send notifications between your team members, you can specify  each team member as a responder to receive notifications step-by-step.
+![][escalation_screen]
 
 3.  Enter escalation policy name and the description.
-    ![][escalation_case1_03]
 
-4.  In a responder input field, enter the escalation responder name. You can select multiple responders.
-    ![][escalation_responder]
-
-5.  Set the escalation policy rule. If the incident is not acknowledged or closed, it will escalate to the next step.
+4.  Set the incident status to close escalations. (Acknowledge, Close)
     ![][escalation_set_policy]
 
-6.  You can set the period in minutes and after you receive a notification at a set time, you can select one of the following actions.
-    -   Escalate to next step: It will go to the next escalation step.
-    -   Repeat this step: It will repeat the current step, and you can set the repetition times. (Up to 3 times)
+5.  Select the escalation execution times. (You can select up to 9 times)
+    ![][escalation_repeat_times]
 
+6.  In a responder input field, enter the escalation responder name. You can select multiple responders.
+    ![][escalation_responder]
 
 
   
@@ -212,8 +210,10 @@ If you want to send notifications between your team members, you can specify  
  
 It is used to extend the responders to previous stages when sending  notifications. The initial responder and all the responders of previous stages will all receive the notifications.
 
-7.  Press ‘+ Add a new stage’ to add the escalation step and *click Include responders of all the previous stages* checkbox.
+7.  Press ‘+ Add an escalation stage’ to add the escalation step and click *Include responders of all the previous stages* checkbox. You can create up to 20 escalation stages.
     ![][escalation_set_previous_responder]
+
+8.  If the responder does not acknowledge the notification, you can set the time period for escalating to the next step in *Interval* field. (in minutes)
 
 
 
@@ -222,12 +222,13 @@ It is used to extend the responders to previous stages when sending  notificat
 
 If no one recognizes the notifications even when the notification step is finished, it sends the final reminder to remind the responders once again.
 
-8.  You can set at the bottom of create escalation policy screen.
-    -   If no one is acknowledged, *repeat the corresponding policy*: If you set the repetition times, it will restart from step 1 to the last step. (The maximum number of attempts is 9.)
-    -   If no one is acknowledged, *there will be notifications for all responders for the set time period*: You can set the time in minutes and the maximum number of attempts is 9.
+9.  If you select ‘Use’ radio button, you can set the period and count of reminder repetition.
+
+10. Click \[OK\] button to create an escalation policy and send notifications.
     ![][escalation_set_final_notice]
 
-9.  Click [OK] button to create an escalation policy and send notifications.
+
+
 
 
 
@@ -2102,10 +2103,12 @@ Observer cannot receive notifications for creating incidents and changing status
 [btn_edit]: ./resource/btn_edit@2x.png
 
 [escalation_responder]: ./resource/escalation_responder_en.png
-[escalation_set_policy]: ./resource/escalation_set_policy_en.png
+[escalation_set_policy]: ./resource/escalation_set_policy_en@2x.png
 [escalation_set_repeat]: ./resource/escalation_set_repeat_en@2x.png
 [escalation_set_previous_responder]: ./resource/escalation_set_previous_responder_en.png
-[escalation_set_final_notice]: ./resource/escalation_set_final_notice_en.png
+[escalation_set_final_notice]: ./resource/escalation_set_final_notice_en@2x.png
+[escalation_screen]: ./resource/escalation_screen@2x.png
+[escalation_repeat_times]: ./resource/escalation_repeat_times@2x.png
 
 [personal_setting_screen]: ./resource/personal_setting_screen_en@2x.png
 [personal_setting_edit_timezone]: ./resource/personal_setting_edit_timezone_en@2x.png

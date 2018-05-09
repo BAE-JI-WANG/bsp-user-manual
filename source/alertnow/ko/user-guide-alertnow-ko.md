@@ -182,7 +182,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 상황별로 AlertNow에서 설정하는 방법을 제공합니다.
 
-### 인시던트의 알림 대상자를 설정할 때: 알림 전송하기
+### 인시던트의 알림 대상자를 설정할 때: 알림 전송하기 {#alertnow-send-noti-when-set-responder}
 
 1.  \[에스컬레이션\] 메뉴를 클릭합니다.
     ![][escalation_case1_01]
@@ -194,27 +194,29 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 #### 담당자 로테이션 설정하기       {#set-rotation}
 
 알림을 팀원 간에 전송하고자 할 때 각 팀원을 응답자로 지정하여 순서대로 알림을 수신할 수 있습니다.
+![][escalation_screen]
 
 3.  에스컬레이션 정책 이름 및 해당 에스컬레이션에 대한 설명을 입력합니다.
-    ![][escalation_case1_03]
 
-4.  응답자 입력 필드에 지정할 에스컬레이션 응답자를 입력합니다. 응답자는  여러 명을 선택할 수 있습니다.
+4.  에스컬레이션을 종료할 인시던트 상태를 설정합니다. (확인, 종료 중 선택)
+    ![][escalation_set_policy]
+5.  에스컬레이션을 실행할 횟수를 선택합니다. (최대 9회까지 선택 가능)
+    ![][escalation_repeat_times]
+
+6.  응답자 입력 필드에 지정할 에스컬레이션 응답자를 입력합니다. 응답자는  여러 명을 선택할 수 있습니다.
     ![][escalation_responder]
 
-5.  에스컬레이션 정책에 대한 규칙을 설정합니다. 확인 또는 종료되지 않으면 다음 단계로 에스컬레이션 됩니다.
-    ![][escalation_set_policy]
-
-6.  알림을 전달할 시간 주기는 분 단위로 설정할 수 있으며, 설정한 시간에 알림을 받은 이후 조치는 다음 중 하나를 선택할 수 있습니다.
-    -   다음 단계로 에스컬레이션: 다음 에스컬레이션 단계로 수행합니다.
-    -   이 단계 반복: 현재 단계를 반복하며, 반복 횟수를 설정할 수 있습니다. (최대 3번까지 가능)
-    
 
 #### 이전 모든 단계 응답자 포함하기     {#set-include-previous-responder}
 
 알림 전송 시 응답자를 상위 관리자로 확대하여 전송할 때 사용하는 기능입니다. 수신할 때마다 최초 응답자 및 이전 단계의 응답자가 모두 포함됩니다.
 
-7.  ‘+ 규칙 추가하기’를 눌러 규칙을 추가한 다음 *전 단계 응답자 포함* 체크박스를 활성화합니다.
-![][escalation_set_previous_responder]
+7.  ‘+ 에스컬레이션 단계 추가’를 눌러 규칙을 추가한 다음 *이전 모든 단계 응답자 포함* 체크 박스를 활성화합니다.
+    에스컬레이션 단계는 최대 20개까지 추가 가능합니다.
+    ![][escalation_set_previous_responder]
+
+8.  응답자가 알림을 확인하지 않을 시 간격에서 다음 단계의 응답자에게로 에스컬레이션될 간격을 설정할 수 있습니다. (분 단위로 설정)
+    
 
 
 
@@ -224,11 +226,11 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 알림 단계가 끝났음에도 응답자가 아무도 확인하지 않을 경우 최종으로 알림을 전송하여 응답자에게 다시 한 번 상기시킬 수 있습니다.
 
-8.  정책 생성 화면 맨 아래에서 설정합니다.
-    -   아무도 확인하지 않을 경우 *해당 정책 반복*: 반복 횟수를 설정하면 에스컬레이션 1단계부터 마지막 단계까지 설정한 횟수 동안 다시 시작합니다. (최대 9회까지 반복 가능)
-    -   아무도 확인하지 않을 경우 *모든 응답자에게 설정한 시간 간격 및 횟수대로 통지*: 분 단위로 시간 설정이 가능하며 최대 9번까지 통지가 가능합니다.
-    ![][escalation_set_final_notice]
-9.  \[저장\] 버튼을 클릭하여 에스컬레이션 정책을 생성 후 알림을 전송합니다.
+![][escalation_set_final_notice]
+
+9.  ‘사용’ 라디오 버튼을 선택하면 최종 알림 반복 간격 및 횟수를 설정할 수 있습니다.
+10.  [확인] 버튼을 클릭하여 에스컬레이션 정책을 생성 후 알림을 전송합니다.
+
 
 
 
@@ -264,17 +266,14 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
     ![][personal_setting_edit_timezone]
 5.  표준 시간대 설정 팝업이 아래와 같이 나타납니다. ‘사용자 정의 설정’ 라디오 버튼을 선택하면 표준 시간대를 변경할 수 있습니다.
     ![][personal_setting_select_timezone]
-6.  설정을 완료 후 \[적용\] 버튼을 눌러 표준 시간대 설정을 완료합니다.
+6.  설정을 완료 후 \[확인\] 버튼을 눌러 표준 시간대 설정을 완료합니다.
 
 7.  <span class="demo button black"> + 연락처 등록</span> 버튼을 클릭하여 연락처를 등록합니다. 이메일, 휴대폰, Slack 설정이 가능하며 최대 5개까지 등록이 가능합니다. 5개 이상을 등록 시 아래와 같은 메시지가 나타납니다.
     ![][personal_setting_max_contact]
 
-8.  \[적용\] 버튼을 눌러 연락처 등록을 완료합니다.
+8.  \[확인\] 버튼을 눌러 연락처 등록을 완료합니다.
 
 ※ 휴대폰 설정 시 특정 통신사의 경우, 경보 이름을 입력할 때 통신사 정책에 따라 스팸으로 분류될 수 있습니다.
-
-
-
 
 
 
@@ -297,10 +296,12 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 3.  인시던트 생성 제한 규칙의 \[편집\] 버튼을 클릭한 후 왼쪽에 있는 체크박스 를 클릭합니다.
     ![][service_incident_publish_rule]
 
-4.  조건 및 기간을 선택한 후 \[적용\] 버튼을 클릭하여 규칙을 생성합니다. (기간의 경우 초/분/시간/일로 설정 가능)
+4.  조건 및 기간을 선택한 후 \[확인\] 버튼을 클릭하여 규칙을 생성합니다. (기간의 경우 초/분/시간/일로 설정 가능)
     ![][service_incident_publish_rule_make]
 
-5.  규칙은 하나만 생성이 가능하며, 체크박스를 선택 해제 후 [적용] 버튼을 누르고 [확인]을 선택하면 규칙이 비활성화됩니다.
+5.  규칙은 하나만 생성이 가능하며, 체크박스를 선택 해제 후 [확인] 버튼을 누르고 [확인]을 선택하면 규칙이 비활성화됩니다.
+
+
 
 #### 인시던트 긴급도 설정하기       {#set-rule-incident-urgency}
 
@@ -329,9 +330,9 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
     |                                           | ![][metric_json]
     +-------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 
-6.  조건을 선택하고, 비교값을 입력하고, 긴급도를 설정한 후 [적용] 버튼을 누르면 긴급도 규칙이 추가됩니다.
+6.  조건을 선택하고, 비교값을 입력하고, 긴급도를 설정한 후 \[확인\] 버튼을 누르면 긴급도 규칙이 추가됩니다.
 
-7.  규칙 추가가 가능하며, 체크박스를 선택 해제 후 [적용] 버튼을 누르고 [확인]을 선택하면 규칙이 비활성화됩니다.
+7.  규칙 추가가 가능하며, 체크박스를 선택 해제 후 \[확인\] 버튼을 누르고 [확인]을 선택하면 규칙이 비활성화됩니다.
 
 
 
@@ -378,7 +379,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
     (방법은 [관리 부하를 최소화하고자 할 때: 인시던트 생성 규칙 설정하기](#make-rule-incident-for-minimize-administrative-overhead) 와 동일합니다.)
     ![][service_incident_rule_make_list]
 
-9.  \[저장\] 버튼을 클릭하여 서비스를 생성합니다.
+9.  \[확인\] 버튼을 클릭하여 서비스를 생성합니다.
 
 10.  생성된 서비스가 다음과 같이 표시됩니다.
     ![][service_screen_under_tab]
@@ -401,6 +402,9 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 ### 다른 외부 모니터링 서비스를 연동할 때: 인티그레이션 추가하기 {#add-integration-for-third-party-link}
 
 시작하기 부분의 인티그레이션 생성에 대한 자세한 설명을 다룹니다. 
+
+
+
 
 #### 인티그레이션 생성하기 {#create-integration-for-link}
 
@@ -426,12 +430,14 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
     |                         ![][service_case2_04_AWS]                     
     +-----------------------+-----------------------------------------------+-------+
 
+
 ##### 신규 서비스 생성의 경우 {#case-create-integration}
 
 인티그레이션 생성 시 서비스도 동시에 생성됩니다.
 
 5.  신규 서비스 생성 화면에서 인티그레이션을 생성할 수 있습니다. 
     설정 방법은 [알림을 받을 서비스를 새로 등록할 때: 서비스 추가하기](#add-service-for-notice)에서 서비스 생성 방법과 동일합니다.
+
 
 ##### 서비스 선택의 경우 {#case-create-integration-for-select}
 
@@ -440,7 +446,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 6.  기본 서비스 규칙을 선택합니다.
 7.  *사용자 설정 조건 추가* 체크박스를 활성화하여 조건 항목(Alert Summary, Alert Metric Name)을 설정합니다. 설정 시 기본 규칙보다 우선적으로 적용됩니다.
-8.  이름을 입력하고 서비스 생성 또는 선택 후 \[저장\] 버튼을 클릭하면 아래와 같이 표시됩니다.
+8.  이름을 입력하고 서비스 생성 또는 선택 후 \[확인\] 버튼을 클릭하면 아래와 같이 표시됩니다.
     ![][integration_make_done]
 9.  URL의 경우 SNS (Simple Notification Service)와 AlertNow를 연결하기 위한 SNS Webhook URL 정보를 복사하십시오.
 
@@ -2067,7 +2073,7 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 
 [service_rule_make]: ./resource/service_rule_make@2x.png
 [service_incident_publish_rule]: ./resource/service_incident_publish_rule@2x.png
-[service_incident_publish_rule_make]: ./resource/service_incident_publish_rule_make.png
+[service_incident_publish_rule_make]: ./resource/service_incident_publish_rule_make@2x.png
 [service_incident_rule_make_list]: ./resource/service_incident_rule_make_list.png
 
 [service_incident_tab_click]: ./resource/service_incident_tab_click@2x.png
@@ -2098,11 +2104,13 @@ AlertNow 서비스의 효율적인 사용자 관리 및 서비스 사용을 위�
 
 [btn_edit]: ./resource/btn_edit@2x.png
 
+[escalation_screen]: ./resource/escalation_screen@2x.png
 [escalation_responder]: ./resource/escalation_responder.png
-[escalation_set_policy]: ./resource/escalation_set_policy.png
+[escalation_set_policy]: ./resource/escalation_set_policy@2x.png
 [escalation_set_repeat]: ./resource/escalation_set_repeat.png
 [escalation_set_previous_responder]: ./resource/escalation_set_previous_responder.png
-[escalation_set_final_notice]: ./resource/escalation_set_final_notice.png
+[escalation_set_final_notice]: ./resource/escalation_set_final_notice@2x.png
+[escalation_repeat_times]: ./resource/escalation_repeat_times@2x.png
 
 [personal_setting_screen]: ./resource/personal_setting_screen.png
 [personal_setting_edit_timezone]: ./resource/personal_setting_edit_timezone.png
