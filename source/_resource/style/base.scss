@@ -178,12 +178,12 @@ span.demo.button {
     border-radius: 0;
     transition: color 0.3s ease-in-out;
     
-    min-width:50px;
+    min-width:40px;
 
-    padding: 0 20px;
-    height: 32px;
-    font-size: 0.875rem;
-    line-height: 26px;
+    padding: 0 12px;
+    height: 28px;
+    font-size: 12px;
+    line-height: 22px;
 
     &.black {
         color:#fff;
