@@ -2,10 +2,6 @@
 service : service-request
 title   : Service Request
 ko : true
-multiLang:
-    - ko : true
-    - en : false
-    - zh : false
 ...
 
 <!-- TOC -->
