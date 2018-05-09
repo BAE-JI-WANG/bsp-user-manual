@@ -9,7 +9,7 @@ main nav {
 
     // 기초 엘리먼트 레이아웃 설정
     a {
-        height:20px;
+        min-height:20px;
         font-size:rem(14);
         font-weight:400;
         color:#666;
@@ -56,7 +56,6 @@ main nav {
         overflow: auto;
         overflow-x: hidden;
         position: absolute;
-        top: 122px;
         bottom: 0;
         width:285px;
         padding-right:10px;
@@ -249,17 +248,14 @@ main nav {
                      position: relative;
 
                      padding: 0 0 0 17px;       // 넘버링을 할 경우
-                     display: inline-block;
 
                      &:before {
-                         content: "ㄴ" counter(section) "." counter(chapter) ".";
+                         content: "ㄴ " counter(section) "." counter(chapter) ".";
                          margin: 0 5px 0 0;
                          font-size: 0.875rem;
                          font-weight: 400;
                          color: #666;
                          line-height: 20px;
-                         top: 0;
-                         left: 0px;
                      }
                  }
              }
