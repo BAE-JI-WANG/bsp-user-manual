@@ -221,11 +221,11 @@ It is used to extend the responders to previous stages when sending  notificat
 #### Setting a reminder {#set-final-notice}
 
 If no one recognizes the notifications even when the notification step is finished, it sends the final reminder to remind the responders once again.
+![][escalation_set_final_notice]
 
 9.  If you select ‘Use’ radio button, you can set the period and count of reminder repetition.
 
 10. Click \[OK\] button to create an escalation policy and send notifications.
-    ![][escalation_set_final_notice]
 
 
 
