@@ -318,11 +318,11 @@ gulp.task('convert:md2html',function () {
                     console.log(_array);
 
                     for (var i = 0; i < _array.length; i++) {
-                        if (/ko/.test(_array[i].path) && _array[i].size > 100) {
+                        if (/-ko/.test(_array[i].path) && _array[i].size > 500) {
                             result.ko = _array[i].path;
-                        } else if (/en/.test(_array[i].path) && _array[i].size > 100) {
+                        } else if (/-en/.test(_array[i].path) && _array[i].size > 500) {
                             result.en = _array[i].path;
-                        } else if (/zh/.test(_array[i].path) && _array[i].size > 100) {
+                        } else if (/-zh/.test(_array[i].path) && _array[i].size > 500) {
                             result.zh = _array[i].path;
                         }
 
