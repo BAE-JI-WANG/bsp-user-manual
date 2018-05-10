@@ -161,13 +161,15 @@ alertnow : **/doc/**
 
 마크다운 파일의 네이밍은 아래 규칙을 따릅니다.
 
-> user_guide\_서비스명\_언어.md
+> user-guide\-서비스명\-언어.md
 
 예시로 보시면 
 
-> user_guide_alertnow_ko.md
-> user_guide_alertnow_en.md
-> user_guide_alertnow_zh.md
+> user-guide-alertnow-ko.md
+
+> user-guide-alertnow-en.md
+
+> user-guide-alertnow-zh.md
 
 **반드시 지켜주셔야 합니다**. 이름 기반으로 다국어 링크등이 추가되거나, 파일의 존재 유무를 파악합니다. 
 
