@@ -39,7 +39,8 @@ AlertNow는 SaaS 기반의 서비스 인시던트 주기 관리 플랫폼이며,
 
 
 ###	AlertNow 전체 흐름 {#alertnow-flow}
-![][alertnow_flow]
+
+![alertnow flow][alertnow_flow]
 
 ### AlertNow 주요 용어 (가나다순)   {#alertnow-key-term}
 
