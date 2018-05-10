@@ -258,14 +258,13 @@ You can receive notifications via Email, Phone, Slack etc.
     | Escalations | Escalation that the user belongs to or the  user has created |
     +-------------+--------------------------------------------------------------+-----------+
 
-4.  The user can manually set the time zones.
-    ![][btn_edit] Click  icon.
+4.  The user can manually set the time zones. ![][btn_edit] Click  icon.
     ![][personal_setting_edit_timezone]
 5. Time zone setting pop-up will be displayed as below. If you select ‘Custom settings’ radio button, you can change the standard time zone.
     ![][personal_setting_select_timezone]
 6.  Click \[OK\] button to finish the time zone setting.
 
-7.  Click <span class="demo black button">Add contact</span> button to register contacts. You can register email, mobile, and Slack up to 5. If you try to register more than 5, you will see the below pop-up message.
+7.  Click <span class="demo black button">+ Add contacts</span> button to register contacts. You can register email, mobile, and Slack up to 5. If you try to register more than 5, you will see the below pop-up message.
     ![][personal_setting_max_contact]
 
 8.  Click \[OK\] button to complete the registration.
@@ -287,7 +286,7 @@ When a problem occurs, you can manage incidents efficiently by limiting unnecess
 
 The alerts will continue to occur until the problem is recovered. If the user creates an incident for an initial alert, the incidents for the following alerts that are the same type will not be created.
 
-1.  Click [Services] menu.
+1.  Click \[Services\] menu.
     ![][escalation_case2_01]
 2.  Click one of the created services and click ‘Incident creation rules’ tab.
     ![][service_rule_make]
@@ -312,7 +311,7 @@ You can set the urgency for an alert, and check it by classifying created incide
     ![][service_urgency]
 
 4.  Select the default rule of incident urgency. (Highest/High/Medium/Low/Lowest)
-5.  If you click *Add custom criteria checkbox*, custom rule will be applied over the default rule.
+5.  If you click *Add custom criteria* checkbox, custom rule will be applied over the default rule.
     ![][service_user_condifion_add]
 
     +-------------------+---------------------------------------------------------------------------------------+
@@ -371,7 +370,7 @@ You can receive notifications by classifying incident according to escalation ru
 
 7.	Select the condition, enter the comparison value, and select the escalation rule.
 
-8.  Set the incident creation rules (Suppression rule, Urgency rule). (It is same as To [minimize management overheads: Setting Incident creation rules](#make-rule-incident-for-minimize-administrative-overhead).)
+8.  Set the incident creation rules (Suppression rule, Urgency rule). (It is same as [To minimize management overheads: Setting Incident creation rules](#make-rule-incident-for-minimize-administrative-overhead).)
     ![][service_incident_rule_make_list]
 
 9.  Click \[OK\] button to create a service.
@@ -1286,7 +1285,7 @@ Use Case for Escalation Policy creation is shown below.
     +-------------------------+-----------------------------------------------------------------------------------------------------------------------------+----------------------------------+
     | Reminder                | -    You can send the final  reminder if the responder does not acknowledge even if the notification step is finished.      |
     |                         | -    If you select ‘Use’ radio  button, you can set the period and count of reminder repetition.                            | Required when selecting policy 
-+-------------------------+-----------------------------------------------------------------------------------------------------------------------------+----------------------------------+
+    +-------------------------+-----------------------------------------------------------------------------------------------------------------------------+----------------------------------+
 
 4.  Step 4: Save created escalation
     Click [OK] button to create an escalation policy.
@@ -2065,7 +2064,7 @@ Observer cannot receive notifications for creating incidents and changing status
 [service_urgency]: ./resource/service_urgency_en@2x.png
 [service_user_condifion_add]: ./resource/service_user_condition_add_en@2x.png
 
-[service_screen]: ./resource/service_screen_en@2x.png
+[service_screen]: ./resource/service_screen_en.png
 [service_screen_normal]: ./resource/service_screen_normal_en.png
 [service_create_screen]: ./resource/service_create_screen_en@2x.png
 [service_screen_under_tab]: ./resource/service_screen_under_tab_en@2x.png
