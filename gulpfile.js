@@ -315,6 +315,8 @@ gulp.task('convert:md2html',function () {
                         });
                     } 
 
+                    console.log(_array);
+
                     for (var i = 0; i < _array.length; i++) {
                         if (/ko/.test(_array[i].path) && _array[i].size > 100) {
                             result.ko = _array[i].path;
