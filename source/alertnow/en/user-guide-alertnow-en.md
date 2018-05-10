@@ -258,7 +258,7 @@ You can receive notifications via Email, Phone, Slack etc.
     | Escalations | Escalation that the user belongs to or the  user has created |
     +-------------+--------------------------------------------------------------+-----------+
 
-4.  The user can manually set the time zones. ![][btn_edit] Click  icon.
+4.  The user can manually set the time zones. Click ![][btn_edit] icon.
     ![][personal_setting_edit_timezone]
 5. Time zone setting pop-up will be displayed as below. If you select ‘Custom settings’ radio button, you can change the standard time zone.
     ![][personal_setting_select_timezone]
