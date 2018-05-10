@@ -185,7 +185,7 @@ Azure의 아래 자원들에 대한 자원 사용 이력을 확인할 수 있습
 
 
 
-### 1. Current
+### Current
 >	Asset Management > Performance > *현재 보기*
 
 사용 중인 자원들의 Performance 현황을 확인할 수 있습니다.
@@ -199,7 +199,91 @@ Azure의 아래 자원들에 대한 자원 사용 이력을 확인할 수 있습
 
 AWS의 아래 자원들에 대한 Performance 현황을 확인할 수 있습니다.
 
-> 셀 병합이 되지 않아 raw html table을 그대로 사용한다.
+<table>
+    <tbody>
+        <tr>
+            <th>자원</th>
+            <th>표시항목</th>
+            <th>비고</th>
+        </tr>
+        <tr>
+            <td rowspan="4">EC2</td>
+            <td>Resource Info</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>CPU Utilization (%)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>Memory Utilization (%)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>Disk Space Utilization (%)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td rowspan="5">EBS</td>
+            <td>Resource Info</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>VolumeQueue Length (EA)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>VolumeRead IOPS (EA)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>VolumeWrite Bytes (MB)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>VolumeWrite IOPS (EA)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td rowspan="6">RDS</td>
+            <td>Resource Info</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>CPU Utilization (%)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>Freeable Memory (MB)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>Free Storage Space (MB)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>Read IOPS (EA)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>Write IOPS (EA)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td rowspan="3">S3</td>
+            <td>Resource Info</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>BucketSizeBytes</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>NumberOfObjects</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+    </tbody>
+</table>
 
 
 
@@ -312,6 +396,91 @@ Azure의 아래 자원들에 대한 Performance 현황을 확인할 수 있습�
 
 AWS의 아래 자원들에 대한 Performance 이력을 확인할 수 있습니다.
 
+<table>
+    <tbody>
+        <tr>
+            <th>자원</th>
+            <th>표시 항목</th>
+            <th>비고</th>
+        </tr>
+        <tr>
+            <td rowspan="4">EC2</td>
+            <td>Resource Info</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>CPU Utilization (%)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>Memory Utilization (%)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>Disk Space Utilization (%)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td rowspan="5">EBS</td>
+            <td>Resource Info</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>VolumeQueue Length (EA)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>VolumeRead IOPS (EA)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>VolumeWrite Bytes (MB)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>VolumeWrite IOPS (EA)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td rowspan="6">RDS</td>
+            <td>Resource Info</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>CPU Utilization (%)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>Freeable Memory (MB)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>Free Storage Space (MB)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>Read IOPS (EA)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>Write IOPS (EA)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td rowspan="3">S3</td>
+            <td>Resource Info</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>BucketSizeBytes</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>NumberOfObjects</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+    </tbody>
+</table>
 
 
 
@@ -321,6 +490,61 @@ AWS의 아래 자원들에 대한 Performance 이력을 확인할 수 있습니�
 
 Azure의 아래 자원들에 대한 Performance 이력을 확인할 수 있습니다.
 
+<table>
+    <tbody>
+        <tr>
+            <th>자원</th>
+            <th>표시 항목</th>
+            <th>비고</th>
+        </tr>
+        <tr>
+            <td rowspan="4">Virtual Machine</td>
+            <td>Resource Info</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>CPU Utilization (%)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>Memory Utilization (%)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>Disk Space Utilization (%)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td rowspan="7">SQL Database</td>
+            <td>Resource Info</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>CPU Utilization (%)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>Physical Data Read Percent (%)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>Connection Success (EA)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>Connection Fail (EA)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>DTU Consumption (%)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+        <tr>
+            <td>DeadLock (EA)</td>
+            <td>Min, Max, Avg</td>
+        </tr>
+    </tbody>
+</table>
 
 
 ## Intelligent Search
@@ -328,7 +552,9 @@ Azure의 아래 자원들에 대한 Performance 이력을 확인할 수 있습�
 사용하고 있는 자원들의 관계에 기반한 Intelligent Search 기능을 제공합니다. 
 선택한 기간 내 사용한 모든 자원들을 목록으로 표시하고, 이를 검색 조건으로 활용할 수 있습니다.
 Intelligent Search 기능은 Usage 메뉴와 Performance 메뉴에서 사용할 수 있습니다. 
+
 >	Asset Management > Usage > *Intelligent Search*
+
 >	Asset Management > Performance > *Intelligent Search*
 
 
@@ -408,7 +634,7 @@ Report subscription에서는 리포트 구독을 생성하거나 수정 또는 �
 
 ### 구독리스트
 
->	Asset Management > *Report Subscription > <em>구독리스트*
+>	Asset Management > Report Subscription > *구독리스트*
 
 구독은 리포트 유형별(Summary, Usage, Performance)로 관리되고 발송 주기(일간, 주간, 월간), 언어, 시간 등의 옵션을 지정하여 생성합니다.
 구독리스트에서는 구독명, 주기, 수신인 정보, 최근 발송일 정보를 조회하고 ‘새로운 구독 생성’을 생성하거나 삭제, 수정을 통해 구독을 관리 할 수 있습니다.
@@ -471,7 +697,7 @@ Report subscription에서는 리포트 구독을 생성하거나 수정 또는 �
 
 ### 구독내역
 
->	Asset Management > *Report Subscription > <em>구독내역*
+>	Asset Management > Report Subscription > *구독내역*
 
 구독 설정 후 발송한 내역에 대해서 확인하고, 최근 발송(1개월 이내) 내역에 대해 발송되었던 파일을 다운로드 받을 수 있습니다.
 리포트 종류, 보낸 날짜, 구독명 필터 적용이 가능합니다.
@@ -490,7 +716,7 @@ Report subscription에서는 리포트 구독을 생성하거나 수정 또는 �
 
 ### 등록된 수신인
 
->	Asset Management > *Report Subscription > <em>등록된 수신인*
+>	Asset Management > Report Subscription > *등록된 수신인*
 
 직접 이메일을 등록하여 구독 수신인으로 지정할 수 있는 사용자를 관리할 수 있습니다. 등록 시 [이메일], [이름], [설명] 항목을 입력할 수 있습니다.
 
@@ -539,15 +765,15 @@ Report subscription에서는 리포트 구독을 생성하거나 수정 또는 �
 [asset_report_subscribe_tab_create]: ./resource/asset_report_subscribe_tab_create.png
 [asset_report_subscribe_tab_edit]: ./resource/asset_report_subscribe_tab_edit.png
 [asset_subscribe_subscriptionlist_list]: ./resource/asset_subscribe_subscriptionlist_list.png
-[asset_subscribe_subscriptionlist_list_create_step1]: ./resource/asset_subscribe_subscriptionlist_list_create_step1.png
-[asset_subscribe_subscriptionlist_list_create_step2]: ./resource/asset_subscribe_subscriptionlist_list_create_step2.png
-[asset_subscribe_subscriptionlist_list_create_step3]: ./resource/asset_subscribe_subscriptionlist_list_create_step3.png
-[asset_subscribe_subscriptionlist_list_create_step4]: ./resource/asset_subscribe_subscriptionlist_list_create_step4.png
+[asset_subscribe_subscriptionlist_list_create_step1]: ./resource/asset_subscribe_subscriptionlist_list_create_step1@2x.png
+[asset_subscribe_subscriptionlist_list_create_step2]: ./resource/asset_subscribe_subscriptionlist_list_create_step2@2x.png
+[asset_subscribe_subscriptionlist_list_create_step3]: ./resource/asset_subscribe_subscriptionlist_list_create_step3@2x.png
+[asset_subscribe_subscriptionlist_list_create_step4]: ./resource/asset_subscribe_subscriptionlist_list_create_step4@2x.png
 [asset_subscribe_subscriptionlist_list_edit]: ./resource/asset_subscribe_subscriptionlist_list_edit.png 
 [asset_subscribe_subscriptionlist_list_edit_popup]: ./resource/asset_subscribe_subscriptionlist_list_edit_popup.png
 [asset_subscribe_subscriptionlist_list_delete]: ./resource/asset_subscribe_subscriptionlist_list_delete.png 
 [asset_subscribe_subscriptionlist_list_delete_popup]: ./resource/asset_subscribe_subscriptionlist_list_delete_popup.png
 [asset_subscribe_history_list]: ./resource/asset_subscribe_history_list.png
 [asset_subscribe_recipient_list]: ./resource/asset_subscribe_recipient_list.png
-[asset_subscribe_recipient_list_add_popup]: ./resource/asset_subscribe_recipient_list_add_popup.png
-[asset_subscribe_recipient_list_edit_popup]: ./resource/asset_subscribe_recipient_list_edit_popup.png 
+[asset_subscribe_recipient_list_add_popup]: ./resource/asset_subscribe_recipient_list_add_popup@2x.png
+[asset_subscribe_recipient_list_edit_popup]: ./resource/asset_subscribe_recipient_list_edit_popup@2x.png 

@@ -12,10 +12,8 @@ en : true
 
 
 #	DevOps
+
 You can manage development and release plan, Build & Deploy configuration, and End To End process. 
-
-
-**Managing Development and Release Issue**
 Following is how to manage the release process for each service with DevOps service.
 
 
@@ -23,58 +21,73 @@ Following is how to manage the release process for each service with DevOps serv
 
 ##	Presetting
 
-1. Set the main project and person in charge for process & release for the service.
-    1.  The service group registered in Portal Service will be shown.
-        ![][devops_001]
-    2.  You can link the project that manages the service group and set the workflow.<br />
-        The workflow can be composed in three steps for each development phase (development, verification, operation): Approval, Deploy, and Report.
-        1.  Project mapping
-            Source Repository will be automatically created with a service group code when mapping.
-        2.  Workflow setting
-            -   Approval: Link Approval Service to link the approval process before deploy.
-            -   Deploy: Composed Build & Deploy procedures can be included.
-            -   Report: Deploy report can be simply recorded
-                ![][devops_002]
-    3.  You can set the role of DevOps as a member of the previously linked project.
-        1.  Role
-            -   Leader: Has all rights to Build & Deploy procedures 
-            -   Member: Has limited rights in regards to configuration menu usage and deploy that requires approval.
-        2.  Once a role is granted, the permissions to Read/Write Repository & CI services are granted to the relevant ID, and an initial password is sent via e-mail.
-            ![][devops_003]
-2.  Add Build configuration.
-    Add a new build configuration with “Create New".
-    ![][devops_004]
+### Set the main project and person in charge for process & release for the service
 
-    1.  Set Service name / Phase / Project name / Repository Path(SVN) / Build Command(SVN) / Script(Shell) / Target Server / etc.
-    2.  Routung Check Settings
-        In case servers are diversified and support routing, this setting secures service continuity when deploying.
-        1.  Health Check Path
-            Before build and deploy, you can change the file in the server’s Health Check Path, block routing by Load Balancer, and proceed with deploy.
-        2.  Logic Check URL
-            After the deploy, you can check the server connection with the entered URL address, restore the files from Health Check Path, and normalize Routing.
-            ![][devops_005]
-        3.  Search and link the target server list manually entered via SR transfer.
-            ![][devops_006]
-3.  Check the build configuration.
-    ![][devops_007]
+1.  The service group registered in Portal Service will be shown.
+    ![][devops_001]
+2.  You can link the project that manages the service group and set the workflow.
+    The workflow can be composed in three steps for each development phase (development, verification, operation): Approval, Deploy, and Report.
+    1.  Project mapping
+        Source Repository will be automatically created with a service group code when mapping.
+    2.  Workflow setting
+        -   Approval: Link Approval Service to link the approval process before deploy.
+        -   Deploy: Composed Build & Deploy procedures can be included.
+        -   Report: Deploy report can be simply recorded
+            ![][devops_002]
+3.  You can set the role of DevOps as a member of the previously linked project.
+    1.  Role
+        -   Leader: Has all rights to Build & Deploy procedures 
+        -   Member: Has limited rights in regards to configuration menu usage and deploy that requires approval.
+    2.  Once a role is granted, the permissions to Read/Write Repository & CI services are granted to the relevant ID, and an initial password is sent via e-mail.
+        ![][devops_003]
+
+
+
+
+
+### Add Build configuration
+
+Add a new build configuration with “Create New".
+![][devops_004]
+
+1.  Set Service name / Phase / Project name / Repository Path(SVN) / Build Command(SVN) / Script(Shell) / Target Server / etc.
+2.  Routung Check Settings
+    In case servers are diversified and support routing, this setting secures service continuity when deploying.
+    1.  Health Check Path
+        Before build and deploy, you can change the file in the server’s Health Check Path, block routing by Load Balancer, and proceed with deploy.
+    2.  Logic Check URL
+        After the deploy, you can check the server connection with the entered URL address, restore the files from Health Check Path, and normalize Routing.
+        ![][devops_005]
+    3.  Search and link the target server list manually entered via SR transfer.
+        ![][devops_006]
+
+### Check the build configuration
+![][devops_007]
 
 
 --------------------------------------------------------------------------------
 
 ##	Development Planning 
 
-1.  Go to the Dev Planning pane by clicking the “Create New” button.
-    ![][devops_008]
-2.  Fill out the form for Dev Planning.
-    1.  Select the target service of Dev planning.
-    2.  Enter the release Target Version.
-    3.  Enter the development period, title, description, and watcher.
-        ![][devops_009]
+### Go to the Dev Planning pane by clicking the “Create New” button
+![][devops_008]
 
-3.  Link the development issues synced and managed with the project service.
-    1.  When committing to Source Repository, enter the issue key number of the project service on the first line on Commit Comment and its description after the second line. Then its content will be automatically registered as a comment to Issue, and you can trace the relevant content conversely.
-    2.  Register issues with Commit Log as issues related to Dev planning to check the changed source list on the bottom of the release planning.
-        ![][devops_010]
+
+### Fill out the form for Dev Planning
+
+1.  Select the target service of Dev planning.
+2.  Enter the release Target Version.
+3.  Enter the development period, title, description, and watcher.
+    ![][devops_009]
+
+
+
+
+### Link the development issues synced and managed with the project service
+
+1.  When committing to Source Repository, enter the issue key number of the project service on the first line on Commit Comment and its description after the second line. Then its content will be automatically registered as a comment to Issue, and you can trace the relevant content conversely.
+2.  Register issues with Commit Log as issues related to Dev planning to check the changed source list on the bottom of the release planning.
+    ![][devops_010]
 
 
 --------------------------------------------------------------------------------
@@ -87,32 +100,53 @@ For established and verified development plans, you can write release planning w
 
 
 
-1.  Write release planning
-    2.  Enter the release planning title, release period, and watcher.
-    3.  For release description, please follow the job description form of the company.
-        ![][devops_012]
-2.  Check the release list.
+### Write release planning
+
+1.  Enter the release planning title, release period, and watcher.
+2.  For release description, please follow the job description form of the company.
+    ![][devops_012]
+
+### Check the release list
     ![][devops_013]
+
+
+
 
 --------------------------------------------------------------------------------
 
+
+
+
+
 ##  Processing Release
 
-1.  Check the details of release.
-    Here, the list of related issues linked to Dev planning is shown. You can check the changed source list according to the commit log registered on the relevant issue.
 
-2.  Proceed with the process for each development phase, according to the workflow preset on Configuration.
-    ![][devops_014]
+###  Check the details of release
 
-3.  Click “Approval” to sync with Approval service and go to Approval pane.
-    Please refer to User Guide of Approval services for how to write approval.
-    ![][devops_015]
+Here, the list of related issues linked to Dev planning is shown. You can check the changed source list according to the commit log registered on the relevant issue.
 
-4.  Once approved, the status will change to “Approved”. Click the button to go to the approval details pane.
-    ![][devops_015]
 
-5.  Deploy button is activated; click it to go to deploy execution pane.
-    ![][devops_016]
+###  Proceed with the process for each development phase, according to the workflow preset on Configuration
+
+![][devops_014]
+
+
+###  Click “Approval” to sync with Approval service and go to Approval pane
+
+Please refer to User Guide of Approval services for how to write approval.
+![][devops_015]
+
+
+###  Once approved, the status will change to “Approved”
+
+Click the button to go to the approval details pane
+![][devops_015]
+
+
+
+###  Deploy button is activated; click it to go to deploy execution pane
+
+![][devops_016]
 
 
 --------------------------------------------------------------------------------
@@ -121,18 +155,25 @@ For established and verified development plans, you can write release planning w
 
 ##	Executing Build & Deploy
 
-1.  Select build configuration and Deploy Type, and proceed with deploy.
-    Click “Create New” to create Branch at Source Repository and deploy the relevant Branch.
-    ![][devops_017]
+###  Select build configuration and Deploy Type, and proceed with deploy
 
-2.  You can check the build log in Execute Result.
-    ![][devops_018]
+Click “Create New” to create Branch at Source Repository and deploy the relevant Branch.
+![][devops_017]
 
-3.  Executing Deploy.
-    1.  Enter the service & development phase, build configuration, deploy source, sonar analysis, etc.
-    2.  You can analyze Sonarqube source with Run Sonar. Extra time to analyze and to execute may be required according to the Source amount.
-    3.  You can deploy concurrently or sequentially to the target server by setting the deploy type.
-        ![][devops_019]
+
+
+
+###  You can check the build log in Execute Result
+
+
+![][devops_018]
+
+###  Executing Deploy
+
+1.  Enter the service & development phase, build configuration, deploy source, sonar analysis, etc.
+2.  You can analyze Sonarqube source with Run Sonar. Extra time to analyze and to execute may be required according to the Source amount.
+3.  You can deploy concurrently or sequentially to the target server by setting the deploy type.
+    ![][devops_019]
 
 
 --------------------------------------------------------------------------------
@@ -148,17 +189,23 @@ You can check the Deploy history
 
 ##	Reporting after deploy
 
-1.  Writing Report 
-    1.  Once the deploy is complete, click “Report” button on the Release Plan Details to record the results.
-    2.  Record the success or failure of release / Rollback / discontinue service / duration of discontinued service / verification statement/ Rollback statement/ etc.
-        ![][devops_022]
-2.  Closing release planning
-    Once the report is complete, complete the release by clicking “Close” button and go to Dev planning.
-    ![][devops_023]
-3.  Closing Dev planning 
-    1.  Check if all the related issues are reflected and handled properly, and close the Dev planning with the “Close” button in Dev planning pane.
-    2.  Closing the Dev planning will change the status of all the related issues that are linked as “Closed”.
-        ![][devops_024]
+###  Writing Report 
+
+1.  Once the deploy is complete, click “Report” button on the Release Plan Details to record the results.
+2.  Record the success or failure of release / Rollback / discontinue service / duration of discontinued service / verification statement/ Rollback statement/ etc.
+    ![][devops_022]
+
+###  Closing release planning
+
+Once the report is complete, complete the release by clicking “Close” button and go to Dev planning.
+![][devops_023]
+
+
+
+###  Closing Dev planning 
+1.  Check if all the related issues are reflected and handled properly, and close the Dev planning with the “Close” button in Dev planning pane.
+2.  Closing the Dev planning will change the status of all the related issues that are linked as “Closed”.
+    ![][devops_024]
 
 
 

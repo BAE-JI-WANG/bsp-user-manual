@@ -801,6 +801,6 @@ Metering 서비스를 사용하며 Report subscription 메뉴에 대한 수정 �
 [metering_subscribe_ko_2_1]: ./resource/metering_subscribe_ko_2_1.png
 [metering_subscribe_ko_2_2]: ./resource/metering_subscribe_ko_2_2.png
 [metering_subscribe_ko_3_1]: ./resource/metering_subscribe_ko_3_1.png
-[metering_subscribe_ko_3_2]: ./resource/metering_subscribe_ko_3_2.png
+[metering_subscribe_ko_3_2]: ./resource/metering_subscribe_ko_3_2@2x.png
 [metering_subscribe_delete_black]: ./resource/metering_subscribe_delete_black.png
-[metering_subscribe_ko_3_3]: ./resource/metering_subscribe_ko_3_3.png
+[metering_subscribe_ko_3_3]: ./resource/metering_subscribe_ko_3_3@2x.png

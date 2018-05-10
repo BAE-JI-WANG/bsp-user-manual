@@ -20,8 +20,7 @@ Monitoring Dashboard 서비스를 통해 직접 모니터링 대상 인스턴스
 
 ### CA UIM 모니터링 구성
 
-![][md_auto_1_1]
-[CA-UIM Architecture Diagram]
+![CA-UIM Architecture Diagram][md_auto_1_1]
 
 
 ### 허브

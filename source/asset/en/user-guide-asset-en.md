@@ -621,7 +621,7 @@ The History Tab allows you to view past send history including the send history 
 
 ### Subscription
 
->	Asset Management > *Report Subscription > *Subscription**
+>	Asset Management > Report Subscription > *Subscription*
 
 Subscriptions are managed by report type (Summary, Usage, Performance) and are created by specifying options such as send cycle (daily, weekly, monthly), language,
 and time. In the subscription list, you can view subscription name, cycle, recipient information, and recent send date information, and you can also create a new subscription or manage the subscription
@@ -693,7 +693,7 @@ The Edit popup shows the information for the currently selected subscription. Yo
 
 #### Subscription History
 
->	Asset Management > *Report Subscription* > *Subscription History*
+>	Asset Management > Report Subscription > *Subscription History*
 
 You can check the send history after setting the subscription, and download the file that was sent for the recent send (within 1 month) history.
 You can apply the report type, send date, and subscription name filter.
@@ -712,7 +712,7 @@ You can apply the report type, send date, and subscription name filter.
 
 #### Registered Recipient
 
->	Asset Management > *Report Subscription > *Registered Recipient**
+>	Asset Management > Report Subscription > *Registered Recipient*
 
 You can manage the users who can be designated as a subscription recipient by registering an email directly.
 When registering, you can enter [Email], [Name], and [Description] items.
@@ -760,10 +760,10 @@ If you need to edit [Email], delete the recipient information using delete butto
 [asset_report_subscribe_tab_create]: ./resource/asset_report_subscribe_tab_create.png
 [asset_report_subscribe_tab_edit]: ./resource/asset_report_subscribe_tab_edit.png
 [asset_subscribe_subscriptionlist_list]: ./resource/asset_subscribe_subscriptionlist_list.png
-[asset_subscribe_subscriptionlist_list_create_step1]: ./resource/asset_subscribe_subscriptionlist_list_create_step1.png
-[asset_subscribe_subscriptionlist_list_create_step2]: ./resource/asset_subscribe_subscriptionlist_list_create_step2.png 
-[asset_subscribe_subscriptionlist_list_create_step3]: ./resource/asset_subscribe_subscriptionlist_list_create_step3.png
-[asset_subscribe_subscriptionlist_list_create_step4]: ./resource/asset_subscribe_subscriptionlist_list_create_step4.png
+[asset_subscribe_subscriptionlist_list_create_step1]: ./resource/asset_subscribe_subscriptionlist_list_create_step1@2x.png
+[asset_subscribe_subscriptionlist_list_create_step2]: ./resource/asset_subscribe_subscriptionlist_list_create_step2@2x.png 
+[asset_subscribe_subscriptionlist_list_create_step3]: ./resource/asset_subscribe_subscriptionlist_list_create_step3@2x.png
+[asset_subscribe_subscriptionlist_list_create_step4]: ./resource/asset_subscribe_subscriptionlist_list_create_step4@2x.png
 [asset_subscribe_subscriptionlist_list_edit]: ./resource/asset_subscribe_subscriptionlist_list_edit.png 
 [asset_subscribe_subscriptionlist_list_edit_popup]: ./resource/asset_subscribe_subscriptionlist_list_edit_popup.png
 [asset_subscribe_subscriptionlist_list_delete]: ./resource/asset_subscribe_subscriptionlist_list_delete.png
@@ -771,5 +771,5 @@ If you need to edit [Email], delete the recipient information using delete butto
 [asset_subscribe_history_list]: ./resource/asset_subscribe_history_list.png
 [asset_subscribe_recipient_list]: ./resource/asset_subscribe_recipient_list.png
 [asset_subscribe_recipient_list_add_popup]: ./resource/asset_subscribe_recipient_list_add_popup.png
-[asset_subscribe_recipient_list_edit_popup]: ./resource/asset_subscribe_recipient_list_edit_popup.png 
+[asset_subscribe_recipient_list_edit_popup]: ./resource/asset_subscribe_recipient_list_edit_popup@2x.png 
 

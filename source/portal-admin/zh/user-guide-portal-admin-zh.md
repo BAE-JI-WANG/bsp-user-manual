@@ -1421,7 +1421,7 @@ Admin Service Portal - 公司信息管理 - 站点管理 - *白皮书*
 [customer_user01]:           ./resource/customer_user01.jpg
 [customer_user02]:           ./resource/customer_user02.jpg
 [customer_user03]:           ./resource/customer_user03.jpg
-[customer_user04]:           ./resource/customer_user04.jpg
+[customer_user04]:           ./resource/customer_user04@2x.jpg
 [customer_user05]:           ./resource/customer_user05.jpg
 [customer_statistics01]:     ./resource/customer_statistics01.jpg
 [customer_companygroup01]:   ./resource/customer_companygroup01.jpg
@@ -1448,7 +1448,7 @@ Admin Service Portal - 公司信息管理 - 站点管理 - *白皮书*
 
 [msp_company01]:             ./resource/msp_company01.jpg
 [msp_company03]:             ./resource/msp_company03.jpg
-[msp_company04]:             ./resource/msp_company04.jpg
+[msp_company04]:             ./resource/msp_company04@2x.jpg
 [msp_service01]:             ./resource/msp_service01.jpg
 [msp_service02]:             ./resource/msp_service02.jpg
 [msp_cloud01]:               ./resource/msp_cloud01.jpg
@@ -1462,20 +1462,20 @@ Admin Service Portal - 公司信息管理 - 站点管理 - *白皮书*
 [msp_sitemngt06]:            ./resource/msp_sitemngt06.jpg
 [msp_sitemngt07]:            ./resource/msp_sitemngt07.jpg
 
-[operator_summary]:          ./resource/operator_summary.jpg
+[operator_summary]:          ./resource/operator_summary@2x.jpg
 [operator_list]:             ./resource/operator_list.jpg
 [operator_status01]:         ./resource/operator_status01.jpg
 [operator_status02]:         ./resource/operator_status02.jpg
-[operator_holding01]:        ./resource/operator_holding01.jpg
+[operator_holding01]:        ./resource/operator_holding01@2x.jpg
 [operator_status03]:         ./resource/operator_status03.jpg
 [operator_joininfo01]:       ./resource/operator_joininfo01.jpg
 [operator_manager01]:        ./resource/operator_manager01.jpg
 
-[sales_summary]:             ./resource/sales_summary.jpg
+[sales_summary]:             ./resource/sales_summary@2x.jpg
 [sales_list]:                ./resource/sales_list.jpg
 [sales_status01]:            ./resource/sales_status01.jpg
 [sales_status02]:            ./resource/sales_status02.jpg
-[sales_holding01]:           ./resource/sales_holding01.jpg
+[sales_holding01]:           ./resource/sales_holding01@2x.jpg
 [sales_status03]:            ./resource/sales_status03.jpg
 [sales_joininfo01]:          ./resource/sales_joininfo01.jpg
 [sales_manager01]:           ./resource/sales_manager01.jpg
@@ -1511,7 +1511,7 @@ Admin Service Portal - 公司信息管理 - 站点管理 - *白皮书*
 [adminuser_usergroup03]:     ./resource/adminuser_usergroup03.jpg
 [adminuser_usergroup04]:     ./resource/adminuser_usergroup04.jpg
 [adminuser_usergroup05]:     ./resource/adminuser_usergroup05.jpg
-[adminuser_usergroup06]:     ./resource/adminuser_usergroup06.jpg
+[adminuser_usergroup06]:     ./resource/adminuser_usergroup06@2x.jpg
 [adminuser_userlist05]:      ./resource/adminuser_userlist05.jpg
 
 [support_support01]:         ./resource/support_support01.jpg
@@ -1524,11 +1524,11 @@ Admin Service Portal - 公司信息管理 - 站点管理 - *白皮书*
 [campaign_campaign04]:       ./resource/campaign_campaign04.jpg
 [campaign_campaign05]:       ./resource/campaign_campaign05.jpg
 [campaign_campaign06]:       ./resource/campaign_campaign06.jpg
-[campaign_campaign07]:       ./resource/campaign_campaign07.jpg
+[campaign_campaign07]:       ./resource/campaign_campaign07@2x.jpg
 [campaign_campaign08]:       ./resource/campaign_campaign08.jpg
 [campaign_campaign09]:       ./resource/campaign_campaign09.jpg
 [campaign_campaign10]:       ./resource/campaign_campaign10.jpg
-[campaign_campaign11]:       ./resource/campaign_campaign11.jpg
+[campaign_campaign11]:       ./resource/campaign_campaign11@2x.jpg
 [campaign_campaign12]:       ./resource/campaign_campaign12.jpg
 [campaign_campaign13]:       ./resource/campaign_campaign13.jpg
 [campaign_campaign14]:       ./resource/campaign_campaign14.jpg

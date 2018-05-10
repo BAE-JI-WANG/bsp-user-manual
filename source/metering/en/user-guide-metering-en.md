@@ -702,12 +702,12 @@ You can manage the users who can be designated as a subscription recipient by re
 [metering_Payment_en_2]:             ./resource/metering_Payment_en_2.png
 [metering_Payment_en_3]:             ./resource/metering_Payment_en_3.png
 [metering_report_subscribe_en_0_1]:  ./resource/metering_report_subscribe_en_0_1.png
-[metering_report_subscribe_en_1_1]:  ./resource/metering_report_subscribe_en_1_1.png
-[metering_report_subscribe_en_1_2]:  ./resource/metering_report_subscribe_en_1_2.png
-[metering_report_subscribe_en_1_3]:  ./resource/metering_report_subscribe_en_1_3.png
+[metering_report_subscribe_en_1_1]:  ./resource/metering_report_subscribe_en_1_1@2x.png
+[metering_report_subscribe_en_1_2]:  ./resource/metering_report_subscribe_en_1_2@2x.png
+[metering_report_subscribe_en_1_3]:  ./resource/metering_report_subscribe_en_1_3@2x.png
 [metering_subscribe_en_1_1]:         ./resource/metering_subscribe_en_1_1.png
 [metering_subscribe_en_2_1]:         ./resource/metering_subscribe_en_2_1.png
 [metering_subscribe_en_2_2]:         ./resource/metering_subscribe_en_2_2.png
 [metering_subscribe_en_3_1]:         ./resource/metering_subscribe_en_3_1.png
-[metering_subscribe_en_3_2]:         ./resource/metering_subscribe_en_3_2.png
-[metering_subscribe_en_3_3]:         ./resource/metering_subscribe_en_3_3.png 
+[metering_subscribe_en_3_2]:         ./resource/metering_subscribe_en_3_2@2x.png
+[metering_subscribe_en_3_3]:         ./resource/metering_subscribe_en_3_3@2x.png 

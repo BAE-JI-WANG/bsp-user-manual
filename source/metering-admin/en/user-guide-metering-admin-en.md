@@ -32,7 +32,7 @@ You can see payer account list, total used amount, and fee confirmation status o
 
 
 
-### View Details
+#### View Details
 
 Click the row to see the fee details of the payer account you want to check.  
 ![][mtAdmin_payerBill_1_1_en]
@@ -40,7 +40,7 @@ Click the row to see the fee details of the payer account you want to check.
 
 
 
-### Download in Excel
+#### Download in Excel
 
 You can download the information such as payer account list, total used amount, and fee confirmation status of the relevant month in Excel.
 ![][mtAdmin_payerBill_1_3_en]
@@ -48,7 +48,7 @@ You can download the information such as payer account list, total used amount, 
 
 
 
-### Fee Confirmation Status
+#### Fee Confirmation Status
 
 1. Confirmed : Payer account fee is confirmed  
 2. Not Confirmed : Payer account fee is not yet confirmed  
@@ -72,7 +72,7 @@ You can manually confirm or cancel the fee of the payer account you selected for
 
 
 
-### Manual Fee Confirmation / Cancellation of Fee Confirmation
+#### Manual Fee Confirmation / Cancellation of Fee Confirmation
 
 You can manually confirm fee or cancel fee confirmation. If the state is in the process of fee confirmation (or cancellation), you cannot cancel the request at that moment.
 
@@ -81,7 +81,7 @@ You can manually confirm fee or cancel fee confirmation. If the state is in the 
 
 
 
-### View History for the Last 3 Months
+#### View History for the Last 3 Months
 
 You can see the payer account’s total amounts paid for the last 3 months from the month you chose.
 
@@ -90,7 +90,7 @@ You can see the payer account’s total amounts paid for the last 3 months from 
 
 
 
-### Check Fee Details
+#### Check Fee Details
 
 1.  Charges per Invoice  
     You can check charges for each payer account invoice.
@@ -139,7 +139,7 @@ You can see customer list, customer’s payer account, used amount, discount, su
 
 
 
-### Confirm Invoice
+#### Confirm Invoice
 
 This is to stop further changes in a customer’s adjusted cost for which the fee is already confirmed.  
 This function will be applied only to customers whose fee is confirmed.  
@@ -152,7 +152,7 @@ To confirm an invoice, select All Customers, tick off the box that you want, and
 
 
 
-### Application Status to Invoices
+#### Application Status to Invoices
 
 This column shows whether the items are applied to invoices or not, and it is divided into three: Applied, Not Applied and Not Applied.
 ![][mtAdmin_customerbill_2_3_en]
@@ -165,7 +165,7 @@ This column shows whether the items are applied to invoices or not, and it is di
 
 
 
-### Customer Accordion Menu
+#### Customer Accordion Menu
 
 You can see a customer’s accordion menu by clicking the button on the right of the table. From the accordion menu at the bottom, check a specific company’s linked account, used amount per linked account, discount, support fee, credit, charges, additional service, and conversed charges.
 
@@ -175,7 +175,7 @@ You can see a customer’s accordion menu by clicking the button on the right of
 
 
 
-### Download in Excel
+#### Download in Excel
 
 From Customer Bill, you can download two versions of data in Excel.
 ![][mtAdmin_customerbill_2_5_en]
@@ -187,7 +187,7 @@ From Customer Bill, you can download two versions of data in Excel.
 
 
 
-### Adjusted Cost Breakdown
+#### Adjusted Cost Breakdown
 
 If you click the button “Adjusted Cost Breakdown” on the right of the accordion menu, the fee is confirmed. For customers who have not confirmed invoices yet, you can edit items like discount, support fee, credit, infra supplementary service, modify infracosts, and service platform additional service cost for the linked account of the relevant month.
 
@@ -216,7 +216,7 @@ You can check invoice information and details per account of a customer that you
 
 
 
-### Summary of Information
+#### Summary of Information
 
 You can see: total payment amount, fee confirmation status, used amount, charges, conversed charges, discount, support fee, credit, and additional service information of a specific linked amount on the relevant month.
 
@@ -226,7 +226,7 @@ You can see: total payment amount, fee confirmation status, used amount, charges
 
 
 
-### Confirm Invoice
+#### Confirm Invoice
 
 Customers whose fee is confirmed can confirm invoices or cancel the invoice confirmation by clicking “Apply to Invoices” or “Cancel Invoice”.
 
@@ -235,14 +235,17 @@ Customers whose fee is confirmed can confirm invoices or cancel the invoice conf
 
 
 
-### Fee Reconfirmation
+#### Fee Reconfirmation
 
 In case of additional cost (such as adjusted cost) incurred after fee confirmation, use the Fee Reconfirmation button to confirm the customer's fee again.
 
 ![][mtAdmin_customerbill_detail_2_7_en]
 
 
-### Invoice Information per Account
+
+
+
+#### Invoice Information per Account
 
 You can see information on invoices per account.  
 ![][mtAdmin_customerbill_detail_2_5_en]
@@ -256,7 +259,7 @@ You can see information on invoices per account.
 
 
 
-### Details per Account
+#### Details per Account
 
 You can search usage amount and fees based on AWS service name.
 
@@ -304,14 +307,18 @@ You can delete an exchange rate only if it is once-modified and not the first-no
 
 
 
+
+
+
 --------------------------------------------------------------------------------
+
+
+
 
 
 ## Customer Information
 
 >   Metering Admin > *Customer Information*  
-
-
 
 
 
@@ -326,7 +333,7 @@ You can see the information of all customers. You can also register all adjusted
 
 
 
-### Download in Excel
+#### Download in Excel
 
 You can search in Excel for discount, support fee, credit, service platform additional information, and customer information which are applied based on the linked accounts.
 
@@ -335,7 +342,7 @@ You can search in Excel for discount, support fee, credit, service platform addi
 
 
 
-### Accordion Menu
+#### Accordion Menu
 
 Click on the extension button on the right to check customers’ linked accounts as well as discount, support fee, credit, and service platform additional service information which are applied at the moment based on the linked accounts.
 
@@ -345,7 +352,7 @@ Click on the extension button on the right to check customers’ linked accounts
 
 
 
-### Adjusted Cost Breakdown
+#### Adjusted Cost Breakdown
 
 On the popup window which appears by clicking Adjusted Cost Breakdown on the right of the accordion menu, you can search or set discount, support fee, credit, and additional service cost per period for linked accounts.
 
@@ -359,7 +366,7 @@ On the popup window which appears by clicking Adjusted Cost Breakdown on the rig
 
 
 
-### Register All Adjusted Costs
+#### Register All Adjusted Costs
 
 You can go to the detailed menu of Customer Information where all the adjusted costs can be registered by clicking Register All Adjusted Costs on the right.  
 ![][mtAdmin_customerInfo_2_4_en]
@@ -367,7 +374,12 @@ You can go to the detailed menu of Customer Information where all the adjusted c
 
 
 
-### Detailed Page of Customer Information  (Register All Adjusted Costs)
+
+
+
+### Detailed Page 
+
+Detailed Page of Customer Information  (Register All Adjusted Costs)
 
 >   Metering Admin > Customer Information > *Detailed Page of Customer Information*
 
@@ -377,7 +389,7 @@ In Register All Adjusted Costs, the 4th item in Customer Information, you can re
 
 
 
-### Account Information
+#### Account Information
 
 You can check the linked account list and application status of adjusted cost of the selected customer.
 ![][mtAdmin_customerInfo_detail_2_1_en]
@@ -385,7 +397,7 @@ You can check the linked account list and application status of adjusted cost of
 
 
 
-### Register Service Cost
+#### Register Service Cost
 
 You can add adjusted costs to be registered in bulk by clicking Add from each tab.  
 ![][mtAdmin_customerInfo_detail_2_2_en]
@@ -401,7 +413,7 @@ You can add adjusted costs to be registered in bulk by clicking Add from each ta
 
 
 
-### Apply Costs
+#### Apply Costs
 
 After entering service cost, select an account by ticking off the box in account information, or click Apply All Benefits after selecting all accounts.
 
@@ -435,7 +447,7 @@ You can manage payer account information.
 
 
 
-###  Register Payer Account
+####  Register Payer Account
 
 You can add a payer account by clicking Add at the bottom of the table.
 
@@ -445,7 +457,7 @@ You can add a payer account by clicking Add at the bottom of the table.
 
 
 
-### Modify Payer Account
+#### Modify Payer Account
 
 You can modify the alias and S3bucket information of registered payer accounts by clicking Modify on the right.
 
@@ -466,7 +478,7 @@ You can manage supplementary service codes.
 
 
 
-### Register Supplementary Service Management
+#### Register Supplementary Service Management
 
 You can add supplementary service codes by clicking Add at the bottom of the table.
 
@@ -476,7 +488,7 @@ You can add supplementary service codes by clicking Add at the bottom of the tab
 
 
 
-### Modify Supplementary Service Management
+#### Modify Supplementary Service Management
 
 You can modify a registered supplementary service by clicking Modify on the right of the table.
 ![][mtAdmin_settings_addSvc_2_2_en]
@@ -484,7 +496,7 @@ You can modify a registered supplementary service by clicking Modify on the righ
 
 
 
-### Delete Supplementary Service Management
+#### Delete Supplementary Service Management
 
 You can delete a registered supplementary service by clicking Delete on the right of the table.
 
@@ -547,7 +559,7 @@ You can delete a registered supplementary service by clicking Delete on the righ
 [mtAdmin_customerInfo_detail_2_1_en]: ./resource/mtAdmin_customerInfo_detail_2_1_en.png
 [mtAdmin_customerInfo_detail_2_2_en]: ./resource/mtAdmin_customerInfo_detail_2_2_en.png
 [mtAdmin_customerInfo_detail_2_3_en]: ./resource/mtAdmin_customerInfo_detail_2_3_en.png
-[mtAdmin_customerInfo_detail_2_4_en]: ./resource/mtAdmin_customerInfo_detail_2_4_en.png
+[mtAdmin_customerInfo_detail_2_4_en]: ./resource/mtAdmin_customerInfo_detail_2_4_en@2x.png
 
 [mtAdmin_settings_1_en]: ./resource/mtAdmin_settings_1_en.png
 [mtAdmin_settings_payerAccount_1_en]: ./resource/mtAdmin_settings_payerAccount_1_en.png

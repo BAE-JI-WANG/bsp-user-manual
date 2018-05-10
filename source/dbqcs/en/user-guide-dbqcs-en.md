@@ -8,8 +8,6 @@ en : true
 
 #	DBQCS
 You can manage metadata you want to use as well as the quality when designing and modeling a database. 
-
-**Managing DB Quality Assurance**
 Following is how to manage the DB metadata standard and how to improve quality and function with DBQCS Services.
 
 

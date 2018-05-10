@@ -19,7 +19,7 @@ You can check the information about companies using the service platform.
 
 ## CUSTOMER
 
-Admin Service Portal - *CUSTOMER*
+>   Admin Service Portal - *CUSTOMER*
 
 You can check the summary and client list information of all clients.
 
@@ -301,6 +301,7 @@ In order to check status and cost of resource being used in Amazon Web Service, 
     ![][customer_user01]
 
 2.  Below are the User Status.
+
     +-----------------+-----------------+---------------------------------------------------------------------+
     |                 | User Status     | Note
     +=================+=================+=====================================================================+
@@ -1603,7 +1604,7 @@ Admin Service Portal - CAMPAIGN - *Automatically-triggered Email Management*
 [customer_company01]: ./resource/customer_company01.jpg
 [customer_company02]: ./resource/customer_company02.jpg
 [customer_company03]: ./resource/customer_company03.jpg
-[customer_company04]: ./resource/customer_company04.jpg
+[customer_company04]: ./resource/customer_company04@2x.jpg
 [customer_service02]: ./resource/customer_service02.jpg
 [customer_cloud01]: ./resource/customer_cloud01.jpg
 [customer_cloud02]: ./resource/customer_cloud02.jpg
@@ -1622,7 +1623,7 @@ Admin Service Portal - CAMPAIGN - *Automatically-triggered Email Management*
 [customer_statistics01]: ./resource/customer_statistics01.jpg
 [customer_companygroup01]: ./resource/customer_companygroup01.jpg
 [customer_companygroup02]: ./resource/customer_companygroup02.jpg
-[customer_companygroup03]: ./resource/customer_companygroup03.jpg
+[customer_companygroup03]: ./resource/customer_companygroup03@2x.jpg
 [customer_companygroup04]: ./resource/customer_companygroup04.jpg
 [customer_companygroup05]: ./resource/customer_companygroup05.jpg
 [customer_partner01]: ./resource/customer_partner01.jpg
@@ -1644,7 +1645,7 @@ Admin Service Portal - CAMPAIGN - *Automatically-triggered Email Management*
 [msp_defaultinfo11]: ./resource/msp_defaultinfo11.jpg
 [msp_company01]: ./resource/msp_company01.jpg
 [msp_company03]: ./resource/msp_company03.jpg
-[msp_company04]: ./resource/msp_company04.jpg
+[msp_company04]: ./resource/msp_company04@2x.jpg
 [msp_service01]: ./resource/msp_service01.jpg
 [msp_service02]: ./resource/msp_service02.jpg
 [msp_cloud01]: ./resource/msp_cloud01.jpg
@@ -1663,16 +1664,16 @@ Admin Service Portal - CAMPAIGN - *Automatically-triggered Email Management*
 [operator_list]: ./resource/operator_list.jpg
 [operator_status01]: ./resource/operator_status01.jpg
 [operator_status02]: ./resource/operator_status02.jpg
-[operator_holding01]: ./resource/operator_holding01.jpg
+[operator_holding01]: ./resource/operator_holding01@2x.jpg
 [operator_status03]: ./resource/operator_status03.jpg
 [operator_joininfo01]: ./resource/operator_joininfo01.jpg
 
 [sales_summary]: ./resource/sales_summary.jpg
 [sales_list]: ./resource/sales_list.jpg
-[sales_status01]: ./resource/sales_status01.jpg
-[sales_status02]: ./resource/sales_status02.jpg
-[sales_holding01]: ./resource/sales_holding01.jpg
-[sales_status03]: ./resource/sales_status03.jpg
+[sales_status01]: ./resource/sales_status01@2x.jpg
+[sales_status02]: ./resource/sales_status02@2x.jpg
+[sales_holding01]: ./resource/sales_holding01@2x.jpg
+[sales_status03]: ./resource/sales_status03@2x.jpg
 [sales_joininfo01]: ./resource/sales_joininfo01.jpg
 
 [company_summary01]: ./resource/company_summary01.jpg
@@ -1708,7 +1709,7 @@ Admin Service Portal - CAMPAIGN - *Automatically-triggered Email Management*
 [adminuser_usergroup03]: ./resource/adminuser_usergroup03.jpg
 [adminuser_usergroup04]: ./resource/adminuser_usergroup04.jpg
 [adminuser_usergroup05]: ./resource/adminuser_usergroup05.jpg
-[adminuser_usergroup06]: ./resource/adminuser_usergroup06.jpg
+[adminuser_usergroup06]: ./resource/adminuser_usergroup06@2x.jpg
 [adminuser_userlist05]: ./resource/adminuser_userlist05.jpg
 
 [support_support01]: ./resource/support_support01.jpg

@@ -332,10 +332,10 @@ Service Portal의 '권한관리 가이드'를 참고해주십시오.
 >   Admin Service Portal - *MSP 관리*
 
 전체 MSP사 수, Activated 고객사 수, Deactivated 고객사 수, Activated MSP User 현황, Deactivated MSP User 현황,Instance(EC2, VM, IDC-Server) 수 정보를 제공합니다.
-![][summary01]
+![][msp_summary01]
 
 MSP 관리 리스트 정보 MSP사 명, MSP사가 보유한 고객사 수, 총 유저수, 활성화 여부, Account 및 자원 정보, 서비스 이용 상태를 제공합니다. 또한 Filter 및 검색 기능을 제공하여 원하는 상태의 MSP사를 따로 표시 할 수 있습니다.
-![][list01]
+![][msp_list01]
 
 
 ### 기본정보
@@ -750,7 +750,7 @@ Filter 및 검색 기능으로 원하는 조건의 고객사를 조회할 수 �
 
 
 
-### CSP 신청 상태
+#### CSP 신청 상태
 
 >   Admin Service Portal - CSP 영업 담당자 - 상세화면 - *CSP 신청 상태*
 
@@ -789,7 +789,7 @@ Filter 및 검색 기능으로 원하는 조건의 고객사를 조회할 수 �
 
 
 
-### 계약정보 입력 중
+#### 계약정보 입력 중
 
 1.  CSP operator가 신청 정보를 확인한 상태입니다.
     계약정보 입력 상태에 따라 \[승인 보류\] 또는 \[등록 완료\] 상태로 변경할 수 있습니다.
@@ -809,7 +809,7 @@ Filter 및 검색 기능으로 원하는 조건의 고객사를 조회할 수 �
     ![][sales_status03]
 
 
-### 등록 완료
+#### 등록 완료
 
 1.  등록 완료 시, Metering 서비스에 대한 무료 서비스 권한을 가지게 됩니다.
 
@@ -1234,7 +1234,7 @@ MSP 서비스를 위한 도메인을 관리합니다. MSP 가입시 입력한 Do
 
 >   Admin Service Portal - SUPPORT - *공지사항 관리*
 
-### 목록 조회
+#### 목록 조회
 
 1.  공지사항 등록
     왼쪽 상단의 카드포켓을 클릭하여 새로운 공지사항을 추가할 수 있습니다.
@@ -1243,7 +1243,7 @@ MSP 서비스를 위한 도메인을 관리합니다. MSP 가입시 입력한 Do
     조회된 공지사항을 클릭하여 상새 내용 조회가 가능합니다.
 
 
-### 내용 보기
+#### 내용 보기
 
 목록에서 선택한 공지사항의 내용을 조회하는 화면입니다. 제목, 등록일, 조회수, 상세 내용 확인 및 첨부파일 다운로드 기능을 지원합니다.
 ![][support_support02]
@@ -1258,7 +1258,7 @@ MSP 서비스를 위한 도메인을 관리합니다. MSP 가입시 입력한 Do
     목록 조회 화면으로 이동합니다.
 
 
-### 등록/수정
+#### 등록/수정
 
 새로운 공지사항을 등록하거나, 등록된 공지사항을 수정합니다.
 ![][support_support03]
@@ -1473,7 +1473,7 @@ MSP 서비스를 위한 도메인을 관리합니다. MSP 가입시 입력한 Do
 [customer_statistics01]: ./resource/customer_statistics01.jpg
 [customer_companygroup01]: ./resource/customer_companygroup01.jpg
 [customer_companygroup02]: ./resource/customer_companygroup02.jpg
-[customer_companygroup03]: ./resource/customer_companygroup03.jpg
+[customer_companygroup03]: ./resource/customer_companygroup03@2x.jpg
 [customer_companygroup04]: ./resource/customer_companygroup04.jpg
 [customer_companygroup05]: ./resource/customer_companygroup05.jpg
 [customer_partner01]: ./resource/customer_partner01.jpg
@@ -1496,7 +1496,7 @@ MSP 서비스를 위한 도메인을 관리합니다. MSP 가입시 입력한 Do
 [msp_defaultinfo11]: ./resource/msp_defaultinfo11.jpg
 [msp_company01]: ./resource/msp_company01.jpg
 [msp_company03]: ./resource/msp_company03.jpg
-[msp_company04]: ./resource/msp_company04.jpg
+[msp_company04]: ./resource/msp_company04@2x.jpg
 [msp_service01]: ./resource/msp_service01.jpg
 [msp_service02]: ./resource/msp_service02.jpg
 [msp_cloud01]: ./resource/msp_cloud01.jpg
@@ -1511,11 +1511,11 @@ MSP 서비스를 위한 도메인을 관리합니다. MSP 가입시 입력한 Do
 [msp_sitemngt06]: ./resource/msp_sitemngt06.jpg
 [msp_sitemngt07]: ./resource/msp_sitemngt07.jpg
 
-[operator_summary]: ./resource/operator_summary.jpg
+[operator_summary]: ./resource/operator_summary@2x.jpg
 [operator_list]: ./resource/operator_list.jpg
-[operator_status01]: ./resource/operator_status01.jpg
-[operator_status02]: ./resource/operator_status02.jpg
-[operator_holding01]: ./resource/operator_holding01.jpg
+[operator_status01]: ./resource/operator_status01@2x.jpg
+[operator_status02]: ./resource/operator_status02@2x.jpg
+[operator_holding01]: ./resource/operator_holding01@2x.jpg
 [operator_status03]: ./resource/operator_status03.jpg
 [operator_joininfo01]: ./resource/operator_joininfo01.jpg
 
@@ -1523,7 +1523,7 @@ MSP 서비스를 위한 도메인을 관리합니다. MSP 가입시 입력한 Do
 [sales_list]: ./resource/sales_list.jpg
 [sales_status01]: ./resource/sales_status01.jpg
 [sales_status02]: ./resource/sales_status02.jpg
-[sales_holding01]: ./resource/sales_holding01.jpg
+[sales_holding01]: ./resource/sales_holding01@2x.jpg
 [sales_status03]: ./resource/sales_status03.jpg
 [sales_joininfo01]: ./resource/sales_joininfo01.jpg
 
@@ -1560,7 +1560,7 @@ MSP 서비스를 위한 도메인을 관리합니다. MSP 가입시 입력한 Do
 [adminuser_usergroup03]: ./resource/adminuser_usergroup03.jpg
 [adminuser_usergroup04]: ./resource/adminuser_usergroup04.jpg
 [adminuser_usergroup05]: ./resource/adminuser_usergroup05.jpg
-[adminuser_usergroup06]: ./resource/adminuser_usergroup06.jpg
+[adminuser_usergroup06]: ./resource/adminuser_usergroup06@2x.jpg
 [adminuser_userlist05]: ./resource/adminuser_userlist05.jpg
 
 [support_support01]: ./resource/support_support01.jpg

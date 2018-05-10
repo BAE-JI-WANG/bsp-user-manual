@@ -123,7 +123,7 @@ zh : true
 
 ### 订阅
 
->	资产管理 > *报告订阅* > *订阅*
+>	资产管理 > 报告订阅 > *订阅*
 
 可通过报告类型(概要, 用途，性能)管理订阅，在创建订阅时可以指定发送周期
 （每日，每周，每月）语言和时间等选项。您可以在订阅列表中查看订阅名称、周期、收件人信息和最近发送日期等信息。
@@ -187,7 +187,7 @@ zh : true
 
 ### 订阅历史
 
->	资产管理 > *报告订阅* > *订阅历史*
+>	资产管理 > 报告订阅* > *订阅历史*
 
 设置订阅后您可以查看发送历史，并下载最近（1个月内）发送的历史文件。
 您可以使用报告类型，发送日期和订阅名称过滤。
@@ -208,7 +208,7 @@ zh : true
 
 ### 注册收件人
 
->	资产管理  > *报告订阅* > *注册收件人*
+>	资产管理  > 报告订阅 > *注册收件人*
 
 您可以直接注册电子邮件指定该用户为订阅收件人。注册时需要输入[电子邮箱]、
 [名称]和[详细说明] 项目。
@@ -250,11 +250,11 @@ zh : true
 [asset_usage_intelligent]: ./resource/asset_usage_intelligent.png
 [asset_performance_current]: ./resource/asset_performance_current.png
 [asset_report]: ./resource/asset_report.png
-[asset_report_subscribe_tab_create]: ./resource/asset_report_subscribe_tab_create.png
-[asset_report_subscribe_tab_edit]: ./resource/asset_report_subscribe_tab_edit.png
+[asset_report_subscribe_tab_create]: ./resource/asset_report_subscribe_tab_create@2x.png
+[asset_report_subscribe_tab_edit]: ./resource/asset_report_subscribe_tab_edit@2x.png
 [asset_subscribe_subscriptionlist_list]: ./resource/asset_subscribe_subscriptionlist_list.png
 [asset_subscribe_subscriptionlist_list_create_step1]: ./resource/asset_subscribe_subscriptionlist_list_create_step1.png
-[asset_subscribe_subscriptionlist_list_create_step2]: ./resource/asset_subscribe_subscriptionlist_list_create_step2.png
+[asset_subscribe_subscriptionlist_list_create_step2]: ./resource/asset_subscribe_subscriptionlist_list_create_step2@2x.png
 [asset_subscribe_subscriptionlist_list_create_step3]: ./resource/asset_subscribe_subscriptionlist_list_create_step3.png
 [asset_subscribe_subscriptionlist_list_create_step4]: ./resource/asset_subscribe_subscriptionlist_list_create_step4.png
 [asset_subscribe_subscriptionlist_list_edit]: ./resource/asset_subscribe_subscriptionlist_list_edit.png
@@ -263,6 +263,6 @@ zh : true
 [asset_subscribe_subscriptionlist_list_delete_popup]: ./resource/asset_subscribe_subscriptionlist_list_delete_popup.png
 [asset_subscribe_history_list]: ./resource/asset_subscribe_history_list.png
 [asset_subscribe_recipient_list]: ./resource/asset_subscribe_recipient_list.png
-[asset_subscribe_recipient_list_add_popup]: ./resource/asset_subscribe_recipient_list_add_popup.png
+[asset_subscribe_recipient_list_add_popup]: ./resource/asset_subscribe_recipient_list_add_popup@2x.png
 [asset_subscribe_recipient_list_edit_popup]: ./resource/asset_subscribe_recipient_list_edit_popup.png
 

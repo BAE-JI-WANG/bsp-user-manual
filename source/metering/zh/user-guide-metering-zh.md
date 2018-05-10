@@ -90,7 +90,7 @@ zh : true
 	-	K: 1,000 , M: 1,000,000 , B: 1,000,000,000
 
 
-### 2. Amazon CloudFront Usage
+### Amazon CloudFront Usage
 
 查看各账户地区和网络分配的费用、数据传输量、申请次数。 
 
@@ -102,7 +102,7 @@ zh : true
 
 
 
-### 3. Amazon CloudFront Usage Trend
+### Amazon CloudFront Usage Trend
 
 查看单日、单位小时、单周费用，数据传输量和请求次数。 
 
@@ -208,7 +208,7 @@ zh : true
 ![][metering_cost_zh_2_1] 
 
 
-### 资源配置优化-高频度使用资源分析 
+#### 资源配置优化-高频度使用资源分析 
 
 ![][metering_cost_zh_3_1]
 ![][metering_cost_zh_3_2]
@@ -216,7 +216,8 @@ zh : true
 
 查询高频度使用资源，可转换为 RI 节约成本，保持现状、全部采用按需实例、全部采用 RI 实例、部分采用 RI 实例（以及不同的付费方式与年限情况下）成本对比，采用 RI 时， 分摊到每月的成本何时开始低于按需实例，采用 RI 时，不同情况下可节约的成本。
 
-### 资源配置优化-低利用率资源分析
+
+#### 资源配置优化-低利用率资源分析
 
 ![][metering_cost_zh_2_2]
 ![][metering_cost_zh_2_3]
@@ -424,7 +425,7 @@ zh : true
 [metering_subscribe_zh_1_1]: ./resource/metering_subscribe_zh_1_1.png
 [metering_subscribe_zh_2_1]: ./resource/metering_subscribe_zh_2_1.png
 [metering_subscribe_zh_2_2]: ./resource/metering_subscribe_zh_2_2.png
-[metering_subscribe_zh_3_2]: ./resource/metering_subscribe_zh_3_2.png
-[metering_subscribe_zh_3_3]: ./resource/metering_subscribe_zh_3_3.png 
+[metering_subscribe_zh_3_2]: ./resource/metering_subscribe_zh_3_2@2x.png
+[metering_subscribe_zh_3_3]: ./resource/metering_subscribe_zh_3_3@2x.png 
 
 

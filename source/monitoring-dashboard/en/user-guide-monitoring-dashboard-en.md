@@ -20,8 +20,7 @@ Monitoring Dashboard service allows you to install/uninstall the CA UIM Robot di
 
 ### CA UIM Monitoring Composition
 
-![][md_auto_1_1]
-[CA-UIM Architecture Diagram]
+![CA-UIM Architecture Diagram][md_auto_1_1]
 
 
 
@@ -585,9 +584,8 @@ This probe is supported only by the hub robot and you can set the alarm’s On/O
 
 The alarm reception setting is available through the alarm service.
 
-Alarm Service : 
-[https://alarm.opsnow.com](https://alarm.opsnow.com)
-[Alarm Manual](https://alarm.opsnow.com/docs/user_guide_alarm_en.html) 
+Alarm Service : [https://alarm.opsnow.com](https://alarm.opsnow.com)
+[Alarm Manual](https://alarm.opsnow.com/docs/user_guide_alarm_en.html)
 
 
 

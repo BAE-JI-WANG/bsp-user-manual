@@ -173,13 +173,11 @@ gulp.task('connect', function() {
 // 여기는 별도로 손댈거는 없어 보이고...
 gulp.task('watch', function(callback) {
     livereload.listen();
-    return (function () {
-        gulp.watch(path.source.js+'/*.js',['copy:js'],callback);
-        gulp.watch(path.source.style+'/*.{scss,sass,css}',['convert:sass:sourcemap'],callback);
-        gulp.watch(path.source.template+'/**/*.html', ['convert:md2html'],callback);
-        gulp.watch(path.source.root+'/**/*.png', ['copy:image'],callback);
-        gulp.watch(path.source.root+'/**/*.md', ['convert:md2html']);
-    })()
+    gulp.watch(path.source.js+'/*.js',['copy:js'],callback);
+    gulp.watch(path.source.style+'/*.{scss,sass,css}',['convert:sass:sourcemap'],callback);
+    gulp.watch(path.source.template+'/**/*.html', ['convert:md2html'],callback);
+    gulp.watch(path.source.root+'/**/*.{png,jpg,gif}', ['copy:image'],callback);
+    gulp.watch(path.source.root+'/**/*.md', ['convert:md2html']);
 });
 
 

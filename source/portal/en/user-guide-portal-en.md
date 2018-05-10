@@ -118,7 +118,7 @@ You can create a new User Group and set permission of its users by linking a Com
 3.  The User Group list shows that a new User Group has been added.
 
 
-### Adding User
+#### Adding User
 
 1.  On the User Group list, click the \[Edit\] button of a new User Group.
     ![][user_group_1_2_1]
