@@ -316,13 +316,14 @@ gulp.task('convert:md2html',function () {
                     } 
 
                     for (var i = 0; i < _array.length; i++) {
-                        if (/ko/.test(_array[i].path) && _array[i].size > 1000) {
+                        if (/ko/.test(_array[i].path) && _array[i].size > 100) {
                             result.ko = _array[i].path;
-                        } else if (/en/.test(_array[i].path) && _array[i].size > 1000) {
+                        } else if (/en/.test(_array[i].path) && _array[i].size > 100) {
                             result.en = _array[i].path;
-                        } else if (/zh/.test(_array[i].path) && _array[i].size > 1000) {
+                        } else if (/zh/.test(_array[i].path) && _array[i].size > 100) {
                             result.zh = _array[i].path;
                         }
+
                     }
                     return result;
 
@@ -332,8 +333,9 @@ gulp.task('convert:md2html',function () {
             // 이제 dom을 만들어서 작성해야 된다.
             // 파일 리스트 형식은 영문/국문/중문 차례다.
 
-            var dom = '';
+            console.log(markdownFileList.lang);
 
+            var dom = '';
             if (!!markdownFileList.lang.en) {
                 dom += (markdownFileList.origin === markdownFileList.lang.en) ? '<span>English</span>' : '<a href="../en/user-guide-' + path.exec.channel + '-en.html">English</a>';
             } 
