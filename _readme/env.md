@@ -26,8 +26,10 @@
 
 예시로 보시면 
 
-> user-guide-alertnow-ko.md  
-> user-guide-alertnow-en.md  
+> user-guide-alertnow-ko.md
+
+> user-guide-alertnow-en.md
+
 > user-guide-alertnow-zh.md  
 
 **반드시 지켜주셔야 합니다**.   
