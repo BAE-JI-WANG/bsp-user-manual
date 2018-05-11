@@ -39,3 +39,28 @@ markdown으로 작성해서 온라인 웹서비스와 pdf버전 두가지로 배
 -   [도움말 작성자를 위한 설명](./_readme/for_writer.md)
 -   [배포와 서버 환경설정](./_readme/for_ci.md)
 -   [자동 빌드 시스템 유지보수/확장](./_readme/for_maintanance.md)
+
+
+
+
+## 실행명령
+
+-   자신의 pc에서 만들어진걸 확인하고 싶을때
+    ```
+    gulp local --asset
+         ^^^^^
+    ```
+-   배포용 버전을 만들 때
+    ```
+    gulp deploy- --metering
+         ^^^^^^
+    ```
+
+-   pdf를 생성할때
+    ```
+    gulp pdf --alertnow --ko
+               ^^^^^^^^   ^^
+                   1      2
+    1: 서비스명. pdf는 예외적으로 모든 문서 생성이 가능합니다. (--all option)
+    2. 언어. pdf 생성은 언어 단위별로 생성되니 반드시 언어 옵션을 붙여주세요 
+    ```
