@@ -1,5 +1,8 @@
+<!-- TOC -->
 
-### build
+# OpsNow manual build system  
+
+## Gulp.js를 이용한 유지보수/확장
 
 Gulp.js를 사용합니다. (ver :: 3.9.1)  
 
@@ -13,6 +16,3 @@ Pandoc markdown + sass + jquery를 이용해 서비스에 배포되는 아웃풋
 스타일은 sass로 구성되어 있습니다. 각 섹션별로 파일이 쪼개져 있고, `manual.css`로 최종 빌드됩니다. 
 
 `/source/_resource/template` 중 Html탬플릿은 pandoc markdown에서 참조하여 마크다운을 html 파일로 변환하는데 사용됩니다. 
-
-
-

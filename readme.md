@@ -6,7 +6,7 @@
 markdown으로 작성해서 온라인 웹서비스와 pdf버전 두가지로 배포할 수 있는 task runner입니다.
 
 
-## 환경설정
+## 환경
 
 **node.js**, **Gulp.js**, **pandoc**을 준비합니다.
 
@@ -38,4 +38,4 @@ markdown으로 작성해서 온라인 웹서비스와 pdf버전 두가지로 배
 -   [환경](./_readme/env.md)
 -   [도움말 작성자를 위한 설명](./_readme/for_writer.md)
 -   [배포와 서버 환경설정](./_readme/for_ci.md)
--   [도움말 빌드 시스템 유지보수](./_readme/for_manaager.md)
+-   [자동 빌드 시스템 유지보수/확장](./_readme/for_maintanance.md)
