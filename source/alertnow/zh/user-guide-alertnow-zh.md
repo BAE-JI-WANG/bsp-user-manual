@@ -16,7 +16,7 @@ zh : true
 
 ## AlertNow 介绍 
 
-###	什么是AlertNow
+###	什么是AlertNow?
 
 AlertNow是基于SaaS的服务事件周期管理平台，检查各服务的状态，并管理服务中发生告警的故障现状及历史记录。
 主要功能见如下。
@@ -692,9 +692,26 @@ AWS Simple Notification Service 参考链接: <https://docs.aws.amazon.com/zh_cn
 
 
 
+--------------------------------------------------------------------------------
 
 
-<!-- 이미지 링크 모음 -->
+## Alertnow 帮助
+추후 중국어 도움말 제공 예정입니다. 
+불편하시겠지만 [영문 도움말][redirect]을 참고하십시오. 
+
+
+
+
+
+
+
+
+
+
+<!-- 링크 모음-->
+[redirect]: ../en/user-guide-alertnow-en.html
+
+<!-- 이미지 모음 -->
 [btn_edit]:                           ./resource/btn_edit@2x.png
 [metric_json]:                        ./resource/metric_json.png
 
