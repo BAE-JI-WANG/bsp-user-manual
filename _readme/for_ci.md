@@ -1,14 +1,3 @@
-<!-- TOC -->
-# OpsNow manual build system  
-
-
-
-## 배포
-
-
-### 배포 자동화 처리
-
-자동배포를 하시려면 아래 설정을 참조하셔서 jenkins 내의 console command를 완성하세요.  
 
 #### 배포서버에 node/npm/gulp가 설치되어 있는지 확인  
 
@@ -35,6 +24,16 @@ alertnow를 예로 든다면
 
 
 
+
+
 ### 프로젝트에 따라  URL rule 수정
 
 도움말 디렉토리는 ng-routing 규칙에서 벗어나게 되므로, nginx rewrite rule의 설정이 필요합니다.  
+빌드 시스템에서 만들어진 도움말 디렉토리는 ng-routing 규칙에서 벗어나게 되므로, proxy server인 nginx rewrite rule의 설정이 필요합니다.  
+다음은 각 서비스별 도움말 문서 root directory입니다.
+
+서비스명 : 디렉토리명
+
+alertnow : **/doc/** 
+
+

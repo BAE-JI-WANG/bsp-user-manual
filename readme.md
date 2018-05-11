@@ -35,9 +35,9 @@ markdown으로 작성해서 온라인 웹서비스와 pdf버전 두가지로 배
 
 여기까지 무리없이 진행하셨다면 아래 필요한 부분의 설명을 찾아서 읽으시면 됩니다.
 
--   [환경](./_readmd/env.md)
+-   [환경](./_readme/env.md)
 -   [proxy server 설정](./_readme/for_service_link.md)
--   [도움말 문서 작성하기](./_readme/for_writer.md)
+-   [도움말 작성자를 위한 설명](./_readme/for_writer.md)
 
--   [배포](./_readme/for_ci.md)
+-   [배포와 서버 환경설정](./_readme/for_ci.md)
 -   [도움말 빌드 시스템 유지보수](./_readme/for_manaager.md)
