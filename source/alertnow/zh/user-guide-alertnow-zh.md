@@ -6,18 +6,17 @@ zh : true
 
 
 
+#	AlertNow 
 
-
-
-#	AlertNow 介绍
+可检查每个服务状态，并管理服务中发生的告警的故障状态及历史记录。
 
 
 --------------------------------------------------------------------------------
 
 
-##	什么是AlertNow
+## AlertNow 介绍 
 
-### AlertNow?
+###	什么是AlertNow
 
 AlertNow是基于SaaS的服务事件周期管理平台，检查各服务的状态，并管理服务中发生告警的故障现状及历史记录。
 主要功能见如下。
@@ -65,9 +64,9 @@ AlertNow是基于SaaS的服务事件周期管理平台，检查各服务的状�
 
 提供有关用户首次使用AlertNow时必须要设置的简要说明。
 
-### 创建集成
+#### 创建集成
 
-集成列表中选择使用中的工具或服务后设置集成来交付和管理通知。在此仅提供创建集成的步骤，有关创建的详细内容，请参阅[集成其他外部监控服务时：添加集成](#add-integration-for-third-party-link)。
+集成列表中选择使用中的工具或服务后设置集成来交付和管理通知。在此仅提供创建集成的步骤，有关创建的详细内容，请参阅[集成其他外部监控服务时：添加集成](#与其他第三方监控服务同步时添加集成)。
 
 1.  点击[集成]菜单 
     ![][service_case2_01]
@@ -87,7 +86,7 @@ AlertNow是基于SaaS的服务事件周期管理平台，检查各服务的状�
 AWS Simple Notification Service 参考链接: <https://docs.aws.amazon.com/zh_cn/sns/latest/dg/welcome.html>
 
 
-#### SNS 控制面板
+##### SNS 控制面板
 
 1.  登录AWS，您将看到以下界面。在界面中找到并点击移动服务中“SNS”，将会转到SNS控制面板。
     ![][aws_dashboard]
@@ -122,7 +121,7 @@ AWS Simple Notification Service 参考链接: <https://docs.aws.amazon.com/zh_cn
     | 项目     | 说明                         | 备注
     +==========+==============================+=========================================+
     | 主题 ARN | 创建的主题名称自动反映出来。 | 可修改
-    +==========+==============================+=========================================+
+    +----------+------------------------------+-----------------------------------------+
     | 协议     | 选择HTTPS                    | 可选项目  
     |          |                              | HTTP / HTTPS / Email / Email-JSON / 
     |          |                              | Amazon  SQS / Application / AWS Lambda 
@@ -137,7 +136,7 @@ AWS Simple Notification Service 参考链接: <https://docs.aws.amazon.com/zh_cn
 
 
 
-#### EC2 Console
+##### EC2 Console
 
 1.  在AWS界面中找到并选择计算服务中的“EC2”后转到EC2 Console。
     ![][aws_select_ec2_service]
@@ -161,6 +160,9 @@ AWS Simple Notification Service 参考链接: <https://docs.aws.amazon.com/zh_cn
     +------------+----------------+----------+
     | 每当       | 设置阈值       | 需要输入 
     +------------+----------------+----------+
+
+
+
 
 #### 检查创建的事件
 
@@ -268,7 +270,7 @@ AWS Simple Notification Service 参考链接: <https://docs.aws.amazon.com/zh_cn
 
 6.  点击[确定]按钮完成时区设置。
 
-7.  点击 <span class="demo black button">添加联系人</span> 按钮注册联系方式。最多可注册5个电子邮件，电话和Slack。超过5个时会弹出如下信息。 
+7.  点击 <span class="demo black button">+ 添加联系人</span> 按钮注册联系方式。最多可注册5个电子邮件，电话和Slack。超过5个时会弹出如下信息。 
     ![][personal_setting_max_contact]
 
 8.	点击\[确定\]按钮完成注册。
@@ -378,7 +380,7 @@ AWS Simple Notification Service 参考链接: <https://docs.aws.amazon.com/zh_cn
 
 7.  选择条件，输入比较值，并选择升级规则。
 
-8.  设置事件创建规则（事件创建限制规则，事件紧急程度规则）。(方法是与[减少管理费用时：设置事件创建规则](#make-rule-incident-for-minimize-administrative-overhead)一致。)
+8.  设置事件创建规则（事件创建限制规则，事件紧急程度规则）。(方法是与[减少管理费用时：设置事件创建规则](#减少管理费用时设置事件创建规则)一致。)
     ![][service_incident_rule_make_list]
 
 9.  点击\[确定\]按钮，创建服务。
@@ -410,7 +412,7 @@ AWS Simple Notification Service 参考链接: <https://docs.aws.amazon.com/zh_cn
 #### 创建集成
 
 1.  点击\[集成\]菜单。
-    ![][escalation_case2_01]
+    ![][service_case2_01]
 
 2.  点击 <span class="black demo button">创建集成</span> 按钮。
 3.  点击\[添加新集成\]按钮，创建集成。 (目前仅支持AWS Cloudwatch，后续将支持更多集成)
@@ -437,7 +439,7 @@ AWS Simple Notification Service 参考链接: <https://docs.aws.amazon.com/zh_cn
 
 创建集成时，同时也创建服务。
 
-5.  可在创建新服务界面中创建集成。设置方法是与[注册要通知的服务时：添加服务](#add-service-for-notice)中创建服务的方法一致。
+5.  可在创建新服务界面中创建集成。设置方法是与[注册要通知的服务时：添加服务](#注册要通知的服务时添加服务)中创建服务的方法一致。
 
 
 
@@ -482,7 +484,7 @@ AWS Simple Notification Service 参考链接: <https://docs.aws.amazon.com/zh_cn
 #### 按地区设置响应者
 
 5.  点击添加自定义条件复选框，选择Alert Summary, Contains后，并在比较值字段中输入区域名称，如下所示。选择升级时，需先创建与设置所匹配的升级后选择。
-    创建升级的详细内容是参考帮助的[Use Case 1: 在升级菜单中创建。](#escalation-use-case-1)
+    创建升级的详细内容是参考帮助的[Use Case 1: 在升级菜单中创建。](../en/user-guide-alertnow-en.html#escalation-use-case-1)
     ![][escalation_rule_setted_local]
 
 
