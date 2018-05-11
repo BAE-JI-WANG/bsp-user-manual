@@ -507,8 +507,8 @@ AWS Simple Notification Service 参考链接: <https://docs.aws.amazon.com/zh_cn
 
 
 ## Alertnow 帮助
-추후 중국어 도움말 제공 예정입니다. 
-불편하시겠지만 [영문 도움말][redirect]을 참고하십시오. 
+
+近期将会发布中文版帮助，请先参考[英文版帮助][redirect]。
 
 
 
