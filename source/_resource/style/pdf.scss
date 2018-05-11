@@ -36,12 +36,61 @@ figcaption {
 }
 
 // 매뉴얼 아티클 타이틀
-
-article.alertnow > h1:first-child {
-    background:url('../image/ci_opsnow_service_alertnow_orange_40_40.png') left center no-repeat transparent;
+article > h1:first-child {
+    background-position:left center;
+    background-repeat: no-repeat;
     background-size:20px 20px;
     padding-left:25px;
 }
+
+article.alarm > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_alarm.png')
+}
+
+article.alertnow > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_alertnow.png')
+}
+
+article.approval > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_approval.png')
+}
+
+article.asset > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_asset.png')
+}
+
+article.dbqcs > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_dbqcs.png')
+}
+
+article.devops > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_devops.png')
+}
+
+article.metering > h1:first-child,
+article.meteringadmin > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_metering.png')
+}
+
+article.monitoring-dashboard > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_monitoring_dashboard.png')
+}
+
+article.portal > h1:first-child,
+article.portal-admin > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_portal.png')
+}
+
+article.project > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_project.png')
+}
+
+article.service-request > h1:first-child {
+    background-image:url('../image/ci_opsnow_service_request.png')
+}
+
+
+
 
 h1 {
     font-size:12pt;
@@ -227,5 +276,60 @@ article {
         page-break-after:avoid;
     }
 
+}
+article {
+    blockquote {
+        margin:10px 0;
+        padding:0;
+        display: inline-block;
+        margin-top: 18px;
+        padding: 0 10px;
+        color: #4A4A4A;
+        line-height: 30px;
+        border-radius: 1px;
+        background-color: #E6EFFA;
+
+        p {
+            line-height: 30px;
+            margin:0;
+            padding:0;
+        }
+
+    }
+
+}
+
+
+
+article code {
+    background: #f0f0f0;
+    display: inline-block;
+    padding: 2px 4px;
+    margin: 2px 0;
+}
+
+span.demo.button {
+    margin:0;
+    font-family:inherit;
+
+    cursor: default;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    appearance: none;
+    display: inline-block;
+    line-height: 1.1;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: inherit;
+    border-radius: 0;
+    transition: color 0.3s ease-in-out;
+
+    padding: 4px;
+
+    &.black {
+        color:#fff;
+        background-color:#000;
+    }
 }
 

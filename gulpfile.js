@@ -91,9 +91,9 @@ path.exec = (function (arg) {
                 pdf를 빌드하실때는 반드시 언어 설정을 해주셔야 합니다!
                 아래처럼 언어를 꼭 입력해주세요.
 
-                > gulp pdf --all --lang=ko
-                > gulp pdf --all --lang=en
-                > gulp pdf --all --lang=zh
+                > gulp pdf --all --ko
+                > gulp pdf --all --en
+                > gulp pdf --all --zh
             `)
         }
     } else {

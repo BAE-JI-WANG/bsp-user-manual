@@ -438,4 +438,34 @@ article td p {
     padding-bottom:0.6em;
 }
 
+span.demo.button {
+    margin:0;
+    font-family:inherit;
+
+    cursor: default;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    appearance: none;
+    display: inline-block;
+    line-height: 1.1;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: inherit;
+    border-radius: 0;
+    transition: color 0.3s ease-in-out;
+
+    min-width:40px;
+
+    padding: 0 12px;
+    height: 28px;
+    font-size: 12px;
+    line-height: 22px;
+
+    &.black {
+        color:#fff;
+        border:2px solid #000;
+        background-color:#000;
+    }
+}
 
