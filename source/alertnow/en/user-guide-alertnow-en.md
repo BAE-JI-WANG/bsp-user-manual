@@ -1,4 +1,4 @@
----
+﻿---
 title   : AlertNow
 service : alertnow
 en : true
@@ -73,7 +73,7 @@ You can deliver and manage notifications by selecting tools or services in an in
 2.  Click  <span class="demo black button">Create integration</span> button.
 
 3.  Click \[Add a New Integration\] button to create an integration.
-    ![][escalation_case3_03]
+    ![][1.1_step3]
 
 4.  Create integration screen will be displayed as below. If you enter the required information and press the [Save] button, integration will be created.
     ![][create_integration]
@@ -157,6 +157,89 @@ AWS Simple Notification Service Reference link: <https://docs.aws.amazon.com/ko_
     +-------------------------+---------------------------+-----------------+
     | Whenever                | Set the threshold value.  | Input required 
     +-------------------------+---------------------------+-----------------+
+
+#### Connecting Integration in Azure (Classic)
+
+To connect Azure Alert with the integration created in AlertNow, you need to create a metric alert by connecting to the Azure Portal.
+
+
+##### Adding Metric alert in Azure Portal
+
+1. Go to Azure Portal. ([https://portal.azure.com/](https://portal.azure.com/))
+
+
+2. After logging in, click *Monitor > Alert (Classic)* as below.
+   ![][1.3.1_step2_alert_classic_screen]
+
+3. Set Subscription, Source, Resource group, Resource type, Resource, and click “+ Add metric alert (classic)".
+   ![][1.3.1_step3]
+
+4. Add rule screen will be displayed as below. The input items are as follows.
+
+   ![][1.3.1_step4_add_rule]  ![][1.3.1_step4_add_rule_2]
+
++--------------------------------+------------------------------------------------------------------------------------------------+------------------------------+
+| Item                           | Description                                                                                    | Remark
++================================+================================================================================================+==============================+
+| Name                           | Enter the name.                                                                                | Required
++--------------------------------+------------------------------------------------------------------------------------------------+------------------------------+
+| Description                    | Enter the description about a rule.                                                            | Optional
++--------------------------------+------------------------------------------------------------------------------------------------+------------------------------+
+| Source                         | *Alert on:* It is set to “Metrics” as default.                                               | 
++--------------------------------+------------------------------------------------------------------------------------------------+------------------------------+
+|                                | *Subscription:* The subscription set in the previous step is automatically selected.           | 
+|                                | *Resource group:* The resource group set in the previous step is automatically selected.       |
+|                                | *Resource:* The resource set in the previous step is automatically selected.                   | Required
+|                                | *Metric:* Select a metric.                                                                     |
+| Criteria                       | *Condition:* Set a condition about a rule.                                                     |
+|                                | *Threshold:* Set a threshold about a rule.                                                     | 
+|                                | *Period:* Select the metric that you want this alert rule to monitor.                          |
++--------------------------------+------------------------------------------------------------------------------------------------+------------------------------+                                                                                      
+|                                | *Email owners, contributors, and readers:*                                                     |
+|                                |  Select the checkbox if you want to send notifications via email.                              | Required for Webhook
+| Notify via                     | *Additional administrator email(s):* Enter the email address to send notifications.            |
+|                                | *Webhook:* Paste the Webhook URL information copied from Integration                           | 
++--------------------------------+------------------------------------------------------------------------------------------------+------------------------------+
+
+
+5. Click [OK] button to create a metric alert.
+
+
+#### Connecting Integration in Azure
+
+In Azure Portal, you can also connect Azure Alert with the integration created in AlertNow by adding an Alert rule.
+
+
+##### Adding Alert rule in Azure Portal
+
+1. Go to Azure Portal. ([https://portal.azure.com/](https://portal.azure.com/))
+
+2. After logging in, click *Monitor > Alert* as below.
+   ![][1.4.1_step2_alert_screen]
+   
+3. Set Subscription, Resource group, Time range, and click “+ New Alert Rule”.
+   ![][1.4.1_step3]
+
+4. Add Alert rule screen will be displayed as below. Click *Define action group > + New action group*.
+   ![][1.4.1_step4]
+
+5. Add action group screen will be displayed. Set the action type to “Webhook”. Then, in URI field in Webhook window, paste the webhook URL information copied from Integration.
+   ![][1.4.1_step5_webhook]
+
++-------------------------+----------------------------------------------------------------------+------------------------------+
+| Item                    | Description                                                          | Remark
++=========================+======================================================================+==============================+
+| Action group name       | Enter the Azure Resource name.                                       | Required
++-------------------------+----------------------------------------------------------------------+------------------------------+
+| Short name              | Enter the short name included in email and SNS notifications.        | Required
++-------------------------+----------------------------------------------------------------------+------------------------------+
+| Subscription            | Select the subscription in which the group will be saved.            | Required
++-------------------------+----------------------------------------------------------------------+------------------------------+
+| Resource group          | Select the resource group the group will be associated with.         | Required
++-------------------------+----------------------------------------------------------------------+------------------------------+ 
+
+6. Click [OK] button to create an alert rule.
+
 
 #### Checking created incidents {#check-created-incident}
  
@@ -405,7 +488,7 @@ It provides the detailed information about creating an integration of Getting St
 2.  Click <span class="demo black button">Create integration</span> button.
 
 3.  Click \[Add a new integration\] button to create an integration. (Currently, it only supports AWS Cloudwatch and more integrations will be supported in the near future.)
-    ![][escalation_case3_03]
+    ![][1.1_step3]
 
 4.  Create integration screen will be displayed as below.
     ![][integration_make]
@@ -1344,7 +1427,7 @@ You can forward and manage notifications occurring in the tool with AlertNow by 
 
 ####  Integration settings
 
-Integration settings guide is as follows.
+Integration settings guide is as follows. (The setting process is the same for AWS Cloudwatch and Azure.)
 
 1.  Step 1: Select Integration Menu
     Click Integrations menu.
@@ -1352,9 +1435,9 @@ Integration settings guide is as follows.
 2.  Step 2: Create New Integration
     Click [Create Integration] button.
     ![][integration_02]
-3.  Step 3: Select AWS Cloud Watch
+3.  Step 3: Select integration type
     Click [Add a new integration] button.
-    ![][integration_03]
+    ![][1.1_step3]
 4.  Step 4: Set Integration
     ![][integration_04]
 
@@ -1531,10 +1614,90 @@ If incidents are created based on the threshold settings and the instance status
 6.  Step 6: Check setting changes
     ![][integration_autoclosing_07] 
 
- 
+#### Case 2) Azure (Classic)
+
+To connect Azure Alert with the integration created in AlertNow, you need to create a metric alert by connecting to the Azure Portal.
 
 
-#####    AlertNow > Incidents  {#set-aws-watch}
+##### Adding Metric alert in Azure Portal
+
+1. Go to Azure Portal. ([https://portal.azure.com/](https://portal.azure.com/))
+
+
+2. After logging in, click *Monitor > Alert (Classic)* as below.
+   ![][1.3.1_step2_alert_classic_screen]
+
+3. Set Subscription, Source, Resource group, Resource type, Resource, and click “+ Add metric alert (classic)".
+   ![][1.3.1_step3]
+
+4. Add rule screen will be displayed as below. The input items are as follows.
+
+   ![][1.3.1_step4_add_rule]  ![][1.3.1_step4_add_rule_2]
+
++--------------------------------+------------------------------------------------------------------------------------------------+------------------------------+
+| Item                           | Description                                                                                    | Remark
++================================+================================================================================================+==============================+
+| Name                           | Enter the name.                                                                                | Required
++--------------------------------+------------------------------------------------------------------------------------------------+------------------------------+
+| Description                    | Enter the description about a rule.                                                            | Optional
++--------------------------------+------------------------------------------------------------------------------------------------+------------------------------+
+| Source                         | *Alert on:* It is set to “Metrics” as default.                                               | 
++--------------------------------+------------------------------------------------------------------------------------------------+------------------------------+
+|                                | *Subscription:* The subscription set in the previous step is automatically selected.           | 
+|                                | *Resource group:* The resource group set in the previous step is automatically selected.       |
+|                                | *Resource:* The resource set in the previous step is automatically selected.                   | Required
+|                                | *Metric:* Select a metric.                                                                     |
+| Criteria                       | *Condition:* Set a condition about a rule.                                                     |
+|                                | *Threshold:* Set a threshold about a rule.                                                     | 
+|                                | *Period:* Select the metric that you want this alert rule to monitor.                          |
++--------------------------------+------------------------------------------------------------------------------------------------+------------------------------+                                                                                      
+|                                | *Email owners, contributors, and readers:*                                                     |
+|                                |  Select the checkbox if you want to send notifications via email.                              | Required for Webhook
+| Notify via                     | *Additional administrator email(s):* Enter the email address to send notifications.            |
+|                                | *Webhook:* Paste the Webhook URL information copied from Integration                           | 
++--------------------------------+------------------------------------------------------------------------------------------------+------------------------------+
+
+
+5. Click [OK] button to create a metric alert.
+
+
+#### Case 3) Azure (New)
+
+In Azure Portal, you can also connect Azure Alert with the integration created in AlertNow by adding an Alert rule.
+
+
+##### Adding Alert rule in Azure Portal
+
+1. Go to Azure Portal. ([https://portal.azure.com/](https://portal.azure.com/))
+
+2. After logging in, click *Monitor > Alert* as below.
+   ![][1.4.1_step2_alert_screen]
+   
+3. Set Subscription, Resource group, Time range, and click “+ New Alert Rule”.
+   ![][1.4.1_step3]
+
+4. Add Alert rule screen will be displayed as below. Click *Define action group > + New action group*.
+   ![][1.4.1_step4]
+
+5. Add action group screen will be displayed. Set the action type to “Webhook”. Then, in URI field in Webhook window, paste the webhook URL information copied from Integration.
+   ![][1.4.1_step5_webhook]
+
++-------------------------+----------------------------------------------------------------------+------------------------------+
+| Item                    | Description                                                          | Remark
++=========================+======================================================================+==============================+
+| Action group name       | Enter the Azure Resource name.                                       | Required
++-------------------------+----------------------------------------------------------------------+------------------------------+
+| Short name              | Enter the short name included in email and SNS notifications.        | Required
++-------------------------+----------------------------------------------------------------------+------------------------------+
+| Subscription            | Select the subscription in which the group will be saved.            | Required
++-------------------------+----------------------------------------------------------------------+------------------------------+
+| Resource group          | Select the resource group the group will be associated with.         | Required
++-------------------------+----------------------------------------------------------------------+------------------------------+ 
+
+6. Click [OK] button to create an alert rule.
+
+
+####    AlertNow > Incidents  {#set-aws-watch}
 
 When you first connect to AlertNow, "Incidents" screen is displayed as default.
 
@@ -1955,7 +2118,7 @@ Observer cannot receive notifications for creating incidents and changing status
 [service_case1_05]: ./resource/bnr_service_case1_05_en@2x.png
 
 [service_case2_01]: ./resource/bnr_service_case2_01_en@2x.png
-[service_case2_02]: ./resource/bnr_service_case2_02_en@2x.png
+[1.1_step3]: ./resource/1.1_step3.png
 [service_case2_03]: ./resource/bnr_service_case2_03_en.png
 [service_case2_04]: ./resource/bnr_service_case2_04_en@2x.png
 [service_case2_05]: ./resource/bnr_service_case2_05_en@2x.png
@@ -2108,3 +2271,11 @@ Observer cannot receive notifications for creating incidents and changing status
 [incident_manual_alert]: ./resource/incident_manual_alert_en.png
 
 [incident_manual_popup]: ./resource/incident_manual_popup_en.png
+[1.3.1_step2_alert_classic_screen]: ./resource/1.3.1_step2_alert_classic_screen.png
+[1.3.1_step3]: ./resource/1.3.1_step3.png
+[1.3.1_step4_add_rule]: ./resource/1.3.1_step4_add_rule.png
+[1.3.1_step4_add_rule_2]: ./resource/1.3.1_step4_add_rule_2.png
+[1.4.1_step2_alert_screen]: ./resource/1.4.1_step2_alert_screen.png
+[1.4.1_step3]: ./resource/1.4.1_step3.png
+[1.4.1_step4]: ./resource/1.4.1_step4.png
+[1.4.1_step5_webhook]: ./resource/1.4.1_step5_webhook.png
