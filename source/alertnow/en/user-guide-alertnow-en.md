@@ -59,11 +59,10 @@ The key features of AlertNow are as follows.
 
 ##	AlertNow Quick Start Guide {#alertnow-quick-starter-guide}
 
-###	Getting Started {#start}
 
 Provides the brief information about mandatory steps when you first use AlertNow  service.
 
-#### Creating an integration {#create-incident}
+### Creating an integration {#create-incident}
 
 You can deliver and manage notifications by selecting tools or services in an integration list that are in use and setting an integration. This Start Guide only provides steps for creating an integration. For detailed information, please refer to [When syncing with other 3rd party monitoring services: Adding an integration](#add-integration-for-third-party-link).
 
@@ -78,14 +77,14 @@ You can deliver and manage notifications by selecting tools or services in an in
 4.  Create integration screen will be displayed as below. If you enter the required information and press the [Save] button, integration will be created.
     ![][create_integration]
 
-#### Connecting Integration in AWS Cloudwatch {#aws-alertnow-connect}
+### Connecting Integration in AWS Cloudwatch {#aws-alertnow-connect}
 
 To connect created integration in AWS Cloudwatch, you must first go to AWS  Console and create topic and subscription.
 
 AWS Simple Notification Service Reference link: <https://docs.aws.amazon.com/ko_kr/sns/latest/dg/welcome.html>
 
 
-##### SNS Dashboard {#sns-dashboard}
+#### SNS Dashboard {#sns-dashboard}
 
 1.  When logging into AWS, you will see the following screen. Enter ‘SNS’ in the search field to go to SNS Dashboard.
     ![][aws_dashboard]
@@ -133,7 +132,7 @@ AWS Simple Notification Service Reference link: <https://docs.aws.amazon.com/ko_
     ![구독자 번호 생성][aws_subscribe_confirm_after]
 
 
-##### EC2 Console {#ec2-console}
+#### EC2 Console {#ec2-console}
 
 1.  In AWS screen, enter ‘EC2’ in the search field to go to EC2 Console.
     ![][aws_select_ec2_service]
@@ -158,12 +157,12 @@ AWS Simple Notification Service Reference link: <https://docs.aws.amazon.com/ko_
     | Whenever                | Set the threshold value.  | Input required 
     +-------------------------+---------------------------+-----------------+
 
-#### Connecting Integration in Azure (Classic)
+### Connecting Integration in Azure (Classic)
 
 To connect Azure Alert with the integration created in AlertNow, you need to create a metric alert by connecting to the Azure Portal.
 
 
-##### Adding Metric alert in Azure Portal
+#### Adding Metric alert in Azure Portal
 
 1. Go to Azure Portal. ([https://portal.azure.com/](https://portal.azure.com/))
 
@@ -205,12 +204,12 @@ To connect Azure Alert with the integration created in AlertNow, you need to cre
 5. Click [OK] button to create a metric alert.
 
 
-#### Connecting Integration in Azure
+### Connecting Integration in Azure
 
 In Azure Portal, you can also connect Azure Alert with the integration created in AlertNow by adding an Alert rule.
 
 
-##### Adding Alert rule in Azure Portal
+#### Adding Alert rule in Azure Portal
 
 1. Go to Azure Portal. ([https://portal.azure.com/](https://portal.azure.com/))
 
@@ -241,7 +240,7 @@ In Azure Portal, you can also connect Azure Alert with the integration created i
 6. Click [OK] button to create an alert rule.
 
 
-#### Checking created incidents {#check-created-incident}
+### Checking created incidents {#check-created-incident}
  
 If you connect a created integration with AWS Cloudwatch, alert and incident are  created in AlertNow.
 

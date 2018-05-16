@@ -61,11 +61,10 @@ AlertNow는 SaaS 기반의 서비스 인시던트 주기 관리 플랫폼이며,
 
 ##	AlertNow 빠른 시작 가이드       {#alertnow-quick-starter-guide}
 
-###	시작하기                        {#start}
 
 사용자가 AlertNow 서비스를 시작할 때 필수로 설정해야 하는 부분에 대한 간략한 설명을 제공합니다.
 
-#### 인티그레이션 생성하기          {#create-incident}
+### 인티그레이션 생성하기          {#create-incident}
 
 인티그레이션 목록 중 사용 중인 툴 또는 서비스를 선택한 후 인티그레이션을 설정하여 알림을 전달하고 관리할 수 있습니다. 여기에서는 인티그레이션 생성 절차만 제공하며, 생성에 대한 자세한 내용은 [다른 외부 모니터링 서비스를 연동할 때: 인티그레이션 추가하기](#add-integration-for-third-party-link)를 참고하십시오.
 
@@ -81,14 +80,14 @@ AlertNow는 SaaS 기반의 서비스 인시던트 주기 관리 플랫폼이며,
     ![][create_integration]
 
 
-#### AWS Cloudwatch에서 인티그레이션 연결하기 {#aws-alertnow-connect}
+### AWS Cloudwatch에서 인티그레이션 연결하기 {#aws-alertnow-connect}
 
 AWS Cloudwatch에서 생성한 인티그레이션을 연결하려면 AWS Console에 접속해 주제 및 구독을 생성해야 합니다.
 
 AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_kr/sns/latest/dg/welcome.html>
 
 
-#####   SNS 대시보드    {#sns-dashboard}
+####   SNS 대시보드    {#sns-dashboard}
 
 1.  AWS에 로그인하면 아래와 같은 화면이 나옵니다. 검색창에 ‘SNS’를 입력한 후 SNS 대시보드로 이동합니다.
     ![][aws_dashboard]
@@ -138,7 +137,7 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
 
 
 
-#####	EC2 Console {#ec2-console}
+####	EC2 Console {#ec2-console}
 
 1.  AWS 화면에서 검색창에 ‘EC2’를 입력한 후 Enter를 눌러 EC2 Console로 이동합니다.
     ![][aws_select_ec2_service]
@@ -164,12 +163,12 @@ AWS Simple Notification Service 참고 링크: <https://docs.aws.amazon.com/ko_k
     +-----------------+---------------------------------+--------------+
 
 
-#### Azure (Classic)에서 인티그레이션 연결하기
+### Azure (Classic)에서 인티그레이션 연결하기
 
 Azure Alert를 AlertNow에서 생성한 인티그레이션과 연결시키기 위해서는 Azure Portal에 접속하여 메트릭 경고(Metric alert)를 생성해야 합니다.
 
 
-##### Azure 포털에 접속하여 메트릭 경고 추가
+#### Azure 포털에 접속하여 메트릭 경고 추가
 
 1. Azure 포털에 접속합니다. ([https://portal.azure.com/](https://portal.azure.com/))
 
@@ -212,12 +211,12 @@ Azure Alert를 AlertNow에서 생성한 인티그레이션과 연결시키기 �
 5. [확인] 버튼을 클릭하여 메트릭 경고를 생성합니다.
 
 
-#### Azure에서 인티그레이션 연결하기
+### Azure에서 인티그레이션 연결하기
 
 Azure Portal에 접속 후 경고 규칙(Alert rule)을 추가하여 Azure Alert를 AlertNow에서 생성한 인티그레이션과 연결할 수도 있습니다.
 
 
-##### Azure 포털에 접속하여 경고 규칙 추가
+#### Azure 포털에 접속하여 경고 규칙 추가
 
 1. Azure 포털에 접속합니다. ([https://portal.azure.com/](https://portal.azure.com/))
 
@@ -248,7 +247,7 @@ Azure Portal에 접속 후 경고 규칙(Alert rule)을 추가하여 Azure Alert
 6. [확인] 버튼을 클릭하여 경고 규칙을 생성합니다.
 
 
-####	생성된 인시던트 확인하기    {#check-created-incident}
+###	생성된 인시던트 확인하기    {#check-created-incident}
 
 생성된 인티그레이션을 AWS Cloudwatch와 연결하고 나면 AlertNow에 경고와 인시던트가 생성됩니다.
 

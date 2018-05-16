@@ -1,4 +1,4 @@
----
+﻿---
 title   : AlertNow
 service : alertnow
 zh : true
@@ -60,11 +60,11 @@ AlertNow是基于SaaS的服务事件周期管理平台，检查各服务的状�
 
 ## AlertNow 快速入门指南
 
-### 开始
+
 
 提供有关用户首次使用AlertNow时必须要设置的简要说明。
 
-#### 创建集成
+### 创建集成
 
 集成列表中选择使用中的工具或服务后设置集成来交付和管理通知。在此仅提供创建集成的步骤，有关创建的详细内容，请参阅[集成其他外部监控服务时：添加集成](#与其他第三方监控服务同步时添加集成)。
 
@@ -79,14 +79,14 @@ AlertNow是基于SaaS的服务事件周期管理平台，检查各服务的状�
 4.  创建集成的界面如下图所示。输入所需的信息并点击【保存】按钮，则将创建集成。
     ![][create_integration]
 
-#### 在AWS Cloudwatch中连接集成
+### 在AWS Cloudwatch中连接集成
 
 要在AWS Cloudwatch中连接创建的集成，需先在AWS Console中创建主题及订阅。
 
 AWS Simple Notification Service 参考链接: <https://docs.aws.amazon.com/zh_cn/sns/latest/dg/welcome.html>
 
 
-##### SNS 控制面板
+#### SNS 控制面板
 
 1.  登录AWS，您将看到以下界面。在界面中找到并点击移动服务中“SNS”，将会转到SNS控制面板。
     ![][aws_dashboard]
@@ -136,7 +136,7 @@ AWS Simple Notification Service 参考链接: <https://docs.aws.amazon.com/zh_cn
 
 
 
-##### EC2 Console
+#### EC2 Console
 
 1.  在AWS界面中找到并选择计算服务中的“EC2”后转到EC2 Console。
     ![][aws_select_ec2_service]
@@ -164,7 +164,7 @@ AWS Simple Notification Service 参考链接: <https://docs.aws.amazon.com/zh_cn
 
 
 
-#### 检查创建的事件
+### 检查创建的事件
 
 如果将创建的集成与AWS Cloudwatch连接起来，那么在AlertNow中自动创建警报和事件。
 
