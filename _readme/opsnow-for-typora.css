@@ -1,0 +1,528 @@
+/* google font api. 상업 사용 가능 (http://fonts.gstatic.com/ea/notosanskr/v2/OFL.txt) */
+@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, font, img, ins, q, s, samp, strike, strong, sub, sup, dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
+    line-height: 1.3em;
+    border: 0 none;
+}
+
+html,
+body,
+#write {
+    line-height: 1.3em;
+    height: 100%;
+    border: 0 none;
+}
+
+#write {
+    padding:40px 0;
+    margin:0 auto;
+    width:900px;
+    font-size:14px;
+}
+
+html {
+    font-size:16px;
+}
+
+body {
+    position: relative;
+    margin: 0 auto;
+    font-size: 100%;
+    line-height: 1.3em;
+    font-family: "Noto Sans KR", "Apple SD Gothic", sans-serif;
+    word-break: normal;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+
+h1 {
+    font-size:30px;
+    background-position:left center;
+    background-repeat:no-repeat;
+    background-color:transparent;
+    background-size:40px 40px;
+    padding-left:55px;
+    padding-right:27px;
+    line-height:40px;
+
+    padding-top:60px;
+    padding-bottom:60px;
+
+    background-image: url(data:image/png;base64,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); 
+}
+
+h1 + p {
+    display: block;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #999;
+    line-height: 1.25em;
+    padding-left:5px;
+    margin-top:-40px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    counter-reset: _h3;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5em;
+    counter-increment: _h3;
+    counter-reset: _h4;
+}
+
+h3:before {
+    content: counter(_h3) ". ";
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.5em;
+    padding-bottom:10px;
+
+    counter-increment: _h4;
+
+    counter-reset: _h5;
+}
+
+
+h4:before {
+    content: counter(_h3) ". " counter(_h4) ". ";
+}
+
+h5 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5em;
+    padding-bottom:10px;
+
+    counter-increment: _h5;
+}
+
+h5:before {
+    content: counter(_h3) ". " counter(_h4) ". " counter(_h5) ". ";
+}
+
+
+#write>h3.md-focus:before {
+    left: -1.875rem;
+    top: 0.5rem;
+    padding: 2px;
+}
+#write>h4.md-focus:before {
+    left: -1.875rem;
+    top: 0.3125rem;
+    padding: 2px;
+}
+#write>h5.md-focus:before {
+    left: -1.875rem;
+    top: 0.25rem;
+    padding: 2px;
+}
+#write>h6.md-focus:before {
+    left: -1.875rem;
+    top: .125rem;
+    padding: 2px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+a,
+.md-def-url {
+    color: #990000;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* 테이블 설정 */
+table {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    color: #000;
+    border-bottom: 1px solid #EAEAEA;
+    width: 100%; 
+}
+table td,table th {
+    border-top: 1px solid #EAEAEA;
+    text-align: left;
+    padding: 10px;
+    font-size: 0.875rem;
+    vertical-align: top; 
+}
+table thead th {
+    font-weight: normal;
+    text-align: left;
+    font-size: 0.875rem; 
+}
+table tbody tr > *:first-child[rowspan] + td,
+table tr > *:first-child {
+    padding: 10px 20px !important;
+    white-space: nowrap; 
+}
+table tbody tr > *:first-child[rowspan] + td,
+table tbody tr > *:first-child {
+    font-weight: 700; 
+}
+table .left {
+    text-align: left;
+}
+table .center {
+    text-align: center; 
+}
+table .rigth {
+    text-align: right; 
+}
+
+td ul,
+td ol {
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+td>ol>li:first-child,
+td>ul>li:first-child {
+    padding-top: 0;
+}
+
+td p {
+    margin: 0;
+    padding-bottom: 0.6em;
+}
+
+/* 커스텀 버튼 */
+span.demo.button {
+    margin: 0;
+    font-family: inherit;
+    cursor: default;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    line-height: 1.1;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: inherit;
+    border-radius: 0;
+    -webkit-transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
+    min-width: 40px;
+    padding: 0 12px;
+    height: 28px;
+    font-size: 12px;
+    line-height: 22px;
+}
+
+span.demo.button.black {
+    color: #fff;
+    border: 2px solid #000;
+    background-color: #000;
+}
+
+
+/* 리스트의 정의 */
+ol,ul {
+    margin-top:0.5em;
+    margin-bottom:2em;
+    padding-left:1.5em;
+}
+
+ol ul,
+ol ol,
+ul ul,
+ul ol {
+    margin-bottom:1em;
+}
+
+ol ul li,
+ol ol li,
+ul ul li,
+ul ol li {
+    padding-left:0;
+}
+
+
+li {
+    padding-top: 10px;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+li p {
+    margin-top:0;
+    margin-bottom:0.3em;
+}
+
+*>li>*>li>ol>li {
+    list-style-type: none;
+}
+
+*>li>*>li>ol>li:nth-of-type(1):before {
+    content: "①";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>ol>li:nth-of-type(2):before {
+    content: "②";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>ol>li:nth-of-type(3):before {
+    content: "③";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>ol>li:nth-of-type(4):before {
+    content: "④";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>ol>li:nth-of-type(5):before {
+    content: "⑤";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>ol>li:nth-of-type(6):before {
+    content: "⑥";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>ol>li:nth-of-type(7):before {
+    content: "⑦";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>ol>li:nth-of-type(8):before {
+    content: "⑧";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>ol>li:nth-of-type(9):before {
+    content: "⑨";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>ol>li:nth-of-type(10):before {
+    content: "⑩";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>*>li>ol>li {
+    list-style-type: none;
+}
+
+*>li>*>li>*>li>ol>li:nth-of-type(1):before {
+    content: "⒜";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>*>li>ol>li:nth-of-type(2):before {
+    content: "⒝";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>*>li>ol>li:nth-of-type(3):before {
+    content: "⒞";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>*>li>ol>li:nth-of-type(4):before {
+    content: "⒟";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>*>li>ol>li:nth-of-type(5):before {
+    content: "⒠";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>*>li>ol>li:nth-of-type(6):before {
+    content: "⒡";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>*>li>ol>li:nth-of-type(7):before {
+    content: "⒢";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>*>li>ol>li:nth-of-type(8):before {
+    content: "⒣";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>*>li>ol>li:nth-of-type(9):before {
+    content: "⒤";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+*>li>*>li>*>li>ol>li:nth-of-type(10):before {
+    content: "⒥";
+    margin-left: -1.4em;
+    margin-right: 0.3em;
+}
+
+
+
+code, .md-fences {
+    background: #f0f0f0;
+    display: inline-block;
+    padding: 2px 4px;
+    margin: 2px 0;
+    font-size: 0.875rem; 
+}
+
+blockquote {
+    margin: 10px 0;
+    padding: 0;
+    display: inline-block;
+    margin-top: 18px;
+    padding: 0 10px;
+    font-size: 0.8125rem;
+    color: #4A4A4A;
+    line-height: 30px;
+    border-radius: 1px;
+    background-color: #E6EFFA;
+}
+
+blockquote p {
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+/* 이미지 처리 */
+
+img {
+    border: none;
+    vertical-align: top;
+    max-width: 100%; 
+    border: none;
+    vertical-align: top;
+    max-width: calc(100% - 14px);
+    -webkit-box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.05);
+    outline: 1px solid #ccc;
+    vertical-align: middle;
+}
+
+
+
+
+
+/* 가로선 */
+hr {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: #eee;
+    margin: 50px 0 30px !important;
+}
+
+
+
+
+/* 이미지와 이미지 설명 */
+figure {
+    max-width: 100%;
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 20px;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+figure figcaption {
+    padding: 5px 0;
+    text-align: center;
+    color: #888;
+    font-size: 0.9em;
+}
+
+img {
+    margin: 7px 0 15px;
+}
+
+img+figcaption {
+    margin-top: -10px;
+    margin-bottom: 5px;
+}
+
+
+/* -------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------- */
+
+
+
+#typora-source {
+    color: #555;
+}
+
+/** ui for windows **/
+#md-searchpanel {
+    border-bottom: 1px solid #ccc;
+}
+
+#md-searchpanel .btn {
+    border: 1px solid #ccc;
+}
+
+#md-notification:before {
+    top: 14px;
+}
+
+#md-notification {
+    background: #eee;
+}
+
+.megamenu-menu-panel .btn {
+    border: 1px solid #ccc;
+}
+
+
+
+
