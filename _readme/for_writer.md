@@ -504,7 +504,7 @@ markdown을 html로 변경하며 이미지 크기를 줄여 보여주는 propert
     열린 환경설정에서 **테마폴더열기** 를 눌러주세요.
     ![](./image/typora_config.png)
 
-2.  폴더가 열리면 [opsnow-for-typora.css](./image/opsnow-for-typora.css)를 다운로드 받아서 넣어줍니다.
+2.  폴더가 열리면 <a href="opsnow-for-typora.css" download>opsnow-for-typora.css</a>를 다운로드 받아서 넣어줍니다.
 3.  typora가 완전히 종료하고 다시 열면 그림과 같이 테마를 고르실 수 있습니다.
     ![](./image/typora_theme_select.png)
 
