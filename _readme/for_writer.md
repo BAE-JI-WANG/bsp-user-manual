@@ -484,7 +484,6 @@ markdown을 html로 변경하며 이미지 크기를 줄여 보여주는 propert
 
 
 
-
 --------------------------------------------------------------------------------
 
 
@@ -496,6 +495,19 @@ markdown을 html로 변경하며 이미지 크기를 줄여 보여주는 propert
 **차후 마크다운으로 작성할 수 있는 컨텐트 구조에 따라 마크다운 파서(CommonMark/GFM/Multimarkdown 등)를 설정하시고, 그에 맞는 위지윅 에디터를 사용해주세요**.
 
 
+만일, typora를 위지윅 마크다운 편집기로 선택하셨다면 아래처럼 opsnow 도움말 스타일을 적용하셔서 사용하시기 바랍니다.
+
+
+1.  환경설정을 열어주세요.(맥사용자의 경우 command + , 키)  
+    열린 환경설정에서 **테마폴더열기** 를 눌러주세요.
+    ![](./image/typora_config.png)
+
+2.  폴더가 열리면 [opsnow-for-typora.css](./image/opsnow-for-typora.css)를 다운로드 받아서 넣어줍니다.
+3.  typora가 완전히 종료하고 다시 열면 그림과 같이 테마를 고르실 수 있습니다.
+    ![](./image/typora_theme_select.png)
+
+더불어 **typora를 사용하실땐 자신이 사용하는 PC에 [pandoc](https://pandoc.org/installing.html)을 설치**해주세요. 
+도움말 자동빌드 시스템이 pandoc 기반으로 되어있어 좀 더 연동이 매끄럽습니다.
 
 
 
