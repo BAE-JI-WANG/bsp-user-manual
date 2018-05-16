@@ -13,15 +13,9 @@ $if(toc)$
 
         <header>
             <div class="title">
-                $if(ko)$
-                <a href="./user_guide_$service$_ko.html">USER GUIDE</a>
-                $endif$
-                $if(en)$
-                <a href="./user_guide_$service$_en.html">USER GUIDE</a>
-                $endif$
-                $if(zh)$
-                <a href="./user_guide_$service$_zh.html">USER GUIDE</a>
-                $endif$
+                $if(ko)$사용자가이드$endif$
+                $if(en)$USER GUIDE$endif$
+                $if(zh)$用户指南$endif$
             </div>
 
             <div class="utils select language">
@@ -58,7 +52,11 @@ $if(toc)$
         <footer class="layout-footer">
             <div class="contents-inner">
                 <div class="service">
-                    <h2 class="title">USER GUIDE</h2>
+                    <h2 class="title">
+                        $if(ko)$사용자가이드$endif$
+                        $if(en)$USER GUIDE$endif$
+                        $if(zh)$用户指南$endif$
+                    </h2>
                 </div>
             </div>
         </footer>
